@@ -1,6 +1,7 @@
 package me.armar.plugins.autorank.pathbuilder;
 
 import me.armar.plugins.autorank.Autorank;
+import me.armar.plugins.autorank.api.events.PathCompletedEvent;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.pathbuilder.builders.PathBuilder;
 import me.armar.plugins.autorank.pathbuilder.holders.CompositeRequirement;
@@ -10,6 +11,9 @@ import me.armar.plugins.autorank.pathbuilder.result.AbstractResult;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
 
@@ -306,6 +310,12 @@ public class PathManager {
             OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
             Player player = offlinePlayer.getPlayer();
             boolean result = false;
+            (new BukkitRunnable() {
+                public void run() {
+                    PathCompletedEvent completedEvent = new PathCompletedEvent(uuid, path);
+                    Bukkit.getPluginManager().callEvent((Event)completedEvent);
+                }
+            }).runTaskAsynchronously((Plugin)this.plugin);
             if (player == null) {
                 storage.get().addCompletedPathWithMissingResults(uuid, path.getInternalName());
             } else {
