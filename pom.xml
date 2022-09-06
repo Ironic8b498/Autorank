@@ -84,10 +84,11 @@
             <id>sk89q-repo</id>
             <url>https://maven.enginehub.org/repo/</url>
         </repository>
+        <!--
         <repository>
             <id>mcmmo-repo</id>
             <url>http://repo.mcmmo.org/</url>
-        </repository>
+        </repository>-->
         <!-- Bentobox -->
         <repository>
             <id>codemc-repo</id>
@@ -107,6 +108,10 @@
         <repository>
             <id>rosewood-repo</id>
             <url>https://repo.rosewooddev.io/repository/public/</url>
+        </repository>
+        <repository>
+            <id>local-repo</id>
+            <url>file:///home/lechatp/repository</url>
         </repository>
     </repositories>
     <dependencies>
@@ -160,17 +165,17 @@
             <version>8.7.8.2</version>
         </dependency>
         <dependency>
-            <groupId>me.staartvin</groupId>
-            <artifactId>statz</artifactId>
+            <groupId>me.staartvin.Statz</groupId>
+            <artifactId>Statz</artifactId>
             <version>1.6.2</version>
         </dependency>
         <dependency>
             <groupId>net.prosavage</groupId>
             <artifactId>FactionsX</artifactId>
-            <version>1.2-STABLE</version>
+            <version>1.2</version>
         </dependency>
         <dependency>
-            <groupId>us.eunoians</groupId>
+            <groupId>com.github.Eunoians</groupId>
             <artifactId>McRPG</artifactId>
             <version>1.4.0.0-BETA</version>
         </dependency>
