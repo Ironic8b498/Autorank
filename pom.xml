@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>aarons</groupId>
-    <artifactId>world</artifactId>
+    <artifactId>Autorank</artifactId>
     <version>5.1.6</version>
     <packaging>jar</packaging>
 
@@ -61,6 +61,10 @@
         <repository>
             <id>spigotmc-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>maven-snapshots</id>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
         </repository>
         <repository>
             <id>papermc</id>

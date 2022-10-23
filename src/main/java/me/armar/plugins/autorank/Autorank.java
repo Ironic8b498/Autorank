@@ -119,7 +119,6 @@ public class Autorank extends JavaPlugin {
 
     public void onEnable() {
         autorank = this;
-        // Initialize an audiences instance for the plugin
         getLogger().info("mainclass getHumanPluginName = " + this.getServer().getPluginManager().getPlugin(Library.AURELIUM_SKILLS.getHumanPluginName()));
         getLogger().info("mainclass getInternalPluginName = " + this.getServer().getPluginManager().getPlugin(Library.AURELIUM_SKILLS.getInternalPluginName()));
         getLogger().info("mainclass isPluginAvailable = " + isPluginAvailable(Library.AURELIUM_SKILLS));
@@ -154,6 +153,7 @@ public class Autorank extends JavaPlugin {
         this.setBackupManager(new BackupManager(this));
         this.setPlayTimeStorageManager(new PlayTimeStorageManager(this));
         this.setDependencyManager(new DependencyManager(this));
+        // Initialize an audiences instance for the plugin
         this.adventure = BukkitAudiences.create(autorank);
         this.setCommandsManager(new CommandsManager(this));
         this.setAddonManager(new AddOnManager(this));
@@ -169,11 +169,9 @@ public class Autorank extends JavaPlugin {
         this.setPlayTimeManager(new PlayTimeManager(this));
         this.setPlayerChecker(new PlayerChecker(this));
         this.setDebugger(new Debugger(this));
-        this.getServer().getScheduler().runTaskAsynchronously(this, new Runnable() {
-            public void run() {
-                Autorank.this.debugMessage("Loading UUID storage");
-                Autorank.this.getUUIDStorage().loadStorageFiles();
-            }
+        this.getServer().getScheduler().runTaskAsynchronously(this, () -> {
+            Autorank.this.debugMessage("Loading UUID storage");
+            Autorank.this.getUUIDStorage().loadStorageFiles();
         });
         this.setDataConverter(new DataConverter(this));
         this.languageHandler.createNewFile();
@@ -213,11 +211,9 @@ public class Autorank extends JavaPlugin {
         CompletableFuture<Void> finalLoadMySQLTask = loadMySQLTask;//added this line to fix error below
         this.getServer().getScheduler().runTaskAsynchronously(this, () -> {
             try {
-                loadFlatFileTask.thenCompose((v) -> {
-                    return finalLoadMySQLTask.thenRun(() -> {
-                        this.getLogger().info("Primary storage provider of Autorank: " + this.getPlayTimeStorageManager().getPrimaryStorageProvider().getName());
-                    });
-                }).get();
+                loadFlatFileTask.thenCompose((v) -> finalLoadMySQLTask.thenRun(() -> {
+                    this.getLogger().info("Primary storage provider of Autorank: " + this.getPlayTimeStorageManager().getPrimaryStorageProvider().getName());
+                })).get();
             } catch (ExecutionException | InterruptedException var4) {
                 var4.printStackTrace();
             }
