@@ -154,7 +154,7 @@ public class Autorank extends JavaPlugin {
         this.setPlayTimeStorageManager(new PlayTimeStorageManager(this));
         this.setDependencyManager(new DependencyManager(this));
         // Initialize an audiences instance for the plugin
-        //this.adventure = BukkitAudiences.create(autorank);
+        this.adventure = BukkitAudiences.create(autorank);
         this.setCommandsManager(new CommandsManager(this));
         this.setAddonManager(new AddOnManager(this));
         this.setPathManager(new PathManager(this));
