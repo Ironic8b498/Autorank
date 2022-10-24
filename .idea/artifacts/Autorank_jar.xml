@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Autorank:jar">
+    <output-path>$PROJECT_DIR$/../../../../../../mcSpigot-1.19.0/plugins</output-path>
+    <root id="archive" name="Autorank.jar">
+      <element id="module-output" name="Autorank" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
