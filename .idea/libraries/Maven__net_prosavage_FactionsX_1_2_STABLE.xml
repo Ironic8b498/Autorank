@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: net.prosavage:FactionsX:1.2-STABLE">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/prosavage/FactionsX/1.2-STABLE/FactionsX-1.2-STABLE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/net/prosavage/FactionsX/1.2-STABLE/FactionsX-1.2-STABLE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/prosavage/FactionsX/1.2-STABLE/FactionsX-1.2-STABLE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

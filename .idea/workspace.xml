@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Autorank_II:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f5f4d1c7-f526-40ad-a80e-28d9157f7195" name="Changes" comment="Attempt to remove files that don't belong on Github">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Autorank_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alessiodp_lastloginapi_lastloginapi_api_1_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Archy_x_AureliumSkills_Beta1_3_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ElgarL_groupmanager_2_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_LlmDl_Towny_0_98_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_MilkBowl_VaultAPI_1_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_NuVotifier_NuVotifier_2_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_NuVotifier_NuVotifier_nuvotifier_api_2_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_NuVotifier_NuVotifier_nuvotifier_bukkit_2_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_NuVotifier_NuVotifier_nuvotifier_bungeecord_2_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_NuVotifier_NuVotifier_nuvotifier_common_2_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_NuVotifier_NuVotifier_nuvotifier_sponge_2_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_PikaMug_LocaleLib_2_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_PikaMug_Quests_4_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_PikaMug_Quests_quests_api_4_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_PikaMug_Quests_quests_core_4_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_PikaMug_Quests_quests_v1_8_R1_4_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_PikaMug_Quests_quests_v1_8_R2_4_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_PikaMug_Quests_quests_v1_8_R3_4_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_TechFortress_GriefPrevention_16_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Zrips_Jobs_4_17_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pyvesb_advanced_achievements_8_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pyvesb_advanced_achievements_advanced_achievements_api_8_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_gmail_nossr50_mcMMO_mcMMO_2_1_202.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_21_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_leonardobishop_quests_3_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_database_jdbc_ojdbc11_21_4_0_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_commandbook_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_bukkit_7_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_core_7_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_libs_core_7_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldguard_worldguard_bukkit_7_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldguard_worldguard_core_7_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldguard_worldguard_legacy_7_0_0_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldguard_worldguard_libs_core_7_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_5_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zrips_CMI_API_8_7_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__de_schlichtherle_truezip_6_8_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_leangen_geantyref_geantyref_1_3_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_papermc_paperlib_1_0_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_reactivex_rxjava2_rxjava_2_2_21.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__me_clip_placeholderapi_2_10_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__me_staartvin_statz_1_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_25.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_essentialsx_1_8Provider_2_19_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_essentialsx_BaseProviders_2_19_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_essentialsx_EssentialsX_2_19_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_essentialsx_NMSReflectionProvider_2_19_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_essentialsx_PaperProvider_2_19_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_api_4_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_key_4_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_nbt_4_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_platform_api_4_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_platform_bukkit_4_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_platform_facet_4_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_platform_viaversion_4_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_text_minimessage_4_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_text_serializer_bungeecord_4_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_text_serializer_gson_4_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_text_serializer_gson_legacy_impl_4_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_text_serializer_legacy_4_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_examination_api_1_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_examination_string_1_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_luckperms_api_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_16_R0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_prosavage_FactionsX_1_2_STABLE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_scm_maven_scm_api_1_9_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_scm_maven_scm_provider_git_commons_1_9_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_scm_maven_scm_provider_gitexe_1_9_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_black_ixx_playerpoints_3_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bstats_bstats_bukkit_1_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bukkit_bukkit_1_13_1_R0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_14_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_utils_3_0_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jdt_org_eclipse_jdt_annotation_2_2_600.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_flywaydb_flyway_core_8_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_22_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mariadb_jdbc_mariadb_java_client_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_bson_3_12_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_3_12_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_core_3_12_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mozilla_rhino_1_7_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_2_0_0_alpha1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_33.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_16_5_R0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spongepowered_configurate_core_4_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spongepowered_configurate_yaml_4_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_29.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__us_eunoians_McRPG_1_4_0_0_BETA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__world_bentobox_bentobox_1_18_0_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__world_bentobox_level_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_24_2022_3_50_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_24_2022_3_50_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Autorank.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/Autorank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/addons/AddOnManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/api/API.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/api/events/CheckCommandEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/api/events/PlayerPromoteEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/api/events/RequirementCompleteEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/api/services/RequirementManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/api/services/RequirementService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/api/services/ResultManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/api/services/ResultService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/backup/BackupDataManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/backup/BackupManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/AddCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/ArchiveCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/BackupCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/CheckCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/ChooseCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/CompleteCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/ConvertCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/DeactivateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/DebugCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/EditorCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/ForceCheckCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/GlobalAddCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/GlobalCheckCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/GlobalSetCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/HelpCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/HooksCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/ImportCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/InfoCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/LeaderboardCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/MigrateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/ReloadCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/RemoveCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/ResetCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/SetCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/SyncCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/SyncStatsCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/TimesCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/TrackCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/ViewCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/AutorankConversation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/ConversationAbandonedEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/ConversationCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/ConversationResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/editorcommand/EditorMenuPrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/editorcommand/SelectPlayerPrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/editorcommand/assignpath/AssignPathByForcePrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/editorcommand/assignpath/AssignPathPrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/editorcommand/assignpath/UnAssignPathPrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/editorcommand/completepath/CompletePathPrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/editorcommand/completerequirement/CompleteRequirementPrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/editorcommand/completerequirement/CompleteRequirementRequestRequirementIdPrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/prompts/ConfirmPrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/prompts/ConfirmPromptCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/prompts/RequestPlayerNamePrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/resetcommand/ResetConfirmation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/conversations/resetcommand/ResetConversationType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/manager/AutorankCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/manager/CommandsManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/config/AbstractConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/config/ConfigUpdater.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/config/DefaultBehaviorConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/config/DefaultBehaviorOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/config/InternalPropertiesConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/config/PathsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/config/SettingsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/config/SimpleYamlConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/converter/ConvertiblePath.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/converter/DataConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/debugger/Debugger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/DependencyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/DependencyManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/download/DependencyDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/download/Resource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/download/SpigetFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/download/SpigetType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/quests/Quests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/quests/QuestsAlternative.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/quests/QuestsPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/statzapi/StatzAPIHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/language/Lang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/language/LanguageHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/language/MessageSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/leaderboard/AutorankLeaderboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/leaderboard/LeaderboardHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/listeners/PlayerJoinListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/listeners/PlayerQuitListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/logger/LogFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/logger/LoggerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/migration/MigrationManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/migration/MigrationablePlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/migration/implementations/StatzMigration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/migration/implementations/VanillaMigration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/Path.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/PathManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/builders/PathBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/builders/RequirementBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/builders/ResultBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/holders/CompositeRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/playerdata/PlayerData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/playerdata/PlayerDataManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/playerdata/PlayerDataStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/playerdata/global/CachedPlayerData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/playerdata/global/CachedPlayerDataEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/playerdata/global/GlobalPlayerDataStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/playerdata/global/PlayerDataCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/playerdata/local/LocalPlayerDataStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/AbstractRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/AdvancementRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/AnimalsBredRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/AureliumSkillsManaRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/AureliumSkillsSkillRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/AureliumSkillsStatRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/AureliumSkillsXPRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/AutorankActivePathsRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/AutorankCompletedPathsRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/BentoBoxLevelRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/BlocksBrokenRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/BlocksBrokenWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/BlocksMovedRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/BlocksMovedWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/BlocksPlacedRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/BlocksPlacedWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/CakeSlicesEatenRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/DamageTakenRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/EssentialsGeoIPRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/ExpRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/FactionPowerRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/FactionsXPowerRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/FishCaughtRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/FoodEatenRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/FoodWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/GamemodeRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/GlobalTimeRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/GriefPreventionBonusBlocksRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/GriefPreventionClaimedBlocksRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/GriefPreventionClaimsCountRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/GriefPreventionRemainingBlocksRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/HasItemRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/InBiomeRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/InGroupRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/ItemThrownRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/ItemWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/ItemsCraftedRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/ItemsEnchantedRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/JavaScriptRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/JobsCurrentPointsRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/JobsExperienceRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/JobsLevelRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/JobsTotalPointsRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/LastLoginLoginRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/LastLoginLogoutRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/LocationRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/McMMOPowerLevelRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/McMMOSkillLevelRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/McRPGPowerLevelRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/McRPGSkillLevelRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/MobKillsRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/MoneyRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/NotInGroupRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/PermissionRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/PlaceholderapiIntegerRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/PlaceholderapiStringRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/PlantsPottedRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/PlayerKillsRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/PlayerPointsPointsRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/QuestsActiveQuestsRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/QuestsCompleteSpecificQuestRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/QuestsCompletedQuestsRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/QuestsQuestPointsRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TimeDailyRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TimeMonthlyRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TimeRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TimeWeeklyRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TimesDiedRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TimesShearedRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TotalTimeRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TotalVotesRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TownyHasANationRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TownyHasATownRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TownyIsKingRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TownyIsMayorRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TownyNumberOfTownBlocksRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/TradedWithVillagersRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/WorldGuardRegionRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/requirement/WorldRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/result/AbstractResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/result/CommandResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/result/EffectResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/result/MessageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/result/MoneyResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/result/SpawnFireworkResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/result/TeleportResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/permissions/AutorankPermission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/permissions/PermissionsHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/permissions/PermissionsPluginManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/permissions/handlers/DummyPermissionsHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/permissions/handlers/GroupManagerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/permissions/handlers/LuckPermsHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/permissions/handlers/PowerfulPermsHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/permissions/handlers/VaultPermissionsHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/placeholders/AutorankPlaceholder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/playerchecker/PlayerChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/playtimes/PlayTimeManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/playtimes/UpdateTimePlayedTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/StatisticsManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/StatsPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/handlers/StatzHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/handlers/vanilla/VanillaDataLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/handlers/vanilla/VanillaHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/query/StatisticQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/query/parameter/ParameterType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/query/parameter/StatisticParameter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/query/parameter/implementation/BlockTypeParameter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/query/parameter/implementation/FoodTypeParameter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/query/parameter/implementation/MobTypeParameter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/query/parameter/implementation/MovementTypeParameter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/statsmanager/query/parameter/implementation/WorldTypeParameter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/storage/PlayTimeStorageManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/storage/PlayTimeStorageProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/storage/TimeType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/storage/flatfile/FlatFileStorageProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/storage/mysql/CacheManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/storage/mysql/CachedEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/storage/mysql/GrabPlayerTimeTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/storage/mysql/MySQLStorageProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/storage/mysql/SQLConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/tasks/TaskManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/updater/SpigotUpdater.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/updater/UpdateHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/util/AutorankTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/util/uuid/NameFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/util/uuid/UUIDFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/util/uuid/UUIDManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/util/uuid/UUIDStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/validations/ValidateHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/warningmanager/WarningManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/warningmanager/WarningNoticeTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/Library.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/PluginLibrary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/events/PlayerVotedEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/AdvancedAchievementsHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/AureliumSkillsHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/AutorankHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/BentoBoxHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/CMIHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/DateTimeFormatterHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/EssentialsXHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/FactionXHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/GriefPreventionHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/JobsHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/LastLoginAPIHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/LibraryHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/McMMOHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/McRPGHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/NuVotifierHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/PlaceholderAPIHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/PlayerPointsHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/QuestsAlternative.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/QuestsHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/StatzHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/TownyAdvancedHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/UltimateCoreHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/VaultHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/WorldGuardHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/hooks/afkmanager/AFKManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/listeners/VoteListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/util/Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/License.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Paths.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Settings.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Autorank-5.1.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/License.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Paths.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Settings.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/Autorank$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/Autorank.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/addons/AddOnManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/api/API.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/api/events/CheckCommandEvent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/api/events/PlayerPromoteEvent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/api/events/RequirementCompleteEvent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/api/services/RequirementManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/api/services/RequirementService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/api/services/ResultManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/api/services/ResultService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/backup/BackupDataManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/backup/BackupManager$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/backup/BackupManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/AddCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/ArchiveCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/BackupCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/CheckCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/ChooseCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/CompleteCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/ConvertCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/DeactivateCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/DebugCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/EditorCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/ForceCheckCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/GlobalAddCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/GlobalCheckCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/GlobalSetCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/HelpCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/HooksCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/ImportCommand$1$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/ImportCommand$1$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/ImportCommand$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/ImportCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/InfoCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/LeaderboardCommand$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/LeaderboardCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/MigrateCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/ReloadCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/RemoveCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/ResetCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/SetCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/SyncCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/SyncStatsCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/TimesCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/TrackCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/ViewCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/AutorankConversation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/ConversationAbandonedEvent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/ConversationCallback.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/ConversationResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/editorcommand/EditorMenuPrompt.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/editorcommand/SelectPlayerPrompt.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/editorcommand/assignpath/AssignPathByForcePrompt.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/editorcommand/assignpath/AssignPathPrompt.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/editorcommand/assignpath/UnAssignPathPrompt.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/editorcommand/completepath/CompletePathPrompt.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/editorcommand/completerequirement/CompleteRequirementPrompt.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/editorcommand/completerequirement/CompleteRequirementRequestRequirementIdPrompt.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/prompts/ConfirmPrompt.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/prompts/ConfirmPromptCallback.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/prompts/RequestPlayerNamePrompt.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/resetcommand/ResetConfirmation$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/resetcommand/ResetConfirmation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/conversations/resetcommand/ResetConversationType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/manager/AutorankCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/commands/manager/CommandsManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/config/AbstractConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/config/ConfigUpdater.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/config/DefaultBehaviorConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/config/DefaultBehaviorOption.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/config/InternalPropertiesConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/config/PathsConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/config/SettingsConfig$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/config/SettingsConfig$MySQLSettings.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/config/SettingsConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/config/SimpleYamlConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/converter/ConvertiblePath.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/converter/DataConverter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/debugger/Debugger.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/DependencyHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/DependencyManager$AutorankDependency.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/DependencyManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/download/DependencyDownloader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/download/Resource.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/download/SpigetFile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/download/SpigetType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/quests/Quests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/quests/QuestsAlternative.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/quests/QuestsPlugin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/statzapi/StatzAPIHandler$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/hooks/statzapi/StatzAPIHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/language/Lang.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/language/LanguageHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/language/MessageSender.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/leaderboard/AutorankLeaderboard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/leaderboard/LeaderboardHandler$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/leaderboard/LeaderboardHandler$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/leaderboard/LeaderboardHandler$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/leaderboard/LeaderboardHandler$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/leaderboard/LeaderboardHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/listeners/PlayerJoinListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/listeners/PlayerQuitListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/logger/LogFile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/logger/LoggerManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/migration/MigrationManager$Migrationable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/migration/MigrationManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/migration/MigrationablePlugin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/migration/implementations/StatzMigration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/migration/implementations/VanillaMigration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/Path.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/PathManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/builders/PathBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/builders/RequirementBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/builders/ResultBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/holders/CompositeRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/PlayerData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/PlayerDataManager$PlayerDataStorageType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/PlayerDataManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/PlayerDataStorage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/global/CachedPlayerData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/global/CachedPlayerDataEntry.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/global/GlobalPlayerDataStorage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/global/PlayerDataCache.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/local/LocalPlayerDataStorage$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/local/LocalPlayerDataStorage$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/local/LocalPlayerDataStorage$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/playerdata/local/LocalPlayerDataStorage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/AbstractRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/AdvancementRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/AnimalsBredRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/AureliumSkillsManaRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/AureliumSkillsSkillRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/AureliumSkillsStatRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/AureliumSkillsXPRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/AutorankActivePathsRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/AutorankCompletedPathsRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/BentoBoxLevelRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/BlocksBrokenRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/BlocksBrokenWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/BlocksMovedRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/BlocksMovedWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/BlocksPlacedRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/BlocksPlacedWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/CakeSlicesEatenRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/DamageTakenRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/EssentialsGeoIPRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/ExpRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/FactionPowerRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/FactionsXPowerRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/FishCaughtRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/FoodEatenRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/FoodWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/GamemodeRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/GlobalTimeRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/GriefPreventionBonusBlocksRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/GriefPreventionClaimedBlocksRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/GriefPreventionClaimsCountRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/GriefPreventionRemainingBlocksRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/HasItemRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/InBiomeRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/InGroupRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/ItemThrownRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/ItemWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/ItemsCraftedRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/ItemsEnchantedRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/JavaScriptRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/JobsCurrentPointsRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/JobsExperienceRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/JobsLevelRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/JobsTotalPointsRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/LastLoginLoginRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/LastLoginLogoutRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/LocationRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/McMMOPowerLevelRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/McMMOSkillLevelRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/McRPGPowerLevelRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/McRPGSkillLevelRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/MobKillsRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/MoneyRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/NotInGroupRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/PermissionRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/PlaceholderapiIntegerRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/PlaceholderapiStringRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/PlantsPottedRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/PlayerKillsRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/PlayerPointsPointsRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/QuestsActiveQuestsRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/QuestsCompleteSpecificQuestRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/QuestsCompletedQuestsRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/QuestsQuestPointsRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TimeDailyRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TimeMonthlyRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TimeRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TimeWeeklyRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TimesDiedRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TimesShearedRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TotalTimeRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TotalVotesRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TownyHasANationRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TownyHasATownRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TownyIsKingRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TownyIsMayorRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TownyNumberOfTownBlocksRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/TradedWithVillagersRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/WorldGuardRegionRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/requirement/WorldRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/result/AbstractResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/result/CommandResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/result/EffectResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/result/MessageResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/result/MoneyResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/result/SpawnFireworkResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/pathbuilder/result/TeleportResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/permissions/AutorankPermission.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/permissions/PermissionsHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/permissions/PermissionsPluginManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/permissions/handlers/DummyPermissionsHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/permissions/handlers/GroupManagerHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/permissions/handlers/LuckPermsHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/permissions/handlers/PowerfulPermsHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/permissions/handlers/VaultPermissionsHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/placeholders/AutorankPlaceholder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/playerchecker/PlayerChecker.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/playtimes/PlayTimeManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/playtimes/UpdateTimePlayedTask.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/StatisticsManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/StatsPlugin$StatType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/StatsPlugin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/handlers/StatzHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/handlers/vanilla/VanillaDataLoader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/handlers/vanilla/VanillaHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/query/StatisticQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/query/parameter/ParameterType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/query/parameter/StatisticParameter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/query/parameter/implementation/BlockTypeParameter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/query/parameter/implementation/FoodTypeParameter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/query/parameter/implementation/MobTypeParameter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/query/parameter/implementation/MovementTypeParameter$MovementType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/query/parameter/implementation/MovementTypeParameter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/statsmanager/query/parameter/implementation/WorldTypeParameter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/PlayTimeStorageManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/PlayTimeStorageProvider$StorageType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/PlayTimeStorageProvider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/TimeType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/flatfile/FlatFileStorageProvider$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/flatfile/FlatFileStorageProvider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/mysql/CacheManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/mysql/CachedEntry.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/mysql/GrabPlayerTimeTask.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/mysql/MySQLStorageProvider$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/mysql/MySQLStorageProvider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/storage/mysql/SQLConnection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/tasks/TaskManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/updater/SpigotUpdater.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/updater/UpdateHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/util/AutorankTools.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/util/uuid/NameFetcher.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/util/uuid/UUIDFetcher.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/util/uuid/UUIDManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/util/uuid/UUIDStorage$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/util/uuid/UUIDStorage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/validations/ValidateHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/warningmanager/WarningManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/autorank/warningmanager/WarningNoticeTask.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/Library.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/PluginLibrary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/events/PlayerVotedEvent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/AdvancedAchievementsHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/AureliumSkillsHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/AutorankHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/BentoBoxHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/CMIHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/DateTimeFormatterHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/EssentialsXHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/FactionXHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/GriefPreventionHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/JobsHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/LastLoginAPIHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/LibraryHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/McMMOHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/McRPGHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/NuVotifierHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/PlaceholderAPIHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/PlayerPointsHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/QuestsAlternative.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/QuestsHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/StatzHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/TownyAdvancedHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/UltimateCoreHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/VaultHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/WorldGuardHook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/hooks/afkmanager/AFKManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/listeners/VoteListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/me/armar/plugins/utils/pluginlibrary/util/Util.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/original-Autorank-5.1.6.jar" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints>
+      <file url="file://$PROJECT_DIR$/pom.xml" />
+    </disable_hints>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
+  </component>
+  <component name="ProjectId" id="20Y0G3xyK8LV2f3cy1eXQxXibmZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;last_opened_file_path&quot;: &quot;C:/mcSpigot-1.19.0/plugins&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="me.armar.plugins.autorank.pathbuilder.requirement" />
+      <recent name="aarons.world.autorank.validations" />
+      <recent name="aarons.world.autorank.statsmanager" />
+      <recent name="aarons.world.autorank.updater" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="me.armar.plugins.utils.pluginlibrary.hooks" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn package" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Autorank_II build" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings">
+          <MavenGeneralSettings>
+            <option name="alwaysUpdateSnapshots" value="false" />
+            <option name="checksumPolicy" value="NOT_SET" />
+            <option name="failureBehavior" value="NOT_SET" />
+            <option name="localRepository" value="" />
+            <option name="mavenHome" value="Bundled (Maven 3)" />
+            <option name="nonRecursive" value="false" />
+            <option name="outputLevel" value="INFO" />
+            <option name="pluginUpdatePolicy" value="DEFAULT" />
+            <option name="printErrorStackTraces" value="false" />
+            <option name="showDialogWithAdvancedSettings" value="false" />
+            <option name="threads" />
+            <option name="useMavenConfig" value="false" />
+            <option name="usePluginRegistry" value="false" />
+            <option name="userSettingsFile" value="" />
+            <option name="workOffline" value="false" />
+          </MavenGeneralSettings>
+        </option>
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="delegateBuildToMaven" value="false" />
+            <option name="environmentProperties">
+              <map />
+            </option>
+            <option name="jreName" value="#USE_PROJECT_JDK" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="passParentEnv" value="true" />
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="false" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Ironic\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f5f4d1c7-f526-40ad-a80e-28d9157f7195" name="Changes" comment="" />
+      <created>1636206116458</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1636206116458</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Uploaded UnVersioned Files">
+      <created>1666500112681</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666500112681</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fix Code">
+      <created>1666501073455</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666501073455</updated>
+    </task>
+    <task id="LOCAL-00003" summary="MiniMessage Update">
+      <created>1666503383149</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666503383149</updated>
+    </task>
+    <task id="LOCAL-00004" summary="MiniMessage Update">
+      <created>1666505826030</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666505826030</updated>
+    </task>
+    <task id="LOCAL-00005" summary="MiniMessage Update">
+      <created>1666566636261</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666566636261</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Removed dot after Kyori relocation">
+      <created>1666576685915</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666576685915</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Attempt to remove files that don't belong on Github">
+      <created>1666641008801</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666641008801</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Attempt to remove files that don't belong on Github">
+      <created>1666646625758</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666646625758</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Attempt to remove files that don't belong on Github">
+      <created>1666646714326</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666646714326</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Attempt to remove files that don't belong on Github">
+      <created>1666646792452</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666646792452</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Attempt to remove files that don't belong on Github">
+      <created>1666646843798</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1666646843798</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Attempt to remove files that don't belong on Github">
+      <created>1666646988499</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1666646988499</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:com.github.NuVotifier.NuVotifier:nuvotifier-common" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-transport-native-epoll" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.maven.scm:maven-scm-provider-gitexe" />
+    <option featureType="dependencySupport" implementationName="java:com.sk89q.worldguard:worldguard-bukkit" />
+    <option featureType="dependencySupport" implementationName="java:me.staartvin:statz" />
+    <option featureType="dependencySupport" implementationName="java:com.github.PikaMug:Quests" />
+    <option featureType="dependencySupport" implementationName="java:org.black_ixx:playerpoints" />
+    <option featureType="dependencySupport" implementationName="java:org.hamcrest:hamcrest-core" />
+    <option featureType="dependencySupport" implementationName="java:com.oracle.database.jdbc:ojdbc11" />
+    <option featureType="dependencySupport" implementationName="java:com.zaxxer:HikariCP" />
+    <option featureType="dependencySupport" implementationName="java:org.codehaus.plexus:plexus-utils" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-resolver" />
+    <option featureType="dependencySupport" implementationName="java:com.googlecode.json-simple:json-simple" />
+    <option featureType="dependencySupport" implementationName="java:com.google.code.gson:gson" />
+    <option featureType="dependencySupport" implementationName="java:org.flywaydb:flyway-core" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-transport-native-unix-common" />
+    <option featureType="dependencySupport" implementationName="java:me.clip:placeholderapi" />
+    <option featureType="dependencySupport" implementationName="java:com.sk89q.worldedit:worldedit-core" />
+    <option featureType="dependencySupport" implementationName="java:commons-io:commons-io" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-transport" />
+    <option featureType="dependencySupport" implementationName="java:net.essentialsx:BaseProviders" />
+    <option featureType="dependencySupport" implementationName="java:com.github.NuVotifier.NuVotifier:nuvotifier-bungeecord" />
+    <option featureType="dependencySupport" implementationName="java:com.sk89q.worldedit.worldedit-libs:core" />
+    <option featureType="dependencySupport" implementationName="java:org.mongodb:mongodb-driver-core" />
+    <option featureType="dependencySupport" implementationName="java:com.google.errorprone:error_prone_annotations" />
+    <option featureType="dependencySupport" implementationName="java:org.spigotmc:spigot-api" />
+    <option featureType="dependencySupport" implementationName="java:commons-lang:commons-lang" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-buffer" />
+    <option featureType="dependencySupport" implementationName="java:com.github.PikaMug.Quests:quests-v1_8_R1" />
+    <option featureType="dependencySupport" implementationName="java:com.github.PikaMug.Quests:quests-core" />
+    <option featureType="dependencySupport" implementationName="java:org.mongodb:mongodb-driver" />
+    <option featureType="dependencySupport" implementationName="java:de.schlichtherle:truezip" />
+    <option featureType="dependencySupport" implementationName="java:org.bukkit:bukkit" />
+    <option featureType="dependencySupport" implementationName="java:com.sk89q.worldedit:worldedit-bukkit" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-common" />
+    <option featureType="dependencySupport" implementationName="java:world.bentobox:bentobox" />
+    <option featureType="dependencySupport" implementationName="java:junit:junit" />
+    <option featureType="dependencySupport" implementationName="java:com.github.NuVotifier.NuVotifier:nuvotifier-sponge" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.maven.scm:maven-scm-api" />
+    <option featureType="dependencySupport" implementationName="java:com.github.PikaMug.Quests:quests-v1_8_R2" />
+    <option featureType="dependencySupport" implementationName="java:com.github.PikaMug.Quests:quests-v1_8_R3" />
+    <option featureType="dependencySupport" implementationName="java:net.essentialsx:PaperProvider" />
+    <option featureType="dependencySupport" implementationName="java:com.github.Zrips:Jobs" />
+    <option featureType="dependencySupport" implementationName="java:org.jetbrains:annotations" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-codec" />
+    <option featureType="dependencySupport" implementationName="java:net.md-5:bungeecord-chat" />
+    <option featureType="dependencySupport" implementationName="java:com.github.Archy-x:AureliumSkills" />
+    <option featureType="dependencySupport" implementationName="java:net.luckperms:api" />
+    <option featureType="dependencySupport" implementationName="java:com.github.pyvesb.advanced-achievements:advanced-achievements-api" />
+    <option featureType="dependencySupport" implementationName="java:org.checkerframework:checker-qual" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.commons:commons-lang3" />
+    <option featureType="dependencySupport" implementationName="java:com.sk89q.worldguard:worldguard-legacy" />
+    <option featureType="dependencySupport" implementationName="java:us.eunoians:McRPG" />
+    <option featureType="dependencySupport" implementationName="java:com.github.NuVotifier.NuVotifier:nuvotifier-api" />
+    <option featureType="dependencySupport" implementationName="java:net.essentialsx:EssentialsX" />
+    <option featureType="dependencySupport" implementationName="java:org.spongepowered:configurate-yaml" />
+    <option featureType="dependencySupport" implementationName="java:net.essentialsx:NMSReflectionProvider" />
+    <option featureType="dependencySupport" implementationName="java:com.zrips:CMI-API" />
+    <option featureType="dependencySupport" implementationName="java:org.spongepowered:configurate-core" />
+    <option featureType="dependencySupport" implementationName="java:com.github.LlmDl:Towny" />
+    <option featureType="dependencySupport" implementationName="java:net.prosavage:FactionsX" />
+    <option featureType="dependencySupport" implementationName="java:com.github.ElgarL:groupmanager" />
+    <option featureType="dependencySupport" implementationName="java:org.slf4j:slf4j-api" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.maven.scm:maven-scm-provider-git-commons" />
+    <option featureType="dependencySupport" implementationName="java:com.leonardobishop:quests" />
+    <option featureType="dependencySupport" implementationName="java:com.google.code.findbugs:jsr305" />
+    <option featureType="dependencySupport" implementationName="java:com.google.guava:guava" />
+    <option featureType="dependencySupport" implementationName="java:org.yaml:snakeyaml" />
+    <option featureType="dependencySupport" implementationName="java:com.sk89q.worldguard.worldguard-libs:core" />
+    <option featureType="dependencySupport" implementationName="java:com.sk89q:commandbook" />
+    <option featureType="dependencySupport" implementationName="java:net.essentialsx:1_8Provider" />
+    <option featureType="dependencySupport" implementationName="java:world.bentobox:level" />
+    <option featureType="dependencySupport" implementationName="java:org.mongodb:bson" />
+    <option featureType="dependencySupport" implementationName="java:com.github.PikaMug.Quests:quests-api" />
+    <option featureType="dependencySupport" implementationName="java:com.github.NuVotifier.NuVotifier:nuvotifier-bukkit" />
+    <option featureType="dependencySupport" implementationName="java:org.mozilla:rhino" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-handler" />
+    <option featureType="dependencySupport" implementationName="java:org.reactivestreams:reactive-streams" />
+    <option featureType="dependencySupport" implementationName="java:com.github.PikaMug:LocaleLib" />
+    <option featureType="dependencySupport" implementationName="java:com.github.pyvesb:advanced-achievements" />
+    <option featureType="dependencySupport" implementationName="java:io.reactivex.rxjava2:rxjava" />
+    <option featureType="dependencySupport" implementationName="java:com.github.NuVotifier:NuVotifier" />
+    <option featureType="dependencySupport" implementationName="java:mysql:mysql-connector-java" />
+    <option featureType="dependencySupport" implementationName="java:com.gmail.nossr50.mcMMO:mcMMO" />
+    <option featureType="dependencySupport" implementationName="java:org.bstats:bstats-bukkit" />
+    <option featureType="dependencySupport" implementationName="java:com.alessiodp.lastloginapi:lastloginapi-api" />
+    <option featureType="dependencySupport" implementationName="java:org.slf4j:slf4j-simple" />
+    <option featureType="dependencySupport" implementationName="java:org.eclipse.jdt:org.eclipse.jdt.annotation" />
+    <option featureType="dependencySupport" implementationName="java:io.leangen.geantyref:geantyref" />
+    <option featureType="dependencySupport" implementationName="java:com.github.TechFortress:GriefPrevention" />
+    <option featureType="dependencySupport" implementationName="java:com.github.MilkBowl:VaultAPI" />
+    <option featureType="dependencySupport" implementationName="java:org.mariadb.jdbc:mariadb-java-client" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.logging.log4j:log4j-api" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.logging.log4j:log4j-core" />
+    <option featureType="dependencySupport" implementationName="java:com.sk89q.worldguard:worldguard-core" />
+    <option featureType="dependencySupport" implementationName="java:io.papermc:paperlib" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+    <MESSAGE value="Uploaded UnVersioned Files" />
+    <MESSAGE value="Fix Code" />
+    <MESSAGE value="MiniMessage Update" />
+    <MESSAGE value="Removed dot after Kyori relocation" />
+    <MESSAGE value="Attempt to remove files that don't belong on Github" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempt to remove files that don't belong on Github" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/api/API.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/playerdata/global/GlobalPlayerDataStorage.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/playerdata/global/GlobalPlayerDataStorage.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/pathbuilder/playerdata/global/GlobalPlayerDataStorage.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/PluginLibrary.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/DependencyManager.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/DependencyManager.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/playtimes/UpdateTimePlayedTask.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/hooks/DependencyManager.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/Library.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/Library.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/utils/pluginlibrary/Library.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/CheckCommand.java</url>
+          <line>135</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/CheckCommand.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/CheckCommand.java</url>
+          <line>150</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/commands/CheckCommand.java</url>
+          <line>185</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/migration/implementations/VanillaMigration.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

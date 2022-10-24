@@ -1,0 +1,120 @@
+#############################################################################
+#                                                                           #
+#                   Autorank Settings                                       #
+#                                                                           #
+#   This config is used to configure Autorank. The other configs provide    #
+#   a way to configure the rank system. This config is for configuring the  #
+#   the options Autorank has to offer you                                   #
+#                                                                           #
+#############################################################################
+
+afk integration: true
+# If a compatible AFK plugin is found Autorank will not count online time for AFK players
+# Autorank automatically chooses what plugin to use for AFK integration.
+
+interval check: 1
+# This is the interval between checks of Autorank (in minutes).
+# Lowering this number will increase accuracy but will also increase server lag.
+
+leaderboard layout: '&6&r | &b&p - &7&d %day%, &h %hour% and &m %minute%.'
+leaderboard length: 5
+# changes the appearance of the /ar leaderboard command
+# &r : Ranking in the leaderboard
+# &p : Player name
+# &m : Minutes (with full days and full hours not counted)
+# &h : Hours (with full days not counted)
+# &d : Days
+# &tm : Total amount of minutes
+# &th : Total amount of hours
+
+check command layout: "&p has played for &time and is on path ''&path''. Requirements to be ranked up: &reqs"
+# Changes the layout of the /ar check command.
+# &p : Player name
+# &time : time in hours, minutes and seconds
+# &path : Path the player has chosen.
+# &reqs : a list of all requirements
+
+sql:
+  enabled: false
+  usessl: true
+  hostname: localhost:3306
+  username: root
+  password: ''
+  database: minecraft
+  table prefix: ''
+  server name: '%name%-default'
+# All these options are for configuring your MySQL database with Autorank.
+# Hostname has to include a port, but doesn't have to be port 3306.
+
+auto-updater:
+  check-for-new-versions: true
+#   When check-for-new-versions is true, Autorank will tell you when a new version is available.
+
+advanced dependency output: false
+# If this is true, Autorank will tell you in the console what dependencies were found and which ones weren't found.
+# Turn this off to remove the console spam from Autorank about dependencies.
+# This feature can be useful when Autorank can't find your dependency, but you have it installed.
+
+show help command based on permission: false
+# If this is true, the /ar help command will only show the available commands for a certain player.
+# If a player doesn't have the permission to perform the command, it will not show that command on the help page.
+
+use debug: false
+# Only set this to true when you want to debug Autorank
+# When this is true, Autorank will spit out debug messages
+
+show warnings: true
+# Whether Autorank has to show critical warnings.
+# Leave this set to true. You can only change it to false when Autorank is giving you false warnings.
+
+use primary group for vault: true
+# Most permission plugins will only work properly with Autorank if you let it only get the primary group.
+# Some need to get all the groups however. You probably only need to change this when a dev tells you to.
+
+broadcast resetting of data files: true
+# Autorank keeps track of amount of time played per day, week and month.
+# When a new day, week or month starts, Autorank will reset the times of all players (except the total time, this is always preserved).
+# If this value is set to true, Autorank will broadcast to all players when their storage gets reset.
+
+use global time in leaderboard: false
+# By default, Autorank will use the local time of a player when for the leaderboard. When this is set to true,
+# /ar leaderboard will be sorted on the global time of a player (provided that it exists).
+
+disable automatic path checking: false
+# By default, Autorank will check whether a player meets all requirements for its path every x minutes.
+# If you want to disable this feature and let players manually check whether they completed all requirements, set this to true.
+
+automatically archive old data: true
+# This is turned on by default. When this is set to true, Autorank will archive storage of players that haven't seen been online for some time.
+
+primary storage provider: flatfile
+# Set the primary storage provider for Autorank. By default, this is the flatfile provider that stores data in the
+# /storage folder. The primary storage provider is used to get the time a player has played when for example
+# /ar times is requested. You can choose from 'flatfile' or 'mysql'.
+
+automatically remove backups if older than: 14
+# Set how old a backup must be before it will be removed (in days).
+
+automatically update this file with new options: true
+# Whether Autorank should automatically update this file with new options (when they are introduced). This will
+# also automatically remove options if they are not relevant anymore.
+# You should leave this on to have the latest options available. If you're having trouble with this file overwriting
+# your changes, you can try turning this feature off.
+
+enable logging: true
+# It is recommended to let Autorank log messages when you run into trouble or can't understand what it is doing.
+# You can find the logs in the Autorank folder (under logging)
+# If you want to disable logging, set this to false.
+
+show detailed path when only one active path: false
+# If this is true, Autorank will do the following when /ar check:
+# It will check if the player has only one active path. If that's the case, it will show the details of that specific
+# path. However, if this settings is false, Autorank will always show an overview of all active paths when doing
+# /ar check. You can experiment with this setting and see the difference! This setting is mostly useful when you are
+# sure that players will never have more than one path at the same time.
+
+successfully completed requirement: true
+# If this is false, Autorank will not send successfully completed requirement to chat
+
+automatically been assigned: true
+# If this is false, Autorank will not send automatically been assigned to chat
