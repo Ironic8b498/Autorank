@@ -42,6 +42,9 @@
                                 <relocation>
                                     <pattern>net.kyori</pattern>
                                     <shadedPattern>net.shaded.kyori</shadedPattern>
+                                    <includes>
+                                        <include>net.kyori.adventure</include>
+                                    </includes>
                                 </relocation>
                             </relocations>
                         </configuration>
