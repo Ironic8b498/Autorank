@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>aarons</groupId>
-  <artifactId>world</artifactId>
+  <artifactId>Autorank</artifactId>
   <name>Autorank</name>
   <version>5.1.6</version>
   <description>Maven project for Spigot plugin Autorank</description>
@@ -35,7 +35,7 @@
               <relocations>
                 <relocation>
                   <pattern>net.kyori</pattern>
-                  <shadedPattern>shaded.net.kyori.</shadedPattern>
+                  <shadedPattern>me.armar.plugin.libs.kyori.</shadedPattern>
                 </relocation>
               </relocations>
             </configuration>
@@ -48,6 +48,10 @@
     <repository>
       <id>spigotmc-repo</id>
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    </repository>
+    <repository>
+      <id>maven-snapshots</id>
+      <url>https://repository.apache.org/content/repositories/snapshots/</url>
     </repository>
     <repository>
       <id>papermc</id>

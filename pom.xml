@@ -41,7 +41,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>net.kyori</pattern>
-                                    <shadedPattern>me.armar.plugin.libs.kyori.</shadedPattern>
+                                    <shadedPattern>me.armar.plugin.libs.kyori</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
