@@ -7,12 +7,9 @@ import me.armar.plugins.autorank.util.AutorankTools;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.NamedTextColor;
-import net.kyori.adventure.text.format.TextColor;
-import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.HoverEvent.Action;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -27,35 +24,35 @@ public class CommandsManager implements TabExecutor {
 
     public CommandsManager(Autorank plugin) {
         this.plugin = plugin;
-        this.registeredCommands.put(Arrays.asList("add"), new AddCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("help"), new HelpCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("set"), new SetCommand(plugin));
+        this.registeredCommands.put(List.of("add"), new AddCommand(plugin));
+        this.registeredCommands.put(List.of("help"), new HelpCommand(plugin));
+        this.registeredCommands.put(List.of("set"), new SetCommand(plugin));
         this.registeredCommands.put(Arrays.asList("leaderboard", "leaderboards", "top"), new LeaderboardCommand(plugin));
         this.registeredCommands.put(Arrays.asList("remove", "rem"), new RemoveCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("debug"), new DebugCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("sync"), new SyncCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("syncstats"), new SyncStatsCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("reload"), new ReloadCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("import"), new ImportCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("complete"), new CompleteCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("check"), new CheckCommand(plugin));
+        this.registeredCommands.put(List.of("debug"), new DebugCommand(plugin));
+        this.registeredCommands.put(List.of("sync"), new SyncCommand(plugin));
+        this.registeredCommands.put(List.of("syncstats"), new SyncStatsCommand(plugin));
+        this.registeredCommands.put(List.of("reload"), new ReloadCommand(plugin));
+        this.registeredCommands.put(List.of("import"), new ImportCommand(plugin));
+        this.registeredCommands.put(List.of("complete"), new CompleteCommand(plugin));
+        this.registeredCommands.put(List.of("check"), new CheckCommand(plugin));
         this.registeredCommands.put(Arrays.asList("archive", "arch"), new ArchiveCommand(plugin));
         this.registeredCommands.put(Arrays.asList("gcheck", "globalcheck"), new GlobalCheckCommand(plugin));
         this.registeredCommands.put(Arrays.asList("fcheck", "forcecheck"), new ForceCheckCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("convert"), new ConvertCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("track"), new TrackCommand(plugin));
+        this.registeredCommands.put(List.of("convert"), new ConvertCommand(plugin));
+        this.registeredCommands.put(List.of("track"), new TrackCommand(plugin));
         this.registeredCommands.put(Arrays.asList("gset", "globalset"), new GlobalSetCommand(plugin));
         this.registeredCommands.put(Arrays.asList("hooks", "hook"), new HooksCommand(plugin));
         this.registeredCommands.put(Arrays.asList("gadd", "globaladd"), new GlobalAddCommand(plugin));
         this.registeredCommands.put(Arrays.asList("view", "preview"), new ViewCommand(plugin));
         this.registeredCommands.put(Arrays.asList("choose", "activate"), new ChooseCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("deactivate"), new DeactivateCommand(plugin));
+        this.registeredCommands.put(List.of("deactivate"), new DeactivateCommand(plugin));
         this.registeredCommands.put(Arrays.asList("times", "time"), new TimesCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("reset"), new ResetCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("backup"), new BackupCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("info"), new InfoCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("editor"), new EditorCommand(plugin));
-        this.registeredCommands.put(Arrays.asList("migrate"), new MigrateCommand(plugin));
+        this.registeredCommands.put(List.of("reset"), new ResetCommand(plugin));
+        this.registeredCommands.put(List.of("backup"), new BackupCommand(plugin));
+        this.registeredCommands.put(List.of("info"), new InfoCommand(plugin));
+        this.registeredCommands.put(List.of("editor"), new EditorCommand(plugin));
+        this.registeredCommands.put(List.of("migrate"), new MigrateCommand(plugin));
     }
 
     public Map<List<String>, AutorankCommand> getRegisteredCommands() {
@@ -116,8 +113,7 @@ public class CommandsManager implements TabExecutor {
                         .hoverEvent(net.kyori.adventure.text.event.HoverEvent.showText(Component.text("These are suggestions based on your input.")
                                 .append(Component.text("?", NamedTextColor.GREEN))))));
                         (new ComponentBuilder("Did you perhaps mean ")).color(net.md_5.bungee.api.ChatColor.DARK_AQUA).append("/ar ").color(net.md_5.bungee.api.ChatColor.GREEN).append(AutorankTools.seperateList(bestSuggestions, "or")).event(new HoverEvent(Action.SHOW_TEXT, (new ComponentBuilder("These are suggestions based on your input.")).create())).append("?").color(net.md_5.bungee.api.ChatColor.DARK_AQUA).create();
-                if (sender instanceof Player) {
-                    Player p = (Player)sender;
+                if (sender instanceof Player p) {
                     plugin.adventure().player((Player) sender).sendMessage(builder);
                 } else {
                     TextComponent perhaps1 = Component.text("Did you perhaps mean ", NamedTextColor.AQUA).append(Component.text("/ar ", NamedTextColor.GREEN).append(Component.text(AutorankTools.seperateList(bestSuggestions, "or"), NamedTextColor.GREEN)).append(Component.text("?", NamedTextColor.GREEN)));
