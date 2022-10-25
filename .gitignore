@@ -1,7 +1,7 @@
 # User-specific stuff
 .idea/
 
-.gitignore
+*.gitignore
 *.iml
 *.ipr
 *.iws
