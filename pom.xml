@@ -38,15 +38,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <relocations>
-                                <relocation>
-                                    <pattern>net.kyori.adventure</pattern>
-                                    <shadedPattern>net.kyori.adventure</shadedPattern>
-                                    <excludes>
-                                        <exclude>net.kyori.examination</exclude>
-                                    </excludes>
-                                </relocation>
-                            </relocations>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
                         </configuration>
                     </execution>
                 </executions>
@@ -146,7 +138,7 @@
             <groupId>net.kyori</groupId>
             <artifactId>adventure-platform-bukkit</artifactId>
             <version>4.1.2</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
