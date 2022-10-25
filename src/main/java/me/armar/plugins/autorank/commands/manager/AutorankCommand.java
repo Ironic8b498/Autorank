@@ -1,11 +1,15 @@
 package me.armar.plugins.autorank.commands.manager;
 
+import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.language.Lang;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
@@ -17,7 +21,15 @@ import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 public abstract class AutorankCommand implements TabExecutor {
-    public AutorankCommand() {
+
+    private final Autorank plugin;
+
+    public AutorankCommand(Autorank instance) {
+        this.plugin = instance;
+    }
+
+    protected AutorankCommand() {
+        plugin = null;
     }
 
     public abstract String getDescription();
@@ -34,7 +46,8 @@ public abstract class AutorankCommand implements TabExecutor {
 
     public boolean hasPermission(String permission, CommandSender sender) {
         if (!sender.hasPermission(permission)) {
-            sender.sendMessage(ChatColor.RED + Lang.NO_PERMISSION.getConfigValue(new Object[]{permission}));
+            TextComponent no_permission = Component.text(Lang.NO_PERMISSION.getConfigValue(new Object[]{permission}), NamedTextColor.RED);
+            plugin.adventure().player((Player) sender).sendMessage(no_permission);
             return false;
         } else {
             return true;
