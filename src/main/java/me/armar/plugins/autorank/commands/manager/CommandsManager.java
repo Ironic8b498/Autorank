@@ -64,13 +64,14 @@ public class CommandsManager implements TabExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.BLUE + "-----------------------------------------------------");
-            sender.sendMessage(ChatColor.GOLD + "Developed by: " + ChatColor.GRAY + this.plugin.getDescription().getAuthors());
-            sender.sendMessage(ChatColor.GOLD + "Version: " + ChatColor.GRAY + this.plugin.getDescription().getVersion());
-            sender.sendMessage(ChatColor.YELLOW + "Type /ar help for a list of commands.");
-            TextComponent component = Component.text("-----------------------------------------------------")
-                    .append(Component.text("Developed by: "));
-           plugin.adventure().player((Player) sender).sendMessage(component);
+            TextComponent about = Component.text("-----------------------------------------------------").color(NamedTextColor.BLUE);
+            plugin.adventure().player((Player) sender).sendMessage(about);
+            TextComponent about1 = Component.text("Developed by: ", NamedTextColor.GOLD).append(Component.text(String.valueOf(this.plugin.getDescription().getAuthors()), NamedTextColor.GRAY));
+            plugin.adventure().player((Player) sender).sendMessage(about1);
+            TextComponent about2 = Component.text("Version: ", NamedTextColor.GOLD).append(Component.text(this.plugin.getDescription().getVersion(),NamedTextColor.GRAY));
+            plugin.adventure().player((Player) sender).sendMessage(about2);
+            TextComponent about3 = Component.text("Type /ar help for a list of commands.", NamedTextColor.YELLOW);
+            plugin.adventure().player((Player) sender).sendMessage(about3);
             return true;
         } else {
             String action = args[0];
@@ -106,18 +107,26 @@ public class CommandsManager implements TabExecutor {
                 }
             }
 
-            sender.sendMessage(ChatColor.RED + "Command not recognised!");
+            TextComponent reconized = Component.text("Command not recognised!").color(NamedTextColor.RED);
+            plugin.adventure().player((Player) sender).sendMessage(reconized);
             if (!bestSuggestions.isEmpty()) {
-                BaseComponent[] builder = (new ComponentBuilder("Did you perhaps mean ")).color(net.md_5.bungee.api.ChatColor.DARK_AQUA).append("/ar ").color(net.md_5.bungee.api.ChatColor.GREEN).append(AutorankTools.seperateList(bestSuggestions, "or")).event(new HoverEvent(Action.SHOW_TEXT, (new ComponentBuilder("These are suggestions based on your input.")).create())).append("?").color(net.md_5.bungee.api.ChatColor.DARK_AQUA).create();
+                TextComponent builder = Component.text("Did you perhaps mean ", NamedTextColor.DARK_AQUA)
+                        .append(Component.text("/ar ", NamedTextColor.GREEN)
+                        .append(Component.text(AutorankTools.seperateList(bestSuggestions, "or"), NamedTextColor.GREEN)
+                        .hoverEvent(net.kyori.adventure.text.event.HoverEvent.showText(Component.text("These are suggestions based on your input.")
+                                .append(Component.text("?", NamedTextColor.GREEN))))));
+                        (new ComponentBuilder("Did you perhaps mean ")).color(net.md_5.bungee.api.ChatColor.DARK_AQUA).append("/ar ").color(net.md_5.bungee.api.ChatColor.GREEN).append(AutorankTools.seperateList(bestSuggestions, "or")).event(new HoverEvent(Action.SHOW_TEXT, (new ComponentBuilder("These are suggestions based on your input.")).create())).append("?").color(net.md_5.bungee.api.ChatColor.DARK_AQUA).create();
                 if (sender instanceof Player) {
                     Player p = (Player)sender;
-                    p.spigot().sendMessage(builder);
+                    plugin.adventure().player((Player) sender).sendMessage(builder);
                 } else {
-                    sender.sendMessage(ChatColor.DARK_AQUA + "Did you perhaps mean " + ChatColor.GREEN + "/ar " + AutorankTools.seperateList(bestSuggestions, "or") + ChatColor.DARK_AQUA + "?");
+                    TextComponent perhaps1 = Component.text("Did you perhaps mean ", NamedTextColor.AQUA).append(Component.text("/ar ", NamedTextColor.GREEN).append(Component.text(AutorankTools.seperateList(bestSuggestions, "or"), NamedTextColor.GREEN)).append(Component.text("?", NamedTextColor.GREEN)));
+                    plugin.adventure().player((Player) sender).sendMessage(perhaps1);
                 }
             }
 
-            sender.sendMessage(ChatColor.YELLOW + "Use '/ar help' for a list of commands.");
+            TextComponent component1 = Component.text("Use '/ar help' for a list of commands.").color(NamedTextColor.YELLOW);
+            plugin.adventure().player((Player) sender).sendMessage(component1);
             return true;
         }
     }
