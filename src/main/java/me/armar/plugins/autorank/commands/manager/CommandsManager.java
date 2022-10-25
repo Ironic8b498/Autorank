@@ -6,10 +6,8 @@ import me.armar.plugins.autorank.commands.*;
 import me.armar.plugins.autorank.util.AutorankTools;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
-import net.md_5.bungee.api.chat.ComponentBuilder;
-import net.md_5.bungee.api.chat.HoverEvent;
-import net.md_5.bungee.api.chat.HoverEvent.Action;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -63,9 +61,11 @@ public class CommandsManager implements TabExecutor {
         if (args.length == 0) {
             TextComponent about = Component.text("-----------------------------------------------------").color(NamedTextColor.BLUE);
             plugin.adventure().player((Player) sender).sendMessage(about);
-            TextComponent about1 = Component.text("Developed by: ", NamedTextColor.GOLD).append(Component.text(String.valueOf(this.plugin.getDescription().getAuthors()), NamedTextColor.GRAY));
+            TextComponent about1 = Component.text("Developed by: ", NamedTextColor.GOLD)
+                    .append(Component.text(String.valueOf(this.plugin.getDescription().getAuthors()), NamedTextColor.GRAY));
             plugin.adventure().player((Player) sender).sendMessage(about1);
-            TextComponent about2 = Component.text("Version: ", NamedTextColor.GOLD).append(Component.text(this.plugin.getDescription().getVersion(),NamedTextColor.GRAY));
+            TextComponent about2 = Component.text("Version: ", NamedTextColor.GOLD)
+                    .append(Component.text(this.plugin.getDescription().getVersion(), NamedTextColor.GRAY));
             plugin.adventure().player((Player) sender).sendMessage(about2);
             TextComponent about3 = Component.text("Type /ar help for a list of commands.", NamedTextColor.YELLOW);
             plugin.adventure().player((Player) sender).sendMessage(about3);
@@ -76,17 +76,17 @@ public class CommandsManager implements TabExecutor {
             List<String> bestSuggestions = new ArrayList();
             Iterator var8 = this.registeredCommands.entrySet().iterator();
 
-            while(var8.hasNext()) {
-                Entry<List<String>, AutorankCommand> entry = (Entry)var8.next();
+            while (var8.hasNext()) {
+                Entry<List<String>, AutorankCommand> entry = (Entry) var8.next();
                 String suggestion = AutorankTools.findClosestSuggestion(action, entry.getKey());
                 if (suggestion != null) {
                     suggestions.add(suggestion);
                 }
 
-                Iterator var11 = ((List)entry.getKey()).iterator();
+                Iterator var11 = ((List) entry.getKey()).iterator();
 
-                while(var11.hasNext()) {
-                    String actionString = (String)var11.next();
+                while (var11.hasNext()) {
+                    String actionString = (String) var11.next();
                     if (actionString.equalsIgnoreCase(action)) {
                         return entry.getValue().onCommand(sender, cmd, label, args);
                     }
@@ -95,8 +95,8 @@ public class CommandsManager implements TabExecutor {
 
             var8 = suggestions.iterator();
 
-            while(var8.hasNext()) {
-                String suggestion = (String)var8.next();
+            while (var8.hasNext()) {
+                String suggestion = (String) var8.next();
                 String[] split = suggestion.split(";");
                 int editDistance = Integer.parseInt(split[1]);
                 if (editDistance <= 2) {
@@ -109,14 +109,16 @@ public class CommandsManager implements TabExecutor {
             if (!bestSuggestions.isEmpty()) {
                 TextComponent builder = Component.text("Did you perhaps mean ", NamedTextColor.DARK_AQUA)
                         .append(Component.text("/ar ", NamedTextColor.GREEN)
-                        .append(Component.text(AutorankTools.seperateList(bestSuggestions, "or"), NamedTextColor.GREEN)
-                        .hoverEvent(net.kyori.adventure.text.event.HoverEvent.showText(Component.text("These are suggestions based on your input.")
-                                .append(Component.text("?", NamedTextColor.GREEN))))));
-                        (new ComponentBuilder("Did you perhaps mean ")).color(net.md_5.bungee.api.ChatColor.DARK_AQUA).append("/ar ").color(net.md_5.bungee.api.ChatColor.GREEN).append(AutorankTools.seperateList(bestSuggestions, "or")).event(new HoverEvent(Action.SHOW_TEXT, (new ComponentBuilder("These are suggestions based on your input.")).create())).append("?").color(net.md_5.bungee.api.ChatColor.DARK_AQUA).create();
+                                .append(Component.text(AutorankTools.seperateList(bestSuggestions, "or"), NamedTextColor.GREEN)
+                                        .hoverEvent(HoverEvent.showText(Component.text("These are suggestions based on your input.")
+                                                .append(Component.text("?", NamedTextColor.DARK_AQUA))))));
                 if (sender instanceof Player p) {
                     plugin.adventure().player((Player) sender).sendMessage(builder);
                 } else {
-                    TextComponent perhaps1 = Component.text("Did you perhaps mean ", NamedTextColor.AQUA).append(Component.text("/ar ", NamedTextColor.GREEN).append(Component.text(AutorankTools.seperateList(bestSuggestions, "or"), NamedTextColor.GREEN)).append(Component.text("?", NamedTextColor.GREEN)));
+                    TextComponent perhaps1 = Component.text("Did you perhaps mean ", NamedTextColor.AQUA)
+                            .append(Component.text("/ar ", NamedTextColor.GREEN)
+                                    .append(Component.text(AutorankTools.seperateList(bestSuggestions, "or"), NamedTextColor.GREEN))
+                                    .append(Component.text("?", NamedTextColor.GREEN)));
                     plugin.adventure().player((Player) sender).sendMessage(perhaps1);
                 }
             }
@@ -134,9 +136,9 @@ public class CommandsManager implements TabExecutor {
             List<String> commands = new ArrayList();
             var12 = this.registeredCommands.entrySet().iterator();
 
-            while(var12.hasNext()) {
-                entry = (Entry)var12.next();
-                List<String> list = (List)entry.getKey();
+            while (var12.hasNext()) {
+                entry = (Entry) var12.next();
+                List<String> list = (List) entry.getKey();
                 commands.addAll(list);
             }
 
@@ -146,14 +148,14 @@ public class CommandsManager implements TabExecutor {
             if (!subCommand.equalsIgnoreCase("set") && !subCommand.equalsIgnoreCase("add") && !subCommand.equalsIgnoreCase("remove") && !subCommand.equalsIgnoreCase("rem") && !subCommand.equalsIgnoreCase("gadd") && !subCommand.equalsIgnoreCase("gset")) {
                 var12 = this.registeredCommands.entrySet().iterator();
 
-                while(var12.hasNext()) {
-                    entry = (Entry)var12.next();
-                    Iterator var8 = ((List)entry.getKey()).iterator();
+                while (var12.hasNext()) {
+                    entry = (Entry) var12.next();
+                    Iterator var8 = ((List) entry.getKey()).iterator();
 
-                    while(var8.hasNext()) {
-                        String alias = (String)var8.next();
+                    while (var8.hasNext()) {
+                        String alias = (String) var8.next();
                         if (subCommand.trim().equalsIgnoreCase(alias)) {
-                            return ((AutorankCommand)entry.getValue()).onTabComplete(sender, cmd, commandLabel, args);
+                            return ((AutorankCommand) entry.getValue()).onTabComplete(sender, cmd, commandLabel, args);
                         }
                     }
                 }
@@ -184,8 +186,8 @@ public class CommandsManager implements TabExecutor {
             List<String> returnList = new ArrayList();
             Iterator var4 = list.iterator();
 
-            while(var4.hasNext()) {
-                String item = (String)var4.next();
+            while (var4.hasNext()) {
+                String item = (String) var4.next();
                 if (item.toLowerCase().startsWith(string.toLowerCase())) {
                     returnList.add(item);
                 }
