@@ -3,8 +3,7 @@ package me.armar.plugins.autorank.commands.manager;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.language.Lang;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TextComponent;
-import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -45,8 +44,9 @@ public abstract class AutorankCommand implements TabExecutor {
     }
 
     public boolean hasPermission(String permission, CommandSender sender) {
+        var mm = MiniMessage.miniMessage();
         if (!sender.hasPermission(permission)) {
-            TextComponent no_permission = Component.text(Lang.NO_PERMISSION.getConfigValue(new Object[]{permission}), NamedTextColor.RED);
+            Component no_permission = mm.deserialize(Lang.NO_PERMISSION.getConfigValue(new Object[]{permission}));
             plugin.adventure().player((Player) sender).sendMessage(no_permission);
             return false;
         } else {

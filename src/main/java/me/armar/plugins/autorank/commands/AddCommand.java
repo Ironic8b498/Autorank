@@ -6,8 +6,11 @@ import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -21,15 +24,18 @@ public class AddCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        var mm = MiniMessage.miniMessage();
         if (!this.hasPermission("autorank.add", sender)) {
             return true;
         } else if (args.length < 3) {
-            sender.sendMessage(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+            Component invalid_format = mm.deserialize(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+            plugin.adventure().player((Player) sender).sendMessage(invalid_format);
             return true;
         } else {
             CompletableFuture<Void> task = UUIDManager.getUUID(args[1]).thenAccept((uuid) -> {
                 if (uuid == null) {
-                    sender.sendMessage(Lang.UNKNOWN_PLAYER.getConfigValue(args[1]));
+                    Component unknown_player = mm.deserialize(Lang.UNKNOWN_PLAYER.getConfigValue(args[1]));
+                    plugin.adventure().player((Player) sender).sendMessage(unknown_player);
                 } else {
                     int value = AutorankTools.readTimeInput(args, 2);
                     if (value >= 0) {
@@ -44,9 +50,11 @@ public class AddCommand extends AutorankCommand {
                             var8.printStackTrace();
                         }
 
-                        AutorankTools.sendColoredMessage(sender, Lang.PLAYTIME_CHANGED.getConfigValue(playerName, AutorankTools.timeToString(newPlayerTime, TimeUnit.MINUTES)));
+                        Component playtime_changed = mm.deserialize(Lang.PLAYTIME_CHANGED.getConfigValue(playerName, AutorankTools.timeToString(newPlayerTime, TimeUnit.MINUTES)));
+                        plugin.adventure().player((Player) sender).sendMessage(playtime_changed);
                     } else {
-                        AutorankTools.sendColoredMessage(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+                        Component invalid_format = mm.deserialize(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+                        plugin.adventure().player((Player) sender).sendMessage(invalid_format);
                     }
 
                 }

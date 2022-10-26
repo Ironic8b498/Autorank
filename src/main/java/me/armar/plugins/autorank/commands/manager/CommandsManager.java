@@ -3,11 +3,13 @@ package me.armar.plugins.autorank.commands.manager;
 import com.google.common.collect.Lists;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.commands.*;
+import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.util.AutorankTools;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -58,16 +60,17 @@ public class CommandsManager implements TabExecutor {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        var mm = MiniMessage.miniMessage();
         if (args.length == 0) {
-            TextComponent about = Component.text("-----------------------------------------------------").color(NamedTextColor.BLUE);
+            Component about = mm.deserialize(Lang.ABOUT_LINE.getConfigValue());
             plugin.adventure().player((Player) sender).sendMessage(about);
-            TextComponent about1 = Component.text("Developed by: ", NamedTextColor.GOLD)
+            Component about1 = mm.deserialize(Lang.DEVELOPED.getConfigValue())
                     .append(Component.text(String.valueOf(this.plugin.getDescription().getAuthors()), NamedTextColor.GRAY));
             plugin.adventure().player((Player) sender).sendMessage(about1);
-            TextComponent about2 = Component.text("Version: ", NamedTextColor.GOLD)
+            Component about2 = mm.deserialize(Lang.VERSION.getConfigValue())
                     .append(Component.text(this.plugin.getDescription().getVersion(), NamedTextColor.GRAY));
             plugin.adventure().player((Player) sender).sendMessage(about2);
-            TextComponent about3 = Component.text("Type /ar help for a list of commands.", NamedTextColor.YELLOW);
+            Component about3 = mm.deserialize(Lang.LIST_OF_COMMANDS.getConfigValue());
             plugin.adventure().player((Player) sender).sendMessage(about3);
             return true;
         } else {
@@ -104,27 +107,27 @@ public class CommandsManager implements TabExecutor {
                 }
             }
 
-            TextComponent reconized = Component.text("Command not recognised!").color(NamedTextColor.RED);
-            plugin.adventure().player((Player) sender).sendMessage(reconized);
+            Component list_of_command = mm.deserialize(Lang.COMMAND_NOT_RECOGNISED.getConfigValue());
+            plugin.adventure().player((Player) sender).sendMessage(list_of_command);
             if (!bestSuggestions.isEmpty()) {
-                TextComponent builder = Component.text("Did you perhaps mean ", NamedTextColor.DARK_AQUA)
-                        .append(Component.text("/ar ", NamedTextColor.GREEN)
-                                .append(Component.text(AutorankTools.seperateList(bestSuggestions, "or"), NamedTextColor.GREEN)
-                                        .hoverEvent(HoverEvent.showText(Component.text("These are suggestions based on your input.")
-                                                .append(Component.text("?", NamedTextColor.DARK_AQUA))))));
+                Component did_you = mm.deserialize(Lang.DID_YOU.getConfigValue())
+                        .append(Component.text(Lang.AR.getConfigValue())
+                                .append(Component.text(AutorankTools.seperateList(bestSuggestions, Lang.OR.getConfigValue()))
+                                        .hoverEvent(HoverEvent.showText(Component.text(Lang.THESE_ARE.getConfigValue())
+                                                .append(Component.text(Lang.QUESTION_MARK.getConfigValue()))))));
                 if (sender instanceof Player p) {
-                    plugin.adventure().player((Player) sender).sendMessage(builder);
+                    plugin.adventure().player((Player) sender).sendMessage(did_you);
                 } else {
-                    TextComponent perhaps1 = Component.text("Did you perhaps mean ", NamedTextColor.AQUA)
-                            .append(Component.text("/ar ", NamedTextColor.GREEN)
-                                    .append(Component.text(AutorankTools.seperateList(bestSuggestions, "or"), NamedTextColor.GREEN))
-                                    .append(Component.text("?", NamedTextColor.GREEN)));
-                    plugin.adventure().player((Player) sender).sendMessage(perhaps1);
+                    Component did_you2 = mm.deserialize(Lang.DID_YOU.getConfigValue())
+                            .append(Component.text(Lang.AR.getConfigValue())
+                                    .append(Component.text(AutorankTools.seperateList(bestSuggestions, Lang.OR.getConfigValue())))
+                                    .append(Component.text(Lang.QUESTION_MARK.getConfigValue())));
+                    plugin.adventure().player((Player) sender).sendMessage(did_you2);
                 }
             }
 
-            TextComponent component1 = Component.text("Use '/ar help' for a list of commands.").color(NamedTextColor.YELLOW);
-            plugin.adventure().player((Player) sender).sendMessage(component1);
+            Component list_of_command2 = mm.deserialize(Lang.LIST_OF_COMMANDS.getConfigValue());
+            plugin.adventure().player((Player) sender).sendMessage(list_of_command2);
             return true;
         }
     }
