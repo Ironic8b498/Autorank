@@ -111,17 +111,17 @@ public class CommandsManager implements TabExecutor {
             plugin.adventure().player((Player) sender).sendMessage(list_of_command);
             if (!bestSuggestions.isEmpty()) {
                 Component did_you = mm.deserialize(Lang.DID_YOU.getConfigValue())
-                        .append(Component.text(Lang.AR.getConfigValue())
-                                .append(Component.text(AutorankTools.seperateList(bestSuggestions, Lang.OR.getConfigValue()))
-                                        .hoverEvent(HoverEvent.showText(Component.text(Lang.THESE_ARE.getConfigValue())
-                                                .append(Component.text(Lang.QUESTION_MARK.getConfigValue()))))));
+                        .append(mm.deserialize(Lang.AR.getConfigValue())
+                                .append(mm.deserialize(AutorankTools.seperateList(bestSuggestions, Lang.OR.getConfigValue()))
+                                        .hoverEvent(HoverEvent.showText(mm.deserialize(Lang.THESE_ARE.getConfigValue())
+                                                .append(mm.deserialize(Lang.QUESTION_MARK.getConfigValue()))))));
                 if (sender instanceof Player p) {
                     plugin.adventure().player((Player) sender).sendMessage(did_you);
                 } else {
                     Component did_you2 = mm.deserialize(Lang.DID_YOU.getConfigValue())
-                            .append(Component.text(Lang.AR.getConfigValue())
-                                    .append(Component.text(AutorankTools.seperateList(bestSuggestions, Lang.OR.getConfigValue())))
-                                    .append(Component.text(Lang.QUESTION_MARK.getConfigValue())));
+                            .append(mm.deserialize(Lang.AR.getConfigValue())
+                                    .append(mm.deserialize(AutorankTools.seperateList(bestSuggestions, Lang.OR.getConfigValue())))
+                                    .append(mm.deserialize(Lang.QUESTION_MARK.getConfigValue())));
                     plugin.adventure().player((Player) sender).sendMessage(did_you2);
                 }
             }

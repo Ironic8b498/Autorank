@@ -1,6 +1,7 @@
 package me.armar.plugins.autorank.util;
 
 import me.armar.plugins.autorank.language.Lang;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -242,7 +243,8 @@ public class AutorankTools {
     }
 
     public static void sendColoredMessage(CommandSender sender, String msg) {
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', ChatColor.GREEN + msg));
+        var mm = MiniMessage.miniMessage();
+        sender.sendMessage(String.valueOf(mm.deserialize(msg)));
     }
 
     public static String seperateList(Collection<?> c, String endDivider) {

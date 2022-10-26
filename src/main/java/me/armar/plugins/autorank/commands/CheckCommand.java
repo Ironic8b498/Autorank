@@ -3,12 +3,14 @@ package me.armar.plugins.autorank.commands;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.commands.manager.AutorankCommand;
 import me.armar.plugins.autorank.language.Lang;
-import me.armar.plugins.autorank.language.MessageSender;
 import me.armar.plugins.autorank.pathbuilder.Path;
 import me.armar.plugins.autorank.pathbuilder.holders.CompositeRequirement;
 import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -33,13 +35,16 @@ public class CheckCommand extends AutorankCommand {
     }
 
     public void showPathsOverview(CommandSender sender, String playerName, UUID uuid) {
+        var mm = MiniMessage.miniMessage();
         this.plugin.getPlayerChecker().checkPlayer(uuid);
         this.plugin.getPathManager().autoAssignPaths(uuid);
         List<Path> activePaths = this.plugin.getPathManager().getActivePaths(uuid);
         if (activePaths.isEmpty()) {
-            sender.sendMessage(ChatColor.GOLD + playerName + ChatColor.RED + Lang.DOES_NOT_HAVE_ACTIVE.getConfigValue());
+            Component does_not_have_active = mm.deserialize(Lang.DOES_NOT_HAVE_ACTIVE.getConfigValue(playerName));
+            plugin.adventure().player((Player) sender).sendMessage(does_not_have_active);
         } else {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&',Lang.PROGRESS_OF_PATHS.getConfigValue(playerName)));
+            Component progress_of_paths = mm.deserialize(Lang.PROGRESS_OF_PATHS.getConfigValue(playerName));
+            plugin.adventure().player((Player) sender).sendMessage(progress_of_paths);
             Iterator var5 = activePaths.iterator();
 
             while(var5.hasNext()) {
@@ -59,19 +64,28 @@ public class CheckCommand extends AutorankCommand {
 
                 message.append(ChatColor.GRAY + "]").append(ChatColor.GOLD + " (").append((new BigDecimal(completeRatio * 100.0D)).setScale(2, RoundingMode.HALF_UP)).append("%)");
                 sender.sendMessage(message.toString());
+//                TextComponent invalid_stoage_file = mm.deserialize(Lang.INVALID_STORAGE_FILE.getConfigValue());
+//                plugin.adventure().player((Player) sender).sendMessage(invalid_stoage_file);
             }
             Player player = (Player) sender;
-            new MessageSender(player, String.valueOf(Lang.TO_VIEW_THE_PROGRESS.getConfigValue()+ " MessageSender"));
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', String.valueOf(Lang.TO_VIEW_THE_PROGRESS.getConfigValue())));
+            //new MessageSender(player, String.valueOf(Lang.TO_VIEW_THE_PROGRESS.getConfigValue()+ " MessageSender"));
+            //sender.sendMessage(ChatColor.translateAlternateColorCodes('&', String.valueOf(Lang.TO_VIEW_THE_PROGRESS.getConfigValue())));
+            Component to_view_the_progress = mm.deserialize(Lang.TO_VIEW_THE_PROGRESS.getConfigValue());
+            plugin.adventure().player((Player) sender).sendMessage(to_view_the_progress);
         }
     }
 
     public void showSpecificPath(CommandSender sender, String playerName, UUID uuid, Path path) {
+        var mm = MiniMessage.miniMessage();
         this.plugin.getPlayerChecker().checkPlayer(uuid);
-        sender.sendMessage(ChatColor.DARK_AQUA + "-----------------------");
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Lang.YOU_ARE_VIEWING.getConfigValue(playerName, path.getDisplayName())));
-        sender.sendMessage(ChatColor.DARK_AQUA + "-----------------------");
-        sender.sendMessage(ChatColor.GRAY + String.valueOf(Lang.REQUIREMENTS.getConfigValue()));
+        Component specificpath = mm.deserialize(Lang.SPECIFIC_PATH.getConfigValue());
+        plugin.adventure().player((Player) sender).sendMessage(specificpath);
+        Component specificpath1 = mm.deserialize(Lang.YOU_ARE_VIEWING.getConfigValue(playerName, path.getDisplayName()));
+        plugin.adventure().player((Player) sender).sendMessage(specificpath1);
+        Component specificpath2 = mm.deserialize(Lang.SPECIFIC_PATH.getConfigValue());
+        plugin.adventure().player((Player) sender).sendMessage(specificpath2);
+        Component specificpath3 = mm.deserialize(Lang.REQUIREMENTS.getConfigValue());
+        plugin.adventure().player((Player) sender).sendMessage(specificpath3);
         List<CompositeRequirement> allRequirements = path.getRequirements();
         List<CompositeRequirement> completedRequirements = path.getCompletedRequirements(uuid);
         List<String> messages = this.plugin.getPlayerChecker().formatRequirementsToList(allRequirements, completedRequirements);
@@ -85,17 +99,20 @@ public class CheckCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        var mm = MiniMessage.miniMessage();
         boolean showListOfPaths = false;
         Path targetPath = null;
         OfflinePlayer targetPlayer = null;
         if (args.length == 1) {
             if (!(sender instanceof Player)) {
-                sender.sendMessage(ChatColor.RED + String.valueOf(Lang.YOU_SHOULD_SPECIFY.getConfigValue()));
+                Component you_should_specify = mm.deserialize(Lang.YOU_SHOULD_SPECIFY.getConfigValue());
+                plugin.adventure().player((Player) sender).sendMessage(you_should_specify);
                 return true;
             } else if (!this.hasPermission("autorank.check", sender)) {
                 return true;
             } else if (this.plugin.getPlayerChecker().isExemptedFromAutomaticChecking(((Player)sender).getUniqueId())) {
-                sender.sendMessage(ChatColor.RED + Lang.PLAYER_IS_EXCLUDED.getConfigValue(new Object[]{sender.getName()}));
+                Component player_is_excluded = mm.deserialize(Lang.PLAYER_IS_EXCLUDED.getConfigValue(sender.getName()));
+                plugin.adventure().player((Player) sender).sendMessage(player_is_excluded);
                 return true;
             } else {
                 Player player = (Player)sender;
@@ -144,7 +161,8 @@ public class CheckCommand extends AutorankCommand {
                     }
                 } else {
                     if (!isPlayer) {
-                        sender.sendMessage(ChatColor.RED + Lang.THERE_IS_NO_PLAYER.getConfigValue(args[1]));
+                        Component there_is_no_player = mm.deserialize(Lang.THERE_IS_NO_PLAYER.getConfigValue(args[1]));
+                        plugin.adventure().player((Player) sender).sendMessage(there_is_no_player);
                         return true;
                     }
 
@@ -166,7 +184,8 @@ public class CheckCommand extends AutorankCommand {
             if (isPath) {
                 Player onlineTargetPlayer = targetPlayer.getPlayer();
                 if (this.plugin.getPlayerChecker().isExemptedFromAutomaticChecking(onlineTargetPlayer.getUniqueId())) {
-                    sender.sendMessage(ChatColor.RED + Lang.PLAYER_IS_EXCLUDED.getConfigValue(new Object[]{onlineTargetPlayer.getName()}));
+                    Component player_is_excluded = mm.deserialize(Lang.PLAYER_IS_EXCLUDED.getConfigValue(onlineTargetPlayer.getName()));
+                    plugin.adventure().player((Player) sender).sendMessage(player_is_excluded);
                     return true;
                 }
 
@@ -192,7 +211,8 @@ public class CheckCommand extends AutorankCommand {
                     this.showPathsOverview(sender, finalTargetPlayerName, finalTargetUUID);
                 } else {
                     if (finalTargetPath != null && !finalTargetPath.isActive(finalTargetUUID)) {
-                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Lang.DOES_NOT_HAVE_AS_ACTIVE.getConfigValue(finalTargetPlayerName, finalTargetPath.getDisplayName())));
+                        Component does_not_have_as_active = mm.deserialize(Lang.DOES_NOT_HAVE_AS_ACTIVE.getConfigValue(finalTargetPlayerName, finalTargetPath.getDisplayName()));
+                        plugin.adventure().player((Player) sender).sendMessage(does_not_have_as_active);
                         return;
                     }
 
