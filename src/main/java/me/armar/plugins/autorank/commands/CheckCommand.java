@@ -9,7 +9,6 @@ import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -93,7 +92,9 @@ public class CheckCommand extends AutorankCommand {
 
         while(var8.hasNext()) {
             String message = (String)var8.next();
-            AutorankTools.sendColoredMessage(sender, message);
+            Component showspecificpath = mm.deserialize(message);
+            plugin.adventure().player((Player) sender).sendMessage(showspecificpath);
+            //AutorankTools.sendColoredMessage(sender, message);
         }
 
     }
@@ -117,7 +118,9 @@ public class CheckCommand extends AutorankCommand {
             } else {
                 Player player = (Player)sender;
                 CompletableFuture<Void> task = this.plugin.getPlayTimeManager().getPlayTime(TimeType.TOTAL_TIME, player.getUniqueId()).thenAccept((playTime) -> {
-                    AutorankTools.sendColoredMessage(sender, Lang.HAS_PLAYED_FOR.getConfigValue(player.getName(), AutorankTools.timeToString(playTime, TimeUnit.MINUTES)));
+                    Component has_played_for = mm.deserialize(Lang.HAS_PLAYED_FOR.getConfigValue(player.getName(), AutorankTools.timeToString(playTime, TimeUnit.MINUTES)));
+                    plugin.adventure().player((Player) sender).sendMessage(has_played_for);
+                   // AutorankTools.sendColoredMessage(sender, Lang.HAS_PLAYED_FOR.getConfigValue(player.getName(), AutorankTools.timeToString(playTime, TimeUnit.MINUTES)));
                     List<Path> activePaths = this.plugin.getPathManager().getActivePaths(player.getUniqueId());
                     if (activePaths.size() == 1 && this.plugin.getSettingsConfig().showDetailsOfPathWithOneActivePath()) {
                         this.showSpecificPath(sender, player.getName(), player.getUniqueId(), activePaths.get(0));
@@ -153,7 +156,9 @@ public class CheckCommand extends AutorankCommand {
                     showListOfPaths = false;
                     if (!isPlayer) {
                         if (!(sender instanceof Player)) {
-                            AutorankTools.sendColoredMessage(sender, Lang.CANNOT_CHECK_CONSOLE.getConfigValue());
+                           //AutorankTools.sendColoredMessage(sender, Lang.CANNOT_CHECK_CONSOLE.getConfigValue());
+                            Component cannot_check_console = mm.deserialize(Lang.CANNOT_CHECK_CONSOLE.getConfigValue());
+                            plugin.adventure().player((Player) sender).sendMessage(cannot_check_console);
                             return true;
                         }
 
@@ -206,7 +211,9 @@ public class CheckCommand extends AutorankCommand {
             UUID finalTargetUUID = targetUUID;
             Path finalTargetPath = targetPath;
             CompletableFuture<Void> task = this.plugin.getPlayTimeManager().getPlayTime(TimeType.TOTAL_TIME, targetUUID).thenAccept((playTime) -> {
-                AutorankTools.sendColoredMessage(sender, Lang.HAS_PLAYED_FOR.getConfigValue(finalTargetPlayerName, AutorankTools.timeToString(playTime, TimeUnit.MINUTES)));
+               // AutorankTools.sendColoredMessage(sender, Lang.HAS_PLAYED_FOR.getConfigValue(finalTargetPlayerName, AutorankTools.timeToString(playTime, TimeUnit.MINUTES)));
+                Component has_played_for = mm.deserialize(Lang.HAS_PLAYED_FOR.getConfigValue(finalTargetPlayerName, AutorankTools.timeToString(playTime, TimeUnit.MINUTES)));
+                plugin.adventure().player((Player) sender).sendMessage(has_played_for);
                 if (finalShowListOfPaths) {
                     this.showPathsOverview(sender, finalTargetPlayerName, finalTargetUUID);
                 } else {

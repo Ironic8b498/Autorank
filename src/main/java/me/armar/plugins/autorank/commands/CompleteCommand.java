@@ -5,6 +5,8 @@ import me.armar.plugins.autorank.commands.manager.AutorankCommand;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.pathbuilder.Path;
 import me.armar.plugins.autorank.pathbuilder.holders.CompositeRequirement;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -21,20 +23,24 @@ public class CompleteCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        var mm = MiniMessage.miniMessage();
         if (!(sender instanceof Player)) {
-            sender.sendMessage(Lang.YOU_ARE_A_ROBOT.getConfigValue("you can't rank up, silly.."));
+            Component you_are_a_robot = mm.deserialize(Lang.YOU_ARE_A_ROBOT_COMPLETE.getConfigValue());
+            plugin.adventure().player((Player) sender).sendMessage(you_are_a_robot);
             return true;
         } else if (!this.hasPermission("autorank.complete", sender)) {
             return true;
         } else if (args.length < 2) {
-            sender.sendMessage(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+            Component invalid_format = mm.deserialize(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+            plugin.adventure().player((Player) sender).sendMessage(invalid_format);
             return true;
         } else {
             Player player = (Player)sender;
             String pathName;
             if (args.length < 3) {
                 if (this.plugin.getPathManager().getActivePaths(player.getUniqueId()).size() != 1) {
-                    sender.sendMessage(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+                    Component invalid_format = mm.deserialize(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+                    plugin.adventure().player((Player) sender).sendMessage(invalid_format);
                     return true;
                 }
 
@@ -53,22 +59,27 @@ public class CompleteCommand extends AutorankCommand {
                     completionID = 1;
                 }
             } catch (Exception var12) {
-                player.sendMessage(ChatColor.RED + Lang.INVALID_NUMBER.getConfigValue(new Object[]{reqIdString}));
+                Component invalid_number = mm.deserialize(Lang.INVALID_NUMBER.getConfigValue(new Object[]{reqIdString}));
+                plugin.adventure().player((Player) sender).sendMessage(invalid_number);
                 return true;
             }
 
             Path targetPath = this.plugin.getPathManager().findPathByDisplayName(pathName, false);
             if (targetPath == null) {
-                sender.sendMessage(Lang.NO_PATH_FOUND_WITH_THAT_NAME.getConfigValue());
+                Component no_path_found_with_that_name = mm.deserialize(Lang.NO_PATH_FOUND_WITH_THAT_NAME.getConfigValue());
+                plugin.adventure().player((Player) sender).sendMessage(no_path_found_with_that_name);
                 return true;
             } else if (!targetPath.isActive(player.getUniqueId())) {
-                sender.sendMessage(Lang.PATH_IS_NOT_ACTIVE.getConfigValue(targetPath.getDisplayName()));
+                Component path_is_not_active = mm.deserialize(Lang.PATH_IS_NOT_ACTIVE.getConfigValue(targetPath.getDisplayName()));
+                plugin.adventure().player((Player) sender).sendMessage(path_is_not_active);
                 return true;
             } else if (!targetPath.allowPartialCompletion()) {
-                sender.sendMessage(ChatColor.RED + Lang.THIS_PATH_DOES_NOT.getConfigValue());
+                Component this_path_does_not = mm.deserialize(Lang.THIS_PATH_DOES_NOT.getConfigValue());
+                plugin.adventure().player((Player) sender).sendMessage(this_path_does_not);
                 return true;
             } else if (targetPath.getFailedRequirements(player.getUniqueId(), true).size() == 0) {
-                player.sendMessage(ChatColor.GREEN + Lang.YOU_DONT_HAVE.getConfigValue());
+                Component you_dont_have = mm.deserialize(Lang.YOU_DONT_HAVE.getConfigValue());
+                plugin.adventure().player((Player) sender).sendMessage(you_dont_have);
                 return true;
             } else {
                 List<CompositeRequirement> requirements = targetPath.getRequirements();
@@ -78,15 +89,18 @@ public class CompleteCommand extends AutorankCommand {
 
                 CompositeRequirement holder = requirements.get(completionID - 1);
                 if (targetPath.hasCompletedRequirement(player.getUniqueId(), completionID - 1)) {
-                    player.sendMessage(ChatColor.RED + Lang.ALREADY_COMPLETED_REQUIREMENT.getConfigValue(new Object[0]));
+                    Component already_completed_requirement = mm.deserialize(Lang.ALREADY_COMPLETED_REQUIREMENT.getConfigValue(new Object[0]));
+                    plugin.adventure().player((Player) sender).sendMessage(already_completed_requirement);
                     return true;
                 } else {
                     if (holder.meetsRequirement(player.getUniqueId())) {
                         targetPath.completeRequirement(player.getUniqueId(), holder.getRequirementId());
                     } else {
-                        player.sendMessage(ChatColor.RED + Lang.DO_NOT_MEET_REQUIREMENTS_FOR.getConfigValue(new Object[]{completionID + ""}));
+                        Component do_not_meet_requirements_for = mm.deserialize(Lang.DO_NOT_MEET_REQUIREMENTS_FOR.getConfigValue(new Object[]{completionID + ""}));
+                        plugin.adventure().player((Player) sender).sendMessage(do_not_meet_requirements_for);
                         player.sendMessage(ChatColor.AQUA + holder.getDescription());
-                        player.sendMessage(ChatColor.GREEN + Lang.CURRENT.getConfigValue() + ChatColor.GOLD + holder.getProgress(player.getUniqueId()));
+                        Component current = mm.deserialize(Lang.CURRENT.getConfigValue() + holder.getProgress(player.getUniqueId()));
+                        plugin.adventure().player((Player) sender).sendMessage(current);
                     }
 
                     return true;

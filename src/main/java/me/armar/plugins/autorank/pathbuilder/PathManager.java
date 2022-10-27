@@ -7,6 +7,8 @@ import me.armar.plugins.autorank.pathbuilder.holders.CompositeRequirement;
 import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataManager;
 import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataStorage;
 import me.armar.plugins.autorank.pathbuilder.result.AbstractResult;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -265,6 +267,7 @@ public class PathManager {
     }
 
     public List<Path> autoAssignPaths(UUID uuid) {
+        var mm = MiniMessage.miniMessage();
         this.plugin.debugMessage("Trying to assign paths to " + uuid);
         List<Path> assignedPaths = new ArrayList();
         Iterator var3 = this.getAllPaths().iterator();
@@ -284,7 +287,8 @@ public class PathManager {
                 if (onlinePlayer != null) {
                     this.plugin.debugMessage("Assigned " + path.getDisplayName() + " to " + onlinePlayer.getName());
                     if (this.plugin.getSettingsConfig().automaticallyBeenAssigned()) {
-                        onlinePlayer.sendMessage(Lang.AUTOMATICALLY_ASSIGNED_PATH.getConfigValue(path.getDisplayName()));
+                        Component automatically_assigned_path = mm.deserialize(Lang.AUTOMATICALLY_ASSIGNED_PATH.getConfigValue(path.getDisplayName()));
+                        plugin.adventure().player((Player) onlinePlayer).sendMessage(automatically_assigned_path);
                     }
                 }
 

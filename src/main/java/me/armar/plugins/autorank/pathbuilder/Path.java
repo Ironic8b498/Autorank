@@ -7,6 +7,8 @@ import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.pathbuilder.holders.CompositeRequirement;
 import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataManager;
 import me.armar.plugins.autorank.pathbuilder.result.AbstractResult;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -194,6 +196,7 @@ public class Path {
     }
 
     public void completeRequirement(UUID uuid, int reqId) {
+        var mm = MiniMessage.miniMessage();
         CompositeRequirement requirement = this.getRequirement(reqId);
         if (requirement != null) {
             OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
@@ -204,7 +207,8 @@ public class Path {
                         s.addCompletedRequirementWithMissingResults(uuid, this.getInternalName(), reqId);
                     });
                 } else if (this.plugin.getSettingsConfig().successfullyCompletedRequirement()){
-                    player.sendMessage(ChatColor.GREEN + Lang.SUCCESSFULLY_COMPLETED_REQUIREMENT.getConfigValue(new Object[]{reqId + ""}));
+                    Component successfully_completed_requirement = mm.deserialize(Lang.SUCCESSFULLY_COMPLETED_REQUIREMENT.getConfigValue(new Object[]{reqId + ""}));
+                    plugin.adventure().player((Player) player).sendMessage(successfully_completed_requirement);
                     player.sendMessage(ChatColor.AQUA + requirement.getDescription());
                 }
 
