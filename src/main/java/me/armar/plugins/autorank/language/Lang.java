@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public enum Lang {
     ABOUT_LINE("ABOUT-LINE", "<BLUE>-----------------------------------------------------"),
+    ACROSS_ALL_SERVERS("ACROSS-ALL-SERVERS", " <GREEN>across all servers."),
     ACTIVE("ACTIVE", "Active paths"),
     ADVANCEMENT_MULTIPLE_REQUIREMENT("ADVANCEMENT-MULTIPLE-REQUIREMENT", "Obtain at least {0} advancements"),
     ADVANCEMENT_SINGLE_REQUIREMENT("ADVANCEMENT-SINGLE-REQUIREMENT", "Obtain Advancement '{0}'"),
@@ -38,7 +39,7 @@ public enum Lang {
     BUT_YOUR_PROGRESS("BUT-YOUR-PROGRESS", "<GOLD>but your progress for this path has been stored."),
     CAKESLICES_EATEN_REQUIREMENT("CAKESLICES-EATEN-REQUIREMENT", "Eat at least {0} slices of cake"),
     CANNOT_CHECK_CONSOLE("CANNOT-CHECK-CONSOLE", "<RED>Cannot check for console!"),
-    CHECKED("CHECKED", " checked!"),
+    CHECKED("CHECKED", " <GREEN>checked!"),
     CHOSEN_PATH("CHOSEN-PATH", "<DARK_GREEN>You have chosen <GRAY>'{0}'<DARK_GREEN>."),
     COMMAND_NOT_RECOGNISED("COMMAND-NOT-RECOGNISED", "<RED>Command not recognised!"),
     COMMAND_RESULT("COMMAND-RESULT", "Perform the following command(s): {0}"),
@@ -77,6 +78,7 @@ public enum Lang {
     GRIEF_PREVENTION_CLAIMS_COUNT_REQUIREMENT("GRIEF-PREVENTION-CLAIMS-COUNT-REQUIREMENT", "Have at least {0} claims in GriefPrevention"),
     GRIEF_PREVENTION_REMAINING_BLOCKS_REQUIREMENT("GRIEF-PREVENTION-REMAINING-BLOCKS-REQUIREMENT", "Have at least {0} remaining blocks to use in claims in GriefPrevention"),
     GROUP_REQUIREMENT("GROUP-REQUIREMENT", "Be in group {0}."),
+    HAS_PLAYED("HAS-PLAYED", "<GOLD>{0} <GREEN>has played for <GOLD>"),
     HAS_PLAYED_FOR("HAS-PLAYED-FOR", "<GOLD>{0}<GRAY> has played for {1}."),
     HOUR_PLURAL("HOUR-PLURAL", "hours"),
     HOUR_SINGULAR("HOUR-SINGULAR", "hour"),
