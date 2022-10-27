@@ -288,7 +288,7 @@ public class PathManager {
                     this.plugin.debugMessage("Assigned " + path.getDisplayName() + " to " + onlinePlayer.getName());
                     if (this.plugin.getSettingsConfig().automaticallyBeenAssigned()) {
                         Component automatically_assigned_path = mm.deserialize(Lang.AUTOMATICALLY_ASSIGNED_PATH.getConfigValue(path.getDisplayName()));
-                        plugin.adventure().player((Player) onlinePlayer).sendMessage(automatically_assigned_path);
+                        plugin.adventure().player(onlinePlayer).sendMessage(automatically_assigned_path);
                     }
                 }
 

@@ -7,7 +7,6 @@ import me.armar.plugins.autorank.pathbuilder.Path;
 import me.armar.plugins.autorank.util.AutorankTools;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
