@@ -44,6 +44,6 @@ public class PlantsPottedRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.getStatisticsManager().getPlantsPotted(uuid) * 1.0D / (double)this.plantsPotted;
+        return (double) this.getStatisticsManager().getPlantsPotted(uuid) / (double)this.plantsPotted;
     }
 }

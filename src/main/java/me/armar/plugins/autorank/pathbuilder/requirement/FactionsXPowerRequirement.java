@@ -56,6 +56,6 @@ public class FactionsXPowerRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return this.handler.getFactionPower(uuid) * 1.0D / this.factionPower;
+        return this.handler.getFactionPower(uuid) / this.factionPower;
     }
 }

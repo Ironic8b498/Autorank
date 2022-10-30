@@ -44,6 +44,6 @@ public class AnimalsBredRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.getStatisticsManager().getAnimalsBred(uuid) * 1.0D / (double)this.animalsBred;
+        return (double) this.getStatisticsManager().getAnimalsBred(uuid) / (double)this.animalsBred;
     }
 }

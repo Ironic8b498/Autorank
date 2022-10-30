@@ -46,6 +46,6 @@ public class PlayerKillsRequirement extends AbstractRequirement {
 
     public double getProgressPercentage(UUID uuid) {
         int killed = this.getStatisticsManager().getPlayersKilled(uuid, this.getWorld());
-        return (double)killed * 1.0D / (double)this.totalPlayersKilled;
+        return (double) killed / (double)this.totalPlayersKilled;
     }
 }

@@ -6,9 +6,7 @@ import me.armar.plugins.autorank.commands.*;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.util.AutorankTools;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.event.HoverEvent;
-import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -62,16 +60,11 @@ public class CommandsManager implements TabExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         var mm = MiniMessage.miniMessage();
         if (args.length == 0) {
-            Component about = mm.deserialize(Lang.ABOUT_LINE.getConfigValue());
+            Component about = mm.deserialize(Lang.ABOUT_LINE.getConfigValue())
+                    .append(mm.deserialize( "<NEWLINE>" + Lang.DEVELOPED.getConfigValue(this.plugin.getDescription().getAuthors())))
+                    .append(mm.deserialize("<NEWLINE>" + Lang.VERSION.getConfigValue(this.plugin.getDescription().getVersion())))
+                    .append(mm.deserialize("<NEWLINE>" + Lang.LIST_OF_COMMANDS.getConfigValue()));
             plugin.adventure().player((Player) sender).sendMessage(about);
-            Component about1 = mm.deserialize(Lang.DEVELOPED.getConfigValue())
-                    .append(Component.text(String.valueOf(this.plugin.getDescription().getAuthors()), NamedTextColor.GRAY));
-            plugin.adventure().player((Player) sender).sendMessage(about1);
-            Component about2 = mm.deserialize(Lang.VERSION.getConfigValue())
-                    .append(Component.text(this.plugin.getDescription().getVersion(), NamedTextColor.GRAY));
-            plugin.adventure().player((Player) sender).sendMessage(about2);
-            Component about3 = mm.deserialize(Lang.LIST_OF_COMMANDS.getConfigValue());
-            plugin.adventure().player((Player) sender).sendMessage(about3);
             return true;
         } else {
             String action = args[0];

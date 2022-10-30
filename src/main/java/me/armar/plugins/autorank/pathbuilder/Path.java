@@ -207,8 +207,8 @@ public class Path {
                         s.addCompletedRequirementWithMissingResults(uuid, this.getInternalName(), reqId);
                     });
                 } else if (this.plugin.getSettingsConfig().successfullyCompletedRequirement()){
-                    Component successfully_completed_requirement = mm.deserialize(Lang.SUCCESSFULLY_COMPLETED_REQUIREMENT.getConfigValue(new Object[]{reqId + ""}));
-                    plugin.adventure().player((Player) player).sendMessage(successfully_completed_requirement);
+                    Component successfully_completed_requirement = mm.deserialize(Lang.SUCCESSFULLY_COMPLETED_REQUIREMENT.getConfigValue(reqId + ""));
+                    plugin.adventure().player(player).sendMessage(successfully_completed_requirement);
                     player.sendMessage(ChatColor.AQUA + requirement.getDescription());
                 }
 

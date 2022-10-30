@@ -107,6 +107,6 @@ public class BlocksBrokenRequirement extends AbstractRequirement {
             progress = this.getStatisticsManager().getBlocksBroken(uuid, this.getWorld(), this.wrapper.getItem().getType());
         }
 
-        return (double)progress * 1.0D / (double)this.wrapper.getBlocksBroken();
+        return (double) progress / (double)this.wrapper.getBlocksBroken();
     }
 }

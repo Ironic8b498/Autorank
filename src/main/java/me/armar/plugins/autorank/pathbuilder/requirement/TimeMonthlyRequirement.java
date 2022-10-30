@@ -64,6 +64,6 @@ public class TimeMonthlyRequirement extends AbstractRequirement {
             var4.printStackTrace();
         }
 
-        return (double)playTime * 1.0D / (double)this.timeNeeded;
+        return (double) playTime / (double)this.timeNeeded;
     }
 }

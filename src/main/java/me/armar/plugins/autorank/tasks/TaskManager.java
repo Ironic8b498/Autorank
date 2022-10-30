@@ -20,7 +20,7 @@ public class TaskManager {
 
     public void startUpdatePlayTimeTask(UUID uuid) {
         if (!this.updatePlayTimeTaskIds.containsKey(uuid)) {
-            BukkitTask task = this.plugin.getServer().getScheduler().runTaskTimerAsynchronously(this.plugin, new UpdateTimePlayedTask(this.plugin, uuid), PlayTimeManager.INTERVAL_MINUTES * 1200, PlayTimeManager.INTERVAL_MINUTES * 1200);
+            BukkitTask task = this.plugin.getServer().getScheduler().runTaskTimerAsynchronously(this.plugin, new UpdateTimePlayedTask(this.plugin, uuid), PlayTimeManager.INTERVAL_MINUTES * 1200L, PlayTimeManager.INTERVAL_MINUTES * 1200L);
             this.updatePlayTimeTaskIds.put(uuid, task.getTaskId());
             this.lastPlayTimeUpdate.put(uuid, System.currentTimeMillis());
             this.plugin.debugMessage("Registered update play time task for player " + uuid + " (" + task.getTaskId() + ").");

@@ -53,6 +53,6 @@ public class GriefPreventionRemainingBlocksRequirement extends AbstractRequireme
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.handler.getNumberOfRemainingBlocks(uuid) * 1.0D / (double)this.remainingBlocks;
+        return (double) this.handler.getNumberOfRemainingBlocks(uuid) / (double)this.remainingBlocks;
     }
 }

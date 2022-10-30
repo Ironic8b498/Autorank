@@ -2,6 +2,9 @@ package me.armar.plugins.autorank.storage;
 
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.language.Lang;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.bukkit.entity.Player;
 
 import java.time.LocalDate;
 import java.time.temporal.WeekFields;
@@ -208,6 +211,7 @@ public class PlayTimeStorageManager {
     }
 
     public void checkDataIsUpToDate() {
+        var mm = MiniMessage.miniMessage();
         this.plugin.getServer().getScheduler().runTaskAsynchronously(this.plugin, () -> {
             LocalDate today = LocalDate.now();
             this.plugin.debugMessage("Running check to see if data files are still up to date.");
@@ -225,6 +229,8 @@ public class PlayTimeStorageManager {
                     if (type == TimeType.DAILY_TIME) {
                         value = today.getDayOfWeek().getValue();
                         broadcastMessage = Lang.RESET_DAILY_TIME.getConfigValue();
+//                        Component you_should_specify = mm.deserialize(Lang.YOU_SHOULD_SPECIFY.getConfigValue());
+//                        plugin.adventure().player((Player) sender).sendMessage(you_should_specify);
                     } else if (type == TimeType.WEEKLY_TIME) {
                         value = today.get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear());
                         broadcastMessage = Lang.RESET_WEEKLY_TIME.getConfigValue();

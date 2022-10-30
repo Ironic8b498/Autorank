@@ -39,7 +39,7 @@ public class VanillaMigration extends MigrationablePlugin {
                         return playersImported;
                     }
 
-                    world = (World)var2.next();
+                    world = var2.next();
                     File worldFolder = new File(world.getWorldFolder(), "stats");
                     playerFiles = worldFolder.listFiles();
                 } while(playerFiles == null);

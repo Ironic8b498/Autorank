@@ -65,6 +65,6 @@ public class GlobalTimeRequirement extends AbstractRequirement {
             var4.printStackTrace();
         }
 
-        return (double)playTime * 1.0D / (double)this.globalTime;
+        return (double) playTime / (double)this.globalTime;
     }
 }

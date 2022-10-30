@@ -120,9 +120,7 @@ public class PlayerChecker {
         for(int i = 0; i < abstractResults.size(); ++i) {
             AbstractResult abstractResult = abstractResults.get(i);
             if (abstractResult != null) {
-                StringBuilder message = new StringBuilder("     " + ChatColor.GOLD + (i + 1) + ". ");
-                message.append(ChatColor.RED + abstractResult.getDescription());
-                messages.add(message.toString());
+                messages.add("     " + ChatColor.GOLD + (i + 1) + ". " + ChatColor.RED + abstractResult.getDescription());
             }
         }
 

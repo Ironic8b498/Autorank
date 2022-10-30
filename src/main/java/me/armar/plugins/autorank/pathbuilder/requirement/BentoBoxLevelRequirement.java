@@ -58,6 +58,6 @@ public class BentoBoxLevelRequirement extends AbstractRequirement {
 
     public double getProgressPercentage(UUID uuid) {
         World world = Bukkit.getServer().getWorld(islandWorld);
-        return (double)this.handler.getIslandLevel(world, uuid) * 1.0D / (double)this.islandLevel;
+        return (double) this.handler.getIslandLevel(world, uuid) / (double)this.islandLevel;
     }
 }

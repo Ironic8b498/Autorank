@@ -69,6 +69,6 @@ public class PlaceholderapiIntegerRequirement extends AbstractRequirement {
     public double getProgressPercentage(UUID uuid) {
         Player player = Bukkit.getPlayer(uuid);
         Integer placeholderValue = Integer.valueOf(PlaceholderAPI.setPlaceholders(player, placeholderVal));
-        return (double) placeholderValue * 1.0D / (double) this.placeholderInt;
+        return (double) placeholderValue / (double) this.placeholderInt;
     }
 }

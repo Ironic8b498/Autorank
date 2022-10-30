@@ -44,6 +44,6 @@ public class TimesDiedRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.getStatisticsManager().getTimesDied(uuid) * 1.0D / (double)this.timesDied;
+        return (double) this.getStatisticsManager().getTimesDied(uuid) / (double)this.timesDied;
     }
 }

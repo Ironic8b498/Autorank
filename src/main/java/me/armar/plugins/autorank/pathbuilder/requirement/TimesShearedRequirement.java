@@ -45,6 +45,6 @@ public class TimesShearedRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.getStatisticsManager().getSheepShorn(uuid, this.getWorld()) * 1.0D / (double)this.timesShorn;
+        return (double) this.getStatisticsManager().getSheepShorn(uuid, this.getWorld()) / (double)this.timesShorn;
     }
 }

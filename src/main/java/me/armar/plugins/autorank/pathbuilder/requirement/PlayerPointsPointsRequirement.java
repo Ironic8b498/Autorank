@@ -50,6 +50,6 @@ public class PlayerPointsPointsRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.handler.getPlayerPoints(uuid) * 1.0D / (double)this.requiredPoints;
+        return (double) this.handler.getPlayerPoints(uuid) / (double)this.requiredPoints;
     }
 }

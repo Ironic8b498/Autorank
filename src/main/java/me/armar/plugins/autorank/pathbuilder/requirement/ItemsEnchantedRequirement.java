@@ -44,6 +44,6 @@ public class ItemsEnchantedRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.getStatisticsManager().getItemsEnchanted(uuid) * 1.0D / (double)this.itemsEnchanted;
+        return (double) this.getStatisticsManager().getItemsEnchanted(uuid) / (double)this.itemsEnchanted;
     }
 }

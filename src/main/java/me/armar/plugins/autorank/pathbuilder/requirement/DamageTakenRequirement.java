@@ -46,6 +46,6 @@ public class DamageTakenRequirement extends AbstractRequirement {
 
     public double getProgressPercentage(UUID uuid) {
         int damTaken = this.getStatisticsManager().getDamageTaken(uuid, this.getWorld());
-        return (double)damTaken * 1.0D / (double)this.damageTaken;
+        return (double) damTaken / (double)this.damageTaken;
     }
 }

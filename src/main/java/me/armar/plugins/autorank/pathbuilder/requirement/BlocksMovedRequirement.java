@@ -50,6 +50,6 @@ public class BlocksMovedRequirement extends AbstractRequirement {
 
     public double getProgressPercentage(UUID uuid) {
         int progressBar = this.getStatisticsManager().getBlocksMoved(uuid, this.getWorld());
-        return (double)progressBar * 1.0D / (double)this.wrapper.getBlocksMoved();
+        return (double) progressBar / (double)this.wrapper.getBlocksMoved();
     }
 }

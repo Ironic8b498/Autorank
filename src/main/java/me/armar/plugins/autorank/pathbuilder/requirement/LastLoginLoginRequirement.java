@@ -62,6 +62,6 @@ public class LastLoginLoginRequirement extends AbstractRequirement {
         LocalDateTime from = LocalDateTime.ofInstant(Instant.ofEpochSecond(this.handler.getlastLogin(uuid)), TimeZone.getDefault().toZoneId());
         LocalDateTime to = LocalDateTime.now();
         Duration duration = Duration.between(from, to);
-        return (double) duration.toMinutes() * 1.0D / (double) this.lastlogin;
+        return (double) duration.toMinutes() / (double) this.lastlogin;
     }
 }

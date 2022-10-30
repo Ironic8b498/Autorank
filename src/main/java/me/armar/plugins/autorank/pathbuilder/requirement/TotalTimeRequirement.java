@@ -57,6 +57,6 @@ public class TotalTimeRequirement extends AbstractRequirement {
         long joinTime = Bukkit.getOfflinePlayer(uuid).getFirstPlayed();
         long currentTime = System.currentTimeMillis();
         long difference = (currentTime - joinTime) / 60000L;
-        return (double)difference * 1.0D / (double)this.totalTime;
+        return (double) difference / (double)this.totalTime;
     }
 }
