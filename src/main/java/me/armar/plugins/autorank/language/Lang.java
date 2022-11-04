@@ -1,6 +1,5 @@
 package me.armar.plugins.autorank.language;
 
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public enum Lang {
@@ -94,8 +93,8 @@ public enum Lang {
     IMPORTING_DATA_ADDING_GLOBAL("IMPORTING-DATA-ADDING-GLOBAL", "Importing data and adding to global database."),
     IMPORTING_DATA_ADDING_LOCAL("IMPORTING-DATA-ADDING-LOCAL", "Importing data and adding to local database."),
     IMPORTING_DATA_BOTH("IMPORTING-DATA-BOTH", "<GOLD>Importing data and overriding both the global and local database."),
-    IMPORTING_DATA_OVERRIDING_GLOBAL("<GOLD>IMPORTING-DATA-OVERRIDING-GLOBAL", "Importing data and overriding global database."),
-    IMPORTING_DATA_OVERRIDING_LOCAL("<GOLD>IMPORTING-DATA-OVERRIDING-LOCAL", "Importing data and overriding local database."),
+    IMPORTING_DATA_OVERRIDING_GLOBAL("IMPORTING-DATA-OVERRIDING-GLOBAL", "<GOLD>Importing data and overriding global database."),
+    IMPORTING_DATA_OVERRIDING_LOCAL("IMPORTING-DATA-OVERRIDING-LOCAL", "<GOLD>Importing data and overriding local database."),
     INFO_HEADER("INFO-HEADER", "<DARK_AQUA>---------- [<GOLD>{0}<DARK_AQUA>] ----------"),
     INVALID_FORMAT("INVALID-FORMAT", "<RED>Invalid format, use {0}."),
     INVALID_LEADERBOARD_TYPE("INVALID-LEADERBOARD-TYPE", "<RED>You have not specified a valid leaderboard type! <YELLOW>Only 'total', 'daily', 'weekly' and 'monthly' are allowed."),
@@ -272,7 +271,7 @@ public enum Lang {
     }
 
     public String getConfigValue(Object... args) {
-        String value = ChatColor.translateAlternateColorCodes('&', LANG.getString(this.getPath(), this.getDefault()));
+        String value = (LANG.getString(this.getPath(), this.getDefault()));
         if (args != null && args.length != 0) {
             if (args[0] == null) {
                 return value;

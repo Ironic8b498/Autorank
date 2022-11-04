@@ -4,7 +4,8 @@ import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.commands.manager.AutorankCommand;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.storage.TimeType;
-import org.bukkit.ChatColor;
+import me.armar.plugins.autorank.util.AutorankTools;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -63,16 +64,15 @@ public class LeaderboardCommand extends AutorankCommand {
             }
 
             if (type == null) {
-                sender.sendMessage(Lang.INVALID_LEADERBOARD_TYPE.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.INVALID_LEADERBOARD_TYPE.getConfigValue());
                 return true;
             } else if (force) {
-                sender.sendMessage(ChatColor.GREEN + Lang.UPDATING.getConfigValue());
-                sender.sendMessage(ChatColor.GOLD + Lang.ILL_LET.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.UPDATING.getConfigValue() + "<NEWLINE>" + Lang.ILL_LET.getConfigValue());
                 TimeType finalType = type;
                 this.plugin.getServer().getScheduler().runTaskAsynchronously(this.plugin, new Runnable() {
                     public void run() {
                         LeaderboardCommand.this.plugin.getLeaderboardManager().updateLeaderboard(finalType);
-                        sender.sendMessage(ChatColor.YELLOW + Lang.LEADERBOARD.getConfigValue());
+                        AutorankTools.sendDeserialize(sender, Lang.LEADERBOARD.getConfigValue());
                         LeaderboardCommand.this.plugin.getLeaderboardManager().sendLeaderboard(sender, finalType);
                     }
                 });

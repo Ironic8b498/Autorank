@@ -14,11 +14,9 @@ import me.armar.plugins.autorank.commands.manager.AutorankCommand;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.pathbuilder.Path;
 import me.armar.plugins.autorank.pathbuilder.holders.CompositeRequirement;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.MiniMessage;
+import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
@@ -30,8 +28,7 @@ public class EditorCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        var mm = MiniMessage.miniMessage();
-        if (!this.hasPermission(this.getPermission(), sender)) {
+        if (!this.hasPermission("autorank.editor", sender)) {
             return true;
         } else {
             AutorankConversation conversation = AutorankConversation.fromFirstPrompt(new SelectPlayerPrompt());
@@ -58,12 +55,9 @@ public class EditorCommand extends AutorankCommand {
 
                         try {
                             this.plugin.getPathManager().assignPath(pathx, uuid, assignedByForce);
-                            Component assigned = mm.deserialize(Lang.ASSIGNED.getConfigValue(playerName, pathx.getDisplayName()));
-                            plugin.adventure().player((Player) sender).sendMessage(assigned);
+                            AutorankTools.sendDeserialize(sender, Lang.ASSIGNED.getConfigValue(playerName, pathx.getDisplayName()));
                         } catch (IllegalArgumentException var10) {
-                            Component could_not_assign = mm.deserialize(Lang.COULD_NOT_ASSIGN.getConfigValue(playerName, pathx.getDisplayName()));
-                            plugin.adventure().player((Player) sender).sendMessage(could_not_assign);
-                            return;
+                            AutorankTools.sendDeserialize(sender, Lang.COULD_NOT_ASSIGN.getConfigValue(playerName, pathx.getDisplayName()));
                         }
                     } else {
                         String pathOfRequirement;
@@ -84,8 +78,7 @@ public class EditorCommand extends AutorankCommand {
                             }
 
                             this.plugin.getPathManager().deassignPath(path, uuid);
-                            Component unassigned = mm.deserialize(Lang.UNASSIGNED.getConfigValue(playerName, path.getDisplayName()));
-                            plugin.adventure().player((Player) sender).sendMessage(unassigned);
+                            AutorankTools.sendDeserialize(sender, Lang.UNASSIGNED.getConfigValue(playerName, path.getDisplayName()));
                         } else if (actionType.equals(EditorMenuPrompt.ACTION_TYPE_COMPLETE_PATH)) {
                             if (!this.hasPermission("autorank.editor.complete.path", sender)) {
                                 return;
@@ -101,8 +94,7 @@ public class EditorCommand extends AutorankCommand {
                                 return;
                             }
 
-                            Component path_has_been = mm.deserialize(Lang.PATH_HAS_BEEN.getConfigValue(playerName, path.getDisplayName()));
-                            plugin.adventure().player((Player) sender).sendMessage(path_has_been);
+                            AutorankTools.sendDeserialize(sender, Lang.PATH_HAS_BEEN.getConfigValue(playerName, path.getDisplayName()));
                             this.plugin.getPathManager().completePath(path, uuid);
                         } else if (actionType.equals(EditorMenuPrompt.ACTION_TYPE_COMPLETE_REQUIREMENT)) {
                             if (!this.hasPermission("autorank.editor.complete.requirement", sender)) {
@@ -129,8 +121,7 @@ public class EditorCommand extends AutorankCommand {
                                 return;
                             }
 
-                            Component requirement_progress = mm.deserialize(Lang.REQUIREMENT_PROGRESS.getConfigValue(playerName, path.getDisplayName()));
-                            plugin.adventure().player((Player) sender).sendMessage(requirement_progress);
+                            AutorankTools.sendDeserialize(sender, Lang.REQUIREMENT_PROGRESS.getConfigValue(playerName, path.getDisplayName()));
                             path.completeRequirement(uuid, requirementId);
                         }
                     }

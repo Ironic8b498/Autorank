@@ -7,14 +7,12 @@ import me.armar.plugins.autorank.storage.PlayTimeStorageProvider;
 import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 public class GlobalAddCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -24,22 +22,18 @@ public class GlobalAddCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        var mm = MiniMessage.miniMessage();
         if (!this.hasPermission("autorank.gadd", sender)) {
             return true;
         } else if (args.length < 3) {
-            Component invalid_format = mm.deserialize(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
-            plugin.adventure().player((Player) sender).sendMessage(invalid_format);
+            AutorankTools.sendDeserialize(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
             return true;
         } else if (!this.plugin.getPlayTimeStorageManager().isStorageTypeActive(PlayTimeStorageProvider.StorageType.DATABASE)) {
-            Component mysql_is_not_enabled = mm.deserialize(Lang.MYSQL_IS_NOT_ENABLED.getConfigValue(new Object[0]));
-            plugin.adventure().player((Player) sender).sendMessage(mysql_is_not_enabled);
+            AutorankTools.sendDeserialize(sender, Lang.MYSQL_IS_NOT_ENABLED.getConfigValue());
             return true;
         } else {
             CompletableFuture<Void> task = UUIDManager.getUUID(args[1]).thenAccept((uuid) -> {
                 if (uuid == null) {
-                    Component unknown_player = mm.deserialize(Lang.UNKNOWN_PLAYER.getConfigValue(args[1]));
-                    plugin.adventure().player((Player) sender).sendMessage(unknown_player);
+                    AutorankTools.sendDeserialize(sender, Lang.UNKNOWN_PLAYER.getConfigValue(args[1]));
                 } else {
                     int value = AutorankTools.readTimeInput(args, 2);
                     if (value >= 0) {
@@ -69,13 +63,10 @@ public class GlobalAddCommand extends AutorankCommand {
                             var10.printStackTrace();
                         }
 
-                       // AutorankTools.sendColoredMessage(sender, Lang.PLAYTIME_CHANGED.getConfigValue(playerName, globalPlayTime + value));
-                        Component playtime_changed = mm.deserialize(Lang.PLAYTIME_CHANGED.getConfigValue(playerName, globalPlayTime + value));
-                        plugin.adventure().player((Player) sender).sendMessage(playtime_changed);
+                        globalPlayTime = globalPlayTime + value;
+                        AutorankTools.sendDeserialize(sender, Lang.PLAYTIME_CHANGED.getConfigValue(playerName, AutorankTools.timeToString(globalPlayTime, TimeUnit.MINUTES)));
                     } else {
-                       // AutorankTools.sendColoredMessage(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
-                        Component invalid_format = mm.deserialize(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
-                        plugin.adventure().player((Player) sender).sendMessage(invalid_format);
+                        AutorankTools.sendDeserialize(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
                     }
 
                 }

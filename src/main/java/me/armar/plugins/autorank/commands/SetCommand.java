@@ -22,7 +22,7 @@ public class SetCommand extends AutorankCommand {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length < 3) {
-            sender.sendMessage(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+            AutorankTools.sendDeserialize(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
             return true;
         } else {
             int value = AutorankTools.readTimeInput(args, 2);
@@ -33,7 +33,7 @@ public class SetCommand extends AutorankCommand {
 
                 CompletableFuture<Void> task = UUIDManager.getUUID(args[1]).thenAccept((uuid) -> {
                     if (uuid == null) {
-                        sender.sendMessage(Lang.UNKNOWN_PLAYER.getConfigValue(args[1]));
+                        AutorankTools.sendDeserialize(sender, Lang.UNKNOWN_PLAYER.getConfigValue(args[1]));
                     } else {
                         String playerName = args[1];
 
@@ -52,12 +52,12 @@ public class SetCommand extends AutorankCommand {
                             var8.printStackTrace();
                         }
 
-                        AutorankTools.sendColoredMessage(sender, Lang.PLAYTIME_CHANGED.getConfigValue(playerName, AutorankTools.timeToString(newPlayerTime, TimeUnit.MINUTES)));
+                        AutorankTools.sendDeserialize(sender, Lang.PLAYTIME_CHANGED.getConfigValue(playerName, AutorankTools.timeToString(newPlayerTime, TimeUnit.MINUTES)));
                     }
                 });
                 this.runCommandTask(task);
             } else {
-                AutorankTools.sendColoredMessage(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+                AutorankTools.sendDeserialize(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
             }
 
             return true;

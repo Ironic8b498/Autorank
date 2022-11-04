@@ -5,8 +5,8 @@ import me.armar.plugins.autorank.commands.conversations.AutorankConversation;
 import me.armar.plugins.autorank.commands.conversations.resetcommand.ResetConversationType;
 import me.armar.plugins.autorank.commands.manager.AutorankCommand;
 import me.armar.plugins.autorank.language.Lang;
+import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -75,20 +75,22 @@ public class ResetCommand extends AutorankCommand {
                     }
 
                     if (uuid == null) {
-                        sender.sendMessage(Lang.PLAYER_IS_INVALID.getConfigValue(playerName));
+                        AutorankTools.sendDeserialize(sender, Lang.PLAYER_IS_INVALID.getConfigValue(playerName));
+
                     } else {
                         if (resetType.equalsIgnoreCase(ResetConversationType.RESET_ACTIVE_PROGRESS)) {
                             this.plugin.getPathManager().resetProgressOnActivePaths(uuid);
-                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Lang.RESET_PROGRESS.getConfigValue(playerName)));
+                            AutorankTools.sendDeserialize(sender, Lang.RESET_PROGRESS.getConfigValue(playerName));
                         } else if (resetType.equalsIgnoreCase(ResetConversationType.RESET_ACTIVE_PATHS)) {
                             this.plugin.getPathManager().resetActivePaths(uuid);
-                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Lang.REMOVED_ALL_ACTIVE.getConfigValue(playerName)));
+                            AutorankTools.sendDeserialize(sender, Lang.REMOVED_ALL_ACTIVE.getConfigValue(playerName));
                         } else if (resetType.equalsIgnoreCase(ResetConversationType.RESET_COMPLETED_PATHS)) {
                             this.plugin.getPathManager().resetCompletedPaths(uuid);
-                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Lang.REMOVED_ALL_COMPLETED.getConfigValue(playerName)));
+                            AutorankTools.sendDeserialize(sender, Lang.REMOVED_ALL_COMPLETED.getConfigValue(playerName));
                         } else if (resetType.equalsIgnoreCase(ResetConversationType.RESET_ALL_PROGRESS)) {
                             this.plugin.getPathManager().resetAllProgress(uuid);
-                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Lang.RESET_PROGRESS_ON_ALL.getConfigValue(playerName)));
+                            AutorankTools.sendDeserialize(sender, Lang.RESET_PROGRESS_ON_ALL.getConfigValue(playerName));
+
                         }
 
                     }

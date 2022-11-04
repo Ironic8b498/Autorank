@@ -62,7 +62,7 @@ public class Autorank extends JavaPlugin {
         }
         return this.adventure;
     }
-    private static Autorank autorank;
+    public static Autorank autorank;
     private PathManager pathManager;
     private AddOnManager addonManager;
     private BackupManager backupManager;

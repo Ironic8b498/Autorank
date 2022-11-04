@@ -7,6 +7,8 @@ import me.armar.plugins.autorank.playtimes.PlayTimeManager;
 import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -23,6 +25,7 @@ public class TimesCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        var mm = MiniMessage.miniMessage();
         String targetName = "";
         if (args.length > 1) {
             if (!this.hasPermission("autorank.times.others", sender)) {
@@ -32,7 +35,7 @@ public class TimesCommand extends AutorankCommand {
             targetName = args[1];
         } else {
             if (!(sender instanceof Player)) {
-                AutorankTools.sendColoredMessage(sender, Lang.CANNOT_CHECK_CONSOLE.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.CANNOT_CHECK_CONSOLE.getConfigValue());
                 return true;
             }
 
@@ -46,7 +49,7 @@ public class TimesCommand extends AutorankCommand {
         String finalTargetName = targetName;
         CompletableFuture<Void> task = UUIDManager.getUUID(targetName).thenAccept((uuid) -> {
             if (uuid == null) {
-                sender.sendMessage(Lang.UNKNOWN_PLAYER.getConfigValue(finalTargetName));
+                AutorankTools.sendDeserialize(sender, Lang.UNKNOWN_PLAYER.getConfigValue(finalTargetName));
             } else {
                 String playerName = finalTargetName;
 
@@ -71,12 +74,13 @@ public class TimesCommand extends AutorankCommand {
                     var11.printStackTrace();
                 }
 
-                sender.sendMessage(Lang.AUTORANK_TIMES_HEADER.getConfigValue(playerName));
-                sender.sendMessage(Lang.AUTORANK_TIMES_PLAYER_PLAYED.getConfigValue(playerName));
-                sender.sendMessage(Lang.AUTORANK_TIMES_TODAY.getConfigValue(AutorankTools.timeToString(daily, TimeUnit.MINUTES)));
-                sender.sendMessage(Lang.AUTORANK_TIMES_THIS_WEEK.getConfigValue(AutorankTools.timeToString(weekly, TimeUnit.MINUTES)));
-                sender.sendMessage(Lang.AUTORANK_TIMES_THIS_MONTH.getConfigValue(AutorankTools.timeToString(monthly, TimeUnit.MINUTES)));
-                sender.sendMessage(Lang.AUTORANK_TIMES_TOTAL.getConfigValue(AutorankTools.timeToString(total, TimeUnit.MINUTES)));
+                Component times_command = mm.deserialize(Lang.AUTORANK_TIMES_HEADER.getConfigValue(playerName))
+                        .append(mm.deserialize("<NEWLINE>" + Lang.AUTORANK_TIMES_PLAYER_PLAYED.getConfigValue(playerName))
+                        .append(mm.deserialize("<NEWLINE>" + Lang.AUTORANK_TIMES_TODAY.getConfigValue(AutorankTools.timeToString(daily, TimeUnit.MINUTES))))
+                        .append(mm.deserialize("<NEWLINE>" + Lang.AUTORANK_TIMES_THIS_WEEK.getConfigValue(AutorankTools.timeToString(weekly, TimeUnit.MINUTES))))
+                        .append(mm.deserialize("<NEWLINE>" + Lang.AUTORANK_TIMES_THIS_MONTH.getConfigValue(AutorankTools.timeToString(monthly, TimeUnit.MINUTES))))
+                        .append(mm.deserialize("<NEWLINE>" + Lang.AUTORANK_TIMES_TOTAL.getConfigValue(AutorankTools.timeToString(total, TimeUnit.MINUTES)))));
+                plugin.adventure().player((Player) sender).sendMessage(times_command);
             }
         });
         this.runCommandTask(task);

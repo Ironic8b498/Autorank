@@ -24,12 +24,12 @@ public class RemoveCommand extends AutorankCommand {
         if (!this.hasPermission("autorank.remove", sender)) {
             return true;
         } else if (args.length < 3) {
-            sender.sendMessage(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+            AutorankTools.sendDeserialize(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
             return true;
         } else {
             CompletableFuture<Void> task = UUIDManager.getUUID(args[1]).thenAccept((uuid) -> {
                 if (uuid == null) {
-                    sender.sendMessage(Lang.UNKNOWN_PLAYER.getConfigValue(args[1]));
+                    AutorankTools.sendDeserialize(sender, Lang.UNKNOWN_PLAYER.getConfigValue(args[1]));
                 } else {
                     int value = AutorankTools.readTimeInput(args, 2);
                     String playerName = args[1];
@@ -44,9 +44,9 @@ public class RemoveCommand extends AutorankCommand {
 
                     if (value >= 0) {
                         this.plugin.getPlayTimeStorageManager().addPlayerTime(uuid, -value);
-                        AutorankTools.sendColoredMessage(sender, Lang.PLAYTIME_CHANGED.getConfigValue(playerName, AutorankTools.timeToString(newPlayerTime, TimeUnit.MINUTES)));
+                        AutorankTools.sendDeserialize(sender, Lang.PLAYTIME_CHANGED.getConfigValue(playerName, AutorankTools.timeToString(newPlayerTime, TimeUnit.MINUTES)));
                     } else {
-                        AutorankTools.sendColoredMessage(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+                        AutorankTools.sendDeserialize(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
                     }
 
                 }

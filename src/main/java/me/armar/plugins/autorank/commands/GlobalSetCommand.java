@@ -7,12 +7,12 @@ import me.armar.plugins.autorank.storage.PlayTimeStorageProvider;
 import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 public class GlobalSetCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -23,10 +23,10 @@ public class GlobalSetCommand extends AutorankCommand {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length < 3) {
-            sender.sendMessage(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+            AutorankTools.sendDeserialize(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
             return true;
         } else if (!this.plugin.getPlayTimeStorageManager().isStorageTypeActive(PlayTimeStorageProvider.StorageType.DATABASE)) {
-            sender.sendMessage(ChatColor.RED + Lang.MYSQL_IS_NOT_ENABLED.getConfigValue(new Object[0]));
+            AutorankTools.sendDeserialize(sender, Lang.MYSQL_IS_NOT_ENABLED.getConfigValue());
             return true;
         } else {
             int value = AutorankTools.readTimeInput(args, 2);
@@ -37,7 +37,7 @@ public class GlobalSetCommand extends AutorankCommand {
 
                 CompletableFuture<Void> task = UUIDManager.getUUID(args[1]).thenAccept((uuid) -> {
                     if (uuid == null) {
-                        sender.sendMessage(Lang.UNKNOWN_PLAYER.getConfigValue(args[1]));
+                        AutorankTools.sendDeserialize(sender, Lang.UNKNOWN_PLAYER.getConfigValue(args[1]));
                     } else {
                         TimeType[] var5 = TimeType.values();
                         int var6 = var5.length;
@@ -55,12 +55,12 @@ public class GlobalSetCommand extends AutorankCommand {
                             var9.printStackTrace();
                         }
 
-                        AutorankTools.sendColoredMessage(sender, Lang.PLAYTIME_CHANGED.getConfigValue(playerName, value + " " + Lang.MINUTE_PLURAL.getConfigValue(new Object[0])));
+                        AutorankTools.sendDeserialize(sender, Lang.PLAYTIME_CHANGED.getConfigValue(playerName, AutorankTools.timeToString(value, TimeUnit.MINUTES)));
                     }
                 });
                 this.runCommandTask(task);
             } else {
-                AutorankTools.sendColoredMessage(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+                AutorankTools.sendDeserialize(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
             }
 
             return true;
@@ -76,6 +76,6 @@ public class GlobalSetCommand extends AutorankCommand {
     }
 
     public String getUsage() {
-        return "/ar gset [player] [value]";
+        return "/ar gset [player] [value in minutes]";
     }
 }

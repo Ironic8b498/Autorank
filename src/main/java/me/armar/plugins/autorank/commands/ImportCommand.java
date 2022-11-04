@@ -9,7 +9,6 @@ import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.storage.PlayTimeStorageProvider;
 import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.util.AutorankTools;
-import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Statistic;
 import org.bukkit.command.Command;
@@ -70,13 +69,14 @@ public class ImportCommand extends AutorankCommand {
                     }
                 }
 
-                sender.sendMessage(ChatColor.GREEN + Lang.IMPORTED_DATA.getConfigValue(importedPlayers));
+                AutorankTools.sendDeserialize(sender, Lang.IMPORTED_DATA.getConfigValue(importedPlayers));
                 return true;
             } else if (this.plugin.getPlayTimeStorageManager().getActiveStorageProviders().size() == 0) {
-                sender.sendMessage(ChatColor.RED + Lang.THERE_ARE_NO_ACTIVE.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.THERE_ARE_NO_ACTIVE.getConfigValue());
                 return true;
             } else if (writeToGlobalDatabase && !this.plugin.getPlayTimeStorageManager().isStorageTypeActive(PlayTimeStorageProvider.StorageType.DATABASE)) {
-                sender.sendMessage(ChatColor.RED + Lang.YOU_WANT.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.YOU_WANT.getConfigValue());
+
                 return true;
             } else {
                 boolean finalWriteToGlobalDatabase = writeToGlobalDatabase;
@@ -96,30 +96,30 @@ public class ImportCommand extends AutorankCommand {
                         };
                         if (finalWriteToGlobalDatabase && finalWriteToLocalDatabase) {
                             if (finalOverwriteGlobalDatabase && finalOverwriteLocalDatabase) {
-                                sender.sendMessage(ChatColor.GOLD + Lang.IMPORTING_DATA_BOTH.getConfigValue());
+                                AutorankTools.sendDeserialize(sender, Lang.IMPORTING_DATA_BOTH.getConfigValue());
                             } else {
                                 if (finalOverwriteGlobalDatabase) {
-                                    sender.sendMessage(ChatColor.GOLD + Lang.IMPORTING_DATA_OVERRIDING_GLOBAL.getConfigValue());
+                                    AutorankTools.sendDeserialize(sender, Lang.IMPORTING_DATA_OVERRIDING_GLOBAL.getConfigValue());
                                 } else {
-                                    sender.sendMessage(ChatColor.GOLD + Lang.IMPORTING_DATA_ADDING_GLOBAL.getConfigValue());
+                                    AutorankTools.sendDeserialize(sender, Lang.IMPORTING_DATA_ADDING_GLOBAL.getConfigValue());
                                 }
 
                                 if (finalOverwriteLocalDatabase) {
-                                    sender.sendMessage(ChatColor.GOLD + Lang.IMPORTING_DATA_OVERRIDING_LOCAL.getConfigValue());
+                                    AutorankTools.sendDeserialize(sender, Lang.IMPORTING_DATA_OVERRIDING_LOCAL.getConfigValue());
                                 } else {
-                                    sender.sendMessage(ChatColor.GOLD + Lang.IMPORTING_DATA_ADDING_LOCAL.getConfigValue());
+                                    AutorankTools.sendDeserialize(sender, Lang.IMPORTING_DATA_ADDING_LOCAL.getConfigValue());
                                 }
                             }
                         } else if (finalWriteToGlobalDatabase) {
                             if (finalOverwriteGlobalDatabase) {
-                                sender.sendMessage(ChatColor.GOLD + Lang.IMPORTING_DATA_OVERRIDING_GLOBAL.getConfigValue());
+                                AutorankTools.sendDeserialize(sender, Lang.IMPORTING_DATA_OVERRIDING_GLOBAL.getConfigValue());
                             } else {
-                                sender.sendMessage(ChatColor.GOLD + Lang.IMPORTING_DATA_ADDING_GLOBAL.getConfigValue());
+                                AutorankTools.sendDeserialize(sender, Lang.IMPORTING_DATA_ADDING_GLOBAL.getConfigValue());
                             }
                         } else if (finalOverwriteLocalDatabase) {
-                            sender.sendMessage(ChatColor.GOLD + Lang.IMPORTING_DATA_OVERRIDING_LOCAL.getConfigValue());
+                            AutorankTools.sendDeserialize(sender, Lang.IMPORTING_DATA_OVERRIDING_LOCAL.getConfigValue());
                         } else {
-                            sender.sendMessage(ChatColor.GOLD + Lang.IMPORTING_DATA_ADDING_LOCAL.getConfigValue());
+                            AutorankTools.sendDeserialize(sender, Lang.IMPORTING_DATA_ADDING_LOCAL.getConfigValue());
                         }
 
                         AutorankConversation.fromFirstPrompt(new ConfirmPrompt(null, new ConfirmPromptCallback() {
@@ -182,18 +182,18 @@ public class ImportCommand extends AutorankCommand {
                                             }
 
                                             if (importedPlayers == 0) {
-                                                sender.sendMessage(ChatColor.RED + Lang.COULD_NOT_IMPORT.getConfigValue(importedTimeType));
+                                                AutorankTools.sendDeserialize(sender, Lang.COULD_NOT_IMPORT.getConfigValue(importedTimeType));
                                             }
                                             continue label70;
                                         }
                                     }
                                 }
 
-                                AutorankTools.sendColoredMessage(sender, Lang.STORAGE_IMPORTED.getConfigValue());
+                                AutorankTools.sendDeserialize(sender, Lang.STORAGE_IMPORTED.getConfigValue());
                             }
 
                             public void promptDenied() {
-                                sender.sendMessage(ChatColor.RED + Lang.IMPORTED_OPERATION.getConfigValue());
+                                AutorankTools.sendDeserialize(sender, Lang.IMPORTED_OPERATION.getConfigValue());
                             }
                         })).startConversationAsSender(sender);
                     }

@@ -5,7 +5,7 @@ import me.armar.plugins.autorank.commands.manager.AutorankCommand;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.storage.PlayTimeStorageProvider;
 import me.armar.plugins.autorank.storage.TimeType;
-import org.bukkit.ChatColor;
+import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -25,19 +25,19 @@ public class SyncCommand extends AutorankCommand {
         if (!this.hasPermission("autorank.sync", sender)) {
             return true;
         } else if (args.length > 1 && args[1].equalsIgnoreCase("stats")) {
-            sender.sendMessage(ChatColor.RED + Lang.YOU_PROBARLY.getConfigValue());
+            AutorankTools.sendDeserialize(sender, Lang.YOU_PROBARLY.getConfigValue());
             return true;
         } else {
             boolean reverse = args.length > 1 && args[1].equalsIgnoreCase("reverse");
 
             if (!this.plugin.getSettingsConfig().useMySQL()) {
-                sender.sendMessage(Lang.MYSQL_IS_NOT_ENABLED.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.MYSQL_IS_NOT_ENABLED.getConfigValue());
                 return true;
             } else if (!this.plugin.getPlayTimeStorageManager().isStorageTypeActive(PlayTimeStorageProvider.StorageType.FLAT_FILE)) {
-                sender.sendMessage(ChatColor.RED + Lang.THERE_IS_NO_ACTIVE_FLATFILE.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.THERE_IS_NO_ACTIVE_FLATFILE.getConfigValue());
                 return true;
             } else {
-                sender.sendMessage(ChatColor.RED + Lang.YOU_DONT_HAVE.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.YOU_DONT_HAVE.getConfigValue());
                 PlayTimeStorageProvider flatfileStorageProvider = this.plugin.getPlayTimeStorageManager().getStorageProvider(PlayTimeStorageProvider.StorageType.FLAT_FILE);
                 PlayTimeStorageProvider databaseStorageProvider = this.plugin.getPlayTimeStorageManager().getStorageProvider(PlayTimeStorageProvider.StorageType.DATABASE);
                 if (reverse) {
@@ -68,7 +68,7 @@ public class SyncCommand extends AutorankCommand {
                             }
                         }
 
-                        sender.sendMessage(ChatColor.GREEN + Lang.SUCCESSFULLY_UPDATED.getConfigValue(count));
+                        AutorankTools.sendDeserialize(sender, Lang.SUCCESSFULLY_UPDATED.getConfigValue(count));
                     });
                 } else {
                     this.plugin.getServer().getScheduler().runTaskAsynchronously(this.plugin, () -> {
@@ -96,7 +96,7 @@ public class SyncCommand extends AutorankCommand {
                             }
                         }
 
-                        sender.sendMessage(ChatColor.GREEN + Lang.SUCCESSFULLY_UPDATED_MYSQL.getConfigValue());
+                        AutorankTools.sendDeserialize(sender, Lang.SUCCESSFULLY_UPDATED_MYSQL.getConfigValue());
                     });
                 }
 

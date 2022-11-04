@@ -1,6 +1,9 @@
 package me.armar.plugins.autorank.util;
 
+import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.language.Lang;
+import net.kyori.adventure.audience.Audience;
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -9,16 +12,21 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static me.armar.plugins.autorank.Autorank.autorank;
 
 public class AutorankTools {
     public static final int TICKS_PER_SECOND = 20;
     public static final int TICKS_PER_MINUTE = 1200;
     private static final Set<String> reqTypes = new HashSet();
     private static final Set<String> resTypes = new HashSet();
+    private final Autorank plugin;
 
-    public AutorankTools() {
+    public AutorankTools(Autorank autorank) {
+        this.plugin = autorank;
     }
 
     public static boolean isExcludedFromRanking(Player player) {
@@ -242,9 +250,22 @@ public class AutorankTools {
         resTypes.add(type);
     }
 
-    public static void sendColoredMessage(CommandSender sender, String msg) {
+    public static void sendDeserialize(CommandSender sender, String msg){
         var mm = MiniMessage.miniMessage();
-        sender.sendMessage(String.valueOf(mm.deserialize(msg)));
+        Component send_msg = mm.deserialize(msg);
+        autorank.adventure().player((Player) sender).sendMessage(send_msg);
+    }
+
+    public static void sendallDeserialize(String msg){
+        var mm = MiniMessage.miniMessage();
+        Component send_msg = mm.deserialize(msg);
+        autorank.adventure().players().filterAudience((Predicate<? super Audience>) send_msg);
+      //  autorank.adventure().permission()  player((Player) all).sendMessage(send_msg);
+
+    }
+
+    public static void sendColoredMessage(CommandSender sender, String msg) {
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', ChatColor.GREEN + msg));
     }
 
     public static String seperateList(Collection<?> c, String endDivider) {

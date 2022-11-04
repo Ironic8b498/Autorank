@@ -7,7 +7,8 @@ import me.armar.plugins.autorank.pathbuilder.Path;
 import me.armar.plugins.autorank.pathbuilder.holders.CompositeRequirement;
 import me.armar.plugins.autorank.pathbuilder.result.AbstractResult;
 import me.armar.plugins.autorank.util.AutorankTools;
-import org.bukkit.ChatColor;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -24,10 +25,11 @@ public class ViewCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        var mm = MiniMessage.miniMessage();
         if (!this.hasPermission("autorank.view", sender)) {
             return true;
         } else if (args.length < 2) {
-            sender.sendMessage(Lang.INVALID_FORMAT.getConfigValue("/ar view <path name> or /ar view list"));
+            AutorankTools.sendDeserialize(sender, Lang.INVALID_FORMAT.getConfigValue("/ar view <path name> or /ar view list"));
             return true;
         } else {
             boolean isPlayer = sender instanceof Player;
@@ -42,13 +44,13 @@ public class ViewCommand extends AutorankCommand {
                     do {
                         if (!var15.hasNext()) {
                             if (paths.isEmpty()) {
-                                sender.sendMessage(Lang.NO_PATHS_TO_CHOOSE.getConfigValue());
+                                AutorankTools.sendDeserialize(sender, Lang.NO_PATHS_TO_CHOOSE.getConfigValue());
                                 return true;
                             }
 
-                            sender.sendMessage(ChatColor.GREEN + Lang.THE_FOLLOWING_PATHS.getConfigValue());
-                            String pathsString = AutorankTools.createStringFromList(paths);
-                            sender.sendMessage(ChatColor.WHITE + pathsString);
+                            Component the_following_paths = mm.deserialize(Lang.THE_FOLLOWING_PATHS.getConfigValue())
+                                    .append(mm.deserialize("NEWLINE" + AutorankTools.createStringFromList(paths)));
+                            plugin.adventure().player((Player) sender).sendMessage(the_following_paths);
                             return true;
                         }
 
@@ -60,48 +62,51 @@ public class ViewCommand extends AutorankCommand {
             } else {
                 Path targetPath = this.plugin.getPathManager().findPathByDisplayName(pathName, false);
                 if (targetPath == null) {
-                    sender.sendMessage(Lang.NO_PATH_FOUND_WITH_THAT_NAME.getConfigValue());
+                    AutorankTools.sendDeserialize(sender, Lang.NO_PATH_FOUND_WITH_THAT_NAME.getConfigValue());
                     return true;
                 } else {
                     List<CompositeRequirement> prerequisites = targetPath.getPrerequisites();
                     List<String> messages = this.plugin.getPlayerChecker().formatRequirementsToList(prerequisites, new ArrayList());
-                    sender.sendMessage(ChatColor.GREEN + Lang.PREREQUISITES_OF_PATH.getConfigValue() + ChatColor.GRAY + targetPath.getDisplayName() + ChatColor.GREEN + "':");
+                    AutorankTools.sendDeserialize(sender, Lang.PREREQUISITES_OF_PATH.getConfigValue(targetPath.getDisplayName()));
                     if (messages.isEmpty()) {
-                        AutorankTools.sendColoredMessage(sender, "none");
+                        AutorankTools.sendDeserialize(sender, Lang.NONE.getConfigValue());
                     } else {
                         Iterator var10 = messages.iterator();
 
                         while(var10.hasNext()) {
                             String message = (String)var10.next();
                             AutorankTools.sendColoredMessage(sender, message);
+                          //  AutorankTools.sendDeserialize(sender, message);
                         }
                     }
 
                     List<CompositeRequirement> requirements = targetPath.getRequirements();
                     messages = this.plugin.getPlayerChecker().formatRequirementsToList(requirements, new ArrayList());
-                    sender.sendMessage(ChatColor.GREEN + Lang.REQUIREMENTS_OF_PATH.getConfigValue() + ChatColor.GRAY + targetPath.getDisplayName() + ChatColor.GREEN + "':");
+                    AutorankTools.sendDeserialize(sender, Lang.REQUIREMENTS_OF_PATH.getConfigValue(targetPath.getDisplayName()));
                     if (messages.isEmpty()) {
-                        AutorankTools.sendColoredMessage(sender, "none");
+                        AutorankTools.sendDeserialize(sender, Lang.NONE.getConfigValue());
                     } else {
                         Iterator var19 = messages.iterator();
 
                         while(var19.hasNext()) {
                             String message = (String)var19.next();
                             AutorankTools.sendColoredMessage(sender, message);
+                         //   AutorankTools.sendDeserialize(sender, message);
                         }
                     }
 
                     List<AbstractResult> results = targetPath.getResults();
                     messages = this.plugin.getPlayerChecker().formatResultsToList(results);
-                    sender.sendMessage(ChatColor.GREEN + Lang.RESULTS_OF_PATH.getConfigValue() + ChatColor.GRAY + targetPath.getDisplayName() + ChatColor.GREEN + "':");
+                    AutorankTools.sendDeserialize(sender, Lang.RESULTS_OF_PATH.getConfigValue(targetPath.getDisplayName()));
                     if (messages.isEmpty()) {
-                        AutorankTools.sendColoredMessage(sender, "none");
+                        AutorankTools.sendDeserialize(sender, Lang.NONE.getConfigValue());
                     } else {
                         Iterator var21 = messages.iterator();
 
                         while(var21.hasNext()) {
                             String message = (String)var21.next();
                             AutorankTools.sendColoredMessage(sender, message);
+                          //  AutorankTools.sendDeserialize(sender, message);
                         }
                     }
 

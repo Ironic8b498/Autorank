@@ -1,5 +1,5 @@
 name: Autorank
-version: 5.1.6
+version: 5.1.7
 main: me.armar.plugins.autorank.Autorank
 api-version: 1.16
 authors: [ Ironic_8b49, Staartvin, Armarr ]

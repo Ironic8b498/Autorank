@@ -7,8 +7,6 @@ import me.armar.plugins.autorank.storage.PlayTimeStorageProvider;
 import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -26,10 +24,8 @@ public class GlobalCheckCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        var mm = MiniMessage.miniMessage();
         if (!this.plugin.getPlayTimeStorageManager().isStorageTypeActive(PlayTimeStorageProvider.StorageType.DATABASE)) {
-            Component mysql_is_not_enabled = mm.deserialize(Lang.MYSQL_IS_NOT_ENABLED.getConfigValue(new Object[0]));
-            plugin.adventure().player((Player) sender).sendMessage(mysql_is_not_enabled);
+            AutorankTools.sendDeserialize(sender, Lang.MYSQL_IS_NOT_ENABLED.getConfigValue());
             return true;
         } else {
             CompletableFuture<Void> task = CompletableFuture.completedFuture(null).thenAccept((nothing) -> {
@@ -51,15 +47,13 @@ public class GlobalCheckCommand extends AutorankCommand {
                     }
 
                     if (uuid == null) {
-                        Component player_is_invalid = mm.deserialize(Lang.PLAYER_IS_INVALID.getConfigValue(args[1]));
-                        plugin.adventure().player((Player) sender).sendMessage(player_is_invalid);
+                        AutorankTools.sendDeserialize(sender, Lang.PLAYER_IS_INVALID.getConfigValue(args[1]));
                         return;
                     }
 
                     if (player != null) {
                         if (player.hasPermission("autorank.exclude")) {
-                            Component player_is_excluded = mm.deserialize(Lang.PLAYER_IS_EXCLUDED.getConfigValue(new Object[]{player.getName()}));
-                            plugin.adventure().player((Player) sender).sendMessage(player_is_excluded);
+                            AutorankTools.sendDeserialize(sender, Lang.PLAYER_IS_EXCLUDED.getConfigValue(player.getName()));
                             return;
                         }
 
@@ -67,8 +61,7 @@ public class GlobalCheckCommand extends AutorankCommand {
                     }
                 } else {
                     if (!(sender instanceof Player)) {
-                        Component cannot_check_console = mm.deserialize(Lang.CANNOT_CHECK_CONSOLE.getConfigValue());
-                        plugin.adventure().player((Player) sender).sendMessage(cannot_check_console);
+                        AutorankTools.sendDeserialize(sender, Lang.CANNOT_CHECK_CONSOLE.getConfigValue());
                         return;
                     }
 
@@ -77,8 +70,7 @@ public class GlobalCheckCommand extends AutorankCommand {
                     }
 
                     if (sender.hasPermission("autorank.exclude")) {
-                        Component player_is_excluded = mm.deserialize(Lang.PLAYER_IS_EXCLUDED.getConfigValue(new Object[]{sender.getName()}));
-                        plugin.adventure().player((Player) sender).sendMessage(player_is_excluded);
+                        AutorankTools.sendDeserialize(sender, Lang.PLAYER_IS_EXCLUDED.getConfigValue(sender.getName()));
                         return;
                     }
 
@@ -96,12 +88,9 @@ public class GlobalCheckCommand extends AutorankCommand {
                 }
 
                 if (globalPlayTime < 0) {
-                    Component player_is_invalid = mm.deserialize(Lang.PLAYER_IS_INVALID.getConfigValue(playerName));
-                    plugin.adventure().player((Player) sender).sendMessage(player_is_invalid);
+                    AutorankTools.sendDeserialize(sender, Lang.PLAYER_IS_INVALID.getConfigValue(playerName));
                 } else {
-                  //  AutorankTools.sendColoredMessage(sender, playerName + " has played for " + AutorankTools.timeToString(globalPlayTime, TimeUnit.MINUTES) + " across all servers.");
-                    Component player_is_excluded = mm.deserialize(  Lang.HAS_PLAYED.getConfigValue(playerName) + AutorankTools.timeToString(globalPlayTime, TimeUnit.MINUTES) + Lang.ACROSS_ALL_SERVERS.getConfigValue());
-                    plugin.adventure().player((Player) sender).sendMessage(player_is_excluded);
+                    AutorankTools.sendDeserialize(sender, Lang.HAS_PLAYED.getConfigValue(playerName) + AutorankTools.timeToString(globalPlayTime, TimeUnit.MINUTES) + Lang.ACROSS_ALL_SERVERS.getConfigValue());
                 }
             });
             this.runCommandTask(task);

@@ -6,7 +6,7 @@ import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.migration.MigrationManager;
 import me.armar.plugins.autorank.migration.MigrationablePlugin;
 import me.armar.plugins.autorank.storage.TimeType;
-import org.bukkit.ChatColor;
+import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -27,28 +27,28 @@ public class MigrateCommand extends AutorankCommand {
         if (!this.hasPermission("autorank.migrate", sender)) {
             return true;
         } else if (args.length < 2) {
-            sender.sendMessage(Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
+            AutorankTools.sendDeserialize(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
             return true;
         } else {
             MigrationManager.Migrationable migrationableType;
             try {
                 migrationableType = MigrationManager.Migrationable.valueOf(args[1].toUpperCase().replace(" ", "_"));
             } catch (IllegalArgumentException var9) {
-                sender.sendMessage(ChatColor.RED + Lang.THIS_IS_NOT.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.THIS_IS_NOT.getConfigValue());
                 return true;
             }
 
             MigrationablePlugin migrationablePlugin = this.plugin.getMigrationManager().getMigrationablePlugin(migrationableType).orElse(null);
             if (migrationablePlugin == null) {
-                sender.sendMessage(ChatColor.RED + Lang.COULD_NOT_FIND.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.COULD_NOT_FIND.getConfigValue());
                 return true;
             } else if (!migrationablePlugin.isReady()) {
-                sender.sendMessage(ChatColor.RED + Lang.THIS_MIGRATION.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.THIS_MIGRATION.getConfigValue());
                 return true;
             } else {
                 List<UUID> uuids = this.plugin.getPlayTimeStorageManager().getPrimaryStorageProvider().getStoredPlayers(TimeType.TOTAL_TIME);
                 CompletableFuture<Void> task = migrationablePlugin.migratePlayTime(uuids).thenAccept((migratedPlayers) -> {
-                    sender.sendMessage(ChatColor.GREEN + Lang.PLAYERS_HAVE_BEEN_MIGRATED.getConfigValue(migratedPlayers));
+                    AutorankTools.sendDeserialize(sender, Lang.PLAYERS_HAVE_BEEN_MIGRATED.getConfigValue(migratedPlayers));
                 });
                 this.runCommandTask(task);
                 return true;

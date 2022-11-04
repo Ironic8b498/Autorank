@@ -23,7 +23,7 @@ public class ReloadCommand extends AutorankCommand {
             this.plugin.getSettingsConfig().reloadConfig();
             this.plugin.getPathManager().initialiseFromConfigs();
             this.plugin.getLanguageHandler().reloadConfig();
-            AutorankTools.sendColoredMessage(sender, Lang.AUTORANK_RELOADED.getConfigValue());
+            AutorankTools.sendDeserialize(sender, Lang.AUTORANK_RELOADED.getConfigValue());
             return true;
         }
     }

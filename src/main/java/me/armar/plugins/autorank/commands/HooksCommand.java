@@ -2,10 +2,11 @@ package me.armar.plugins.autorank.commands;
 
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.commands.manager.AutorankCommand;
+import me.armar.plugins.autorank.language.Lang;
+import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.utils.pluginlibrary.Library;
 import me.armar.plugins.utils.pluginlibrary.hooks.AutorankHook;
 import me.armar.plugins.utils.pluginlibrary.hooks.LibraryHook;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -20,10 +21,10 @@ public class HooksCommand extends AutorankCommand {
         if (!this.hasPermission(this.getPermission(), sender)) {
             return true;
         } else if (!this.plugin.getDependencyManager().isPluginLibraryLoaded()) {
-            sender.sendMessage(ChatColor.RED + "Cannot show dependencies as PluginLibrary is not installed");
+            AutorankTools.sendDeserialize(sender, Lang.DEPRECATED_COMMAND.getConfigValue());
             return true;
         } else {
-            sender.sendMessage(ChatColor.GOLD + "Autorank Hooks:");
+            AutorankTools.sendDeserialize(sender, Lang.HOOKS.getConfigValue());
             Library[] var5 = Library.values();
             int var6 = var5.length;
 
@@ -31,7 +32,7 @@ public class HooksCommand extends AutorankCommand {
                 Library dep = var5[var7];
                 LibraryHook handler = this.plugin.getDependencyManager().getLibraryHook(dep).orElse(null);
                 if (handler != null && handler.isHooked() && !(handler instanceof AutorankHook)) {
-                    sender.sendMessage(ChatColor.GRAY + "- " + ChatColor.GREEN + dep.getHumanPluginName());
+                    AutorankTools.sendDeserialize(sender, Lang.HOOKED_PLUGINS.getConfigValue(dep.getHumanPluginName()));
                 }
             }
 

@@ -3,6 +3,7 @@ package me.armar.plugins.autorank.commands;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.commands.manager.AutorankCommand;
 import me.armar.plugins.autorank.language.Lang;
+import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -29,7 +30,7 @@ public class HelpCommand extends AutorankCommand {
             try {
                 page = Integer.parseInt(args[1]);
             } catch (Exception var7) {
-                sender.sendMessage(ChatColor.RED + Lang.INVALID_NUMBER.getConfigValue(new Object[]{args[1]}));
+                AutorankTools.sendDeserialize(sender, Lang.INVALID_NUMBER.getConfigValue(args[1]));
                 return true;
             }
 

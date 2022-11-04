@@ -4,7 +4,7 @@ import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.commands.manager.AutorankCommand;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.storage.TimeType;
-import org.bukkit.ChatColor;
+import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -37,11 +37,10 @@ public class SyncStatsCommand extends AutorankCommand {
             }
 
             if (count == 0) {
-                sender.sendMessage(ChatColor.GREEN + Lang.COULD_NOT_SYNC.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.COULD_NOT_SYNC.getConfigValue());
             } else {
-                sender.sendMessage(ChatColor.GREEN + Lang.TIME_HAS.getConfigValue());
+                AutorankTools.sendDeserialize(sender, Lang.TIME_HAS.getConfigValue());
             }
-
             return true;
         }
     }
