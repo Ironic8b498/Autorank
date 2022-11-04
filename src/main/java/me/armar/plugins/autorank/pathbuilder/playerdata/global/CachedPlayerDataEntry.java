@@ -32,10 +32,9 @@ class CachedPlayerDataEntry {
     }
 
     public boolean equals(Object obj) {
-        if (!(obj instanceof CachedPlayerDataEntry)) {
+        if (!(obj instanceof CachedPlayerDataEntry entry)) {
             return false;
         } else {
-            CachedPlayerDataEntry entry = (CachedPlayerDataEntry)obj;
             return entry.getServerName().equalsIgnoreCase(this.getServerName()) && entry.getCompletedPath().equalsIgnoreCase(this.getCompletedPath());
         }
     }

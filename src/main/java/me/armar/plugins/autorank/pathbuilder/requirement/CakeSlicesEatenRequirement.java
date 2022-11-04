@@ -44,6 +44,6 @@ public class CakeSlicesEatenRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.getStatisticsManager().getCakeSlicesEaten(uuid) * 1.0D / (double)this.cakeSlicesEaten;
+        return (double) this.getStatisticsManager().getCakeSlicesEaten(uuid) / (double)this.cakeSlicesEaten;
     }
 }

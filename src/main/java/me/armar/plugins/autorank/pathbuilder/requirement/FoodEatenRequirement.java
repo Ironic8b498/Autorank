@@ -87,6 +87,6 @@ public class FoodEatenRequirement extends AbstractRequirement {
             totalFoodEaten = this.getStatisticsManager().getFoodEaten(uuid, this.getWorld(), Material.getMaterial(foodType));
         }
 
-        return (double)totalFoodEaten * 1.0D / (double)this.foodEaten.getAmount();
+        return (double) totalFoodEaten / (double)this.foodEaten.getAmount();
     }
 }

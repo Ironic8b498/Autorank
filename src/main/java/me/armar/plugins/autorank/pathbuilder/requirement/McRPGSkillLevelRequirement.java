@@ -60,6 +60,6 @@ public class McRPGSkillLevelRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return this.skillName.equalsIgnoreCase("all") ? (double)this.hook.getPowerLevel(uuid) * 1.0D / (double)this.skillLevel : (double)this.hook.getSkillLevel(uuid, this.skillName) * 1.0D / (double)this.skillLevel;
+        return this.skillName.equalsIgnoreCase("all") ? (double) this.hook.getPowerLevel(uuid) / (double)this.skillLevel : (double) this.hook.getSkillLevel(uuid, this.skillName) / (double)this.skillLevel;
     }
 }

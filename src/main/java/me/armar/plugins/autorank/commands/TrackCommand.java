@@ -22,7 +22,7 @@ public class TrackCommand extends AutorankCommand {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(Lang.YOU_ARE_A_ROBOT.getConfigValue("you don't make progress, silly.."));
+            sender.sendMessage(Lang.YOU_ARE_A_ROBOT_TRACK.getConfigValue());
             return true;
         } else if (!this.hasPermission("autorank.track", sender)) {
             return true;

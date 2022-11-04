@@ -64,6 +64,6 @@ public class TimeRequirement extends AbstractRequirement {
             var4.printStackTrace();
         }
 
-        return (double)playtime * 1.0D / (double)this.timeNeeded;
+        return (double) playtime / (double)this.timeNeeded;
     }
 }

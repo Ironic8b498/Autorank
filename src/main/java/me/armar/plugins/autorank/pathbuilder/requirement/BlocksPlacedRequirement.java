@@ -107,6 +107,6 @@ public class BlocksPlacedRequirement extends AbstractRequirement {
             progress = this.getStatisticsManager().getBlocksPlaced(uuid, this.getWorld(), this.wrapper.getItem().getType());
         }
 
-        return (double)progress * 1.0D / (double)this.wrapper.getBlocksPlaced();
+        return (double) progress / (double)this.wrapper.getBlocksPlaced();
     }
 }

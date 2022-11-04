@@ -44,6 +44,6 @@ public class TradedWithVillagersRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.getStatisticsManager().getTimesTradedWithVillagers(uuid) * 1.0D / (double)this.tradedWithVillagers;
+        return (double) this.getStatisticsManager().getTimesTradedWithVillagers(uuid) / (double)this.tradedWithVillagers;
     }
 }

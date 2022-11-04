@@ -56,7 +56,7 @@ public class MySQLStorageProvider extends PlayTimeStorageProvider {
                 }
             }
 
-        }, 1200L, CACHE_EXPIRY_TIME * 1200 / 2);
+        }, 1200L, CACHE_EXPIRY_TIME * 1200L / 2);
     }
 
     public StorageType getStorageType() {

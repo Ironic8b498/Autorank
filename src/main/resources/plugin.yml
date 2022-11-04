@@ -4,9 +4,9 @@ main: me.armar.plugins.autorank.Autorank
 api-version: 1.16
 authors: [ Ironic_8b49, Staartvin, Armarr ]
 softdepend: [Vault, GroupManager, Privileges, bPermissions, PermissionsEx, PermissionsBukkit, DroxPerms,
-              PowerfulPerms, mcMMO, FactionsX, UltimateCore, Ontime, Stats, Statz, AdvancedAchievements, Jobs, WorldEdit,
-              WorldGuard, BentoBox, GriefPrevention, Essentials, Quests, PlayerPoints, Votifier, CMI,
-              UhcStats, Towny, McRPG, PlaceholderAPI, AureliumSkills, LastLoginAPI]
+             PowerfulPerms, mcMMO, FactionsX, UltimateCore, Ontime, Stats, Statz, AdvancedAchievements, Jobs, WorldEdit,
+             WorldGuard, BentoBox, GriefPrevention, Essentials, Quests, PlayerPoints, Votifier, CMI,
+             UhcStats, Towny, McRPG, PlaceholderAPI, AureliumSkills, LastLoginAPI]
 description: Reward players based on their stats.
 commands:
   autorank:

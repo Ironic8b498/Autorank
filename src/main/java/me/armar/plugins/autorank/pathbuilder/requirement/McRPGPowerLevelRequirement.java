@@ -48,6 +48,6 @@ public class McRPGPowerLevelRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.hook.getPowerLevel(uuid) * 1.0D / (double)this.powerLevel;
+        return (double) this.hook.getPowerLevel(uuid) / (double)this.powerLevel;
     }
 }

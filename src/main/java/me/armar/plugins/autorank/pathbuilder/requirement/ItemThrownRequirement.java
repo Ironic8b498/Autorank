@@ -47,6 +47,6 @@ public class ItemThrownRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.getStatisticsManager().getItemThrown(uuid, this.itemThrown) * 1.0D / (double)this.numberofThrows;
+        return (double) this.getStatisticsManager().getItemThrown(uuid, this.itemThrown) / (double)this.numberofThrows;
     }
 }

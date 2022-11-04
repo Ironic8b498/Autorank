@@ -49,6 +49,6 @@ public class TotalVotesRequirement extends AbstractRequirement {
 
     public double getProgressPercentage(UUID uuid) {
         int votes = this.getStatisticsManager().getTimesVoted(uuid);
-        return (double)votes * 1.0D / (double)this.totalVotes;
+        return (double) votes / (double)this.totalVotes;
     }
 }

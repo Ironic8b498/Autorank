@@ -46,6 +46,6 @@ public class FishCaughtRequirement extends AbstractRequirement {
 
     public double getProgressPercentage(UUID uuid) {
         int progressBar = this.getStatisticsManager().getFishCaught(uuid, this.getWorld());
-        return (double)progressBar * 1.0D / (double)this.fishCaught;
+        return (double) progressBar / (double)this.fishCaught;
     }
 }

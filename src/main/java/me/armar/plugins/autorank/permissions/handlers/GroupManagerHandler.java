@@ -54,7 +54,7 @@ public class GroupManagerHandler extends PermissionsHandler {
         if (handler == null) {
             return null;
         } else {
-            List<String> groups = Arrays.asList(handler.getPrimaryGroup(player.getName()));
+            List<String> groups = Collections.singletonList(handler.getPrimaryGroup(player.getName()));
             return Collections.unmodifiableCollection(groups);
         }
     }
@@ -74,10 +74,7 @@ public class GroupManagerHandler extends PermissionsHandler {
         String[] var4 = this.groupManager.getWorldsHolder().getWorldPermissions(world).getGroups(player.getName());
         int var5 = var4.length;
 
-        for(int var6 = 0; var6 < var5; ++var6) {
-            String groupName = var4[var6];
-            groups.add(groupName);
-        }
+        groups.addAll(Arrays.asList(var4).subList(0, var5));
 
         return Collections.unmodifiableCollection(groups);
     }

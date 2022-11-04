@@ -7,7 +7,8 @@ import me.armar.plugins.autorank.storage.PlayTimeStorageProvider;
 import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
-import org.bukkit.ChatColor;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -25,8 +26,10 @@ public class GlobalCheckCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        var mm = MiniMessage.miniMessage();
         if (!this.plugin.getPlayTimeStorageManager().isStorageTypeActive(PlayTimeStorageProvider.StorageType.DATABASE)) {
-            sender.sendMessage(ChatColor.RED + Lang.MYSQL_IS_NOT_ENABLED.getConfigValue(new Object[0]));
+            Component mysql_is_not_enabled = mm.deserialize(Lang.MYSQL_IS_NOT_ENABLED.getConfigValue(new Object[0]));
+            plugin.adventure().player((Player) sender).sendMessage(mysql_is_not_enabled);
             return true;
         } else {
             CompletableFuture<Void> task = CompletableFuture.completedFuture(null).thenAccept((nothing) -> {
@@ -48,13 +51,15 @@ public class GlobalCheckCommand extends AutorankCommand {
                     }
 
                     if (uuid == null) {
-                        sender.sendMessage(Lang.PLAYER_IS_INVALID.getConfigValue(args[1]));
+                        Component player_is_invalid = mm.deserialize(Lang.PLAYER_IS_INVALID.getConfigValue(args[1]));
+                        plugin.adventure().player((Player) sender).sendMessage(player_is_invalid);
                         return;
                     }
 
                     if (player != null) {
                         if (player.hasPermission("autorank.exclude")) {
-                            sender.sendMessage(ChatColor.RED + Lang.PLAYER_IS_EXCLUDED.getConfigValue(new Object[]{player.getName()}));
+                            Component player_is_excluded = mm.deserialize(Lang.PLAYER_IS_EXCLUDED.getConfigValue(new Object[]{player.getName()}));
+                            plugin.adventure().player((Player) sender).sendMessage(player_is_excluded);
                             return;
                         }
 
@@ -62,7 +67,8 @@ public class GlobalCheckCommand extends AutorankCommand {
                     }
                 } else {
                     if (!(sender instanceof Player)) {
-                        AutorankTools.sendColoredMessage(sender, Lang.CANNOT_CHECK_CONSOLE.getConfigValue());
+                        Component cannot_check_console = mm.deserialize(Lang.CANNOT_CHECK_CONSOLE.getConfigValue());
+                        plugin.adventure().player((Player) sender).sendMessage(cannot_check_console);
                         return;
                     }
 
@@ -71,7 +77,8 @@ public class GlobalCheckCommand extends AutorankCommand {
                     }
 
                     if (sender.hasPermission("autorank.exclude")) {
-                        sender.sendMessage(ChatColor.RED + Lang.PLAYER_IS_EXCLUDED.getConfigValue(new Object[]{sender.getName()}));
+                        Component player_is_excluded = mm.deserialize(Lang.PLAYER_IS_EXCLUDED.getConfigValue(new Object[]{sender.getName()}));
+                        plugin.adventure().player((Player) sender).sendMessage(player_is_excluded);
                         return;
                     }
 
@@ -89,9 +96,12 @@ public class GlobalCheckCommand extends AutorankCommand {
                 }
 
                 if (globalPlayTime < 0) {
-                    sender.sendMessage(Lang.PLAYER_IS_INVALID.getConfigValue(playerName));
+                    Component player_is_invalid = mm.deserialize(Lang.PLAYER_IS_INVALID.getConfigValue(playerName));
+                    plugin.adventure().player((Player) sender).sendMessage(player_is_invalid);
                 } else {
-                    AutorankTools.sendColoredMessage(sender, playerName + " has played for " + AutorankTools.timeToString(globalPlayTime, TimeUnit.MINUTES) + " across all servers.");
+                  //  AutorankTools.sendColoredMessage(sender, playerName + " has played for " + AutorankTools.timeToString(globalPlayTime, TimeUnit.MINUTES) + " across all servers.");
+                    Component player_is_excluded = mm.deserialize(  Lang.HAS_PLAYED.getConfigValue(playerName) + AutorankTools.timeToString(globalPlayTime, TimeUnit.MINUTES) + Lang.ACROSS_ALL_SERVERS.getConfigValue());
+                    plugin.adventure().player((Player) sender).sendMessage(player_is_excluded);
                 }
             });
             this.runCommandTask(task);

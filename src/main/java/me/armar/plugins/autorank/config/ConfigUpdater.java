@@ -94,8 +94,7 @@ public class ConfigUpdater {
                 writer.write(prefixSpaces + actualKey + ": " + yaml.dump(obj));
             }
         } else {
-            if (obj instanceof String) {
-                String s = (String)obj;
+            if (obj instanceof String s) {
                 obj = s.replace("\n", "\\n");
             }
 

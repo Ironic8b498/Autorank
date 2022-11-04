@@ -60,6 +60,6 @@ public class ItemsCraftedRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return (double)this.getStatisticsManager().getItemsCrafted(uuid, this.getWorld(), this.itemCrafted) * 1.0D / (double)this.timesCrafted;
+        return (double) this.getStatisticsManager().getItemsCrafted(uuid, this.getWorld(), this.itemCrafted) / (double)this.timesCrafted;
     }
 }

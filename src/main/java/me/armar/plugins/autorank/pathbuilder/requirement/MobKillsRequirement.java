@@ -110,6 +110,6 @@ public class MobKillsRequirement extends AbstractRequirement {
             killed = this.getStatisticsManager().getMobsKilled(uuid, this.getWorld(), type);
         }
 
-        return (double)killed * 1.0D / (double)this.totalMobsKilled;
+        return (double) killed / (double)this.totalMobsKilled;
     }
 }

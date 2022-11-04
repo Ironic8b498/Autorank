@@ -49,7 +49,7 @@ public class UUIDFetcher implements Callable<Map<String, UUID>> {
     }
 
     public static UUID getUUIDOf(String name) throws Exception {
-        return (new UUIDFetcher(Arrays.asList(name))).call().get(name);
+        return (new UUIDFetcher(Collections.singletonList(name))).call().get(name);
     }
 
     public static byte[] toBytes(UUID uuid) {

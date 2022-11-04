@@ -18,7 +18,7 @@ import java.util.concurrent.ExecutionException;
 public class LeaderboardHandler {
     private static final double LEADERBOARD_TIME_VALID = 30.0D;
     private final Autorank plugin;
-    private String layout = "&6&r | &b&p - &7&d %day%, &h %hour% and &m %minute%.";
+    private String layout = "<GOLD>&r | <AQUA>&p - <GRAY>&d %day%, &h %hour% and &m %minute%.";
     private int leaderboardLength = 10;
 
     public LeaderboardHandler(Autorank plugin) {
@@ -82,7 +82,7 @@ public class LeaderboardHandler {
             UUID uuid = uuids.get(i);
             if (uuid != null && !this.plugin.getPlayerChecker().isExemptedFromLeaderboard(uuid)) {
                 DecimalFormat df = new DecimalFormat("#.#");
-                double percentage = (double)i * 1.0D / (double)size * 100.0D;
+                double percentage = (double) i / (double)size * 100.0D;
                 int floored = (int)Math.floor(percentage);
                 if (lastSentPercentage != floored && floored % 10 == 0) {
                     lastSentPercentage = floored;
@@ -136,7 +136,7 @@ public class LeaderboardHandler {
 
                 if (uuid != null && !this.plugin.getPlayerChecker().isExemptedFromLeaderboard(uuid)) {
                     DecimalFormat df = new DecimalFormat("#.#");
-                    double percentage = (double)i * 1.0D / (double)size * 100.0D;
+                    double percentage = (double) i / (double)size * 100.0D;
                     int floored = (int)Math.floor(percentage);
                     if (lastSentPercentage != floored) {
                         lastSentPercentage = floored;
@@ -192,6 +192,7 @@ public class LeaderboardHandler {
         while(var3.hasNext()) {
             String msg = (String)var3.next();
             AutorankTools.sendColoredMessage(sender, msg);
+           // AutorankTools.sendDeserialize(sender, msg);
         }
 
     }

@@ -4,9 +4,11 @@ import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.commands.manager.AutorankCommand;
 import me.armar.plugins.autorank.debugger.Debugger;
 import me.armar.plugins.autorank.language.Lang;
-import org.bukkit.ChatColor;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class DebugCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -16,19 +18,23 @@ public class DebugCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        var mm = MiniMessage.miniMessage();
         if (!this.hasPermission("autorank.debug", sender)) {
             return true;
         } else {
             Debugger.debuggerEnabled = !Debugger.debuggerEnabled;
             if (Debugger.debuggerEnabled) {
-                sender.sendMessage(ChatColor.GOLD + Lang.DEBUG_MODE.getConfigValue() + ChatColor.GREEN + Lang.ENABLED.getConfigValue());
+                Component enabled = mm.deserialize(Lang.DEBUG_MODE.getConfigValue() + Lang.ENABLED.getConfigValue());
+                plugin.adventure().player((Player) sender).sendMessage(enabled);
             } else {
-                sender.sendMessage(ChatColor.GOLD + Lang.DEBUG_MODE.getConfigValue() + ChatColor.RED + Lang.DISABLED.getConfigValue());
+                Component disabled = mm.deserialize(Lang.DEBUG_MODE.getConfigValue() + Lang.DISABLED.getConfigValue());
+                plugin.adventure().player((Player) sender).sendMessage(disabled);
             }
 
             this.plugin.getServer().getScheduler().runTaskAsynchronously(this.plugin, () -> {
                 String fileName = this.plugin.getDebugger().createDebugFile();
-                sender.sendMessage(ChatColor.GREEN + Lang.DEBUG_FILE.getConfigValue(fileName));
+                Component debug_file = mm.deserialize(Lang.DEBUG_FILE.getConfigValue(fileName));
+                plugin.adventure().player((Player) sender).sendMessage(debug_file);
             });
             return true;
         }
