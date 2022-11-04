@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Autorank" />
         <module name="world" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Autorank" target="16" />
       <module name="Autorank_II" target="16" />
       <module name="world" target="16" />
     </bytecodeTargetLevel>
