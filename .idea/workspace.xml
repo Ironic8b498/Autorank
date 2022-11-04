@@ -9,12 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f4d1c7-f526-40ad-a80e-28d9157f7195" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/util/AudienceProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/armar/plugins/autorank/util/BukkitAudiences.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f5f4d1c7-f526-40ad-a80e-28d9157f7195" name="Changes" comment="Updated to minimessage" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
