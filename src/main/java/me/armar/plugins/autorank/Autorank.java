@@ -119,9 +119,9 @@ public class Autorank extends JavaPlugin {
 
     public void onEnable() {
         autorank = this;
-        getLogger().info("mainclass getHumanPluginName = " + this.getServer().getPluginManager().getPlugin(Library.AURELIUM_SKILLS.getHumanPluginName()));
-        getLogger().info("mainclass getInternalPluginName = " + this.getServer().getPluginManager().getPlugin(Library.AURELIUM_SKILLS.getInternalPluginName()));
-        getLogger().info("mainclass isPluginAvailable = " + isPluginAvailable(Library.AURELIUM_SKILLS));
+        getLogger().info("mainclass getHumanPluginName = " + this.getServer().getPluginManager().getPlugin(Library.AUTORANK.getHumanPluginName()));
+        getLogger().info("mainclass getInternalPluginName = " + this.getServer().getPluginManager().getPlugin(Library.AUTORANK.getInternalPluginName()));
+        getLogger().info("mainclass isPluginAvailable = " + isPluginAvailable(Library.AUTORANK));
         this.setLoggerManager(new LoggerManager(this));
         this.setWarningManager(new WarningManager(this));
         this.setPathsConfig(new PathsConfig(this));
