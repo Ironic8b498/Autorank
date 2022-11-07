@@ -23,7 +23,7 @@ public abstract class AutorankCommand implements TabExecutor {
     public abstract String getDescription();
     public abstract String getPermission();
     public abstract String getUsage();
-    public abstract boolean onCommand(CommandSender var1, Command var2, String var3, String[] var4);
+    public abstract boolean onCommand(CommandSender semder, Command cmd, String commandlabel, String[] args);
     public List<String> onTabComplete(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         return null;
     }

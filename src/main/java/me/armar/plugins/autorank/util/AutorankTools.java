@@ -2,7 +2,6 @@ package me.armar.plugins.autorank.util;
 
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.language.Lang;
-import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.ChatColor;
@@ -12,7 +11,6 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -256,12 +254,35 @@ public class AutorankTools {
         autorank.adventure().player((Player) sender).sendMessage(send_msg);
     }
 
-    public static void sendallDeserialize(String msg){
+    public static void playersDeserialize(String msg){
         var mm = MiniMessage.miniMessage();
         Component send_msg = mm.deserialize(msg);
-        autorank.adventure().players().filterAudience((Predicate<? super Audience>) send_msg);
-      //  autorank.adventure().permission()  player((Player) all).sendMessage(send_msg);
+        autorank.adventure().players().sendMessage(send_msg);
+    }
 
+    public static void consoleDeserialize(String msg){
+        var mm = MiniMessage.miniMessage();
+        Component send_msg = mm.deserialize(msg);
+        autorank.adventure().console().sendMessage(send_msg);
+    }
+    public static void allDeserialize(String msg){
+        var mm = MiniMessage.miniMessage();
+        Component send_msg = mm.deserialize(msg);
+        autorank.adventure().all().sendMessage(send_msg);
+    }
+
+    public static String getFinalArg(final String[] args, final int start)
+    {
+        final StringBuilder bldr = new StringBuilder();
+        for (int i = start; i < args.length; i++)
+        {
+            if (i != start)
+            {
+                bldr.append(" ");
+            }
+            bldr.append(args[i]);
+        }
+        return bldr.toString();
     }
 
     public static void sendColoredMessage(CommandSender sender, String msg) {

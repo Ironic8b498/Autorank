@@ -13,8 +13,8 @@ public class LanguageHandler {
     private File languageConfigFile;
     private final Autorank plugin;
 
-    public LanguageHandler(Autorank autorank) {
-        this.plugin = autorank;
+    public LanguageHandler(Autorank plugin) {
+        this.plugin = plugin;
     }
 
     public void createNewFile() {

@@ -11,7 +11,6 @@ import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
-import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -60,14 +59,10 @@ public class CheckCommand extends AutorankCommand {
                 }
 
                 message.append("<GRAY>]<GOLD>> (").append((new BigDecimal(completeRatio * 100.0D)).setScale(2, RoundingMode.HALF_UP)).append("%)");
-//                message.append(ChatColor.GRAY + "]").append(ChatColor.GOLD + " (").append((new BigDecimal(completeRatio * 100.0D)).setScale(2, RoundingMode.HALF_UP)).append("%)");
-//                sender.sendMessage(message.toString());
-//                Component show_paths = mm.deserialize(ChatColor.GRAY + "]").append(ChatColor.GOLD + " (").append((new BigDecimal(completeRatio * 100.0D)).setScale(2, RoundingMode.HALF_UP)).append("%)");
                 AutorankTools.sendDeserialize(sender, message.toString());
             }
             Player player = (Player) sender;
             new MessageSender(player, Lang.TO_VIEW_THE_PROGRESS.getConfigValue() + " MessageSender");
-//            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', String.valueOf(Lang.TO_VIEW_THE_PROGRESS.getConfigValue())));
             AutorankTools.sendDeserialize(sender, Lang.TO_VIEW_THE_PROGRESS.getConfigValue());
         }
     }
@@ -75,10 +70,6 @@ public class CheckCommand extends AutorankCommand {
     public void showSpecificPath(CommandSender sender, String playerName, UUID uuid, Path path) {
         var mm = MiniMessage.miniMessage();
         this.plugin.getPlayerChecker().checkPlayer(uuid);
-//        sender.sendMessage(ChatColor.DARK_AQUA + "-----------------------");
-//        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Lang.YOU_ARE_VIEWING.getConfigValue(playerName, path.getDisplayName())));
-//        sender.sendMessage(ChatColor.DARK_AQUA + "-----------------------");
-//        sender.sendMessage(ChatColor.GRAY + String.valueOf(Lang.REQUIREMENTS.getConfigValue()));
         Component specificpath = mm.deserialize(Lang.SPECIFIC_PATH.getConfigValue())
                 .append(mm.deserialize("<NEWLINE>" + Lang.YOU_ARE_VIEWING.getConfigValue(playerName, path.getDisplayName())))
                 .append(mm.deserialize("<NEWLINE>" + Lang.SPECIFIC_PATH.getConfigValue()))

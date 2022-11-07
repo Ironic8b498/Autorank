@@ -1,6 +1,7 @@
 package me.armar.plugins.autorank.pathbuilder.result;
 
 import me.armar.plugins.autorank.language.Lang;
+import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.entity.Player;
 
 public class MessageResult extends AbstractResult {
@@ -14,6 +15,12 @@ public class MessageResult extends AbstractResult {
             return false;
         } else {
             this.msg = this.msg.replace("&p", player.getName());
+            if (this.msg.startsWith("deserialize ") ){
+                this.msg = msg.replace("deserialize ", "");
+                AutorankTools.sendDeserialize(player, this.msg);
+                return true;
+            }
+
             this.msg = this.msg.replaceAll("(&([a-z0-9]))", "§$2");
             player.sendMessage(this.msg);
             return this.msg != null;

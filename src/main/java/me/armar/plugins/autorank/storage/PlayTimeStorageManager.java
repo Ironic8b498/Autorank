@@ -3,6 +3,7 @@ package me.armar.plugins.autorank.storage;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.util.AutorankTools;
+import org.bukkit.Bukkit;
 
 import java.time.LocalDate;
 import java.time.temporal.WeekFields;
@@ -235,8 +236,7 @@ public class PlayTimeStorageManager {
                     }
 
                     if (this.plugin.getSettingsConfig().shouldBroadcastDataReset()) {
-                       // this.plugin.getServer().broadcastMessage(broadcastMessage);
-                        AutorankTools.sendallDeserialize(broadcastMessage);
+                        AutorankTools.allDeserialize(broadcastMessage);
                     }
 
                     this.plugin.getInternalPropertiesConfig().setTrackedTimeType(type, value);

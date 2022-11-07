@@ -51,6 +51,7 @@ public class CommandsManager implements TabExecutor {
         this.registeredCommands.put(List.of("info"), new InfoCommand(plugin));
         this.registeredCommands.put(List.of("editor"), new EditorCommand(plugin));
         this.registeredCommands.put(List.of("migrate"), new MigrateCommand(plugin));
+        this.registeredCommands.put(List.of("broadcast"), new BroadcastCommand(plugin));
     }
 
     public Map<List<String>, AutorankCommand> getRegisteredCommands() {
