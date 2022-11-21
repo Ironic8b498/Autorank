@@ -2,6 +2,7 @@ package me.armar.plugins.autorank.commands.conversations.editorcommand.completep
 
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.commands.conversations.editorcommand.SelectPlayerPrompt;
+import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.pathbuilder.Path;
 import org.bukkit.ChatColor;
 import org.bukkit.conversations.Conversable;
@@ -20,7 +21,7 @@ public class CompletePathPrompt extends StringPrompt {
     @NotNull
     public String getPromptText(@NotNull ConversationContext conversationContext) {
         String playerName = conversationContext.getSessionData(SelectPlayerPrompt.KEY_PLAYERNAME).toString();
-        return ChatColor.GOLD + "What path do you want to complete for " + ChatColor.GRAY + playerName + ChatColor.GOLD + "?";
+        return ChatColor.GOLD + Lang.NCC_WHAT_PATH_COMPLETE.getConfigValue(ChatColor.GRAY + playerName + ChatColor.GOLD);
     }
 
     @Nullable
@@ -28,7 +29,7 @@ public class CompletePathPrompt extends StringPrompt {
         Path path = Autorank.getInstance().getPathManager().findPathByDisplayName(s, false);
         Conversable conversable = conversationContext.getForWhom();
         if (path == null) {
-            conversable.sendRawMessage(ChatColor.RED + "The path " + ChatColor.GRAY + s + ChatColor.RED + " does not exist!");
+            conversable.sendRawMessage(ChatColor.RED + Lang.NCC_THE_PATH.getConfigValue(ChatColor.GRAY + s + ChatColor.RED));
             return this;
         } else {
             conversationContext.setSessionData(KEY_PATH_TO_BE_COMPLETED, path.getInternalName());

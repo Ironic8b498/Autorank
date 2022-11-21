@@ -25,7 +25,7 @@ public class CompleteCommand extends AutorankCommand {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         var mm = MiniMessage.miniMessage();
         if (!(sender instanceof Player)) {
-            AutorankTools.sendDeserialize(sender, Lang.YOU_ARE_A_ROBOT_COMPLETE.getConfigValue());
+            AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT_COMPLETE.getConfigValue());
             return true;
         } else if (!this.hasPermission("autorank.complete", sender)) {
             return true;

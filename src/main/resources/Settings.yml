@@ -118,3 +118,7 @@ successfully completed requirement: true
 
 automatically been assigned: true
 # If this is false, Autorank will not send automatically been assigned to chat
+
+language: ENGLISH
+# Change to load GERMAN, FRENCH or ENGLISH language files. by default ENGLISH will load change this to
+# desired Language and stop server delete language file and start server

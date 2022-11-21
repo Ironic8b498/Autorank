@@ -8,6 +8,7 @@ import me.armar.plugins.autorank.util.AutorankTools;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class DebugCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -18,6 +19,10 @@ public class DebugCommand extends AutorankCommand {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         var mm = MiniMessage.miniMessage();
+        if (!(sender instanceof Player)){
+            AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT.getConfigValue());
+            return true;
+        }
         if (!this.hasPermission("autorank.debug", sender)) {
             return true;
         } else {

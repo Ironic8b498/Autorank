@@ -174,7 +174,21 @@ public class Autorank extends JavaPlugin {
             Autorank.this.getUUIDStorage().loadStorageFiles();
         });
         this.setDataConverter(new DataConverter(this));
+//        String language = getSettingsConfig().getLanguage();
+//        getLogger().info("qwerty language " + language);
+//        switch (language){
+//            case "GERMAN":
+//                this.languageHandler.createNewlangGEFile();
+//                return;
+//            case "ENGLISH":
+//                this.languageHandler.createNewFile();
+//                return;
+//            case "FRENCH":
+//                this.languageHandler.createNewlangFRFile();
+//        }
         this.languageHandler.createNewFile();
+        this.languageHandler.createNewlangFRFile();
+        this.languageHandler.createNewlangGEFile();
         FlatFileStorageProvider flatFileStorageProvider = new FlatFileStorageProvider(this);
         CompletableFuture<Void> loadFlatFileTask = flatFileStorageProvider.initialiseProvider().thenAccept((loaded) -> {
             if (!loaded) {

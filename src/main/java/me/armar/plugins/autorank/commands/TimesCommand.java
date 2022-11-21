@@ -27,6 +27,10 @@ public class TimesCommand extends AutorankCommand {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         var mm = MiniMessage.miniMessage();
         String targetName = "";
+        if (!(sender instanceof Player)){
+            AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT.getConfigValue());
+            return true;
+        }
         if (args.length > 1) {
             if (!this.hasPermission("autorank.times.others", sender)) {
                 return true;

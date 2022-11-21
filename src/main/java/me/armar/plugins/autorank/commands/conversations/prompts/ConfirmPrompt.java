@@ -1,6 +1,7 @@
 package me.armar.plugins.autorank.commands.conversations.prompts;
 
 import io.reactivex.annotations.NonNull;
+import me.armar.plugins.autorank.language.Lang;
 import org.bukkit.ChatColor;
 import org.bukkit.conversations.ConversationContext;
 import org.bukkit.conversations.FixedSetPrompt;
@@ -21,7 +22,7 @@ public class ConfirmPrompt extends FixedSetPrompt {
 
     public ConfirmPrompt(String message, @NonNull Prompt confirmPrompt, @NonNull Prompt denyPrompt, ConfirmPromptCallback callback) {
         super("yes", "confirm", "allow", "no", "deny", "disallow");
-        this.message = ChatColor.GOLD + "Are you sure you want to perform this action? Type " + ChatColor.GREEN + "yes" + ChatColor.GOLD + " or " + ChatColor.RED + "no" + ChatColor.GOLD + ".";
+        this.message = ChatColor.GOLD + Lang.NCC_ARE_YOU_SURE_PERFORM.getConfigValue() + ChatColor.GREEN + "yes" + ChatColor.GOLD + " or " + ChatColor.RED + "no" + ChatColor.GOLD + ".";
         this.denyWords = Arrays.asList("no", "deny", "disallow");
         if (message != null) {
             this.message = message;

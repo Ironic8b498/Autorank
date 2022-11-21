@@ -6,6 +6,7 @@ import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import static me.armar.plugins.autorank.util.AutorankTools.getFinalArg;
 
@@ -15,6 +16,10 @@ public class BroadcastCommand extends AutorankCommand {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, final String[] args) {
+        if (!(sender instanceof Player)){
+            AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT.getConfigValue());
+            return true;
+        }
         if (!this.hasPermission("autorank.admin", sender)) {
             return true;
         } else if (args.length < 1) {

@@ -4,6 +4,7 @@ import me.armar.plugins.autorank.commands.conversations.editorcommand.assignpath
 import me.armar.plugins.autorank.commands.conversations.editorcommand.assignpath.UnAssignPathPrompt;
 import me.armar.plugins.autorank.commands.conversations.editorcommand.completepath.CompletePathPrompt;
 import me.armar.plugins.autorank.commands.conversations.editorcommand.completerequirement.CompleteRequirementPrompt;
+import me.armar.plugins.autorank.language.Lang;
 import org.bukkit.ChatColor;
 import org.bukkit.conversations.ConversationContext;
 import org.bukkit.conversations.FixedSetPrompt;
@@ -42,6 +43,6 @@ public class EditorMenuPrompt extends FixedSetPrompt {
     @NotNull
     public String getPromptText(@NotNull ConversationContext conversationContext) {
         conversationContext.setSessionData(KEY_ACTION_TYPE, null);
-        return ChatColor.GOLD + "What type of edit do you want to make? " + ChatColor.LIGHT_PURPLE + this.formatFixedSet();
+        return ChatColor.GOLD + Lang.NCC_WHAT_TYPE.getConfigValue() + ChatColor.LIGHT_PURPLE + this.formatFixedSet();
     }
 }

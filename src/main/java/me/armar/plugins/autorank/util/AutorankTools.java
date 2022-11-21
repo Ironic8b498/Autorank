@@ -4,6 +4,7 @@ import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.language.Lang;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -246,6 +247,13 @@ public class AutorankTools {
 
     public static void registerResult(String type) {
         resTypes.add(type);
+    }
+
+    public static String gsonSerialize(String msg){
+        var mm = MiniMessage.miniMessage();
+        Component send_msg = mm.deserialize(msg);
+        String serialize = GsonComponentSerializer.gson().serialize(send_msg);
+        return serialize;
     }
 
     public static void sendDeserialize(CommandSender sender, String msg){

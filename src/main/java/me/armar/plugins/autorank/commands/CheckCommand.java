@@ -95,7 +95,7 @@ public class CheckCommand extends AutorankCommand {
         OfflinePlayer targetPlayer = null;
         if (args.length == 1) {
             if (!(sender instanceof Player)) {
-                AutorankTools.sendDeserialize(sender, Lang.YOU_SHOULD_SPECIFY.getConfigValue());
+                AutorankTools.consoleDeserialize(Lang.YOU_SHOULD_SPECIFY.getConfigValue());
                 return true;
             } else if (!this.hasPermission("autorank.check", sender)) {
                 return true;

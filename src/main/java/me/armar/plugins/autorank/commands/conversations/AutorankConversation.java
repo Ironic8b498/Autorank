@@ -1,6 +1,7 @@
 package me.armar.plugins.autorank.commands.conversations;
 
 import me.armar.plugins.autorank.Autorank;
+import me.armar.plugins.autorank.language.Lang;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -62,11 +63,11 @@ public class AutorankConversation {
 
     public void startConversation(Conversable conversable) {
         if (conversable.isConversing()) {
-            conversable.sendRawMessage(ChatColor.RED + "You are already in a conversation.");
+            conversable.sendRawMessage(ChatColor.RED + Lang.NCC_YOUR_ARE_ALREADY_IN.getConfigValue());
         } else {
             if (conversable instanceof Player) {
                 if (isInConversation(((Player)conversable).getUniqueId())) {
-                    conversable.sendRawMessage(ChatColor.RED + "You are already in a conversation.");
+                    conversable.sendRawMessage(ChatColor.RED + Lang.NCC_YOUR_ARE_ALREADY_IN.getConfigValue());
                     return;
                 }
 
