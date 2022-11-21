@@ -144,7 +144,7 @@ public enum Lang {
     NCC_COMPLETED("NCC-COMPLETED", "completed paths"),
     NCC_CONVERSATION_HAS_BEEN("NCC-CONVERSATION-HAS-BEEN", "This conversation has been abandoned by you."),
     NCC_CONVERSATION_HAS_ENDED("NCC-CONVERSATION-HAS-ENDED", "This conversation has ended."),
-    NCC_CONVERSATION_HAS_ENDED_BECAUSE("NCC-CONVERSATION-HAS-ENDED-BECAUSE", "<GREY>This conversation has ended because you didn't reply in time."),
+    NCC_CONVERSATION_HAS_ENDED_BECAUSE("NCC-CONVERSATION-HAS-ENDED-BECAUSE", "This conversation has ended because you didn't reply in time."),
     NCC_HAS_ALREADY("NCC-HAS-ALREADY", "{0} has already completed this requirement"),
     NCC_IS_ALREADY("NCC-IS-ALREADY", "{0} is already on that path."),
     NCC_IS_NOT("NCC-IS-NOT", "{0} is not on that path."),
