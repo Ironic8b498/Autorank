@@ -3,6 +3,7 @@ package me.armar.plugins.autorank.listeners;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.pathbuilder.Path;
 import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataStorage;
+import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -37,6 +38,7 @@ public class PlayerJoinListener implements Listener {
         this.plugin.getPlayerChecker().doOfflineExemptionChecks(player);
         this.plugin.getServer().getScheduler().runTaskAsynchronously(this.plugin, () -> {
             this.plugin.getPathManager().autoAssignPaths(player.getUniqueId());
+            AutorankTools.consoleDeserialize(String.valueOf(this.plugin.getSettingsConfig().isAutomaticPathDisabled()));
             if (!this.plugin.getSettingsConfig().isAutomaticPathDisabled()) {
                 this.plugin.getPlayerChecker().checkPlayer(player.getUniqueId());
             }
@@ -83,10 +85,8 @@ public class PlayerJoinListener implements Listener {
             while(var4.hasNext()) {
                 Path path = (Path)var4.next();
                 Collection<Integer> completedRequirements = playerDataStorage.get().getCompletedRequirementsWithMissingResults(player.getUniqueId(), path.getInternalName());
-                Iterator var7 = completedRequirements.iterator();
 
-                while(var7.hasNext()) {
-                    int requirementId = (Integer)var7.next();
+                for (int requirementId : completedRequirements) {
                     path.completeRequirement(player.getUniqueId(), requirementId);
                     playerDataStorage.get().removeCompletedRequirementWithMissingResults(player.getUniqueId(), path.getInternalName(), requirementId);
                 }
@@ -94,7 +94,7 @@ public class PlayerJoinListener implements Listener {
 
             Collection<String> completedPaths = playerDataStorage.get().getCompletedPathsWithMissingResults(player.getUniqueId());
 
-            for(Iterator var11 = completedPaths.iterator(); var11.hasNext(); playerDataStorage.get().removeCompletedPathWithMissingResults(player.getUniqueId(), pathName)) {
+            for(Iterator<String> var11 = completedPaths.iterator(); var11.hasNext(); playerDataStorage.get().removeCompletedPathWithMissingResults(player.getUniqueId(), pathName)) {
                 pathName = (String)var11.next();
                 Path path = this.plugin.getPathManager().findPathByInternalName(pathName, false);
                 if (path != null) {

@@ -14,14 +14,11 @@ import java.util.List;
 import java.util.UUID;
 
 public class QuestsAlternative extends LibraryHook {
-    private Quests quests;
-    BukkitQuestsPlugin questsPlugin = (BukkitQuestsPlugin) Bukkit.getPluginManager().getPlugin("Quests");
-
-    public QuestsAlternative() {
-    }
-
     public boolean isHooked() {
-        return this.quests != null;
+        return isPluginAvailable(Library.QUESTS_ALTERNATIVE);
+    }
+    private Quests quests;
+    public QuestsAlternative() {
     }
 
     public boolean hook() {
@@ -40,6 +37,7 @@ public class QuestsAlternative extends LibraryHook {
 
 
     public int getNumberOfCompletedQuests(UUID uuid) {
+        BukkitQuestsPlugin questsPlugin = (BukkitQuestsPlugin) Bukkit.getPluginManager().getPlugin("Quests");
         if (!this.isHooked()) {
             return -1;
         } else {
@@ -50,6 +48,7 @@ public class QuestsAlternative extends LibraryHook {
     }
 
     public int getNumberOfActiveQuests(UUID uuid) {
+        BukkitQuestsPlugin questsPlugin = (BukkitQuestsPlugin) Bukkit.getPluginManager().getPlugin("Quests");
         if (!this.isHooked()) {
             return -1;
         } else {
@@ -59,6 +58,7 @@ public class QuestsAlternative extends LibraryHook {
     }
 
     public boolean isQuestCompleted(UUID uuid, String questName) {
+        BukkitQuestsPlugin questsPlugin = (BukkitQuestsPlugin) Bukkit.getPluginManager().getPlugin("Quests");
         if (!this.isHooked()) {
             return false;
         } else {

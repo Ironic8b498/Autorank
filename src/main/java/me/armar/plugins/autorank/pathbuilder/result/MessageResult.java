@@ -15,6 +15,7 @@ public class MessageResult extends AbstractResult {
             return false;
         } else {
             this.msg = this.msg.replace("&p", player.getName());
+            this.msg = this.msg.replace("@p", player.getName());
             if (this.msg.startsWith("deserialize ") ){
                 this.msg = msg.replace("deserialize ", "");
                 AutorankTools.sendDeserialize(player, this.msg);

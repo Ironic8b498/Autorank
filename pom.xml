@@ -6,7 +6,7 @@
 
     <groupId>me.armar</groupId>
     <artifactId>Autorank</artifactId>
-    <version>5.1.8</version>
+    <version>5.1.9</version>
 
     <name>Autorank</name>
     <description>Reward players based on their stats.</description>
