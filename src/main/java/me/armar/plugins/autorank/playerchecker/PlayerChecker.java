@@ -7,7 +7,6 @@ import me.armar.plugins.autorank.pathbuilder.holders.CompositeRequirement;
 import me.armar.plugins.autorank.pathbuilder.result.AbstractResult;
 import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -90,20 +89,20 @@ public class PlayerChecker {
 
     public List<String> formatRequirementsToList(List<CompositeRequirement> holders, List<CompositeRequirement> metRequirements) {
         List<String> messages = new ArrayList();
-        messages.add(ChatColor.GRAY + " ------------ ");
+        messages.add("<GRAY> ------------ ");
 
         for(int i = 0; i < holders.size(); ++i) {
             CompositeRequirement holder = holders.get(i);
             if (holder != null) {
-                StringBuilder message = new StringBuilder("     " + ChatColor.GOLD + (i + 1) + ". ");
+                StringBuilder message = new StringBuilder("     <GOLD>" + (i + 1) + ". ");
                 if (metRequirements.contains(holder)) {
-                    message.append(ChatColor.GREEN).append(holder.getDescription()).append(ChatColor.DARK_AQUA).append(" (").append(Lang.DONE_MARKER.getConfigValue()).append(")");
+                    message.append("<GREEN>").append(holder.getDescription()).append("<DARK_AQUA>").append(" (").append(Lang.DONE_MARKER.getConfigValue()).append(")");
                 } else {
-                    message.append(ChatColor.RED).append(holder.getDescription());
+                    message.append("<RED>").append(holder.getDescription());
                 }
 
                 if (holder.isOptional()) {
-                    message.append(ChatColor.AQUA + " (").append(Lang.OPTIONAL_MARKER.getConfigValue()).append(")");
+                    message.append("<AQUA> (").append(Lang.OPTIONAL_MARKER.getConfigValue()).append(")");
                 }
 
                 messages.add(message.toString());
@@ -115,12 +114,12 @@ public class PlayerChecker {
 
     public List<String> formatResultsToList(List<AbstractResult> abstractResults) {
         List<String> messages = new ArrayList();
-        messages.add(ChatColor.GRAY + " ------------ ");
+        messages.add("<GRAY> ------------ ");
 
         for(int i = 0; i < abstractResults.size(); ++i) {
             AbstractResult abstractResult = abstractResults.get(i);
             if (abstractResult != null) {
-                messages.add("     " + ChatColor.GOLD + (i + 1) + ". " + ChatColor.RED + abstractResult.getDescription());
+                messages.add("     " + "<GOLD>" + (i + 1) + ". " + "<RED>" + abstractResult.getDescription());
             }
         }
 

@@ -57,7 +57,7 @@ public class CheckCommand extends AutorankCommand {
                 for(i = 0; (double)i < 10.0D - completeRatio * 10.0D; ++i) {
                     message.append("<RED>|");
                 }
-
+                //Origanal color is GOLD, changed to BLue
                 message.append("<GRAY>]<GOLD>> (").append((new BigDecimal(completeRatio * 100.0D)).setScale(2, RoundingMode.HALF_UP)).append("%)");
                 AutorankTools.sendDeserialize(sender, message.toString());
             }
@@ -82,8 +82,7 @@ public class CheckCommand extends AutorankCommand {
 
         while(var8.hasNext()) {
             String message = (String)var8.next();
-            AutorankTools.sendColoredMessage(sender, message);
-          //  AutorankTools.sendDeserialize(sender, message);
+            AutorankTools.sendDeserialize(sender, message);
         }
 
     }
@@ -105,7 +104,14 @@ public class CheckCommand extends AutorankCommand {
             } else {
                 Player player = (Player)sender;
                 CompletableFuture<Void> task = this.plugin.getPlayTimeManager().getPlayTime(TimeType.TOTAL_TIME, player.getUniqueId()).thenAccept((playTime) -> {
-                    AutorankTools.sendDeserialize(sender, Lang.HAS_PLAYED_FOR.getConfigValue(player.getName(), AutorankTools.timeToString(playTime, TimeUnit.MINUTES)));
+                    TimeUnit time = TimeUnit.valueOf(plugin.getSettingsConfig().getTimeFormat());
+                    String order = plugin.getSettingsConfig().getTimeOrder();
+                    if (order.equals("START")) {
+                        AutorankTools.sendDeserialize(sender, Lang.HAS_PLAYED_FOR.getConfigValue(player.getName(), AutorankTools.timeToString(playTime, time)));
+                    }
+                    if (order.equals("START_WITH")) {
+                        AutorankTools.sendDeserialize(sender, Lang.HAS_PLAYED_FOR.getConfigValue(player.getName(), AutorankTools.timeStartToString(playTime, time)));
+                    }
                     List<Path> activePaths = this.plugin.getPathManager().getActivePaths(player.getUniqueId());
                     if (activePaths.size() == 1 && this.plugin.getSettingsConfig().showDetailsOfPathWithOneActivePath()) {
                         this.showSpecificPath(sender, player.getName(), player.getUniqueId(), activePaths.get(0));
@@ -192,7 +198,14 @@ public class CheckCommand extends AutorankCommand {
             UUID finalTargetUUID = targetUUID;
             Path finalTargetPath = targetPath;
             CompletableFuture<Void> task = this.plugin.getPlayTimeManager().getPlayTime(TimeType.TOTAL_TIME, targetUUID).thenAccept((playTime) -> {
-                AutorankTools.sendDeserialize(sender, Lang.HAS_PLAYED_FOR.getConfigValue(finalTargetPlayerName, AutorankTools.timeToString(playTime, TimeUnit.MINUTES)));
+                TimeUnit time = TimeUnit.valueOf(plugin.getSettingsConfig().getTimeFormat());
+                String order = plugin.getSettingsConfig().getTimeOrder();
+                if (order.equals("START")) {
+                    AutorankTools.sendDeserialize(sender, Lang.HAS_PLAYED_FOR.getConfigValue(finalTargetPlayerName, AutorankTools.timeToString(playTime, time)));
+                }
+                if (order.equals("START_WITH")) {
+                    AutorankTools.sendDeserialize(sender, Lang.HAS_PLAYED_FOR.getConfigValue(finalTargetPlayerName, AutorankTools.timeStartToString(playTime, time)));
+                }
                 if (finalShowListOfPaths) {
                     this.showPathsOverview(sender, finalTargetPlayerName, finalTargetUUID);
                 } else {

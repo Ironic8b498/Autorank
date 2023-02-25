@@ -193,7 +193,10 @@ public class ImportCommand extends AutorankCommand {
                                         }
                                     }
                                 }
-
+                                plugin.getInternalPropertiesConfig().saveConfig();
+                                File file = new File(plugin.getDataFolder(),"internalprops.yml");
+                                file.delete();
+                                plugin.getInternalPropertiesConfig().loadConfig();
                                 AutorankTools.sendDeserialize(sender, Lang.STORAGE_IMPORTED.getConfigValue());
                             }
 

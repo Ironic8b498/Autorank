@@ -69,6 +69,7 @@ public enum Lang {
     EFFECT_RESULT("EFFECT-RESULT", "Play '{0}' effect on you."),
     ENABLED("ENABLED", " <GREEN>enabled"),
     ESSENTIALS_GEOIP_LOCATION_REQUIREMENT("ESSENTIALS-GEOIP-LOCATION-REQUIREMENT", "Be from area {0}"),
+    EXP_RANGE_REQUIREMENT("EXP-RANGE-REQUIREMENT", "Have range of level between {0} and {1} in exp"),
     EXP_REQUIREMENT("EXP-REQUIREMENT", "Have at least level {0} in exp"),
     FACTIONS_POWER_REQUIREMENT("FACTIONS-POWER-REQUIREMENT", "Have at least {0} power in your faction"),
     FISH_CAUGHT_REQUIREMENT("FISH-CAUGHT-REQUIREMENT", "Catch at least {0} fish"),
