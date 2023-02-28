@@ -72,6 +72,7 @@ public enum Lang {
     EXP_RANGE_REQUIREMENT("EXP-RANGE-REQUIREMENT", "Have range of level between {0} and {1} in exp"),
     EXP_REQUIREMENT("EXP-REQUIREMENT", "Have at least level {0} in exp"),
     FACTIONS_POWER_REQUIREMENT("FACTIONS-POWER-REQUIREMENT", "Have at least {0} power in your faction"),
+    FIRST_LOGIN_DATE("FIRST-LOGIN-DATE", "First Login Date {0}"),
     FISH_CAUGHT_REQUIREMENT("FISH-CAUGHT-REQUIREMENT", "Catch at least {0} fish"),
     FOOD_EATEN_REQUIREMENT("FOOD-EATEN-REQUIREMENT", "Eat at least {0}"),
     GAMEMODE_REQUIREMENT("GAMEMODE-REQUIREMENT", "Be in gamemode {0}"),

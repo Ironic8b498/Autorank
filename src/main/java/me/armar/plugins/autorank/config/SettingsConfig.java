@@ -66,11 +66,17 @@ public class SettingsConfig extends AbstractConfig {
         return this.getConfig().getString("check command layout", "&p has played for &time and is on path '&path'. Requirements to be ranked up: &reqs");
     }
 
-//    public String getLanguage() {
-//        String settingsLang = this.getConfig().getString("language", "ENGLISH");
-//        getLogger().info("qwerty settings " + settingsLang);
-//        return settingsLang;
-//    }
+    public boolean getfirstlogindate() {
+        return this.getConfig().getBoolean("show first login date", false);
+    }
+
+    public String getTimeOrder() {
+        return this.getConfig().getString("time order", "START");
+    }
+
+    public String getTimeFormat() {
+        return this.getConfig().getString("time format", "MINUTES");
+    }
 
     public int getIntervalTime() {
         return this.getConfig().getInt("interval check", 5);

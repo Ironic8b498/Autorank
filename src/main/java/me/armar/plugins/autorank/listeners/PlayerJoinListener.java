@@ -1,6 +1,7 @@
 package me.armar.plugins.autorank.listeners;
 
 import me.armar.plugins.autorank.Autorank;
+import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.pathbuilder.Path;
 import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataStorage;
 import me.armar.plugins.autorank.util.AutorankTools;
@@ -11,6 +12,10 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Optional;
@@ -28,6 +33,14 @@ public class PlayerJoinListener implements Listener {
     )
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+
+        if (plugin.getSettingsConfig().getfirstlogindate()){
+            DateTimeFormatter MMMddyyyyformatter = DateTimeFormatter.ofPattern("MMM dd yyyy");
+            DateTimeFormatter MMMddformatter = DateTimeFormatter.ofPattern("MMM dd");
+            DateTimeFormatter yyyyformatter = DateTimeFormatter.ofPattern("yyyy");
+            String firstLoginDate = LocalDateTime.ofInstant(Instant.ofEpochMilli(player.getFirstPlayed()), ZoneId.systemDefault()).format(MMMddyyyyformatter);
+            AutorankTools.sendDeserialize(player, Lang.FIRST_LOGIN_DATE.getConfigValue(firstLoginDate));
+        }
 
         try {
             this.plugin.getUUIDStorage().storeUUID(player.getName(), player.getUniqueId()).get();

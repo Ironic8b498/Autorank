@@ -174,18 +174,6 @@ public class Autorank extends JavaPlugin {
             Autorank.this.getUUIDStorage().loadStorageFiles();
         });
         this.setDataConverter(new DataConverter(this));
-//        String language = getSettingsConfig().getLanguage();
-//        getLogger().info("qwerty language " + language);
-//        switch (language){
-//            case "GERMAN":
-//                this.languageHandler.createNewlangGEFile();
-//                return;
-//            case "ENGLISH":
-//                this.languageHandler.createNewFile();
-//                return;
-//            case "FRENCH":
-//                this.languageHandler.createNewlangFRFile();
-//        }
         this.languageHandler.createNewFile();
         this.languageHandler.createNewlangFRFile();
         this.languageHandler.createNewlangGEFile();
@@ -329,6 +317,7 @@ public class Autorank extends JavaPlugin {
         RequirementBuilder.registerRequirement("damage taken", DamageTakenRequirement.class);
         RequirementBuilder.registerRequirement("essentials geoip location", EssentialsGeoIPRequirement.class);
         RequirementBuilder.registerRequirement("exp", ExpRequirement.class);
+        RequirementBuilder.registerRequirement("exp range", ExpRangeRequirement.class);
         RequirementBuilder.registerRequirement("faction power", FactionPowerRequirement.class);
         RequirementBuilder.registerRequirement("factionX faction power", FactionsXPowerRequirement.class);
         RequirementBuilder.registerRequirement("fish caught", FishCaughtRequirement.class);
