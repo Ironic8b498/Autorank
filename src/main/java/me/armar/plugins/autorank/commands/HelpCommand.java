@@ -46,6 +46,9 @@ public class HelpCommand extends AutorankCommand {
     }
 
     private void showHelpPages(CommandSender sender, int page) {
+        if (!this.hasPermission("autorank.help", sender)) {
+            return;
+        }
         List<AutorankCommand> commands = (List)(new ArrayList(this.plugin.getCommandsManager().getRegisteredCommands().values())).stream().sorted(Comparator.comparing(AutorankCommand::getUsage)).collect(Collectors.toList());
         if (this.plugin.getSettingsConfig().doBaseHelpPageOnPermissions() && !sender.isOp()) {
             commands = commands.stream().filter((cmd) -> {

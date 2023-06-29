@@ -57,7 +57,7 @@ public class TrackCommand extends AutorankCommand {
                     completionID = 1;
                 }
             } catch (Exception var13) {
-                AutorankTools.sendDeserialize(sender, Lang.INVALID_NUMBER.getConfigValue(new Object[]{reqIdString}));
+                AutorankTools.sendDeserialize(sender, Lang.INVALID_NUMBER.getConfigValue(reqIdString));
                 return true;
             }
 

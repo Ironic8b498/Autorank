@@ -51,7 +51,7 @@ public class PlayerJoinListener implements Listener {
         this.plugin.getPlayerChecker().doOfflineExemptionChecks(player);
         this.plugin.getServer().getScheduler().runTaskAsynchronously(this.plugin, () -> {
             this.plugin.getPathManager().autoAssignPaths(player.getUniqueId());
-            AutorankTools.consoleDeserialize(String.valueOf(this.plugin.getSettingsConfig().isAutomaticPathDisabled()));
+            //AutorankTools.consoleDeserialize(String.valueOf(this.plugin.getSettingsConfig().isAutomaticPathDisabled()));
             if (!this.plugin.getSettingsConfig().isAutomaticPathDisabled()) {
                 this.plugin.getPlayerChecker().checkPlayer(player.getUniqueId());
             }

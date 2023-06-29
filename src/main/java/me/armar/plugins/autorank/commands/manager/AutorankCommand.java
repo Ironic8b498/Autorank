@@ -30,7 +30,7 @@ public abstract class AutorankCommand implements TabExecutor {
     public boolean hasPermission(String permission, CommandSender sender) {
         var mm = MiniMessage.miniMessage();
         if (!sender.hasPermission(permission)) {
-            AutorankTools.sendDeserialize(sender, Lang.NO_PERMISSION.getConfigValue(new Object[]{permission}));
+            AutorankTools.sendDeserialize(sender, Lang.NO_PERMISSION.getConfigValue(permission));
             return false;
         } else {
             return true;

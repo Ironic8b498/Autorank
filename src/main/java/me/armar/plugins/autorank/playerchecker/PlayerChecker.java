@@ -89,20 +89,20 @@ public class PlayerChecker {
 
     public List<String> formatRequirementsToList(List<CompositeRequirement> holders, List<CompositeRequirement> metRequirements) {
         List<String> messages = new ArrayList();
-        messages.add("<GRAY> ------------ ");
+        messages.add(Lang.REQUIREMENT_PATH.getConfigValue());
 
         for(int i = 0; i < holders.size(); ++i) {
             CompositeRequirement holder = holders.get(i);
             if (holder != null) {
-                StringBuilder message = new StringBuilder("     <GOLD>" + (i + 1) + ". ");
+                StringBuilder message = new StringBuilder(Lang.REQUIREMENT_NUMBER.getConfigValue() + (i + 1) + ". ");
                 if (metRequirements.contains(holder)) {
-                    message.append("<GREEN>").append(holder.getDescription()).append("<DARK_AQUA>").append(" (").append(Lang.DONE_MARKER.getConfigValue()).append(")");
+                    message.append(Lang.REQUIREMENT_MEET.getConfigValue()).append(holder.getDescription()).append(Lang.REQUIREMENT_DISCRIPTION.getConfigValue()).append(" (").append(Lang.DONE_MARKER.getConfigValue()).append(")");
                 } else {
-                    message.append("<RED>").append(holder.getDescription());
+                    message.append(Lang.REQUIREMENT_NOT_MET.getConfigValue()).append(holder.getDescription());
                 }
 
                 if (holder.isOptional()) {
-                    message.append("<AQUA> (").append(Lang.OPTIONAL_MARKER.getConfigValue()).append(")");
+                    message.append(Lang.OPTIONAL_LEFT_BRACKET.getConfigValue()).append(Lang.OPTIONAL_MARKER.getConfigValue()).append(Lang.OPTIONAL_RIGHT_BRACKET.getConfigValue());
                 }
 
                 messages.add(message.toString());
@@ -114,12 +114,12 @@ public class PlayerChecker {
 
     public List<String> formatResultsToList(List<AbstractResult> abstractResults) {
         List<String> messages = new ArrayList();
-        messages.add("<GRAY> ------------ ");
+        messages.add(Lang.REQUIREMENT_PATH.getConfigValue());
 
         for(int i = 0; i < abstractResults.size(); ++i) {
             AbstractResult abstractResult = abstractResults.get(i);
             if (abstractResult != null) {
-                messages.add("     " + "<GOLD>" + (i + 1) + ". " + "<RED>" + abstractResult.getDescription());
+                messages.add(Lang.REQUIREMENT_NUMBER.getConfigValue() + (i + 1) + ". " + Lang.RESULTS_DESCRIPTION.getConfigValue() + abstractResult.getDescription());
             }
         }
 

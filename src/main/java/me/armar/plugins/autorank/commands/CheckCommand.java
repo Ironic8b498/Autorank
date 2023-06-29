@@ -47,18 +47,18 @@ public class CheckCommand extends AutorankCommand {
                 Path activePath = (Path)var5.next();
                 StringBuilder message = new StringBuilder(Lang.PROGRESS_OF.getConfigValue(activePath.getDisplayName()));
                 double completeRatio = activePath.getProgress(uuid);
-                message.append("<GRAY>[");
+                message.append(Lang.BRACKET_LEFT.getConfigValue());
 
                 int i;
                 for(i = 0; (double)i < completeRatio * 10.0D; ++i) {
-                    message.append("<GREEN>|");
+                    message.append(Lang.VERTICAL_COMPLETED.getConfigValue());
                 }
 
                 for(i = 0; (double)i < 10.0D - completeRatio * 10.0D; ++i) {
-                    message.append("<RED>|");
+                    message.append(Lang.VERTICAL_NOT_COMPLETED.getConfigValue());
                 }
                 //Origanal color is GOLD, changed to BLue
-                message.append("<GRAY>]<GOLD>> (").append((new BigDecimal(completeRatio * 100.0D)).setScale(2, RoundingMode.HALF_UP)).append("%)");
+                message.append(Lang.BRACKET_RIGHT.getConfigValue()+Lang.PARENTHESIS_LEFT_PERCENT.getConfigValue()).append((new BigDecimal(completeRatio * 100.0D)).setScale(2, RoundingMode.HALF_UP)).append(Lang.PARENTHESIS_RIGHT_PERCENT.getConfigValue());
                 AutorankTools.sendDeserialize(sender, message.toString());
             }
             Player player = (Player) sender;

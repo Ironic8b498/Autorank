@@ -16,7 +16,7 @@ public class BlocksPlacedRequirement extends AbstractRequirement {
         ItemStack item = this.wrapper.getItem();
         StringBuilder arg = new StringBuilder("" + this.wrapper.getBlocksPlaced());
         if (item == null) {
-            arg.append(" blocks");
+            arg.append(Lang.BLOCKS.getConfigValue());
         } else if (this.wrapper.getDisplayName() != null) {
             arg.append(" ").append(this.wrapper.getDisplayName());
         } else {

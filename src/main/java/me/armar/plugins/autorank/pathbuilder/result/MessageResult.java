@@ -16,14 +16,15 @@ public class MessageResult extends AbstractResult {
         } else {
             this.msg = this.msg.replace("&p", player.getName());
             this.msg = this.msg.replace("@p", player.getName());
+            AutorankTools.sendDeserialize(player, this.msg);
             if (this.msg.startsWith("deserialize ") ){
                 this.msg = msg.replace("deserialize ", "");
                 AutorankTools.sendDeserialize(player, this.msg);
                 return true;
             }
 
-            this.msg = this.msg.replaceAll("(&([a-z0-9]))", "§$2");
-            player.sendMessage(this.msg);
+            //this.msg = this.msg.replaceAll("(&([a-z0-9]))", "§$2");
+           // player.sendMessage(this.msg);
             return this.msg != null;
         }
     }

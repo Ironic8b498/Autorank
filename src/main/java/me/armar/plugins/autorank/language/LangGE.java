@@ -33,7 +33,10 @@ public enum LangGE {
     AUTORANK_TIMES_TODAY("AUTORANK-TIMES-TODAY", "<DARK_AQUA>Heute| <LIGHT_PURPLE>{0}}"),
     AUTORANK_TIMES_TOTAL("AUTORANK-TIMES-TOTAL", "<GREEN>Gesamt| <LIGHT_PURPLE>{0}"),
     BENTOBOX_LEVEL_REQUIREMENT("BENTOBOX-LEVEL-REQUIREMENT", "Haben Sie mindestens eine Inselstufe von {0} auf {1}."),
+    BLOCKS("BLOCKS", " blöcke"),
     BLOCKS_MOVED_REQUIREMENT("BLOCKS-MOVED-REQUIREMENT", "Reisen Sie mindestens {0} {1}"),
+    BRACKET_LEFT("BRACKET-LEFT", "<GRAY>["),
+    BRACKET_RIGHT("BRACKET-RIGHT", "<GRAY>]"),
     BROKEN_BLOCKS_REQUIREMENT("BROKEN-BLOCKS-REQUIREMENT", "Unterbrechen Sie mindestens {0}"),
     BUT_YOUR_PROGRESS("BUT-YOUR-PROGRESS", "<GOLD>aber Ihr Fortschritt für diesen Pfad wurde gespeichert."),
     CAKESLICES_EATEN_REQUIREMENT("CAKESLICES-EATEN-REQUIREMENT", "Iss mindestens {0} Stück Kuchen"),
@@ -172,9 +175,13 @@ public enum LangGE {
     NO_PATH_LEFT_TO_CHOOSE("NO-PATH-LEFT-TO-CHOOSE", "<DARK_GREEN>{0} hat für {1} gespielt und hat derzeit keinen Pfad. Es gibt keine Pfade mehr zu wählen."),
     NO_PERMISSION("NO-PERMISSION", "<RED>Du brauchst ({0}) dafür!"),
     OR("OR", "<GREEN>oder"),
+    OPTIONAL_LEFT_BRACKET("OPTIONAL-LEFT-BRACKET", "<AQUA> ("),
+    OPTIONAL_RIGHT_BRACKET("OPTIONAL-RIGHT-BRACKET", "<AQUA> )"),
     OPTIONAL_MARKER("OPTIONAL-MARKER", "Optional"),
     PARENTHESIS_LEFT("PARENTHESIS-LEFT", "<LIGHT_PURPLE> ("),
     PARENTHESIS_RIGHT("PARENTHESIS-RIGHT", "<LIGHT_PURPLE>): "),
+    PARENTHESIS_LEFT_PERCENT("PARENTHESIS-LEFT-PERCENT", "<GOLD> ("),
+    PARENTHESIS_RIGHT_PERCENT("PARENTHESIS-RIGHT-PERCENT", "<GOLD>%)"),
     PARTIAL_COMPLETION_NOT_ENABLED("PARTIAL-COMPLETION-NOT-ENABLED", "<RED>Sie können diesen Befehl nicht verwenden, da dieser Server die teilweise Vervollständigung nicht aktiviert hat!"),
     PATH_HAS_BEEN("PATH-HAS-BEEN", "<GREEN>Pfad <GOLD>{1}<GREEN> wurde für {0}"),
     PATH_IS_DEACTIVATED("PATH-IS-DEACTIVATED", "<GREEN>Pfad {0} ist deaktiviert "),
@@ -206,6 +213,11 @@ public enum LangGE {
     REMOVED_ALL_ACTIVE("REMOVED-ALL-ACTIVE", "<GREEN>Alle aktiven Pfade von <YELLOW>{0} <GREEN>entfernt"),
     REMOVED_ALL_COMPLETED("REMOVED-ALL-COMPLETED", "<GREEN>Alle abgeschlossenen Pfade von <YELLOW>{0} <GREEN>entfernt"),
     REQUIREMENT("REQUIREMENT", "<GREEN>Anforderung <GOLD>{1}<GREEN> wurde für {0} erfüllt"),
+    REQUIREMENT_DISCRIPTION("REQUIREMENT-DISCRIPTION", "<DARK_AQUA>"),
+    REQUIREMENT_MEET("REQUIREMENT-MEET", "<GREEN>"),
+    REQUIREMENT_NOT_MET("REQUIREMENT-NOT-MET", "<RED>"),
+    REQUIREMENT_NUMBER("REQUIREMENT-NUMBER", "     <GOLD>"),
+    REQUIREMENT_PATH("REQUIREMENT-PATH", "<GRAY> ------------ "),
     REQUIREMENTS("REQUIREMENTS", "<GRAY>Anforderungen:"),
     REQUIREMENTS_OF_PATH("REQUIREMENTS_OF_PATH", "<GREEN>Pfadanforderungen <GRAY>{0}<GREEN>:"),
     REQUIREMENT_PROGRESS("REQUIREMENT-PROGRESS", "<RED>Fortschritt der Anforderung #<GOLD>{0}<RED>:"),
@@ -214,6 +226,7 @@ public enum LangGE {
     RESET_PROGRESS("RESET-PROGRESS", "<GREEN>Reset progress on all active paths of <YELLOW>{0}"),
     RESET_PROGRESS_ON_ALL("RESET-PROGRESS-ON-ALL", "<GREEN>Fortschritt auf allen aktiven Pfaden von <YELLOW>{0} zurücksetzen"),
     RESET_WEEKLY_TIME("RESET-WEEKLY-TIME", "<GOLD>[Autorank] <DARK_PURPLE>Eine neue Woche ist da! <YELLOW>Alle Wochenzeiten wurden zurückgesetzt."),
+    RESULTS_DESCRIPTION("RESULTS-DISCRIPTION", "<RED>"),
     RESULTS_OF_PATH("RESULTS-OF-PATH", "<GREEN>Ergebnisse des Pfades <GRAY>{0}<GREEN>:"),
     RPGME_COMBAT_LEVEL_REQUIREMENT("RPGME-COMBAT-LEVEL-REQUIREMENT", "Habe mindestens ein Kampflevel von {0} in RPGme."),
     RPGME_POWER_LEVEL_REQUIREMENT("RPGME-POWER-LEVEL-REQUIREMENT", "Mindestens ein kombiniertes RPGMe-Level {0} haben."),
@@ -247,7 +260,7 @@ public enum LangGE {
     TIME_REQUIREMENT("TIME-REQUIREMENT", "Spielen Sie um mindestens {0}"),
     TIME_WEEKLY_REQUIREMENT("TIME-WEEKLY-REQUIREMENT", " Spielen Sie in einer Woche um mindestens {0}."),
     TOTAL_MOBS_KILLED_REQUIREMENT("TOTAL-MOBS-KILLED-REQUIREMENT", "Mindestens töten {0} {1} {2}"),
-    TOTAL_TIME_REQUIREMENT("TOTAL-TIME-REQUIREMENT", "Mindestens {0} auf diesem Server sein"),
+    TOTAL_TIME_REQUIREMENT("TOTAL-TIME-REQUIREMENT", "Sei mindestens {0} Mobs auf diesem Server"),
     TOWNY_HAS_NATION_REQUIREMENT("TOWNY-HAS-NATION-REQUIREMENT", "Man muss Teil einer Nation sein."),
     TOWNY_HAS_TOWN_REQUIREMENT("TOWNY-HAS-TOWN-REQUIREMENT", "Muss Teil einer Stadt sein."),
     TOWNY_IS_KING_REQUIREMENT("TOWNY-IS-KING-REQUIREMENT", "Muss König einer Nation sein."),
@@ -262,6 +275,8 @@ public enum LangGE {
     UNKNOWN_PLAYER("UNKNOWN-PLAYER", "<RED>Player {0} ist unbekannt und konnte nicht identifiziert werden."),
     UPDATING("UPDATING", "<GREEN>Aktualisieren der Bestenliste. Dies kann eine Weile dauern!"),
     VERSION("VERSION", "<GOLD>Version: <GRAY>{0}"),
+    VERTICAL_COMPLETED("VERTICAL-COMPLETED", "<GREEN>|"),
+    VERTICAL_NOT_COMPLETED("VERTICAL-NOT-COMPLETED", "<RED>|"),
     VOTE_REQUIREMENT("VOTE-REQUIREMENT", "Stimmen Sie mindestens {0} Mal ab"),
     WORLD_GUARD_REGION_REQUIREMENT("WORLD-GUARD-REGION-REQUIREMENT", "In der Region {0} sein"),
     WORLD_REQUIREMENT("WORLD-REQUIREMENT", "Seien Sie in {0}"),
@@ -283,7 +298,7 @@ public enum LangGE {
 
     private static FileConfiguration LANGGE;
     private final String def;
-    private String path;
+    private final String path;
 
     LangGE(String path, String start) {
         this.path = path;

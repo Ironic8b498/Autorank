@@ -33,7 +33,10 @@ public enum LangFR {
     AUTORANK_TIMES_TODAY("AUTORANK-TIMES-TODAY", "<DARK_AQUA>Aujourd'hui: <LIGHT_PURPLE>{0}"),
     AUTORANK_TIMES_TOTAL("AUTORANK-TIMES-TOTAL", "<GREEN>Total: <LIGHT_PURPLE>{0}"),
     BENTOBOX_LEVEL_REQUIREMENT("BENTOBOX-LEVEL-REQUIREMENT", "Avoir au moins un niveau d'île de {0} sur {1}."),
+    BLOCKS("BLOCKS", " blocs"),
     BLOCKS_MOVED_REQUIREMENT("BLOCKS-MOVED-REQUIREMENT", "Voyager au moins {0} {1}"),
+    BRACKET_LEFT("BRACKET-LEFT", "<GRAY>["),
+    BRACKET_RIGHT("BRACKET-RIGHT", "<GRAY>]"),
     BROKEN_BLOCKS_REQUIREMENT("BROKEN-BLOCKS-REQUIREMENT", "Briser au moins {0}"),
     BUT_YOUR_PROGRESS("BUT-YOUR-PROGRESS", "<GOLD>Mais votre progression pour ce chemin a été enregistrée."),
     CAKESLICES_EATEN_REQUIREMENT("CAKESLICES-EATEN-REQUIREMENT", "Mangez au moins {0} tranches de gâteau"),
@@ -172,9 +175,13 @@ public enum LangFR {
     NO_PATH_LEFT_TO_CHOOSE("NO-PATH-LEFT-TO-CHOOSE", "<DARK_GREEN>{0} a joué pour {1} et n'a actuellement aucun chemin. Il n'y a plus de chemin à choisir."),
     NO_PERMISSION("NO-PERMISSION", "<RED>Vous avez besoin de ({0}) pour cela!"),
     OR("OR", "<GREEN>ou"),
+    OPTIONAL_LEFT_BRACKET("OPTIONAL-LEFT-BRACKET", "<AQUA> ("),
+    OPTIONAL_RIGHT_BRACKET("OPTIONAL-RIGHT-BRACKET", "<AQUA> )"),
     OPTIONAL_MARKER("OPTIONAL-MARKER", "Facultatif"),
     PARENTHESIS_LEFT("PARENTHESIS-LEFT", "<LIGHT_PURPLE> ("),
     PARENTHESIS_RIGHT("PARENTHESIS-RIGHT", "<LIGHT_PURPLE>): "),
+    PARENTHESIS_LEFT_PERCENT("PARENTHESIS-LEFT-PERCENT", "<GOLD> ("),
+    PARENTHESIS_RIGHT_PERCENT("PARENTHESIS-RIGHT-PERCENT", "<GOLD>%)"),
     PARTIAL_COMPLETION_NOT_ENABLED("PARTIAL-COMPLETION-NOT-ENABLED", "<RED>Vous ne pouvez pas utiliser cette commande car ce serveur a pas activé l'achèvement partiel!"),
     PATH_HAS_BEEN("PATH-HAS-BEEN", "<GREEN>Le chemin <GOLD>{1}<GREEN> a été complété pour {0}"),
     PATH_IS_DEACTIVATED("PATH-IS-DEACTIVATED", "<GREEN>Le chemin {0} est désactivé "),
@@ -206,6 +213,11 @@ public enum LangFR {
     REMOVED_ALL_ACTIVE("REMOVED-ALL-ACTIVE", "<GREEN>Suppression de tous les chemins actifs de <YELLOW>{0}"),
     REMOVED_ALL_COMPLETED("REMOVED-ALL-COMPLETED", "<GREEN>Suppression de tous les chemins complétés de <YELLOW>{0}"),
     REQUIREMENT("REQUIREMENT", "<GREEN>L'exigence '<GOLD>{1}<GREEN>' a été remplie pour {0}"),
+    REQUIREMENT_DISCRIPTION("REQUIREMENT-DISCRIPTION", "<DARK_AQUA>"),
+    REQUIREMENT_MEET("REQUIREMENT-MEET", "<GREEN>"),
+    REQUIREMENT_NOT_MET("REQUIREMENT-NOT-MET", "<RED>"),
+    REQUIREMENT_NUMBER("REQUIREMENT-NUMBER", "     <GOLD>"),
+    REQUIREMENT_PATH("REQUIREMENT-PATH", "<GRAY> ------------ "),
     REQUIREMENTS("REQUIREMENTS", "<GRAY>Exigences:"),
     REQUIREMENTS_OF_PATH("REQUIREMENTS_OF_PATH", "<GREEN>Exigences du chemin '<GRAY>{0}<GREEN>':"),
     REQUIREMENT_PROGRESS("REQUIREMENT-PROGRESS", "<RED>Avancement de l'exigence #<GOLD>{0}<RED>:"),
@@ -214,6 +226,7 @@ public enum LangFR {
     RESET_PROGRESS("RESET-PROGRESS", "<GOLD>[Autorank] <DARK_PURPLE>Un nouveau mois est arrivé! <YELLOW>Tous les heures mensuelles ont été réinitialisées."),
     RESET_PROGRESS_ON_ALL("RESET-PROGRESS-ON-ALL", "<GREEN>Réinitialiser la progression sur tous les chemins (actifs ET terminés) de <YELLOW>{0}"),
     RESET_WEEKLY_TIME("RESET-WEEKLY-TIME", "<GOLD>[Autorank] <DARK_PURPLE>Une nouvelle semaine est arrivée ! <YELLOW>Tous les heures hebdomadaires ont été réinitialisées."),
+    RESULTS_DESCRIPTION("RESULTS-DISCRIPTION", "<RED>"),
     RESULTS_OF_PATH("RESULTS-OF-PATH", "<GREEN>Résultats du chemin '<GRAY>{0}<GREEN>':"),
     RPGME_COMBAT_LEVEL_REQUIREMENT("RPGME-COMBAT-LEVEL-REQUIREMENT", "Avoir au moins un niveau de combat de {0} dans RPGme."),
     RPGME_POWER_LEVEL_REQUIREMENT("RPGME-POWER-LEVEL-REQUIREMENT", "Avoir au moins un niveau combiné {0} de RPGMe."),
@@ -247,7 +260,7 @@ public enum LangFR {
     TIME_REQUIREMENT("TIME-REQUIREMENT", "Jouez au moins {0}"),
     TIME_WEEKLY_REQUIREMENT("TIME-WEEKLY-REQUIREMENT", " Jouez pendant au moins {0} en une semaine."),
     TOTAL_MOBS_KILLED_REQUIREMENT("TOTAL-MOBS-KILLED-REQUIREMENT", "Tuez au moins {0} {1} {2}"),
-    TOTAL_TIME_REQUIREMENT("TOTAL-TIME-REQUIREMENT", "Être avec ce serveur pendant au moins {0}"),
+    TOTAL_TIME_REQUIREMENT("TOTAL-TIME-REQUIREMENT", "Être avec ce serveur pendant au moins {0} mobs"),
     TOWNY_HAS_NATION_REQUIREMENT("TOWNY-HAS-NATION-REQUIREMENT", "Besoin de faire partie d'une nation."),
     TOWNY_HAS_TOWN_REQUIREMENT("TOWNY-HAS-TOWN-REQUIREMENT", "Besoin de faire partie d'une ville."),
     TOWNY_IS_KING_REQUIREMENT("TOWNY-IS-KING-REQUIREMENT", "Besoin d'être le roi d'une nation"),
@@ -262,6 +275,8 @@ public enum LangFR {
     UNKNOWN_PLAYER("UNKNOWN-PLAYER", "<RED>Le joueur {0} est inconnu et n'a pas pu être identifié."),
     UPDATING("UPDATING", "<GREEN>Mise à jour du classement. Ça pourrait prendre un moment!"),
     VERSION("VERSION", "<GOLD>Version: <GRAY>{0}"),
+    VERTICAL_COMPLETED("VERTICAL-COMPLETED", "<GREEN>|"),
+    VERTICAL_NOT_COMPLETED("VERTICAL-NOT-COMPLETED", "<RED>|"),
     VOTE_REQUIREMENT("VOTE-REQUIREMENT", "Votez au moins {0} fois"),
     WORLD_GUARD_REGION_REQUIREMENT("WORLD-GUARD-REGION-REQUIREMENT", "Être en région {0}"),
     WORLD_REQUIREMENT("WORLD-REQUIREMENT", "Être en {0}"),
@@ -283,7 +298,7 @@ public enum LangFR {
 
     private static FileConfiguration LANGFR;
     private final String def;
-    private String path;
+    private final String path;
 
     LangFR(String path, String start) {
         this.path = path;

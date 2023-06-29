@@ -30,12 +30,12 @@ public class AutorankPlaceholder extends PlaceholderExpansion {
 
     @NotNull
     public String getAuthor() {
-        return "Staartvin";
+        return "Ironic_8b49";
     }
 
     @NotNull
     public String getVersion() {
-        return this.plugin.getDescription().getVersion();
+        return "1.1.0";
     }
 
     public String onRequest(OfflinePlayer player, @NotNull String params) {
