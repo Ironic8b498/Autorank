@@ -106,6 +106,7 @@ public class GlobalPlayerDataStorage implements PlayerDataStorage {
                     }
                 } catch (SQLException var8) {
                     var8.printStackTrace();
+                    break;
                 }
 
                 String serverName = null;
