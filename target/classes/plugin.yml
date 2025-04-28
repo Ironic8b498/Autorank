@@ -1,13 +1,14 @@
 name: Autorank
-version: 5.1.7
-main: me.armar.plugins.autorank.Autorank
+version: 5.2.3
+main: ${mainClass}
+description: Maven project for Spigot plugin Autorank
 api-version: 1.16
 authors: [ Ironic_8b49, Staartvin, Armarr ]
 softdepend: [Vault, GroupManager, Privileges, bPermissions, PermissionsEx, PermissionsBukkit, DroxPerms,
-             PowerfulPerms, mcMMO, FactionsX, UltimateCore, Ontime, Stats, Statz, AdvancedAchievements, Jobs, WorldEdit,
+             PowerfulPerms, mcMMO, FactionsX, UltimateCore, Ontime, Stats, AdvancedAchievements, Jobs, WorldEdit,
              WorldGuard, BentoBox, GriefPrevention, Essentials, Quests, PlayerPoints, Votifier, CMI,
              UhcStats, Towny, McRPG, PlaceholderAPI, AureliumSkills, LastLoginAPI]
-description: Reward players based on their stats.
+
 commands:
   autorank:
     description: Master command of AutoRank

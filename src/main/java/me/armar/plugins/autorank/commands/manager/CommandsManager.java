@@ -113,7 +113,7 @@ public class CommandsManager implements TabExecutor {
                                         .hoverEvent(HoverEvent.showText(mm.deserialize(Lang.THESE_ARE.getConfigValue())
                                                 .append(mm.deserialize(Lang.QUESTION_MARK.getConfigValue()))))));
                 if (sender instanceof Player p) {
-                    plugin.adventure().player((Player) sender).sendMessage(did_you);
+                    plugin.adventure().player(p).sendMessage(did_you);
                 } else {
                     Component did_you2 = mm.deserialize(Lang.DID_YOU.getConfigValue())
                             .append(mm.deserialize(Lang.AR.getConfigValue())

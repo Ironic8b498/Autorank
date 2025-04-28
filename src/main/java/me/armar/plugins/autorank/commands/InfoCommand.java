@@ -101,7 +101,7 @@ public class InfoCommand extends AutorankCommand {
                     StringBuilder completedPathsString = new StringBuilder();
 
                     for(int ix = 0; ix < completedPaths.size(); ++ix) {
-                        String progressString = "<YELLOW>" + "" + completedPaths.get(ix).getTimesCompleted(uuid) + "x";
+                        String progressString = "<YELLOW>" + completedPaths.get(ix).getTimesCompleted(uuid) + "x";
                         if (ix == completedPaths.size() - 1) {
                             completedPathsString.append("<DARK_AQUA>").append(completedPaths.get(ix).toString()).append(" (").append(progressString).append("<DARK_AQUA>").append(")");
                         } else if (ix == completedPaths.size() - 2) {

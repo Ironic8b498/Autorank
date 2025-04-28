@@ -59,7 +59,6 @@ me\armar\plugins\autorank\pathbuilder\requirement\PlantsPottedRequirement.class
 me\armar\plugins\autorank\Autorank$1.class
 me\armar\plugins\autorank\commands\InfoCommand.class
 me\armar\plugins\autorank\commands\manager\AutorankCommand.class
-me\armar\plugins\autorank\util\AudienceProvider.class
 me\armar\plugins\autorank\leaderboard\LeaderboardHandler.class
 me\armar\plugins\autorank\commands\conversations\editorcommand\assignpath\AssignPathByForcePrompt.class
 me\armar\plugins\autorank\pathbuilder\requirement\GriefPreventionClaimsCountRequirement.class
@@ -103,6 +102,7 @@ me\armar\plugins\autorank\pathbuilder\requirement\QuestsCompleteSpecificQuestReq
 me\armar\plugins\autorank\pathbuilder\result\EffectResult.class
 me\armar\plugins\autorank\pathbuilder\requirement\BlocksPlacedWrapper.class
 me\armar\plugins\autorank\converter\ConvertiblePath.class
+me\armar\plugins\autorank\pathbuilder\requirement\ExpRangeRequirement.class
 me\armar\plugins\autorank\migration\MigrationManager$Migrationable.class
 me\armar\plugins\autorank\pathbuilder\requirement\PlayerKillsRequirement.class
 me\armar\plugins\autorank\statsmanager\query\parameter\implementation\WorldTypeParameter.class
@@ -114,9 +114,9 @@ me\armar\plugins\autorank\pathbuilder\requirement\AureliumSkillsXPRequirement.cl
 me\armar\plugins\autorank\pathbuilder\requirement\WorldRequirement.class
 me\armar\plugins\autorank\statsmanager\StatsPlugin.class
 me\armar\plugins\autorank\hooks\DependencyManager$AutorankDependency.class
+me\armar\plugins\autorank\language\LangFR.class
 me\armar\plugins\autorank\commands\SyncCommand.class
 me\armar\plugins\autorank\backup\BackupDataManager.class
-me\armar\plugins\autorank\util\AudienceProvider$Builder.class
 me\armar\plugins\autorank\addons\AddOnManager.class
 me\armar\plugins\autorank\commands\conversations\editorcommand\SelectPlayerPrompt.class
 me\armar\plugins\autorank\permissions\AutorankPermission.class
@@ -161,6 +161,7 @@ me\armar\plugins\autorank\pathbuilder\requirement\TimeMonthlyRequirement.class
 me\armar\plugins\utils\pluginlibrary\hooks\FactionXHook.class
 me\armar\plugins\autorank\pathbuilder\requirement\PlayerPointsPointsRequirement.class
 me\armar\plugins\autorank\statsmanager\handlers\vanilla\VanillaDataLoader.class
+me\armar\plugins\autorank\listeners\AFKListener.class
 me\armar\plugins\autorank\commands\conversations\ConversationResult.class
 me\armar\plugins\autorank\api\events\RequirementCompleteEvent.class
 me\armar\plugins\autorank\pathbuilder\requirement\CakeSlicesEatenRequirement.class
@@ -187,6 +188,7 @@ me\armar\plugins\autorank\pathbuilder\requirement\AbstractRequirement.class
 me\armar\plugins\autorank\leaderboard\AutorankLeaderboard.class
 me\armar\plugins\autorank\pathbuilder\requirement\HasItemRequirement.class
 me\armar\plugins\autorank\commands\conversations\editorcommand\completepath\CompletePathPrompt.class
+me\armar\plugins\autorank\language\LangGE.class
 me\armar\plugins\autorank\api\services\ResultManager.class
 me\armar\plugins\autorank\hooks\statzapi\StatzAPIHandler.class
 me\armar\plugins\autorank\pathbuilder\requirement\FoodWrapper.class
@@ -288,6 +290,7 @@ me\armar\plugins\autorank\pathbuilder\holders\CompositeRequirement.class
 me\armar\plugins\autorank\commands\conversations\ConversationAbandonedEvent.class
 me\armar\plugins\autorank\storage\mysql\GrabPlayerTimeTask.class
 me\armar\plugins\utils\pluginlibrary\hooks\afkmanager\AFKManager.class
+me\armar\plugins\autorank\commands\BroadcastCommand.class
 me\armar\plugins\autorank\pathbuilder\requirement\AutorankActivePathsRequirement.class
 me\armar\plugins\autorank\commands\ResetCommand.class
 me\armar\plugins\autorank\pathbuilder\requirement\MoneyRequirement.class

@@ -12,9 +12,16 @@ afk integration: true
 # If a compatible AFK plugin is found Autorank will not count online time for AFK players
 # Autorank automatically chooses what plugin to use for AFK integration.
 
-interval check: 1
+interval check: 5
 # This is the interval between checks of Autorank (in minutes).
 # Lowering this number will increase accuracy but will also increase server lag.
+
+time order: START
+time format: MINUTES
+# changes what time format to use in check and time commands
+# DAYS | HOURS | MINUTES
+# time order : START = Starts with DAY and ends with the Time format chosen
+# time order : START_WITH = Starts with format chosen and ends with MINUTES
 
 leaderboard layout: '&6&r | &b&p - &7&d %day%, &h %hour% and &m %minute%.'
 leaderboard length: 5
@@ -118,3 +125,6 @@ successfully completed requirement: true
 
 automatically been assigned: true
 # If this is false, Autorank will not send automatically been assigned to chat
+
+show first login date: false
+# Show first login date of player when they log onto the server
