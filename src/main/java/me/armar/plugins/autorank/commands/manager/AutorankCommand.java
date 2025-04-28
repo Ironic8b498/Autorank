@@ -23,14 +23,14 @@ public abstract class AutorankCommand implements TabExecutor {
     public abstract String getDescription();
     public abstract String getPermission();
     public abstract String getUsage();
-    public abstract boolean onCommand(CommandSender var1, Command var2, String var3, String[] var4);
+    public abstract boolean onCommand(CommandSender semder, Command cmd, String commandlabel, String[] args);
     public List<String> onTabComplete(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         return null;
     }
     public boolean hasPermission(String permission, CommandSender sender) {
         var mm = MiniMessage.miniMessage();
         if (!sender.hasPermission(permission)) {
-            AutorankTools.sendDeserialize(sender, Lang.NO_PERMISSION.getConfigValue(new Object[]{permission}));
+            AutorankTools.sendDeserialize(sender, Lang.NO_PERMISSION.getConfigValue(permission));
             return false;
         } else {
             return true;

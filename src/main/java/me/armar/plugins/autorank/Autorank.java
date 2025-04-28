@@ -119,9 +119,9 @@ public class Autorank extends JavaPlugin {
 
     public void onEnable() {
         autorank = this;
-        getLogger().info("mainclass getHumanPluginName = " + this.getServer().getPluginManager().getPlugin(Library.AURELIUM_SKILLS.getHumanPluginName()));
-        getLogger().info("mainclass getInternalPluginName = " + this.getServer().getPluginManager().getPlugin(Library.AURELIUM_SKILLS.getInternalPluginName()));
-        getLogger().info("mainclass isPluginAvailable = " + isPluginAvailable(Library.AURELIUM_SKILLS));
+        getLogger().info("mainclass getHumanPluginName = " + this.getServer().getPluginManager().getPlugin(Library.AUTORANK.getHumanPluginName()));
+        getLogger().info("mainclass getInternalPluginName = " + this.getServer().getPluginManager().getPlugin(Library.AUTORANK.getInternalPluginName()));
+        getLogger().info("mainclass isPluginAvailable = " + isPluginAvailable(Library.AUTORANK));
         this.setLoggerManager(new LoggerManager(this));
         this.setWarningManager(new WarningManager(this));
         this.setPathsConfig(new PathsConfig(this));
@@ -175,6 +175,8 @@ public class Autorank extends JavaPlugin {
         });
         this.setDataConverter(new DataConverter(this));
         this.languageHandler.createNewFile();
+        this.languageHandler.createNewlangFRFile();
+        this.languageHandler.createNewlangGEFile();
         FlatFileStorageProvider flatFileStorageProvider = new FlatFileStorageProvider(this);
         CompletableFuture<Void> loadFlatFileTask = flatFileStorageProvider.initialiseProvider().thenAccept((loaded) -> {
             if (!loaded) {
@@ -315,6 +317,7 @@ public class Autorank extends JavaPlugin {
         RequirementBuilder.registerRequirement("damage taken", DamageTakenRequirement.class);
         RequirementBuilder.registerRequirement("essentials geoip location", EssentialsGeoIPRequirement.class);
         RequirementBuilder.registerRequirement("exp", ExpRequirement.class);
+        RequirementBuilder.registerRequirement("exp range", ExpRangeRequirement.class);
         RequirementBuilder.registerRequirement("faction power", FactionPowerRequirement.class);
         RequirementBuilder.registerRequirement("factionX faction power", FactionsXPowerRequirement.class);
         RequirementBuilder.registerRequirement("fish caught", FishCaughtRequirement.class);

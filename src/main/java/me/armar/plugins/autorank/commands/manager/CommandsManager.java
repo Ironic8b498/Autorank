@@ -1,6 +1,5 @@
 package me.armar.plugins.autorank.commands.manager;
 
-import com.google.common.collect.Lists;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.commands.*;
 import me.armar.plugins.autorank.language.Lang;
@@ -12,6 +11,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
+import org.bukkit.util.StringUtil;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -51,6 +51,7 @@ public class CommandsManager implements TabExecutor {
         this.registeredCommands.put(List.of("info"), new InfoCommand(plugin));
         this.registeredCommands.put(List.of("editor"), new EditorCommand(plugin));
         this.registeredCommands.put(List.of("migrate"), new MigrateCommand(plugin));
+        this.registeredCommands.put(List.of("broadcast"), new BroadcastCommand(plugin));
     }
 
     public Map<List<String>, AutorankCommand> getRegisteredCommands() {
@@ -59,6 +60,9 @@ public class CommandsManager implements TabExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         var mm = MiniMessage.miniMessage();
+        if (sender.hasPermission("autorank.noabout")) {
+            return true;
+        }
         if (args.length == 0) {
             Component about = mm.deserialize(Lang.ABOUT_LINE.getConfigValue())
                     .append(mm.deserialize( "<NEWLINE>" + Lang.DEVELOPED.getConfigValue(this.plugin.getDescription().getAuthors())))
@@ -126,70 +130,123 @@ public class CommandsManager implements TabExecutor {
     }
 
     public List<String> onTabComplete(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-        Iterator var12;
-        Entry entry;
-        if (args.length <= 1) {
+        if (args.length == 1) {
             List<String> commands = new ArrayList();
-            var12 = this.registeredCommands.entrySet().iterator();
-
-            while (var12.hasNext()) {
-                entry = (Entry) var12.next();
-                List<String> list = (List) entry.getKey();
-                commands.addAll(list);
+            if (sender.hasPermission("autorank.add")) {
+                commands.add("add");
+            }
+            if (sender.hasPermission("autorank.archive")) {
+                commands.add("arch");
+                commands.add("archive");
+            }
+            if (sender.hasPermission("autorank.backup.storage")) {
+                commands.add("backup");
+            }
+            if (sender.hasPermission("autorank.admin")) {
+                commands.add("broadcast");
+            }
+            if (sender.hasPermission("autorank.check")) {
+                commands.add("check");
+            }
+            if (sender.hasPermission("autorank.choose")) {
+                commands.add("activate");
+                commands.add("choose");
+            }
+            if (sender.hasPermission("autorank.complete")) {
+                commands.add("complete");
+            }
+            if (sender.hasPermission("autorank.convert.storage")) {
+                commands.add("convert");
+            }
+            if (sender.hasPermission("autorank.deactivate")) {
+                commands.add("deactivate");
+            }
+            if (sender.hasPermission("autorank.debug")) {
+                commands.add("debug");
+            }
+            if (sender.hasPermission("autorank.editor")) {
+                commands.add("editor");
+            }
+            if (sender.hasPermission("autorank.forcecheck")) {
+                commands.add("fcheck");
+                commands.add("forcecheck");
+            }
+            if (sender.hasPermission("autorank.gadd")) {
+                commands.add("gadd");
+                commands.add("globaladd");
+            }
+            if (sender.hasPermission("autorank.gcheck")) {
+                commands.add("gcheck");
+                commands.add("globalcheck");
+            }
+            if (sender.hasPermission("autorank.gset")) {
+                commands.add("gset");
+                commands.add("globalset");
+            }
+            if (sender.hasPermission("autorank.help")) {
+                commands.add("help");
+            }
+            if (sender.hasPermission("autorank.hooks")) {
+                commands.add("hook");
+                commands.add("hooks");
+            }
+            if (sender.hasPermission("autorank.import")) {
+                commands.add("import");
+            }
+            if (sender.hasPermission("autorank.info.*")) {
+                commands.add("info");
+            }
+            if (sender.hasPermission("autorank.leaderboard")) {
+                commands.add("leaderboard");
+                commands.add("leaderboards");
+            }
+            if (sender.hasPermission("autorank.migrate")) {
+                commands.add("migrate");
+            }
+            if (sender.hasPermission("autorank.reload")) {
+                commands.add("reload");
+            }
+            if (sender.hasPermission("autorank.remove")) {
+                commands.add("rem");
+                commands.add("remove");
+            }
+            if (sender.hasPermission("autorank.reset")) {
+                commands.add("reset");
+            }
+            if (sender.hasPermission("autorank.set")) {
+                commands.add("set");
+            }
+            if (sender.hasPermission("autorank.sync")) {
+                commands.add("sync");
+                commands.add("syncstats");
+            }
+            if (sender.hasPermission("autorank.time")) {
+                commands.add("time");
+                commands.add("times");
+            }
+            if (sender.hasPermission("autorank.top")) {
+                commands.add("top");
+            }
+            if (sender.hasPermission("autorank.track")) {
+                commands.add("track");
+            }
+            if (sender.hasPermission("autorank.view")) {
+                commands.add("view");
             }
 
-            return this.findSuggestedCommands(commands, args[0]);
-        } else {
-            String subCommand = args[0].trim();
-            if (!subCommand.equalsIgnoreCase("set") && !subCommand.equalsIgnoreCase("add") && !subCommand.equalsIgnoreCase("remove") && !subCommand.equalsIgnoreCase("rem") && !subCommand.equalsIgnoreCase("gadd") && !subCommand.equalsIgnoreCase("gset")) {
-                var12 = this.registeredCommands.entrySet().iterator();
-
-                while (var12.hasNext()) {
-                    entry = (Entry) var12.next();
-                    Iterator var8 = ((List) entry.getKey()).iterator();
-
-                    while (var8.hasNext()) {
-                        String alias = (String) var8.next();
-                        if (subCommand.trim().equalsIgnoreCase(alias)) {
-                            return ((AutorankCommand) entry.getValue()).onTabComplete(sender, cmd, commandLabel, args);
-                        }
-                    }
-                }
-
-                return null;
-            } else if (args.length > 2) {
-                String arg = args[2];
-                boolean var7 = false;
-
-                int count;
-                try {
-                    count = Integer.parseInt(arg);
-                } catch (NumberFormatException var10) {
-                    count = 0;
-                }
-
-                return Lists.newArrayList("" + (count + 5));
+            //create new array
+            List<String> completions = new ArrayList<>();
+            if (!(args[0] == "")) {
+                //copy matches of first argument from list (ex: if first arg is 'm' will return just string that starts with m)
+                StringUtil.copyPartialMatches(args[0], commands, completions);
             } else {
-                return null;
+                //if arg is null return whole list
+                completions = commands;
             }
+            //sort the list
+            Collections.sort(completions);
+            return completions;
         }
-    }
-
-    private List<String> findSuggestedCommands(List<String> list, String string) {
-        if (string.equals("")) {
-            return list;
-        } else {
-            List<String> returnList = new ArrayList();
-            Iterator var4 = list.iterator();
-
-            while (var4.hasNext()) {
-                String item = (String) var4.next();
-                if (item.toLowerCase().startsWith(string.toLowerCase())) {
-                    returnList.add(item);
-                }
-            }
-
-            return returnList;
-        }
+        return null;
     }
 }

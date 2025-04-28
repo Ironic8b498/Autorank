@@ -14,8 +14,6 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
-import static org.bukkit.Bukkit.getLogger;
-
 public class ResetCommand extends AutorankCommand {
     private final Autorank plugin;
 
@@ -26,32 +24,32 @@ public class ResetCommand extends AutorankCommand {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
             if (args.length != 3) {
-                getLogger().warning(Lang.INVALID_FORMAT.getConfigValue("/ar reset <player> <action>"));
+                AutorankTools.consoleDeserialize(Lang.INVALID_FORMAT.getConfigValue("/ar reset <player> <action>"));
                 return true;
             } else {
                 String target = args[1];
                 String action = args[2];
                 UUID uuid = this.plugin.getUUIDStorage().getStoredUUID(target);
                 if (uuid == null) {
-                    getLogger().warning(Lang.PLAYER_IS_INVALID.getConfigValue(target));
+                    AutorankTools.consoleDeserialize(Lang.PLAYER_IS_INVALID.getConfigValue(target));
                     return true;
                 } else {
                     if (action.equalsIgnoreCase("activeprogress")) {
                         this.plugin.getPathManager().resetProgressOnActivePaths(uuid);
-                        getLogger().info("Reset progress on all active paths of " + target);
+                        AutorankTools.consoleDeserialize("Reset progress on all active paths of " + target);
                     } else if (action.equalsIgnoreCase("activepaths")) {
                         this.plugin.getPathManager().resetActivePaths(uuid);
-                        getLogger().info("Removed all active paths of " + target);
+                        AutorankTools.consoleDeserialize("Removed all active paths of " + target);
                     } else if (action.equalsIgnoreCase("completedpaths")) {
                         this.plugin.getPathManager().resetCompletedPaths(uuid);
-                        getLogger().info("Removed all completed paths of " + target);
+                        AutorankTools.consoleDeserialize("Removed all completed paths of " + target);
                     } else {
                         if (!action.equalsIgnoreCase("allprogress")) {
-                            getLogger().warning("Invalid action. You can only use: activeprogress, activepaths, allprogress or completedpaths.");
+                            AutorankTools.consoleDeserialize("Invalid action. You can only use: activeprogress, activepaths, allprogress or completedpaths.");
                             return true;
                         }
                         this.plugin.getPathManager().resetAllProgress(uuid);
-                        getLogger().info("Reset progress on all paths (active AND completed) of " + target);
+                        AutorankTools.consoleDeserialize("Reset progress on all paths (active AND completed) of " + target);
                     }
                 }
                 return true;

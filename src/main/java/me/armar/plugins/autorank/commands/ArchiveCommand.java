@@ -6,6 +6,7 @@ import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,6 +18,10 @@ public class ArchiveCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (!(sender instanceof Player)){
+            AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT.getConfigValue());
+            return true;
+        }
         if (!this.hasPermission("autorank.archive", sender)) {
             return true;
         } else {

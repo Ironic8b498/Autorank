@@ -14,6 +14,7 @@ import org.bukkit.Statistic;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.util.*;
@@ -27,6 +28,10 @@ public class ImportCommand extends AutorankCommand {
     }
 
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
+        if (!(sender instanceof Player)){
+            AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT.getConfigValue());
+            return true;
+        }
         if (!this.hasPermission("autorank.import", sender)) {
             return true;
         } else {
@@ -188,7 +193,10 @@ public class ImportCommand extends AutorankCommand {
                                         }
                                     }
                                 }
-
+                                plugin.getInternalPropertiesConfig().saveConfig();
+                                File file = new File(plugin.getDataFolder(),"internalprops.yml");
+                                file.delete();
+                                plugin.getInternalPropertiesConfig().loadConfig();
                                 AutorankTools.sendDeserialize(sender, Lang.STORAGE_IMPORTED.getConfigValue());
                             }
 

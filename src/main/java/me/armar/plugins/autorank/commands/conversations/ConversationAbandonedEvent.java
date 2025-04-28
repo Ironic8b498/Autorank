@@ -1,5 +1,6 @@
 package me.armar.plugins.autorank.commands.conversations;
 
+import me.armar.plugins.autorank.language.Lang;
 import org.bukkit.ChatColor;
 import org.bukkit.conversations.*;
 
@@ -23,12 +24,12 @@ public class ConversationAbandonedEvent implements ConversationAbandonedListener
             result.setConversationStorage(conversationAbandonedEvent.getContext().getAllSessionData());
             ConversationCanceller canceller = conversationAbandonedEvent.getCanceller();
             if (canceller instanceof InactivityConversationCanceller) {
-                conversable.sendRawMessage(ChatColor.GRAY + "This conversation has ended because you didn't reply in time.");
+                conversable.sendRawMessage(ChatColor.GRAY + Lang.NCC_CONVERSATION_HAS_ENDED_BECAUSE.getConfigValue());
             } else if (canceller instanceof ExactMatchConversationCanceller) {
-                conversable.sendRawMessage(ChatColor.GRAY + "This conversation has been abandoned by you.");
+                conversable.sendRawMessage(ChatColor.GRAY + Lang.NCC_CONVERSATION_HAS_BEEN.getConfigValue());
                 result.setEndedByKeyword(true);
             } else {
-                conversable.sendRawMessage(ChatColor.GRAY + "This conversation has ended.");
+                conversable.sendRawMessage(ChatColor.GRAY + Lang.NCC_CONVERSATION_HAS_ENDED.getConfigValue());
             }
 
             conversation.conversationEnded(result);

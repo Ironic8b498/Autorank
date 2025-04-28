@@ -30,12 +30,12 @@ public class AutorankPlaceholder extends PlaceholderExpansion {
 
     @NotNull
     public String getAuthor() {
-        return "Staartvin";
+        return "Ironic_8b49";
     }
 
     @NotNull
     public String getVersion() {
-        return this.plugin.getDescription().getVersion();
+        return "1.1.0";
     }
 
     public String onRequest(OfflinePlayer player, @NotNull String params) {
@@ -45,6 +45,15 @@ public class AutorankPlaceholder extends PlaceholderExpansion {
             } catch (ExecutionException | InterruptedException var4) {
                 return "Couldn't obtain total time of " + player.getName();
             }
+        } else if (params.equalsIgnoreCase("total_hours_of_player")) {
+            try {
+                Integer totaltemp = Integer.valueOf(this.plugin.getPlayTimeManager().getPlayTime(TimeType.TOTAL_TIME, player.getUniqueId()).get() + "");
+                double totalhour = (totaltemp / 60);
+                return Integer.toString((int)totalhour);
+            } catch (ExecutionException | InterruptedException var5) {
+                return "Couldn't obtain total time in hours of " + player.getName();
+            }
+
         } else if (params.equalsIgnoreCase("total_just_mins_of_player")) {
             try {
                 Integer totaltemp = Integer.valueOf(this.plugin.getPlayTimeManager().getPlayTime(TimeType.TOTAL_TIME, player.getUniqueId()).get() + "");

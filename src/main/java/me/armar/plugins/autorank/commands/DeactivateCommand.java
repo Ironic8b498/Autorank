@@ -20,13 +20,13 @@ public class DeactivateCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (!this.hasPermission(this.getPermission(), sender)) {
+        if (!(sender instanceof Player player)) {
+            AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT_DEACTIVATE.getConfigValue());
+            return true;
+        } else if (!this.hasPermission(this.getPermission(), sender)) {
             return true;
         } else if (args.length < 2) {
             AutorankTools.sendDeserialize(sender, Lang.INVALID_FORMAT.getConfigValue(this.getUsage()));
-            return true;
-        } else if (!(sender instanceof Player player)) {
-            AutorankTools.sendDeserialize(sender, Lang.YOU_ARE_A_ROBOT_DEACTIVATE.getConfigValue());
             return true;
         } else {
             String pathName = AutorankCommand.getStringFromArgs(args, 1);

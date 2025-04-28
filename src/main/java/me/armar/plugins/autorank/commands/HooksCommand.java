@@ -9,6 +9,7 @@ import me.armar.plugins.utils.pluginlibrary.hooks.AutorankHook;
 import me.armar.plugins.utils.pluginlibrary.hooks.LibraryHook;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class HooksCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -18,6 +19,10 @@ public class HooksCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (!(sender instanceof Player)){
+            AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT.getConfigValue());
+            return true;
+        }
         if (!this.hasPermission(this.getPermission(), sender)) {
             return true;
         } else if (!this.plugin.getDependencyManager().isPluginLibraryLoaded()) {

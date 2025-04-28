@@ -8,6 +8,7 @@ import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.Iterator;
 import java.util.UUID;
@@ -20,6 +21,10 @@ public class SyncStatsCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (!(sender instanceof Player)){
+            AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT.getConfigValue());
+            return true;
+        }
         if (!this.hasPermission("autorank.syncstats", sender)) {
             return true;
         } else {

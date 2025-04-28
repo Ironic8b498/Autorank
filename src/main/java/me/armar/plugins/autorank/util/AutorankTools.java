@@ -2,7 +2,6 @@ package me.armar.plugins.autorank.util;
 
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.language.Lang;
-import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.ChatColor;
@@ -12,7 +11,6 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -59,11 +57,11 @@ public class AutorankTools {
 
         for(int i = 0; i < c.size(); ++i) {
             if (i == 0) {
-                builder.append(ChatColor.GRAY + array[i].toString() + ChatColor.RESET);
+                builder.append("<GRAY>" + array[i].toString() + "<RESET>");
             } else if (i == c.size() - 1) {
-                builder.append(" and " + ChatColor.GRAY + array[i].toString() + ChatColor.RESET);
+                builder.append(" and " + "<GRAY>" + array[i].toString() + "<RESET>");
             } else {
-                builder.append(", " + ChatColor.GRAY + array[i].toString() + ChatColor.RESET);
+                builder.append(", " + "<GRAY>" + array[i].toString() + "<RESET>");
             }
         }
 
@@ -256,12 +254,35 @@ public class AutorankTools {
         autorank.adventure().player((Player) sender).sendMessage(send_msg);
     }
 
-    public static void sendallDeserialize(String msg){
+    public static void playersDeserialize(String msg){
         var mm = MiniMessage.miniMessage();
         Component send_msg = mm.deserialize(msg);
-        autorank.adventure().players().filterAudience((Predicate<? super Audience>) send_msg);
-      //  autorank.adventure().permission()  player((Player) all).sendMessage(send_msg);
+        autorank.adventure().players().sendMessage(send_msg);
+    }
 
+    public static void consoleDeserialize(String msg){
+        var mm = MiniMessage.miniMessage();
+        Component send_msg = mm.deserialize(msg);
+        autorank.adventure().console().sendMessage(send_msg);
+    }
+    public static void allDeserialize(String msg){
+        var mm = MiniMessage.miniMessage();
+        Component send_msg = mm.deserialize(msg);
+        autorank.adventure().all().sendMessage(send_msg);
+    }
+
+    public static String getFinalArg(final String[] args, final int start)
+    {
+        final StringBuilder bldr = new StringBuilder();
+        for (int i = start; i < args.length; i++)
+        {
+            if (i != start)
+            {
+                bldr.append(" ");
+            }
+            bldr.append(args[i]);
+        }
+        return bldr.toString();
     }
 
     public static void sendColoredMessage(CommandSender sender, String msg) {
@@ -305,6 +326,86 @@ public class AutorankTools {
         }
     }
 
+    public static String timeStartToString(int count, TimeUnit time) {
+        StringBuilder b = new StringBuilder();
+        int days = 0;
+        int hours = 0;
+        int minutes = 0;
+        int seconds = 0;
+        if (time.equals(TimeUnit.DAYS)) {
+            days = count / 1440;
+            count -= days * 1440;
+            hours = count / 60;
+            minutes = count - hours * 60;
+        } else if (time.equals(TimeUnit.HOURS)) {
+            hours = count / 60;
+            minutes = count - hours * 60;
+        } else if (time.equals(TimeUnit.MINUTES)) {
+            minutes = count;
+        } else if (time.equals(TimeUnit.SECONDS)) {
+            seconds = count / 60;
+        }
+
+        if (days != 0) {
+            b.append(days);
+            b.append(" ");
+            if (days != 1) {
+                b.append(Lang.DAY_PLURAL.getConfigValue());
+            } else {
+                b.append(Lang.DAY_SINGULAR.getConfigValue());
+            }
+
+            if (hours != 0 || minutes != 0) {
+                b.append(", ");
+            }
+        }
+
+        if (hours != 0) {
+            b.append(hours);
+            b.append(" ");
+            if (hours != 1) {
+                b.append(Lang.HOUR_PLURAL.getConfigValue());
+            } else {
+                b.append(Lang.HOUR_SINGULAR.getConfigValue());
+            }
+
+            if (minutes != 0) {
+                b.append(", ");
+            }
+        }
+
+        if (minutes != 0 || hours == 0 && days == 0) {
+            b.append(minutes);
+            b.append(" ");
+            if (minutes != 1) {
+                b.append(Lang.MINUTE_PLURAL.getConfigValue());
+            } else {
+                b.append(Lang.MINUTE_SINGULAR.getConfigValue());
+            }
+
+            if (seconds != 0) {
+                b.append(", ");
+            }
+        }
+
+        if (seconds != 0) {
+            b.append(seconds);
+            b.append(" ");
+            if (seconds != 1) {
+                b.append(Lang.SECOND_PLURAL.getConfigValue());
+            } else {
+                b.append(Lang.SECOND_SINGULAR.getConfigValue());
+            }
+        }
+
+        int index = b.lastIndexOf(",");
+        if (index != -1) {
+            b.replace(index, index + 1, " " + Lang.AND.getConfigValue());
+        }
+
+        return b.toString();
+    }
+
     public static String timeToString(int count, TimeUnit time) {
         StringBuilder b = new StringBuilder();
         int days = 0;
@@ -312,10 +413,11 @@ public class AutorankTools {
         int minutes = 0;
         int seconds = 0;
         if (time.equals(TimeUnit.DAYS)) {
-            days = count;
+            days = count / 1440;
         } else if (time.equals(TimeUnit.HOURS)) {
-            days = count / 24;
-            hours = count - days * 24;
+            days = count / 1440;
+            count -= days * 1440;
+            hours = count / 60;
         } else if (time.equals(TimeUnit.MINUTES)) {
             days = count / 1440;
             count -= days * 1440;

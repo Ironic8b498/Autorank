@@ -24,8 +24,10 @@ public class CommandResult extends AbstractResult {
             while(var2.hasNext()) {
                 String command = (String)var2.next();
                 String cmd = command.replace("&p", player.getName());
+                cmd = cmd.replace("@p", player.getName());
+                String finalCmd = cmd;
                 Bukkit.getScheduler().callSyncMethod(this.getAutorank(), () -> {
-                    return Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd);
+                    return Bukkit.dispatchCommand(Bukkit.getConsoleSender(), finalCmd);
                 });
             }
         }

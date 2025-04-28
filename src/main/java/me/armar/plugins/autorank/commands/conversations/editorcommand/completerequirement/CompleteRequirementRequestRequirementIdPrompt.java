@@ -2,6 +2,7 @@ package me.armar.plugins.autorank.commands.conversations.editorcommand.completer
 
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.commands.conversations.editorcommand.SelectPlayerPrompt;
+import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.pathbuilder.Path;
 import org.bukkit.ChatColor;
 import org.bukkit.conversations.Conversable;
@@ -21,7 +22,7 @@ public class CompleteRequirementRequestRequirementIdPrompt extends StringPrompt 
 
     @NotNull
     public String getPromptText(@NotNull ConversationContext conversationContext) {
-        return ChatColor.GOLD + "What requirement id do you want to complete?";
+        return ChatColor.GOLD + Lang.NCC_WHAT_REQUIREMENT_ID.getConfigValue();
     }
 
     @Nullable
@@ -32,10 +33,10 @@ public class CompleteRequirementRequestRequirementIdPrompt extends StringPrompt 
         UUID uuid = (UUID)conversationContext.getSessionData(SelectPlayerPrompt.KEY_UUID);
         String playerName = (String)conversationContext.getSessionData(SelectPlayerPrompt.KEY_PLAYERNAME);
         if (path.getRequirement(requirementId) == null) {
-            conversable.sendRawMessage(ChatColor.RED + "That requirement id does not exist for " + ChatColor.GRAY + path.getDisplayName());
+            conversable.sendRawMessage(ChatColor.RED + Lang.NCC_THAT_REQUIREMENT.getConfigValue(ChatColor.GRAY + path.getDisplayName()));
             return this;
         } else if (path.hasCompletedRequirement(uuid, requirementId)) {
-            conversable.sendRawMessage(ChatColor.GRAY + playerName + ChatColor.RED + " has already completed this requirement");
+            conversable.sendRawMessage(ChatColor.RED + Lang.NCC_HAS_ALREADY.getConfigValue(ChatColor.GRAY + playerName));
             return this;
         } else {
             conversationContext.setSessionData(KEY_REQUIREMENT_TO_BE_COMPLETED, requirementId);

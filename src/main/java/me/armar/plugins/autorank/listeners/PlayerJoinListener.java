@@ -1,8 +1,10 @@
 package me.armar.plugins.autorank.listeners;
 
 import me.armar.plugins.autorank.Autorank;
+import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.pathbuilder.Path;
 import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataStorage;
+import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,6 +12,10 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Optional;
@@ -28,6 +34,14 @@ public class PlayerJoinListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
+        if (plugin.getSettingsConfig().getfirstlogindate()){
+            DateTimeFormatter MMMddyyyyformatter = DateTimeFormatter.ofPattern("MMM dd yyyy");
+            DateTimeFormatter MMMddformatter = DateTimeFormatter.ofPattern("MMM dd");
+            DateTimeFormatter yyyyformatter = DateTimeFormatter.ofPattern("yyyy");
+            String firstLoginDate = LocalDateTime.ofInstant(Instant.ofEpochMilli(player.getFirstPlayed()), ZoneId.systemDefault()).format(MMMddyyyyformatter);
+            AutorankTools.sendDeserialize(player, Lang.FIRST_LOGIN_DATE.getConfigValue(firstLoginDate));
+        }
+
         try {
             this.plugin.getUUIDStorage().storeUUID(player.getName(), player.getUniqueId()).get();
         } catch (ExecutionException | InterruptedException var4) {
@@ -37,6 +51,7 @@ public class PlayerJoinListener implements Listener {
         this.plugin.getPlayerChecker().doOfflineExemptionChecks(player);
         this.plugin.getServer().getScheduler().runTaskAsynchronously(this.plugin, () -> {
             this.plugin.getPathManager().autoAssignPaths(player.getUniqueId());
+            //AutorankTools.consoleDeserialize(String.valueOf(this.plugin.getSettingsConfig().isAutomaticPathDisabled()));
             if (!this.plugin.getSettingsConfig().isAutomaticPathDisabled()) {
                 this.plugin.getPlayerChecker().checkPlayer(player.getUniqueId());
             }
@@ -83,10 +98,8 @@ public class PlayerJoinListener implements Listener {
             while(var4.hasNext()) {
                 Path path = (Path)var4.next();
                 Collection<Integer> completedRequirements = playerDataStorage.get().getCompletedRequirementsWithMissingResults(player.getUniqueId(), path.getInternalName());
-                Iterator var7 = completedRequirements.iterator();
 
-                while(var7.hasNext()) {
-                    int requirementId = (Integer)var7.next();
+                for (int requirementId : completedRequirements) {
                     path.completeRequirement(player.getUniqueId(), requirementId);
                     playerDataStorage.get().removeCompletedRequirementWithMissingResults(player.getUniqueId(), path.getInternalName(), requirementId);
                 }
@@ -94,7 +107,7 @@ public class PlayerJoinListener implements Listener {
 
             Collection<String> completedPaths = playerDataStorage.get().getCompletedPathsWithMissingResults(player.getUniqueId());
 
-            for(Iterator var11 = completedPaths.iterator(); var11.hasNext(); playerDataStorage.get().removeCompletedPathWithMissingResults(player.getUniqueId(), pathName)) {
+            for(Iterator<String> var11 = completedPaths.iterator(); var11.hasNext(); playerDataStorage.get().removeCompletedPathWithMissingResults(player.getUniqueId(), pathName)) {
                 pathName = (String)var11.next();
                 Path path = this.plugin.getPathManager().findPathByInternalName(pathName, false);
                 if (path != null) {

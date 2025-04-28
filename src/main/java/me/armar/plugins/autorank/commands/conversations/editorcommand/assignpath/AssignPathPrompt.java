@@ -3,6 +3,7 @@ package me.armar.plugins.autorank.commands.conversations.editorcommand.assignpat
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.commands.conversations.editorcommand.EditorMenuPrompt;
 import me.armar.plugins.autorank.commands.conversations.editorcommand.SelectPlayerPrompt;
+import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.pathbuilder.Path;
 import org.bukkit.ChatColor;
 import org.bukkit.conversations.Conversable;
@@ -23,7 +24,7 @@ public class AssignPathPrompt extends StringPrompt {
     @NotNull
     public String getPromptText(@NotNull ConversationContext conversationContext) {
         String playerName = conversationContext.getSessionData(SelectPlayerPrompt.KEY_PLAYERNAME).toString();
-        return ChatColor.GOLD + "What path do you want to assign to " + ChatColor.GRAY + playerName + ChatColor.GOLD + "?";
+        return ChatColor.GOLD + Lang.NCC_WHAT_PATH_ASSIGN.getConfigValue(ChatColor.GRAY + playerName + ChatColor.GOLD);
     }
 
     @Nullable
@@ -31,13 +32,13 @@ public class AssignPathPrompt extends StringPrompt {
         Path path = Autorank.getInstance().getPathManager().findPathByDisplayName(s, false);
         Conversable conversable = conversationContext.getForWhom();
         if (path == null) {
-            conversable.sendRawMessage(ChatColor.RED + "The path " + ChatColor.GRAY + s + ChatColor.RED + " does not exist!");
+            conversable.sendRawMessage(ChatColor.RED + Lang.NCC_THE_PATH.getConfigValue(ChatColor.GRAY + s + ChatColor.RED));
             return this;
         } else {
             UUID uuid = (UUID)conversationContext.getSessionData(SelectPlayerPrompt.KEY_UUID);
             String playerName = (String)conversationContext.getSessionData(SelectPlayerPrompt.KEY_PLAYERNAME);
             if (path.isActive(uuid)) {
-                conversable.sendRawMessage(ChatColor.GRAY + playerName + ChatColor.RED + " is already on that path.");
+                conversable.sendRawMessage(Lang.NCC_IS_ALREADY.getConfigValue(ChatColor.GRAY + playerName + ChatColor.RED));
                 return new EditorMenuPrompt();
             } else {
                 conversationContext.setSessionData(KEY_PATH_TO_BE_ASSIGNED, path.getInternalName());

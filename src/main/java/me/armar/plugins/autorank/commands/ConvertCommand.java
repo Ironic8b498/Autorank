@@ -6,6 +6,7 @@ import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class ConvertCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -15,6 +16,10 @@ public class ConvertCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (!(sender instanceof Player)){
+            AutorankTools.consoleDeserialize(Lang.DEPRECATED_COMMAND.getConfigValue());
+            return true;
+        }
         AutorankTools.sendDeserialize(sender, Lang.DEPRECATED_COMMAND.getConfigValue());
         return true;
     }

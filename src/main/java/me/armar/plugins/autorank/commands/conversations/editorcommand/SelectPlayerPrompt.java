@@ -1,6 +1,7 @@
 package me.armar.plugins.autorank.commands.conversations.editorcommand;
 
 import me.armar.plugins.autorank.commands.conversations.prompts.RequestPlayerNamePrompt;
+import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
 import org.bukkit.ChatColor;
 import org.bukkit.conversations.ConversationContext;
@@ -16,7 +17,7 @@ public class SelectPlayerPrompt extends RequestPlayerNamePrompt {
     public static String KEY_UUID = "uuid";
 
     public SelectPlayerPrompt() {
-        super(ChatColor.GOLD + "What player do you want to edit?", KEY_PLAYERNAME, new EditorMenuPrompt());
+        super(ChatColor.GOLD + Lang.NCC_WHAT_PLAYER.getConfigValue(), KEY_PLAYERNAME, new EditorMenuPrompt());
     }
 
     @Nullable

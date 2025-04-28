@@ -7,6 +7,7 @@ import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -21,6 +22,10 @@ public class HelpCommand extends AutorankCommand {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (!(sender instanceof Player)){
+            AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT.getConfigValue());
+            return true;
+        }
         if (args.length == 1) {
             this.showHelpPages(sender, 1);
         } else {
@@ -41,6 +46,9 @@ public class HelpCommand extends AutorankCommand {
     }
 
     private void showHelpPages(CommandSender sender, int page) {
+        if (!this.hasPermission("autorank.help", sender)) {
+            return;
+        }
         List<AutorankCommand> commands = (List)(new ArrayList(this.plugin.getCommandsManager().getRegisteredCommands().values())).stream().sorted(Comparator.comparing(AutorankCommand::getUsage)).collect(Collectors.toList());
         if (this.plugin.getSettingsConfig().doBaseHelpPageOnPermissions() && !sender.isOp()) {
             commands = commands.stream().filter((cmd) -> {

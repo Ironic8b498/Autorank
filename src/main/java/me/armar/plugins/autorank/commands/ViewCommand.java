@@ -26,6 +26,10 @@ public class ViewCommand extends AutorankCommand {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         var mm = MiniMessage.miniMessage();
+        if (!(sender instanceof Player)){
+            AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT.getConfigValue());
+            return true;
+        }
         if (!this.hasPermission("autorank.view", sender)) {
             return true;
         } else if (args.length < 2) {
@@ -47,9 +51,8 @@ public class ViewCommand extends AutorankCommand {
                                 AutorankTools.sendDeserialize(sender, Lang.NO_PATHS_TO_CHOOSE.getConfigValue());
                                 return true;
                             }
-
                             Component the_following_paths = mm.deserialize(Lang.THE_FOLLOWING_PATHS.getConfigValue())
-                                    .append(mm.deserialize("NEWLINE" + AutorankTools.createStringFromList(paths)));
+                                    .append(mm.deserialize(AutorankTools.createStringFromList(paths)));
                             plugin.adventure().player((Player) sender).sendMessage(the_following_paths);
                             return true;
                         }
@@ -75,8 +78,7 @@ public class ViewCommand extends AutorankCommand {
 
                         while(var10.hasNext()) {
                             String message = (String)var10.next();
-                            AutorankTools.sendColoredMessage(sender, message);
-                          //  AutorankTools.sendDeserialize(sender, message);
+                            AutorankTools.sendDeserialize(sender, message);
                         }
                     }
 
@@ -90,8 +92,7 @@ public class ViewCommand extends AutorankCommand {
 
                         while(var19.hasNext()) {
                             String message = (String)var19.next();
-                            AutorankTools.sendColoredMessage(sender, message);
-                         //   AutorankTools.sendDeserialize(sender, message);
+                            AutorankTools.sendDeserialize(sender, message);
                         }
                     }
 
@@ -105,8 +106,7 @@ public class ViewCommand extends AutorankCommand {
 
                         while(var21.hasNext()) {
                             String message = (String)var21.next();
-                            AutorankTools.sendColoredMessage(sender, message);
-                          //  AutorankTools.sendDeserialize(sender, message);
+                            AutorankTools.sendDeserialize(sender, message);
                         }
                     }
 

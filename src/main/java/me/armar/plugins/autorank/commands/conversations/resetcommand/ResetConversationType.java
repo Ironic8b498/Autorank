@@ -1,6 +1,7 @@
 package me.armar.plugins.autorank.commands.conversations.resetcommand;
 
 import me.armar.plugins.autorank.commands.conversations.prompts.RequestPlayerNamePrompt;
+import me.armar.plugins.autorank.language.Lang;
 import org.bukkit.ChatColor;
 import org.bukkit.conversations.ConversationContext;
 import org.bukkit.conversations.FixedSetPrompt;
@@ -24,13 +25,13 @@ public class ResetConversationType extends FixedSetPrompt {
         conversationContext.setSessionData(RESET_TYPE, s);
         String requestPlayerMessage;
         if (s.equals(RESET_COMPLETED_PATHS)) {
-            requestPlayerMessage = ChatColor.DARK_AQUA + "Of which player do you want to reset the completed paths?";
+            requestPlayerMessage = ChatColor.DARK_AQUA + Lang.NCC_OF_WHICH_PLAYER_COMPLETED.getConfigValue();
         } else if (s.equals(RESET_ACTIVE_PATHS)) {
-            requestPlayerMessage = ChatColor.DARK_AQUA + "Of which player do you want to reset the active paths?";
+            requestPlayerMessage = ChatColor.DARK_AQUA + Lang.NCC_OF_WHICH_PLAYER_ACTIVE.getConfigValue();
         } else if (s.equals(RESET_ALL_PROGRESS)) {
-            requestPlayerMessage = ChatColor.DARK_AQUA + "Of which player do you want to reset all progress?";
+            requestPlayerMessage = ChatColor.DARK_AQUA + Lang.NCC_OF_WHICH_PLAYER_ALL_PROGRESS.getConfigValue();
         } else {
-            requestPlayerMessage = ChatColor.DARK_AQUA + "Of which player do you want to reset the active progress?";
+            requestPlayerMessage = ChatColor.DARK_AQUA + Lang.NCC_OF_WHICH_PLAYER_ACTIVE_PROGRESS.getConfigValue();
         }
 
         return new RequestPlayerNamePrompt(requestPlayerMessage, new ResetConfirmation());
@@ -38,6 +39,6 @@ public class ResetConversationType extends FixedSetPrompt {
 
     @NotNull
     public String getPromptText(@NotNull ConversationContext conversationContext) {
-        return ChatColor.DARK_AQUA + "What do you want to reset? You can reset " + ChatColor.RED + this.formatFixedSet();
+        return ChatColor.DARK_AQUA + Lang.NCC_WHAT_DO_YOU.getConfigValue() + ChatColor.RED + this.formatFixedSet();
     }
 }

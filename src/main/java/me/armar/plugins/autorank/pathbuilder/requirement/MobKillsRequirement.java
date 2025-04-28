@@ -18,7 +18,7 @@ public class MobKillsRequirement extends AbstractRequirement {
         if (this.mobType != null && !this.mobType.trim().equals("")) {
             desc = Lang.TOTAL_MOBS_KILLED_REQUIREMENT.getConfigValue(this.totalMobsKilled, this.mobType.toLowerCase().replace("_", " ") + "(s)", this.mobDisplayName);
         } else {
-            desc = Lang.TOTAL_MOBS_KILLED_REQUIREMENT.getConfigValue(this.totalMobsKilled + " mobs");
+            desc = Lang.TOTAL_MOBS_KILLED_REQUIREMENT.getConfigValue(this.totalMobsKilled);
         }
 
         if (this.isWorldSpecific()) {
