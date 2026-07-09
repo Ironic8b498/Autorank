@@ -4,9 +4,9 @@ import dev.aurelium.auraskills.api.skill.Skills;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.utils.pluginlibrary.Library;
 import me.armar.plugins.utils.pluginlibrary.hooks.AuraSkillsHook;
-import org.bukkit.entity.Player;
 
 import java.util.Locale;
+import java.util.UUID;
 
 public class AuraSkillsXPRequirement extends AbstractRequirement {
     private AuraSkillsHook handler = null;
@@ -20,16 +20,16 @@ public class AuraSkillsXPRequirement extends AbstractRequirement {
         return Lang.AURA_SKILLS_XP_REQUIREMENT.getConfigValue(this.requiredXP, this.skill);
     }
 
-    public String getProgressString(Player player) {
-        double var10000 = this.handler.getXP(player, this.skill);
+    public String getProgressString(UUID uuid) {
+        double var10000 = this.handler.getXP(uuid, this.skill);
         return var10000 + "/" + this.requiredXP;
     }
 
-    protected boolean meetsRequirement(Player player) {
+    protected boolean meetsRequirement(UUID uuid) {
         if (!this.handler.isHooked()) {
             return false;
         } else {
-            return this.handler.getXP(player, this.skill) >= this.requiredXP;
+            return this.handler.getXP(uuid, this.skill) >= this.requiredXP;
         }
     }
 
@@ -47,7 +47,7 @@ public class AuraSkillsXPRequirement extends AbstractRequirement {
             try {
                 this.skill = Skills.valueOf(options[0].trim().toUpperCase(Locale.ROOT)).getDisplayName(Locale.ENGLISH);
             } catch (Exception var3) {
-                this.registerWarningMessage("The skill '" + options[0].trim() + "' does not exist!");
+                this.registerWarningMessage("The XP skill '" + options[0].trim() + "' does not exist!");
                 return false;
             }
         }
@@ -60,7 +60,7 @@ public class AuraSkillsXPRequirement extends AbstractRequirement {
         }
     }
 
-    public double getProgressPercentage(Player player) {
-        return this.handler.getXP(player, this.skill) / this.requiredXP;
+    public double getProgressPercentage(UUID uuid) {
+        return this.handler.getXP(uuid, this.skill) / this.requiredXP;
     }
 }

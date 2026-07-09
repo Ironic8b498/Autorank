@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class PlayerDataCache {
-    private final Map<UUID, CachedPlayerData> cache = new HashMap();
+    private final Map<UUID, CachedPlayerData> cache = new HashMap<>();
 
     public PlayerDataCache() {
     }

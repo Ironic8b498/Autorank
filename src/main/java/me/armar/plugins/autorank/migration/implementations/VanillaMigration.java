@@ -1,11 +1,5 @@
 package me.armar.plugins.autorank.migration.implementations;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
-import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.migration.MigrationablePlugin;
 import me.armar.plugins.autorank.storage.TimeType;
@@ -13,6 +7,13 @@ import org.bukkit.World;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 public class VanillaMigration extends MigrationablePlugin {
     public VanillaMigration(Autorank instance) {
@@ -33,7 +34,7 @@ public class VanillaMigration extends MigrationablePlugin {
                 File[] playerFiles = worldFolder.listFiles();
                 if (playerFiles != null) {
                     for(File playerStatistics : playerFiles) {
-                        UUID uuid = null;
+                        UUID uuid;
                         if (playerStatistics.exists()) {
                             try {
                                 uuid = UUID.fromString(playerStatistics.getName().replace("[Conflict]", "").replace(".json", ""));
@@ -45,7 +46,7 @@ public class VanillaMigration extends MigrationablePlugin {
                             }
 
                             JSONParser parser = new JSONParser();
-                            JSONObject jsonObject = null;
+                            JSONObject jsonObject;
 
                             try {
                                 jsonObject = (JSONObject)parser.parse(new FileReader(playerStatistics));

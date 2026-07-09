@@ -34,8 +34,8 @@ public class FlatFileStorageProvider extends PlayTimeStorageProvider {
     private final String pathDailyTimeFile = "/data/Daily_time.yml";
     private final String pathWeeklyTimeFile = "/data/Weekly_time.yml";
     private final String pathMonthlyTimeFile = "/data/Monthly_time.yml";
-    private final Map<TimeType, String> dataTypePaths = new HashMap();
-    private final Map<TimeType, SimpleYamlConfiguration> dataFiles = new HashMap();
+    private final Map<TimeType, String> dataTypePaths = new HashMap<>();
+    private final Map<TimeType, SimpleYamlConfiguration> dataFiles = new HashMap<>();
     private boolean isLoaded = false;
 
     public FlatFileStorageProvider(Autorank instance) {
@@ -155,7 +155,7 @@ public class FlatFileStorageProvider extends PlayTimeStorageProvider {
     }
 
     public List<UUID> getStoredPlayers(TimeType timeType) {
-        List<UUID> uuids = new ArrayList();
+        List<UUID> uuids = new ArrayList<>();
         SimpleYamlConfiguration data = this.getDataFile(timeType);
 
         for(String uuidString : data.getKeys(false)) {
@@ -190,7 +190,11 @@ public class FlatFileStorageProvider extends PlayTimeStorageProvider {
 
     public void importData() {
         SimpleYamlConfiguration data = this.getDataFile(TimeType.TOTAL_TIME);
-        data.reloadFile();
+        try {
+            data.reloadFile();
+        } catch (IOException | InvalidConfigurationException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public boolean canBackupData() {
@@ -215,21 +219,21 @@ public class FlatFileStorageProvider extends PlayTimeStorageProvider {
         AtomicInteger deletedFiles = new AtomicInteger();
 
         try (Stream<Path> walk = Files.walk(Paths.get(backupsFolder))) {
-            List<String> result = walk.filter((x$0) -> Files.isRegularFile(x$0)).map(Path::toString).collect(Collectors.toList());
+            List<String> result = walk.filter(Files::isRegularFile).map(Path::toString).toList();
             result.forEach((fileName) -> {
                 String fileDateString = fileName.replaceAll("[^\\d]", "");
                 Date fileDate = null;
 
                 try {
                     fileDate = BackupManager.dateFormat.parse(fileDateString);
-                } catch (ParseException var7) {
+                } catch (ParseException ignored) {
                 }
 
                 if (fileDate != null && fileDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate().isBefore(date)) {
                     try {
                         Files.deleteIfExists(Paths.get(fileName));
                         deletedFiles.getAndIncrement();
-                    } catch (IOException var6) {
+                    } catch (IOException ignored) {
                     }
                 }
 

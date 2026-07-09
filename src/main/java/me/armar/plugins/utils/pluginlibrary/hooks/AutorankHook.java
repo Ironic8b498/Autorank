@@ -39,7 +39,7 @@ public class AutorankHook extends LibraryHook {
     }
 
     public Collection<String> getPermissionGroups(Player player) {
-        return !this.isHooked() ? new ArrayList() : this.autorank.getPermPlugHandler().getPermissionPlugin().getPlayerGroups(player);
+        return !this.isHooked() ? new ArrayList<>() : this.autorank.getPermPlugHandler().getPermissionPlugin().getPlayerGroups(player);
     }
 
     public void registerRequirement(String requirementName, Class<? extends AbstractRequirement> req) {

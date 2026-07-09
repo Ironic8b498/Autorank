@@ -12,11 +12,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
 public class ResultBuilder {
-    private static final Map<String, Class<? extends AbstractResult>> results = new HashMap();
+    private static final Map<String, Class<? extends AbstractResult>> results = new HashMap<>();
     private AbstractResult abstractResult = null;
     private boolean isValid = false;
     private String pathName;
-    private String resultName;
     private String originalResultString;
 
     public ResultBuilder() {
@@ -37,7 +36,7 @@ public class ResultBuilder {
     }
 
     public static List<Class<? extends AbstractResult>> getRegisteredResults() {
-        return new ArrayList(results.values());
+        return new ArrayList<>(results.values());
     }
 
     public static Optional<Class<? extends AbstractResult>> getRegisteredResult(String type) {
@@ -57,7 +56,7 @@ public class ResultBuilder {
         this.pathName = pathName;
         this.originalResultString = resultType;
         resultType = AutorankTools.findMatchingResultName(resultType);
-        this.resultName = resultType;
+        String resultName = resultType;
         if (resultType == null) {
             Autorank.getInstance().getWarningManager().registerWarning(String.format("You are using a '%s' result in path '%s', but that result doesn't exist!", this.originalResultString, pathName), 10);
         } else {

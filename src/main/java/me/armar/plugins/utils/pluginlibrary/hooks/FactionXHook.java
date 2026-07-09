@@ -39,8 +39,7 @@ public class FactionXHook extends LibraryHook {
             return null;
         } else {
             String factionTag = "CoolFaction";
-            Faction fac = FactionManager.INSTANCE.getFaction(factionTag);
-            return fac;
+            return FactionManager.INSTANCE.getFaction(factionTag);
         }
     }
 
@@ -54,8 +53,7 @@ public class FactionXHook extends LibraryHook {
             if (fPlayer == null) {
                 return null;
             } else {
-                Faction fac = fPlayer.getFaction();
-                return fac;
+                return fPlayer.getFaction();
             }
         }
     }
@@ -67,13 +65,12 @@ public class FactionXHook extends LibraryHook {
         } else if (factionId == null) {
             return null;
         } else {
-            Faction faction = FactionManager.INSTANCE.getFaction(factionID);
-            return faction;
+            return FactionManager.INSTANCE.getFaction(factionID);
         }
     }
 
     public List<Faction> getAllFactions() {
-        List<Faction> factions = new ArrayList();
+        List<Faction> factions = new ArrayList<>();
         if (!this.isHooked()) {
             return factions;
         } else {
@@ -86,8 +83,7 @@ public class FactionXHook extends LibraryHook {
         if (!this.isHooked()) {
             return null;
         } else {
-            Faction fac = FactionManager.INSTANCE.getWilderness();
-            return fac;
+            return FactionManager.INSTANCE.getWilderness();
         }
     }
 
@@ -95,8 +91,7 @@ public class FactionXHook extends LibraryHook {
         if (!this.isHooked()) {
             return null;
         } else {
-            Faction fac = FactionManager.INSTANCE.getSafezone();
-            return fac;
+            return FactionManager.INSTANCE.getSafezone();
         }
     }
 
@@ -104,8 +99,7 @@ public class FactionXHook extends LibraryHook {
         if (!this.isHooked()) {
             return null;
         } else {
-            Faction fac = FactionManager.INSTANCE.getWarzone();
-            return fac;
+            return FactionManager.INSTANCE.getWarzone();
         }
     }
 
@@ -126,8 +120,8 @@ public class FactionXHook extends LibraryHook {
             return null;
         } else {
             OfflinePlayer offlinePlayer = this.getServer().getOfflinePlayer(uuid);
-            FPlayer fPlayer = PlayerManager.INSTANCE.getFPlayer((Player)offlinePlayer);//fPlayer = FPlayers.getInstance().getByOfflinePlayer(offlinePlayer);
-            return fPlayer;
+            //fPlayer = FPlayers.getInstance().getByOfflinePlayer(offlinePlayer);
+            return PlayerManager.INSTANCE.getFPlayer((Player)offlinePlayer);
         }
     }
 

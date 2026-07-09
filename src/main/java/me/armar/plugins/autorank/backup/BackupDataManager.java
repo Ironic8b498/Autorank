@@ -1,11 +1,12 @@
 package me.armar.plugins.autorank.backup;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
 import me.armar.plugins.autorank.Autorank;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
 
 public class BackupDataManager {
     private FileConfiguration backupConfig;

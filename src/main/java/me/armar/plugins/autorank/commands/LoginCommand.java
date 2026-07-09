@@ -10,12 +10,13 @@ import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class LoginCommand extends AutorankCommand {
     public LoginCommand() {
     }
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         Player player = (Player)sender;
         DateTimeFormatter MMMddyyyyformatter = DateTimeFormatter.ofPattern("MMM dd yyyy");
         DateTimeFormatter MMMddformatter = DateTimeFormatter.ofPattern("MMM dd");

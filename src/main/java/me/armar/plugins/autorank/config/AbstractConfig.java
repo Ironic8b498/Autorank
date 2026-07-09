@@ -4,6 +4,8 @@ import me.armar.plugins.autorank.Autorank;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.io.IOException;
+
 public abstract class AbstractConfig {
     private SimpleYamlConfiguration configFile;
     private Autorank plugin;
@@ -19,7 +21,7 @@ public abstract class AbstractConfig {
         return this.configFile != null ? this.configFile : null;
     }
 
-    public void reloadConfig() {
+    public void reloadConfig() throws IOException, InvalidConfigurationException {
         if (this.configFile != null) {
             this.configFile.reloadFile();
         }

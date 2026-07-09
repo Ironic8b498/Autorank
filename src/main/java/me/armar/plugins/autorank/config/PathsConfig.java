@@ -1,13 +1,10 @@
 package me.armar.plugins.autorank.config;
 
 import com.google.common.collect.Lists;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 import me.armar.plugins.autorank.Autorank;
 import org.bukkit.configuration.ConfigurationSection;
+
+import java.util.*;
 
 public class PathsConfig extends AbstractConfig {
     public PathsConfig(Autorank instance) {

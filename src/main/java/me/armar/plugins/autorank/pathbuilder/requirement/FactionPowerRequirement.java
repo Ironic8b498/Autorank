@@ -1,11 +1,11 @@
 package me.armar.plugins.autorank.pathbuilder.requirement;
 
-import java.text.DecimalFormat;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.utils.pluginlibrary.Library;
 import me.armar.plugins.utils.pluginlibrary.hooks.FactionXHook;
-import me.armar.plugins.utils.pluginlibrary.hooks.LibraryHook;
 import org.bukkit.entity.Player;
+
+import java.text.DecimalFormat;
 
 public class FactionPowerRequirement extends AbstractRequirement {
     double factionPower = -1.0F;

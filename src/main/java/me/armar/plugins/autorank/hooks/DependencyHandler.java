@@ -14,7 +14,7 @@ public abstract class DependencyHandler {
 
     public abstract boolean isInstalled();
 
-    public abstract boolean setup(boolean var1) throws Exception;
+    public abstract void setup(boolean var1) throws Exception;
 
     public Autorank getPlugin() {
         return (Autorank)Bukkit.getPluginManager().getPlugin("Autorank");

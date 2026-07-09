@@ -11,19 +11,16 @@ import java.util.UUID;
 public class StatzHook extends LibraryHook {
     private Statz statz;
 
-    public StatzHook() {
-    }
-
     public boolean isHooked() {
-        return this.statz != null;
+        return isPluginAvailable(Library.STATZ);
     }
 
     public boolean hook() {
         if (!isPluginAvailable(Library.STATZ)) {
             return false;
         } else {
-            this.statz = (Statz)this.getServer().getPluginManager().getPlugin(Library.STATZ.getInternalPluginName());
-            return this.statz != null;
+            statz = (Statz)this.getServer().getPluginManager().getPlugin(Library.STATZ.getInternalPluginName());
+            return statz != null;
         }
     }
 

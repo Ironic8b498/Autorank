@@ -39,7 +39,7 @@ public class McRPGHook extends LibraryHook {
 
     public int getSkillLevel(UUID uuid, String skillName) {
         Optional<McRPGPlayer> player = this.getPlayer(uuid);
-        if (!player.isPresent()) {
+        if (player.isEmpty()) {
             return 0;
         } else {
             Skills matchingSkill = Skills.fromString(skillName);

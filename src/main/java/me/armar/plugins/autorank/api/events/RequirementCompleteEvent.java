@@ -1,10 +1,11 @@
 package me.armar.plugins.autorank.api.events;
 
-import java.util.UUID;
 import me.armar.plugins.autorank.pathbuilder.holders.CompositeRequirement;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+
+import java.util.UUID;
 
 public class RequirementCompleteEvent extends Event implements Cancellable {
     private static final HandlerList handlers = new HandlerList();

@@ -1,12 +1,12 @@
 package me.armar.plugins.autorank.config;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ConcurrentModificationException;
 import me.armar.plugins.autorank.Autorank;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ConcurrentModificationException;
 
 public class SimpleYamlConfiguration extends YamlConfiguration {
     File file;
@@ -40,17 +40,12 @@ public class SimpleYamlConfiguration extends YamlConfiguration {
         return this.file;
     }
 
-    public void loadFile() {
-        try {
-            this.load(this.file);
-        } catch (FileNotFoundException var2) {
-        } catch (IOException var3) {
-        } catch (InvalidConfigurationException var4) {
-        }
+    public void loadFile() throws IOException, InvalidConfigurationException {
+        this.load(this.file);
 
     }
 
-    public void reloadFile() {
+    public void reloadFile() throws IOException, InvalidConfigurationException {
         this.loadFile();
         this.saveFile();
     }

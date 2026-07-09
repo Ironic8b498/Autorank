@@ -34,15 +34,14 @@ public class CommandResult extends AbstractResult {
         return this.hasCustomDescription() ? this.getCustomDescription() : Lang.COMMAND_RESULT.getConfigValue(AutorankTools.createStringFromList(this.commands));
     }
 
-    public boolean setOptions(String[] commands) {
+    public void setOptions(String[] commands) {
         this.server = this.getAutorank().getServer();
-        List<String> replace = new ArrayList();
+        List<String> replace = new ArrayList<>();
 
         for(String command : commands) {
             replace.add(command.trim());
         }
 
         this.commands = replace;
-        return true;
     }
 }

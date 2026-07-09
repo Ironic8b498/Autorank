@@ -1,12 +1,13 @@
 package me.armar.plugins.autorank.playtimes;
 
+import me.armar.plugins.autorank.Autorank;
+import me.armar.plugins.autorank.storage.PlayTimeStorageProvider.StorageType;
+import me.armar.plugins.autorank.storage.TimeType;
+
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
-import me.armar.plugins.autorank.Autorank;
-import me.armar.plugins.autorank.storage.TimeType;
-import me.armar.plugins.autorank.storage.PlayTimeStorageProvider.StorageType;
 
 public class PlayTimeManager {
     public static int INTERVAL_MINUTES = 5;

@@ -12,6 +12,7 @@ import me.armar.plugins.autorank.util.uuid.UUIDManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class ResetCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -20,7 +21,7 @@ public class ResetCommand extends AutorankCommand {
         this.plugin = instance;
     }
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         if (!(sender instanceof Player)) {
             if (args.length != 3) {
                 AutorankTools.consoleDeserialize(Lang.INVALID_FORMAT.getConfigValue("/ar reset <player> <action>"));

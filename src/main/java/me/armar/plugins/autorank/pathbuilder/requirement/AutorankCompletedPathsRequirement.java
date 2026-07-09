@@ -68,10 +68,6 @@ public class AutorankCompletedPathsRequirement extends AbstractRequirement {
         }
     }
 
-    public boolean needsOnlinePlayer() {
-        return false;
-    }
-
     private void findMatchingPath() {
         this.requiredPath = this.getAutorank().getPathManager().findPathByDisplayName(this.requiredPathName, false);
         if (this.requiredPath == null) {

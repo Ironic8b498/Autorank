@@ -1,6 +1,5 @@
 package me.armar.plugins.autorank.listeners;
 
-import java.util.Optional;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.pathbuilder.Path;
 import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataStorage;
@@ -10,6 +9,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+
+import java.util.Optional;
 
 public class PlayerJoinListener implements Listener {
     private final Autorank plugin;
@@ -37,7 +38,6 @@ public class PlayerJoinListener implements Listener {
                     this.plugin.getServer().getScheduler().runTaskLater(this.plugin, () -> {
                         ChatColor var10001 = ChatColor.GREEN;
                         player.sendMessage(var10001 + this.plugin.getName() + " " + this.plugin.getUpdateHandler().getUpdater().getLatestVersion() + ChatColor.GOLD + " is now available for download!");
-                        var10001 = ChatColor.GREEN;
                         player.sendMessage(var10001 + "Available at: " + ChatColor.GOLD + this.plugin.getUpdateHandler().getUpdater().getResourceURL());
                     }, 10L);
                 }

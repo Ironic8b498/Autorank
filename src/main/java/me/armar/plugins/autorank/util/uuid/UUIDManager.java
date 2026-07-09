@@ -40,8 +40,8 @@ public class UUIDManager {
 
     public static CompletableFuture<Map<UUID, String>> getPlayerNames(List<UUID> uuids) {
         return CompletableFuture.supplyAsync(() -> {
-            List<UUID> uuidsToSearch = new ArrayList(uuids);
-            Map<UUID, String> cachedData = new HashMap();
+            List<UUID> uuidsToSearch = new ArrayList<>(uuids);
+            Map<UUID, String> cachedData = new HashMap<>();
 
             for(UUID uuid : uuids) {
                 String playerName;
@@ -99,8 +99,8 @@ public class UUIDManager {
 
     public static CompletableFuture<Map<String, UUID>> getUUIDs(List<String> playerNames) {
         return CompletableFuture.supplyAsync(() -> {
-            List<String> playerNamesToSearch = new ArrayList(playerNames);
-            Map<String, UUID> cachedData = new HashMap();
+            List<String> playerNamesToSearch = new ArrayList<>(playerNames);
+            Map<String, UUID> cachedData = new HashMap<>();
 
             for(String playerName : playerNames) {
                 UUID storedUUID;

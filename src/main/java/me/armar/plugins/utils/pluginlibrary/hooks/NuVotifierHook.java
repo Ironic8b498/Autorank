@@ -23,7 +23,7 @@ public class NuVotifierHook extends LibraryHook {
             Plugin plugin = this.getServer().getPluginManager().getPlugin(Library.NUVOTIFIER.getInternalPluginName());
 
             try {
-                if (plugin == null || !(plugin instanceof NuVotifierBukkit)) {
+                if (!(plugin instanceof NuVotifierBukkit)) {
                     return false;
                 }
             } catch (NoClassDefFoundError var3) {
@@ -36,8 +36,7 @@ public class NuVotifierHook extends LibraryHook {
         }
     }
 
-    private boolean setupVoteListener() {
+    private void setupVoteListener() {
         Bukkit.getPluginManager().registerEvents(new VoteListener(), this.getProvidedJavaPlugin());
-        return true;
     }
 }

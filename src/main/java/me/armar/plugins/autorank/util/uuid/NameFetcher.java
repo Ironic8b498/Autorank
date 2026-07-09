@@ -1,6 +1,11 @@
 package me.armar.plugins.autorank.util.uuid;
 
 import com.google.common.collect.ImmutableList;
+import me.armar.plugins.autorank.Autorank;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,13 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.Callable;
-import me.armar.plugins.autorank.Autorank;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 public class NameFetcher implements Callable<Map<UUID, String>> {
-    private static final String PROFILE_URL = "https://sessionserver.mojang.com/session/minecraft/profile/";
     private final JSONParser jsonParser = new JSONParser();
     private final List<UUID> uuids;
     private final Autorank plugin;
@@ -43,11 +43,11 @@ public class NameFetcher implements Callable<Map<UUID, String>> {
     }
 
     public Map<UUID, String> call() throws Exception {
-        Map<UUID, String> uuidStringMap = new HashMap();
+        Map<UUID, String> uuidStringMap = new HashMap<>();
 
         for(UUID uuid : this.uuids) {
             String var10002 = uuid.toString();
-            HttpURLConnection connection = (HttpURLConnection)(new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + var10002.replace("-", ""))).openConnection();
+            HttpURLConnection connection = (HttpURLConnection) new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + var10002.replace("-", "")).openConnection();
             String name = null;
 
             try {

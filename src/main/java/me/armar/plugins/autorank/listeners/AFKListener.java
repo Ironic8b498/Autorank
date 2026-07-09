@@ -14,6 +14,7 @@ public class AFKListener implements Listener {
             ignoreCancelled = true
     )
     public void onPlayerMove(PlayerMoveEvent event) {
+        assert event.getTo() != null;
         if (event.getFrom().getBlockX() == event.getTo().getBlockX() && event.getFrom().getBlockZ() == event.getTo().getBlockZ() && event.getFrom().getBlockY() == event.getTo().getBlockY()) {
         }
 

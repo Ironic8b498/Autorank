@@ -1,10 +1,10 @@
 package me.armar.plugins.autorank.pathbuilder.requirement;
 
-import java.util.UUID;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.utils.pluginlibrary.Library;
 import me.armar.plugins.utils.pluginlibrary.hooks.JobsHook;
-import me.armar.plugins.utils.pluginlibrary.hooks.LibraryHook;
+
+import java.util.UUID;
 
 public class JobsCurrentPointsRequirement extends AbstractRequirement {
     int currentPoints = -1;
@@ -26,10 +26,7 @@ public class JobsCurrentPointsRequirement extends AbstractRequirement {
         double points = -1.0F;
         if (this.jobsHandler != null && this.jobsHandler.isHooked()) {
             points = this.jobsHandler.getCurrentPoints(uuid);
-        } else {
-            points = -1.0F;
         }
-
         return points + "/" + this.currentPoints;
     }
 
@@ -37,10 +34,7 @@ public class JobsCurrentPointsRequirement extends AbstractRequirement {
         double points = -1.0F;
         if (this.jobsHandler != null && this.jobsHandler.isHooked()) {
             points = this.jobsHandler.getCurrentPoints(uuid);
-        } else {
-            points = -1.0F;
         }
-
         return points >= (double)this.currentPoints;
     }
 

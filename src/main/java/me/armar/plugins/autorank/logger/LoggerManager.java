@@ -1,9 +1,10 @@
 package me.armar.plugins.autorank.logger;
 
+import me.armar.plugins.autorank.Autorank;
+
 import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import me.armar.plugins.autorank.Autorank;
 
 public class LoggerManager {
     public static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");

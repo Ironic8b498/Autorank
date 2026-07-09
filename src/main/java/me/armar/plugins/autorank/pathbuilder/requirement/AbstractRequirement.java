@@ -1,9 +1,6 @@
 package me.armar.plugins.autorank.pathbuilder.requirement;
 
 import io.reactivex.annotations.NonNull;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.hooks.DependencyManager;
 import me.armar.plugins.autorank.pathbuilder.result.AbstractResult;
@@ -13,14 +10,18 @@ import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 public abstract class AbstractRequirement {
-    private final List<String> errorMessages = new ArrayList();
-    private final List<Library> dependencies = new ArrayList();
+    private final List<String> errorMessages = new ArrayList<>();
+    private final List<Library> dependencies = new ArrayList<>();
     private boolean optional = false;
     private boolean autoComplete = false;
     private boolean isPreRequisite = false;
     private int reqId;
-    private List<AbstractResult> abstractResults = new ArrayList();
+    private List<AbstractResult> abstractResults = new ArrayList<>();
     private String world;
     private String customDescription;
 
@@ -185,10 +186,10 @@ public abstract class AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        return this.isMet(uuid) ? (double)1.0F : this.getProgressInPercentage(uuid);
+        return this.isMet(uuid) ? (double)1.0F : this.getProgressInPercentage();
     }
 
-    private double getProgressInPercentage(UUID uuid) {
+    private double getProgressInPercentage() {
         return 0.0F;
     }
 }

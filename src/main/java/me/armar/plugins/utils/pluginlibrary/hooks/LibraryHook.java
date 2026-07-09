@@ -15,7 +15,7 @@ public abstract class LibraryHook {
     public static boolean isPluginAvailable(Library library) {
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin(library.getInternalPluginName());
         if (plugin == null) {
-            return false;
+            return  false;
         } else {
             return !library.hasMainClass() || plugin.getDescription().getMain().equalsIgnoreCase(library.getMainClass());
         }

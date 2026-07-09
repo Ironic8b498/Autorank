@@ -10,6 +10,7 @@ import me.armar.plugins.utils.pluginlibrary.hooks.LibraryHook;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class HooksCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -18,7 +19,7 @@ public class HooksCommand extends AutorankCommand {
         this.plugin = instance;
     }
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         if (!(sender instanceof Player)) {
             AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT.getConfigValue());
             return true;

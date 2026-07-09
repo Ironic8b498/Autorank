@@ -8,10 +8,8 @@ import me.armar.plugins.autorank.pathbuilder.builders.ResultBuilder;
 import me.armar.plugins.autorank.pathbuilder.result.AbstractResult;
 
 public class ResultService implements ResultManager {
-    private final Autorank plugin;
 
     public ResultService(Autorank instance) {
-        this.plugin = instance;
     }
 
     public boolean registerResult(String identifier, Class<? extends AbstractResult> resultClass) {

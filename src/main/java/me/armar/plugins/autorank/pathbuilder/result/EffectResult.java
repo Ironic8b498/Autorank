@@ -23,7 +23,7 @@ public class EffectResult extends AbstractResult {
         return this.hasCustomDescription() ? this.getCustomDescription() : Lang.EFFECT_RESULT.getConfigValue(this.effect.name());
     }
 
-    public boolean setOptions(String[] options) {
+    public void setOptions(String[] options) {
         if (options.length > 0) {
             this.effect = Effect.valueOf(options[0]);
         }
@@ -32,6 +32,5 @@ public class EffectResult extends AbstractResult {
             this.data = Integer.parseInt(options[1]);
         }
 
-        return this.effect != null;
     }
 }

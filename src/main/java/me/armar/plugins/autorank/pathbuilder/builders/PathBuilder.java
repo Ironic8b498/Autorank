@@ -19,7 +19,7 @@ public class PathBuilder {
     }
 
     public List<Path> initialisePaths() {
-        List<Path> paths = new ArrayList();
+        List<Path> paths = new ArrayList<>();
         if (this.plugin.getPathsConfig().isLoaded()) {
             for(String pathName : this.plugin.getPathsConfig().getPaths()) {
                 Path path = new Path(this.plugin);
@@ -57,7 +57,7 @@ public class PathBuilder {
     }
 
     private List<CompositeRequirement> getPrerequisites(String pathName) {
-        List<CompositeRequirement> prerequisites = new ArrayList();
+        List<CompositeRequirement> prerequisites = new ArrayList<>();
 
         for(String preReqName : this.plugin.getPathsConfig().getRequirements(pathName, true)) {
             CompositeRequirement reqHolder = new CompositeRequirement(this.plugin);
@@ -78,7 +78,7 @@ public class PathBuilder {
     }
 
     private List<CompositeRequirement> getRequirements(String pathName) {
-        List<CompositeRequirement> requirements = new ArrayList();
+        List<CompositeRequirement> requirements = new ArrayList<>();
 
         for(String reqName : this.plugin.getPathsConfig().getRequirements(pathName, false)) {
             CompositeRequirement reqHolder = new CompositeRequirement(this.plugin);
@@ -99,7 +99,7 @@ public class PathBuilder {
     }
 
     private List<AbstractResult> getResults(String pathName) {
-        List<AbstractResult> results = new ArrayList();
+        List<AbstractResult> results = new ArrayList<>();
 
         for(Object o : this.plugin.getPathsConfig().getResults(pathName)) {
             String resultName = (String)o;
@@ -113,7 +113,7 @@ public class PathBuilder {
     }
 
     private ArrayList getResultsUponChoosing(String pathName) {
-        ArrayList resultsUponChoosing = new ArrayList();
+        ArrayList<Object> resultsUponChoosing = new ArrayList<>();
 
         for(Object result : this.plugin.getPathsConfig().getResultsUponChoosing(pathName)) {
             String resultType = (String)result;

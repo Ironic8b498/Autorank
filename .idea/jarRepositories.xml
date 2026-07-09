@@ -17,6 +17,11 @@
       <option name="url" value="https://nexus.savagelabs.net/repository/maven-releases/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="mcmmo-repo" />
+      <option name="name" value="mcmmo-repo" />
+      <option name="url" value="https://nexus.neetgames.com/repository/maven-public" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="placeholderapi" />
       <option name="name" value="placeholderapi" />
       <option name="url" value="https://repo.extendedclip.com/content/repositories/placeholderapi/" />
@@ -47,14 +52,14 @@
       <option name="url" value="https://repo.essentialsx.net/releases/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="mcmmo-repo" />
-      <option name="name" value="mcmmo-repo" />
-      <option name="url" value="http://repo.mcmmo.org/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="rosewood-repo" />
       <option name="name" value="rosewood-repo" />
       <option name="url" value="https://repo.rosewooddev.io/repository/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="mcmmo-repo" />
+      <option name="name" value="mcmmo-repo" />
+      <option name="url" value="http://repo.mcmmo.org/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="codemc-repo" />
@@ -72,14 +77,19 @@
       <option name="url" value="https://s01.oss.sonatype.org/content/repositories/snapshots/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="spigotmc-repo" />
-      <option name="name" value="spigotmc-repo" />
-      <option name="url" value="https://hub.spigotmc.org/nexus/content/repositories/snapshots/" />
+      <option name="id" value="spigot-repo" />
+      <option name="name" value="spigot-repo" />
+      <option name="url" value="https://hub.spigotmc.org/nexus/content/groups/public/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="paper-repo" />
       <option name="name" value="paper-repo" />
       <option name="url" value="https://papermc.io/repo/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spigotmc-repo" />
+      <option name="name" value="spigotmc-repo" />
+      <option name="url" value="https://hub.spigotmc.org/nexus/content/repositories/snapshots/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="maven-snapshots" />

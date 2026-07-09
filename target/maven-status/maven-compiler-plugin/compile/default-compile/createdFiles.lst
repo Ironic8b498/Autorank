@@ -23,6 +23,7 @@ me\armar\plugins\autorank\migration\implementations\VanillaMigration.class
 me\armar\plugins\autorank\pathbuilder\requirement\AdvancementRequirement.class
 me\armar\plugins\autorank\commands\ImportCommand$1$2.class
 me\armar\plugins\autorank\pathbuilder\playerdata\local\LocalPlayerDataStorage.class
+me\armar\plugins\autorank\util\ArUtil.class
 me\armar\plugins\autorank\warningmanager\WarningManager.class
 me\armar\plugins\utils\pluginlibrary\hooks\VaultHook.class
 me\armar\plugins\autorank\pathbuilder\requirement\McRPGSkillLevelRequirement.class

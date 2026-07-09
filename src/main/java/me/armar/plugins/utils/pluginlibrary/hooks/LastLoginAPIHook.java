@@ -8,6 +8,7 @@ import me.armar.plugins.utils.pluginlibrary.Library;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Objects;
 import java.util.UUID;
 
 public class LastLoginAPIHook extends LibraryHook {
@@ -25,7 +26,7 @@ public class LastLoginAPIHook extends LibraryHook {
             return false;
         }
         if (getServer().getPluginManager().getPlugin("LastLoginAPI") != null) {
-            if (getServer().getPluginManager().getPlugin("LastLoginAPI").isEnabled()) {
+            if (Objects.requireNonNull(getServer().getPluginManager().getPlugin("LastLoginAPI")).isEnabled()) {
                 this.lastLonginAPI = LastLogin.getApi();
                 return this.lastLonginAPI != null;
             }

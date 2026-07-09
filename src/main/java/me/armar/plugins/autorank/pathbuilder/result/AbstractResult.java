@@ -18,7 +18,7 @@ public abstract class AbstractResult {
 
     public abstract String getDescription();
 
-    public abstract boolean setOptions(String[] var1);
+    public abstract void setOptions(String[] var1);
 
     public String toString() {
         return this.getClass().getSimpleName();

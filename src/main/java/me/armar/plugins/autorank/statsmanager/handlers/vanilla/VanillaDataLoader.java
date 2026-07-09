@@ -1,11 +1,12 @@
 package me.armar.plugins.autorank.statsmanager.handlers.vanilla;
 
-import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Statistic;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+
+import java.util.UUID;
 
 public class VanillaDataLoader {
     public VanillaDataLoader() {
@@ -14,15 +15,13 @@ public class VanillaDataLoader {
     public int getTotalBlocksBroken(UUID uuid) {
         Player player = Bukkit.getServer().getPlayer(uuid);
         int count = 0;
-        if (player == null) {
-            return count;
-        } else {
-            for(Material mat : Material.values()) {
+        if (player != null) {
+            for (Material mat : Material.values()) {
                 count += player.getStatistic(Statistic.MINE_BLOCK, mat);
             }
 
-            return count;
         }
+        return count;
     }
 
     public int getBlocksBroken(UUID uuid, Material material) {
@@ -33,17 +32,15 @@ public class VanillaDataLoader {
     public int getTotalBlocksPlaced(UUID uuid) {
         Player player = Bukkit.getServer().getPlayer(uuid);
         int count = 0;
-        if (player == null) {
-            return count;
-        } else {
-            for(Material mat : Material.values()) {
+        if (player != null) {
+            for (Material mat : Material.values()) {
                 if (mat.isBlock()) {
                     count += player.getStatistic(Statistic.USE_ITEM, mat);
                 }
             }
 
-            return count;
         }
+        return count;
     }
 
     public int getBlocksPlaced(UUID uuid, Material material) {
@@ -69,17 +66,15 @@ public class VanillaDataLoader {
     public int getTotalFoodEaten(UUID uuid) {
         Player player = Bukkit.getServer().getPlayer(uuid);
         int count = 0;
-        if (player == null) {
-            return count;
-        } else {
-            for(Material mat : Material.values()) {
+        if (player != null) {
+            for (Material mat : Material.values()) {
                 if (mat.isEdible()) {
                     count += player.getStatistic(Statistic.USE_ITEM, mat);
                 }
             }
 
-            return count;
         }
+        return count;
     }
 
     public int getFoodEaten(UUID uuid, Material material) {
@@ -90,15 +85,13 @@ public class VanillaDataLoader {
     public int getTotalItemsCrafted(UUID uuid) {
         Player player = Bukkit.getServer().getPlayer(uuid);
         int count = 0;
-        if (player == null) {
-            return count;
-        } else {
-            for(Material mat : Material.values()) {
+        if (player != null) {
+            for (Material mat : Material.values()) {
                 count += player.getStatistic(Statistic.CRAFT_ITEM, mat);
             }
 
-            return count;
         }
+        return count;
     }
 
     public int getItemsCrafted(UUID uuid, Material material) {

@@ -39,12 +39,7 @@ public class BlocksMovedRequirement extends AbstractRequirement {
         }
 
         this.wrapper = new BlocksMovedWrapper(blocksMoved, movementType);
-        if (this.wrapper == null) {
-            this.registerWarningMessage("No valid block provided.");
-            return false;
-        } else {
-            return true;
-        }
+        return true;
     }
 
     public double getProgressPercentage(UUID uuid) {

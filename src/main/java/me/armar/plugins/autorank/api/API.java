@@ -1,19 +1,19 @@
 package me.armar.plugins.autorank.api;
 
-import java.util.List;
-import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 import me.armar.plugins.autorank.Autorank;
-import me.armar.plugins.autorank.addons.AddOnManager;
 import me.armar.plugins.autorank.api.services.RequirementManager;
 import me.armar.plugins.autorank.api.services.RequirementService;
 import me.armar.plugins.autorank.api.services.ResultManager;
 import me.armar.plugins.autorank.api.services.ResultService;
 import me.armar.plugins.autorank.pathbuilder.Path;
-import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.storage.PlayTimeStorageProvider.StorageType;
+import me.armar.plugins.autorank.storage.TimeType;
 import org.bukkit.plugin.ServicePriority;
+
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 public class API {
     private final Autorank plugin;
@@ -24,10 +24,6 @@ public class API {
         this.plugin.getLogger().info("Registered requirement service for adding custom requirements!");
         this.plugin.getServer().getServicesManager().register(ResultManager.class, new ResultService(instance), instance, ServicePriority.Normal);
         this.plugin.getLogger().info("Registered result service for adding custom results!");
-    }
-
-    public AddOnManager getAddOnManager() {
-        return this.plugin.getAddonManager();
     }
 
     public CompletableFuture<Integer> getGlobalPlayTime(UUID uuid) {
@@ -60,7 +56,4 @@ public class API {
         return this.plugin.getPathManager().getEligiblePaths(uuid);
     }
 
-    public Path getPath(String pathName) {
-        return this.plugin.getPathManager().getAllPaths().parallelStream().filter((path) -> path.getDisplayName().equalsIgnoreCase(pathName) || path.getInternalName().equalsIgnoreCase(pathName)).findFirst().orElse(null);
-    }
 }

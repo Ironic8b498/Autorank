@@ -15,11 +15,12 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -41,24 +42,22 @@ public class CheckCommand extends AutorankCommand {
             AutorankTools.sendDeserialize(sender, Lang.DOES_NOT_HAVE_ACTIVE.getConfigValue(playerName));
         } else {
             AutorankTools.sendDeserialize(sender, Lang.PROGRESS_OF_PATHS.getConfigValue(playerName));
-            Iterator var5 = activePaths.iterator();
 
-            while(var5.hasNext()) {
-                Path activePath = (Path)var5.next();
+            for (Path activePath : activePaths) {
                 StringBuilder message = new StringBuilder(Lang.PROGRESS_OF.getConfigValue(activePath.getDisplayName()));
                 double completeRatio = activePath.getProgress(uuid);
                 message.append(Lang.BRACKET_LEFT.getConfigValue());
 
                 int i;
-                for(i = 0; (double)i < completeRatio * 10.0D; ++i) {
+                for (i = 0; (double) i < completeRatio * 10.0D; ++i) {
                     message.append(Lang.VERTICAL_COMPLETED.getConfigValue());
                 }
 
-                for(i = 0; (double)i < 10.0D - completeRatio * 10.0D; ++i) {
+                for (i = 0; (double) i < 10.0D - completeRatio * 10.0D; ++i) {
                     message.append(Lang.VERTICAL_NOT_COMPLETED.getConfigValue());
                 }
                 //Origanal color is GOLD, changed to BLue
-                message.append(Lang.BRACKET_RIGHT.getConfigValue()+Lang.PARENTHESIS_LEFT_PERCENT.getConfigValue()).append((new BigDecimal(completeRatio * 100.0D)).setScale(2, RoundingMode.HALF_UP)).append(Lang.PARENTHESIS_RIGHT_PERCENT.getConfigValue());
+                message.append(Lang.BRACKET_RIGHT.getConfigValue() + Lang.PARENTHESIS_LEFT_PERCENT.getConfigValue()).append((new BigDecimal(completeRatio * 100.0D)).setScale(2, RoundingMode.HALF_UP)).append(Lang.PARENTHESIS_RIGHT_PERCENT.getConfigValue());
                 AutorankTools.sendDeserialize(sender, message.toString());
             }
             Player player = (Player) sender;
@@ -78,16 +77,14 @@ public class CheckCommand extends AutorankCommand {
         List<CompositeRequirement> allRequirements = path.getRequirements();
         List<CompositeRequirement> completedRequirements = path.getCompletedRequirements(uuid);
         List<String> messages = this.plugin.getPlayerChecker().formatRequirementsToList(allRequirements, completedRequirements);
-        Iterator var8 = messages.iterator();
 
-        while(var8.hasNext()) {
-            String message = (String)var8.next();
+        for (String message : messages) {
             AutorankTools.sendDeserialize(sender, message);
         }
 
     }
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         var mm = MiniMessage.miniMessage();
         boolean showListOfPaths = false;
         Path targetPath = null;
@@ -98,7 +95,7 @@ public class CheckCommand extends AutorankCommand {
                 return true;
             } else if (!this.hasPermission("autorank.check", sender)) {
                 return true;
-            } else if (this.plugin.getPlayerChecker().isExemptedFromAutomaticChecking(((Player)sender).getUniqueId())) {
+            } else if (this.plugin.getPlayerChecker().isExemptedFromAutomaticChecking(player.getUniqueId())) {
                 AutorankTools.sendDeserialize(sender, Lang.PLAYER_IS_EXCLUDED.getConfigValue(sender.getName()));
                 return true;
             } else {
@@ -143,7 +140,6 @@ public class CheckCommand extends AutorankCommand {
                 }
 
                 if (isPath) {
-                    showListOfPaths = false;
                     if (!isPlayer) {
                         if (!(sender instanceof Player)) {
                             AutorankTools.sendDeserialize(sender, Lang.CANNOT_CHECK_CONSOLE.getConfigValue());
@@ -162,7 +158,8 @@ public class CheckCommand extends AutorankCommand {
                 }
             }
 
-            if (targetPlayer.getName().equalsIgnoreCase(sender.getName())) {
+            assert targetPlayer != null;
+            if (Objects.requireNonNull(targetPlayer.getName()).equalsIgnoreCase(sender.getName())) {
                 if (!this.hasPermission("autorank.check", sender)) {
                     return true;
                 }
@@ -175,6 +172,7 @@ public class CheckCommand extends AutorankCommand {
             UUID targetUUID = null;
             if (isPath) {
                 Player onlineTargetPlayer = targetPlayer.getPlayer();
+                assert onlineTargetPlayer != null;
                 if (this.plugin.getPlayerChecker().isExemptedFromAutomaticChecking(onlineTargetPlayer.getUniqueId())) {
                     AutorankTools.sendDeserialize(sender, Lang.PLAYER_IS_EXCLUDED.getConfigValue(onlineTargetPlayer.getName()));
                     return true;
@@ -208,7 +206,7 @@ public class CheckCommand extends AutorankCommand {
                 if (finalShowListOfPaths) {
                     this.showPathsOverview(sender, finalTargetPlayerName, finalTargetUUID);
                 } else {
-                    if (finalTargetPath != null && !finalTargetPath.isActive(finalTargetUUID)) {
+                    if (!finalTargetPath.isActive(finalTargetUUID)) {
                         AutorankTools.sendDeserialize(sender, Lang.DOES_NOT_HAVE_AS_ACTIVE.getConfigValue(finalTargetPlayerName, finalTargetPath.getDisplayName()));
                         return;
                     }
@@ -222,7 +220,7 @@ public class CheckCommand extends AutorankCommand {
         }
     }
 
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String commandLabel, String[] args) {
         if (!(sender instanceof Player player)) {
             return null;
         } else {

@@ -1,14 +1,15 @@
 package me.armar.plugins.autorank.warningmanager;
 
-import java.util.HashMap;
-import java.util.Map;
 import me.armar.plugins.autorank.Autorank;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class WarningManager {
     private final Autorank plugin;
-    private final HashMap<String, Integer> warnings = new HashMap();
+    private final HashMap<String, Integer> warnings = new HashMap<>();
     public static final int LOW_PRIORITY_WARNING = 1;
     public static final int MEDIUM_PRIORITY_WARNING = 5;
     public static final int HIGH_PRIORITY_WARNING = 10;

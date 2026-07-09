@@ -4,9 +4,9 @@ import dev.aurelium.auraskills.api.stat.Stats;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.utils.pluginlibrary.Library;
 import me.armar.plugins.utils.pluginlibrary.hooks.AuraSkillsHook;
-import org.bukkit.entity.Player;
 
 import java.util.Locale;
+import java.util.UUID;
 
 public class AuraSkillsStatRequirement extends AbstractRequirement {
     private AuraSkillsHook handler = null;
@@ -20,16 +20,16 @@ public class AuraSkillsStatRequirement extends AbstractRequirement {
         return Lang.AURA_SKILLS_STAT_REQUIREMENT.getConfigValue(this.requiredLevel, this.stat);
     }
 
-    public String getProgressString(Player player) {
-        double var10000 = this.handler.getStatLevel(player, this.stat);
+    public String getProgressString(UUID uuid) {
+        double var10000 = this.handler.getStatLevel(uuid, this.stat);
         return var10000 + "/" + this.requiredLevel;
     }
 
-    protected boolean meetsRequirement(Player player) {
+    protected boolean meetsRequirement(UUID uuid) {
         if (!this.handler.isHooked()) {
             return false;
         } else {
-            return this.handler.getStatLevel(player, this.stat) >= this.requiredLevel;
+            return this.handler.getStatLevel(uuid, this.stat) >= this.requiredLevel;
         }
     }
 
@@ -47,7 +47,7 @@ public class AuraSkillsStatRequirement extends AbstractRequirement {
             try {
                 this.stat = Stats.valueOf(options[0].trim().toUpperCase(Locale.ROOT)).getDisplayName(Locale.ENGLISH);
             } catch (Exception var3) {
-                this.registerWarningMessage("The stat '" + options[0].trim() + "' does not exist!");
+                this.registerWarningMessage("The stat level '" + options[0].trim() + "' does not exist!");
                 return false;
             }
         }
@@ -60,7 +60,7 @@ public class AuraSkillsStatRequirement extends AbstractRequirement {
         }
     }
 
-    public double getProgressPercentage(Player player) {
-        return this.handler.getStatLevel(player, this.stat) / this.requiredLevel;
+    public double getProgressPercentage(UUID uuid) {
+        return this.handler.getStatLevel(uuid, this.stat) / this.requiredLevel;
     }
 }

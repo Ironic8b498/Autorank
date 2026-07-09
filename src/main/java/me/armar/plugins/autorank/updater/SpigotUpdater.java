@@ -20,13 +20,9 @@ public class SpigotUpdater {
 
         try {
             this.checkURL = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + projectID);
-        } catch (MalformedURLException var4) {
+        } catch (MalformedURLException ignored) {
         }
 
-    }
-
-    public int getProjectID() {
-        return this.project;
     }
 
     public JavaPlugin getPlugin() {

@@ -1,9 +1,10 @@
 package me.armar.plugins.autorank.migration;
 
+import me.armar.plugins.autorank.Autorank;
+
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
-import me.armar.plugins.autorank.Autorank;
 
 public abstract class MigrationablePlugin {
     private final Autorank plugin;

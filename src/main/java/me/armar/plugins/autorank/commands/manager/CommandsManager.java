@@ -1,56 +1,24 @@
 package me.armar.plugins.autorank.commands.manager;
 
 import com.google.common.collect.Lists;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 import me.armar.plugins.autorank.Autorank;
-import me.armar.plugins.autorank.commands.AddCommand;
-import me.armar.plugins.autorank.commands.BackupCommand;
-import me.armar.plugins.autorank.commands.BroadcastCommand;
-import me.armar.plugins.autorank.commands.CheckCommand;
-import me.armar.plugins.autorank.commands.ChooseCommand;
-import me.armar.plugins.autorank.commands.CompleteCommand;
-import me.armar.plugins.autorank.commands.DeactivateCommand;
-import me.armar.plugins.autorank.commands.DebugCommand;
-import me.armar.plugins.autorank.commands.EditorCommand;
-import me.armar.plugins.autorank.commands.ForceCheckCommand;
-import me.armar.plugins.autorank.commands.GlobalAddCommand;
-import me.armar.plugins.autorank.commands.GlobalCheckCommand;
-import me.armar.plugins.autorank.commands.GlobalSetCommand;
-import me.armar.plugins.autorank.commands.HelpCommand;
-import me.armar.plugins.autorank.commands.HooksCommand;
-import me.armar.plugins.autorank.commands.ImportCommand;
-import me.armar.plugins.autorank.commands.InfoCommand;
-import me.armar.plugins.autorank.commands.LeaderboardCommand;
-import me.armar.plugins.autorank.commands.LoginCommand;
-import me.armar.plugins.autorank.commands.MigrateCommand;
-import me.armar.plugins.autorank.commands.ReloadCommand;
-import me.armar.plugins.autorank.commands.RemoveCommand;
-import me.armar.plugins.autorank.commands.ResetCommand;
-import me.armar.plugins.autorank.commands.SetCommand;
-import me.armar.plugins.autorank.commands.SyncCommand;
-import me.armar.plugins.autorank.commands.SyncStatsCommand;
-import me.armar.plugins.autorank.commands.TimesCommand;
-import me.armar.plugins.autorank.commands.TrackCommand;
-import me.armar.plugins.autorank.commands.ViewCommand;
+import me.armar.plugins.autorank.commands.*;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.util.AutorankTools;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.HoverEvent;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.event.HoverEvent;
-import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.*;
 
 public class CommandsManager implements TabExecutor {
     private final Autorank plugin;
-    private final Map<List<String>, AutorankCommand> registeredCommands = new LinkedHashMap();
+    private final Map<List<String>, AutorankCommand> registeredCommands = new LinkedHashMap<>();
 
     public CommandsManager(Autorank plugin) {
         this.plugin = plugin;
@@ -89,7 +57,7 @@ public class CommandsManager implements TabExecutor {
         return this.registeredCommands;
     }
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         MiniMessage mm = MiniMessage.miniMessage();
         if (args.length == 0) {
             Component var10000 = mm.deserialize(Lang.ABOUT_LINE.getConfigValue());
@@ -104,8 +72,8 @@ public class CommandsManager implements TabExecutor {
             this.plugin.adventure().player((Player)sender).sendMessage(about);
         } else {
             String action = args[0];
-            List<String> suggestions = new ArrayList();
-            List<String> bestSuggestions = new ArrayList();
+            List<String> suggestions = new ArrayList<>();
+            List<String> bestSuggestions = new ArrayList<>();
 
             for(Map.Entry<List<String>, AutorankCommand> entry : this.registeredCommands.entrySet()) {
                 String suggestion = AutorankTools.findClosestSuggestion(action, entry.getKey());
@@ -141,9 +109,9 @@ public class CommandsManager implements TabExecutor {
         return true;
     }
 
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String commandLabel, String[] args) {
         if (args.length <= 1) {
-            List<String> commands = new ArrayList();
+            List<String> commands = new ArrayList<>();
 
             for(Map.Entry entry : this.registeredCommands.entrySet()) {
                 List list = (List)entry.getKey();
@@ -185,7 +153,7 @@ public class CommandsManager implements TabExecutor {
         if (string.isEmpty()) {
             return list;
         } else {
-            List<String> returnList = new ArrayList();
+            List<String> returnList = new ArrayList<>();
 
             for(String item : list) {
                 if (item.toLowerCase().startsWith(string.toLowerCase())) {

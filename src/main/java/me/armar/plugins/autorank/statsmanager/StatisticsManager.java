@@ -17,20 +17,20 @@ import static org.bukkit.Material.*;
 
 public class StatisticsManager {
     private final Autorank plugin;
-    private final List<StatsPlugin> availableStatsPlugins = new ArrayList();
+    private final List<StatsPlugin> availableStatsPlugins = new ArrayList<>();
 
     public StatisticsManager(Autorank instance) {
         this.plugin = instance;
     }
 
-    private boolean isPluginAvailable(String pluginName) {
-        Plugin x = Bukkit.getServer().getPluginManager().getPlugin(pluginName);
+    private boolean isPluginAvailable() {
+        Plugin x = Bukkit.getServer().getPluginManager().getPlugin("Statz");
         return x != null;
     }
 
     public void loadAvailableStatsPlugins() {
         this.availableStatsPlugins.clear();
-        if (this.isPluginAvailable("Statz")) {
+        if (this.isPluginAvailable()) {
             this.plugin.getLogger().info("Found Statz plugin: Statz (by Staartvin)");
             StatsPlugin statsPlugin = new StatzHandler(this.plugin, (StatzAPIHandler)this.plugin.getDependencyManager().getDependency(AutorankDependency.STATZ));
             if (!statsPlugin.isEnabled()) {
@@ -42,7 +42,7 @@ public class StatisticsManager {
             this.availableStatsPlugins.add(statsPlugin);
         }
 
-        StatsPlugin statsPlugin = new VanillaHandler(this.plugin);
+        StatsPlugin statsPlugin = new VanillaHandler();
         this.plugin.getLogger().info("Registering statistics of vanilla Minecraft!");
         this.availableStatsPlugins.add(statsPlugin);
     }
@@ -54,7 +54,7 @@ public class StatisticsManager {
                 if (block == POTATO) block = POTATOES;
                 if (block == BEETROOT) block = BEETROOTS;
                 return availableStatsPlugin.getBlocksBroken(uuid, worldName, block);
-            } catch (UnsupportedOperationException var7) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -65,7 +65,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getBlocksMoved(uuid, worldName);
-            } catch (UnsupportedOperationException var6) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -76,7 +76,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getBlocksPlaced(uuid, worldName, block);
-            } catch (UnsupportedOperationException var7) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -87,7 +87,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getDamageTaken(uuid, worldName);
-            } catch (UnsupportedOperationException var6) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -98,7 +98,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getFishCaught(uuid, worldName);
-            } catch (UnsupportedOperationException var6) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -109,7 +109,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getFoodEaten(uuid, worldName, food);
-            } catch (UnsupportedOperationException var7) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -120,7 +120,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getItemsCrafted(uuid, worldName, item);
-            } catch (UnsupportedOperationException var7) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -131,7 +131,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getMobsKilled(uuid, worldName, mob);
-            } catch (UnsupportedOperationException var7) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -142,7 +142,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getPlayersKilled(uuid, worldName);
-            } catch (UnsupportedOperationException var6) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -153,7 +153,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getTimePlayed(uuid, worldName);
-            } catch (UnsupportedOperationException var6) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -164,7 +164,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getSheepShorn(uuid, worldName);
-            } catch (UnsupportedOperationException var6) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -175,7 +175,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getTimesVoted(uuid);
-            } catch (UnsupportedOperationException var5) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -186,7 +186,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getAnimalsBred(uuid);
-            } catch (UnsupportedOperationException var5) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -197,7 +197,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getCakeSlicesEaten(uuid);
-            } catch (UnsupportedOperationException var5) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -208,7 +208,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getItemsEnchanted(uuid);
-            } catch (UnsupportedOperationException var5) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -219,7 +219,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getTimesDied(uuid);
-            } catch (UnsupportedOperationException var5) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -230,7 +230,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getPlantsPotted(uuid);
-            } catch (UnsupportedOperationException var5) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -241,7 +241,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getTimesTradedWithVillagers(uuid);
-            } catch (UnsupportedOperationException var5) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 
@@ -252,7 +252,7 @@ public class StatisticsManager {
         for(StatsPlugin availableStatsPlugin : this.availableStatsPlugins) {
             try {
                 return availableStatsPlugin.getItemThrown(uuid, item);
-            } catch (UnsupportedOperationException var6) {
+            } catch (UnsupportedOperationException ignored) {
             }
         }
 

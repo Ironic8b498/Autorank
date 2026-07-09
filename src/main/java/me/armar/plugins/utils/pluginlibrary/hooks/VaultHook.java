@@ -9,7 +9,6 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 public class VaultHook extends LibraryHook {
     private static Economy econ = null;
     private static Permission perms = null;
-    private static Chat chat = null;
 
     public VaultHook() {
     }
@@ -20,10 +19,6 @@ public class VaultHook extends LibraryHook {
 
     public static Permission getPermissions() {
         return perms;
-    }
-
-    public static Chat getChat() {
-        return chat;
     }
 
     public boolean isHooked() {
@@ -50,18 +45,19 @@ public class VaultHook extends LibraryHook {
             return false;
         }
         econ = rsp.getProvider();
-        return econ != null;
+        return true;
     }
 
     private boolean setupChat() {
         RegisteredServiceProvider<Chat> rsp = getServer().getServicesManager().getRegistration(Chat.class);
-        chat = rsp.getProvider();
-        return chat != null;
+        assert rsp != null;
+        return true;
     }
 
     private boolean setupPermissions() {
         RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
+        assert rsp != null;
         perms = rsp.getProvider();
-        return perms != null;
+        return true;
     }
 }

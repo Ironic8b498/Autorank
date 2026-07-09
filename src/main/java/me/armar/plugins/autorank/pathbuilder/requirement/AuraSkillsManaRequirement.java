@@ -3,7 +3,8 @@ package me.armar.plugins.autorank.pathbuilder.requirement;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.utils.pluginlibrary.Library;
 import me.armar.plugins.utils.pluginlibrary.hooks.AuraSkillsHook;
-import org.bukkit.entity.Player;
+
+import java.util.UUID;
 
 public class AuraSkillsManaRequirement extends AbstractRequirement {
     private AuraSkillsHook handler = null;
@@ -16,16 +17,16 @@ public class AuraSkillsManaRequirement extends AbstractRequirement {
         return Lang.AURA_SKILLS_MANA_REQUIREMENT.getConfigValue(this.requiredMana);
     }
 
-    public String getProgressString(Player player) {
-        double var10000 = this.handler.getMana(player);
+    public String getProgressString(UUID uuid) {
+        double var10000 = this.handler.getMana(uuid);
         return var10000 + "/" + this.requiredMana;
     }
 
-    protected boolean meetsRequirement(Player player) {
+    protected boolean meetsRequirement(UUID uuid) {
         if (!this.handler.isHooked()) {
             return false;
         } else {
-            return this.handler.getMana(player) >= this.requiredMana;
+            return this.handler.getMana(uuid) >= this.requiredMana;
         }
     }
 
@@ -49,7 +50,7 @@ public class AuraSkillsManaRequirement extends AbstractRequirement {
         }
     }
 
-    public double getProgressPercentage(Player player) {
-        return this.handler.getMana(player) / this.requiredMana;
+    public double getProgressPercentage(UUID uuid) {
+        return this.handler.getMana(uuid) / this.requiredMana;
     }
 }

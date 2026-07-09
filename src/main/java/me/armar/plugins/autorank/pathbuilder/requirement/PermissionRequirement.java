@@ -19,7 +19,6 @@ public class PermissionRequirement extends AbstractRequirement {
     }
 
     public String getProgressString(Player player) {
-        String progress = "unknown";
         return "unknown";
     }
 

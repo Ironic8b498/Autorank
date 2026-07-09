@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public enum Library {
     ADVANCEDACHIEVEMENTS("AdvancedAchievements", AdvancedAchievementsHook.class, "DarkPyves"),
-    AURA_SKILLS("AuraSkills", AuraSkillsHook.class, "Archyx"),
+    AURA_SKILLS("AuraSkills","AuraSkills", AuraSkillsHook.class, "Archyx", "dev.aurelium.auraskills.bukkit.AuraSkills"),
     AUTORANK("Autorank", AutorankHook.class, "Staartvin"),
     BENTOBOX("BentoBox", BentoBoxHook.class, "tastybento"),
     CMI("CMI", CMIHook.class, "Zrips"),
@@ -66,10 +66,8 @@ public enum Library {
 
     public static Library getEnum(String value) throws IllegalArgumentException {
         Library[] var1 = values();
-        int var2 = var1.length;
 
-        for (int var3 = 0; var3 < var2; ++var3) {
-            Library e = var1[var3];
+        for (Library e : var1) {
             if (e.getInternalPluginName().equalsIgnoreCase(value)) {
                 return e;
             }
@@ -83,9 +81,9 @@ public enum Library {
     }
 
     public Optional<LibraryHook> getHook() {
-        if (this.hook == null) {
+        if (hook == null) {
             try {
-                this.hook = this.libraryClass.getDeclaredConstructor().newInstance();
+                hook = libraryClass.getDeclaredConstructor().newInstance();
             } catch (Exception | NoClassDefFoundError var2) {
                 Bukkit.getConsoleSender().sendMessage("Could not grab hook of " + this.getHumanPluginName());
                 var2.printStackTrace();
@@ -93,11 +91,10 @@ public enum Library {
             }
         }
 
-        return Optional.of(this.hook);
+        return Optional.of(hook);
     }
 
     public String getAuthor() {
-
         return this.authorName;
     }
 
@@ -106,21 +103,11 @@ public enum Library {
     }
 
     public String getMainClass() {
-
         return this.mainClass;
     }
 
     public boolean hasMainClass() {
-
         return this.mainClass != null;
     }
 
-//    public void setMainClass(String mainClass) {
-//        this.mainClass = mainClass;
-//    }
-
-//    public boolean isPluginInstalled() {
-//        if (Bukkit.getPluginManager().isPluginEnabled(MCRPG.getInternalPluginName())) return true;
-//        else return false;
-//    }
 }

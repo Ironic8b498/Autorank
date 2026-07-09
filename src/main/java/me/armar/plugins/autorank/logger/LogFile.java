@@ -1,10 +1,6 @@
 package me.armar.plugins.autorank.logger;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 

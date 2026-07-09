@@ -1,12 +1,5 @@
 package me.armar.plugins.autorank.commands.manager;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.Bukkit;
@@ -14,6 +7,15 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
 
 public abstract class AutorankCommand implements TabExecutor {
     public AutorankCommand() {
@@ -25,9 +27,9 @@ public abstract class AutorankCommand implements TabExecutor {
 
     public abstract String getUsage();
 
-    public abstract boolean onCommand(CommandSender var1, Command var2, String var3, String[] var4);
+    public abstract boolean onCommand(@NotNull CommandSender var1, @NotNull Command var2, @NotNull String var3, String[] var4);
 
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String commandLabel, String[] args) {
         return null;
     }
 
@@ -41,7 +43,7 @@ public abstract class AutorankCommand implements TabExecutor {
     }
 
     public static List<String> getArgumentOptions(String[] strings) {
-        List<String> arguments = new ArrayList();
+        List<String> arguments = new ArrayList<>();
         Arrays.stream(strings).forEach((string) -> {
             if (string.matches("-{2}[a-zA-Z_-]+")) {
                 arguments.add(string.replace("--", "").toLowerCase());

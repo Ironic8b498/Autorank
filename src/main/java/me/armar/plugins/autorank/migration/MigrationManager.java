@@ -1,14 +1,15 @@
 package me.armar.plugins.autorank.migration;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.migration.implementations.StatzMigration;
 import me.armar.plugins.autorank.migration.implementations.VanillaMigration;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
 public class MigrationManager {
-    private final Map<Migrationable, MigrationablePlugin> migrationablePlugins = new HashMap();
+    private final Map<Migrationable, MigrationablePlugin> migrationablePlugins = new HashMap<>();
 
     public MigrationManager(Autorank instance) {
         this.migrationablePlugins.put(MigrationManager.Migrationable.PLAYTIME, new VanillaMigration(instance));

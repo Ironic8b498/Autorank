@@ -35,23 +35,20 @@ import me.armar.plugins.autorank.storage.flatfile.FlatFileStorageProvider;
 import me.armar.plugins.autorank.storage.mysql.MySQLStorageProvider;
 import me.armar.plugins.autorank.tasks.TaskManager;
 import me.armar.plugins.autorank.updater.UpdateHandler;
+import me.armar.plugins.autorank.util.ArUtil;
 import me.armar.plugins.autorank.util.uuid.UUIDStorage;
 import me.armar.plugins.autorank.validations.ValidateHandler;
 import me.armar.plugins.autorank.warningmanager.WarningManager;
 import me.armar.plugins.utils.pluginlibrary.Library;
-import me.armar.plugins.utils.pluginlibrary.hooks.LibraryHook;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
@@ -135,6 +132,20 @@ public class Autorank extends JavaPlugin {
         this.setDefaultBehaviorConfig(new DefaultBehaviorConfig(this));
         this.setPlayerDataManager(new PlayerDataManager(this));
         this.getDefaultBehaviorConfig().loadConfig();
+
+        // Check whether you are running at high enough version.
+        String minimumVersion = "1.20.5";
+        if (!ArUtil.isHigherVersion(minimumVersion)) {
+            this.getServer().getConsoleSender().sendMessage("[Autorank] " + ChatColor.RED + "You are running a version " +
+                    "of Minecraft below " + minimumVersion + "! This version of Autorank needs at least " +
+                    minimumVersion);
+            this.getServer().getConsoleSender().sendMessage("[Autorank] " + ChatColor.RED + "Autorank will now disable " +
+                    "itself.");
+
+            // Disable Autorank.
+            this.getServer().getPluginManager().disablePlugin(this);
+        }
+
         if (!this.getPathsConfig().loadConfig()) {
             this.getWarningManager().registerWarning("Paths.yml file could not be loaded! Please check your syntax.", 10);
         }
@@ -252,11 +263,8 @@ public class Autorank extends JavaPlugin {
                 this.getLogger().warning("Autorank has some warnings for you: ");
             }
 
-            Iterator var2 = warnings.entrySet().iterator();
-
-            while(var2.hasNext()) {
-                Map.Entry<String, Integer> entry = (Map.Entry)var2.next();
-                this.getLogger().warning("(Priority " + entry.getValue() + ") '" + entry.getKey() + "'");
+            for (Map.Entry<String, Integer> stringIntegerEntry : warnings.entrySet()) {
+                this.getLogger().warning("(Priority " + ((Map.Entry<String, Integer>) stringIntegerEntry).getValue() + ") '" + ((Map.Entry<String, Integer>) (Map.Entry) stringIntegerEntry).getKey() + "'");
             }
 
         }, 1L);
@@ -272,7 +280,7 @@ public class Autorank extends JavaPlugin {
             }
 
         }, 0L, 1728000L);
-        this.getCommand("autorank").setExecutor(this.getCommandsManager());
+        Objects.requireNonNull(this.getCommand("autorank")).setExecutor(this.getCommandsManager());
         this.setMigrationManager(new MigrationManager(this));
         this.debugMessage("Autorank debug is turned on!");
         if (this.isDevVersion()) {
@@ -312,10 +320,10 @@ public class Autorank extends JavaPlugin {
     private void initializeReqsAndRes() {
         RequirementBuilder.registerRequirement("active paths", AutorankActivePathsRequirement.class);
         RequirementBuilder.registerRequirement("animals bred", AnimalsBredRequirement.class);
-        RequirementBuilder.registerRequirement("aurelium skills mana", AuraSkillsManaRequirement.class);
-        RequirementBuilder.registerRequirement("aurelium skills skill level", AuraSkillsSkillRequirement.class);
-        RequirementBuilder.registerRequirement("aurelium skills stat level", AuraSkillsStatRequirement.class);
-        RequirementBuilder.registerRequirement("aurelium skills xp", AuraSkillsXPRequirement.class);
+        RequirementBuilder.registerRequirement("auraskills mana", AuraSkillsManaRequirement.class);
+        RequirementBuilder.registerRequirement("auraskills skill level", AuraSkillsSkillRequirement.class);
+        RequirementBuilder.registerRequirement("auraskills stat level", AuraSkillsStatRequirement.class);
+        RequirementBuilder.registerRequirement("auraskills xp", AuraSkillsXPRequirement.class);
         RequirementBuilder.registerRequirement("bentobox level", BentoBoxLevelRequirement.class);
         RequirementBuilder.registerRequirement("blocks broken", BlocksBrokenRequirement.class);
         RequirementBuilder.registerRequirement("blocks moved", BlocksMovedRequirement.class);
@@ -409,11 +417,6 @@ public class Autorank extends JavaPlugin {
 
     public void registerResult(String name, Class<? extends AbstractResult> result) {
         ResultBuilder.registerResult(name, result);
-    }
-
-    public void reload() {
-        this.getServer().getPluginManager().disablePlugin(this);
-        this.getServer().getPluginManager().enablePlugin(this);
     }
 
     public LanguageHandler getLanguageHandler() {

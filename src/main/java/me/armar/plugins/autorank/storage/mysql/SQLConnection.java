@@ -1,16 +1,17 @@
 package me.armar.plugins.autorank.storage.mysql;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import me.armar.plugins.autorank.config.SettingsConfig;
+import me.armar.plugins.autorank.config.SettingsConfig.MySQLSettings;
+import org.bukkit.Bukkit;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Optional;
-import me.armar.plugins.autorank.config.SettingsConfig;
-import me.armar.plugins.autorank.config.SettingsConfig.MySQLSettings;
-import org.bukkit.Bukkit;
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 
 public class SQLConnection {
     private static SQLConnection instance;
@@ -92,16 +93,14 @@ public class SQLConnection {
                     var4 = var22;
                     throw var22;
                 } finally {
-                    if (connection != null) {
-                        if (var4 != null) {
-                            try {
-                                connection.close();
-                            } catch (Throwable var21) {
-                                var4.addSuppressed(var21);
-                            }
-                        } else {
+                    if (var4 != null) {
+                        try {
                             connection.close();
+                        } catch (Throwable var21) {
+                            var4.addSuppressed(var21);
                         }
+                    } else {
+                        connection.close();
                     }
 
                 }
@@ -124,7 +123,7 @@ public class SQLConnection {
 
     }
 
-    public Optional<ResultSet> executeQuery(String sql) {
+    public Optional executeQuery(String sql) {
         ResultSet rs = null;
         PreparedStatement stmt = null;
         if (!this.isConnected()) {
@@ -188,21 +187,21 @@ public class SQLConnection {
         if (conn != null) {
             try {
                 conn.close();
-            } catch (SQLException var7) {
+            } catch (SQLException ignored) {
             }
         }
 
         if (ps != null) {
             try {
                 ps.close();
-            } catch (SQLException var6) {
+            } catch (SQLException ignored) {
             }
         }
 
         if (res != null) {
             try {
                 res.close();
-            } catch (SQLException var5) {
+            } catch (SQLException ignored) {
             }
         }
 

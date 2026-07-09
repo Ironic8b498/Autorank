@@ -20,10 +20,8 @@ public class MessageResult extends AbstractResult {
             if (this.msg.startsWith("deserialize ")) {
                 this.msg = this.msg.replace("deserialize ", "");
                 AutorankTools.sendDeserialize(player, this.msg);
-                return true;
-            } else {
-                return true;
             }
+            return true;
         }
     }
 
@@ -31,11 +29,10 @@ public class MessageResult extends AbstractResult {
         return this.hasCustomDescription() ? this.getCustomDescription() : Lang.MESSAGE_RESULT.getConfigValue(this.msg);
     }
 
-    public boolean setOptions(String[] options) {
+    public void setOptions(String[] options) {
         if (options.length > 0) {
             this.msg = options[0];
         }
 
-        return this.msg != null;
     }
 }

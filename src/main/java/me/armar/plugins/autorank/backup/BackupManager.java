@@ -1,14 +1,15 @@
 package me.armar.plugins.autorank.backup;
 
 import com.google.common.io.Files;
+import me.armar.plugins.autorank.Autorank;
+import org.bukkit.ChatColor;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
-import me.armar.plugins.autorank.Autorank;
-import org.bukkit.ChatColor;
 
 public class BackupManager {
     public static final DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");

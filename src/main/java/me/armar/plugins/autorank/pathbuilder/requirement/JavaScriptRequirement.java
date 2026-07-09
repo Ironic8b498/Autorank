@@ -29,7 +29,7 @@ public class JavaScriptRequirement extends AbstractRequirement {
 
     public boolean meetsRequirement(Player player) {
         this.engine.put("Player", player);
-        Object result = null;
+        Object result;
 
         try {
             result = this.engine.eval(this.code);

@@ -19,6 +19,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.jetbrains.annotations.NotNull;
 
 public class CompleteCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -27,7 +28,7 @@ public class CompleteCommand extends AutorankCommand {
         this.plugin = instance;
     }
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         MiniMessage mm = MiniMessage.miniMessage();
         if (!(sender instanceof Player player)) {
             AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT_COMPLETE.getConfigValue());
@@ -103,7 +104,7 @@ public class CompleteCommand extends AutorankCommand {
         }
     }
 
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String commandLabel, String[] args) {
         if (!(sender instanceof Player)) {
             return Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
         } else {

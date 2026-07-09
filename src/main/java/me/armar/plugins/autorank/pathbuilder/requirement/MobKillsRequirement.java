@@ -14,7 +14,7 @@ public class MobKillsRequirement extends AbstractRequirement {
 
     public String getDescription() {
         String desc = "";
-        if (this.mobType != null && !this.mobType.trim().equals("")) {
+        if (this.mobType != null && !this.mobType.trim().isEmpty()) {
             Lang var10000 = Lang.MOBS_KILLED_REQUIREMENT;
             Object[] var10001 = new Object[]{this.totalMobsKilled, null, null};
             String var10004 = this.mobType.toLowerCase();

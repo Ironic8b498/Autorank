@@ -1,9 +1,10 @@
 package me.armar.plugins.autorank.config;
 
-import java.util.ArrayList;
-import java.util.List;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.storage.TimeType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InternalPropertiesConfig extends AbstractConfig {
     public InternalPropertiesConfig(Autorank instance) {

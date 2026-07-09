@@ -16,6 +16,7 @@ import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class MigrateCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -24,7 +25,7 @@ public class MigrateCommand extends AutorankCommand {
         this.plugin = instance;
     }
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         if (!(sender instanceof Player)) {
             AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT.getConfigValue());
             return true;
@@ -58,7 +59,7 @@ public class MigrateCommand extends AutorankCommand {
         }
     }
 
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String commandLabel, String[] args) {
         return Arrays.stream(Migrationable.values()).map(Enum::toString).filter((string) -> string.toLowerCase().startsWith(args[1].toLowerCase())).collect(Collectors.toList());
     }
 

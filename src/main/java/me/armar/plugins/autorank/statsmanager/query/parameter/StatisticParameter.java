@@ -6,11 +6,6 @@ public abstract class StatisticParameter {
     String key = null;
     String value = null;
 
-    public StatisticParameter(String key, String value) {
-        this.setKey(key);
-        this.setValue(value);
-    }
-
     public StatisticParameter(String value) {
         this.setValue(value);
     }

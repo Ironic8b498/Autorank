@@ -1,9 +1,5 @@
 package me.armar.plugins.autorank.pathbuilder;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.api.events.RequirementCompleteEvent;
 import me.armar.plugins.autorank.language.Lang;
@@ -17,6 +13,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 public class Path {
     private final Autorank plugin;
     private String displayName = "";
@@ -24,10 +25,10 @@ public class Path {
     private String description = "";
     private boolean isRepeatable = false;
     private boolean isAutomaticallyAssigned = false;
-    private final List<CompositeRequirement> prerequisites = new ArrayList();
-    private List<CompositeRequirement> requirements = new ArrayList();
-    private List<AbstractResult> results = new ArrayList();
-    private List<AbstractResult> resultsUponChoosing = new ArrayList();
+    private final List<CompositeRequirement> prerequisites = new ArrayList<>();
+    private List<CompositeRequirement> requirements = new ArrayList<>();
+    private List<AbstractResult> results = new ArrayList<>();
+    private List<AbstractResult> resultsUponChoosing = new ArrayList<>();
     private boolean allowPartialCompletion = true;
     private boolean onlyShowIfPrerequisitesMet = false;
     private boolean storeProgressOnDeactivation = false;
@@ -92,7 +93,7 @@ public class Path {
     }
 
     public List<CompositeRequirement> getFailedRequirements(UUID uuid, boolean checkProgress) {
-        List<CompositeRequirement> failedRequirements = new ArrayList();
+        List<CompositeRequirement> failedRequirements = new ArrayList<>();
 
         for(CompositeRequirement holder : this.getRequirements()) {
             if (!holder.meetsRequirement(uuid) && (!checkProgress || !this.hasCompletedRequirement(uuid, holder.getRequirementId()))) {
@@ -104,7 +105,7 @@ public class Path {
     }
 
     public List<CompositeRequirement> getCompletedRequirements(UUID uuid) {
-        List<CompositeRequirement> completedRequirements = new ArrayList();
+        List<CompositeRequirement> completedRequirements = new ArrayList<>();
 
         for(CompositeRequirement requirement : this.getRequirements()) {
             if (this.plugin.getPathManager().hasCompletedRequirement(uuid, this, requirement.getRequirementId())) {
@@ -368,7 +369,7 @@ public class Path {
     }
 
     public boolean isDeactivated(UUID uuid) {
-        return !this.isActive(uuid) && this.getCompletedRequirements(uuid).size() > 0;
+        return !this.isActive(uuid) && !this.getCompletedRequirements(uuid).isEmpty();
     }
 
     public boolean isOnCooldown(UUID uuid) {

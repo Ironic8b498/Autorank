@@ -45,7 +45,7 @@ public class WorldGuardHook extends LibraryHook {
             return false;
         } else {
             RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
-            Iterator var4 = container.getLoaded().iterator();
+            Iterator<RegionManager> var4 = container.getLoaded().iterator();
 
             RegionManager regionManager;
             do {
@@ -53,7 +53,7 @@ public class WorldGuardHook extends LibraryHook {
                     return false;
                 }
 
-                regionManager = (RegionManager)var4.next();
+                regionManager = var4.next();
             } while(!regionManager.hasRegion(regionName));
 
             ProtectedRegion region = regionManager.getRegion(regionName);

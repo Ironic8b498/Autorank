@@ -7,6 +7,7 @@ import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class BackupCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -15,7 +16,7 @@ public class BackupCommand extends AutorankCommand {
         this.plugin = instance;
     }
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         boolean backupAll = true;
         String fileToBackup = null;
         if (!(sender instanceof Player)) {

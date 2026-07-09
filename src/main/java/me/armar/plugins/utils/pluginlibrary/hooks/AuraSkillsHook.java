@@ -1,21 +1,13 @@
 package me.armar.plugins.utils.pluginlibrary.hooks;
 
 import dev.aurelium.auraskills.api.AuraSkillsApi;
-import dev.aurelium.auraskills.api.registry.GlobalRegistry;
-import dev.aurelium.auraskills.api.registry.NamespacedId;
-import dev.aurelium.auraskills.api.skill.Skill;
 import dev.aurelium.auraskills.api.skill.Skills;
 import dev.aurelium.auraskills.api.stat.Stats;
 import dev.aurelium.auraskills.api.user.SkillsUser;
-import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.utils.pluginlibrary.Library;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import world.bentobox.bentobox.BentoBox;
 
 import java.util.Locale;
-
-import static java.lang.Boolean.TRUE;
+import java.util.UUID;
 
 public class AuraSkillsHook extends LibraryHook {
 
@@ -23,61 +15,63 @@ public class AuraSkillsHook extends LibraryHook {
         return isPluginAvailable(Library.AURA_SKILLS);
     }
 
-    public boolean hook() {
-        return isPluginAvailable(Library.AURA_SKILLS);
+    public boolean hook() { return !isPluginAvailable(Library.AURA_SKILLS);
     }
 
-    //   AuraSkillsApi auraSkills = AuraSkillsApi.get();
-
-    public double getStatLevel(Player player, String statType) {
-        AuraSkillsApi auraSkills = AuraSkillsApi.get();
-        if (!isPluginAvailable(Library.AURA_SKILLS)) {
-            return 0.0F;
+    public double getStatLevel(UUID uuid, String statType) {
+        if (!this.isHooked()) {
+            return 0.0;
         } else {
-            statType = statType.toUpperCase(Locale.ROOT);
-            SkillsUser user = auraSkills.getUser(player.getUniqueId());
-            GlobalRegistry registry = auraSkills.getGlobalRegistry();
-            Stats stat = (Stats) registry.getStat(NamespacedId.of("AuraSkills", statType));
-            //   stat = Stats.valueOf("Stats." + statType);
-            return 0.0F; // user.getStatLevel(stat);
+            try {
+                AuraSkillsApi auraSkills = AuraSkillsApi.get();
+                SkillsUser user = auraSkills.getUser(uuid);
+                return user.getStatLevel(Stats.valueOf(statType.toUpperCase(Locale.ROOT)));
+            } catch (Exception var3) {
+                return 0.0;
+            }
         }
     }
 
-    public int getSkillLevel(Player player, String skillName) {
-        AuraSkillsApi auraSkills = AuraSkillsApi.get();
-        if (!isPluginAvailable(Library.AURA_SKILLS)) {
+    public int getSkillLevel(UUID uuid, String skillName) {
+        if (!this.isHooked()) {
             return 0;
         } else {
-            skillName = skillName.toUpperCase(Locale.ROOT);
-            SkillsUser user = auraSkills.getUser(player.getUniqueId());
-            GlobalRegistry registry = auraSkills.getGlobalRegistry();
-            Skill skill = registry.getSkill(NamespacedId.of("AuraSkills", skillName));
-          //  skill = Skills.valueOf("Skills." + skillName);
-            return user.getSkillLevel(skill);
+            try {
+                AuraSkillsApi auraSkills = AuraSkillsApi.get();
+                SkillsUser user = auraSkills.getUser(uuid);
+                return user.getSkillLevel(Skills.valueOf(skillName.toUpperCase(Locale.ROOT)));
+            } catch (Exception var3) {
+                return 0;
+            }
         }
     }
 
 
-    public double getXP(Player player, String skillName) {
-        if (!isPluginAvailable(Library.AURA_SKILLS)) {
-            return 0.0F;
+    public double getXP(UUID uuid, String skillName) {
+        if (!this.isHooked()) {
+            return 0.0;
         } else {
-            AuraSkillsApi auraSkills = AuraSkillsApi.get();
-            Skills skills = null;
-            skills = Skills.valueOf("Stats." + skillName.toUpperCase(Locale.ROOT));
-            SkillsUser user = auraSkills.getUser(player.getUniqueId());
-            return 0.0F; // user.getSkillXp(skills);
+            try {
+                AuraSkillsApi auraSkills = AuraSkillsApi.get();
+                SkillsUser user = auraSkills.getUser(uuid);
+                return user.getSkillXp(Skills.valueOf(skillName.toUpperCase(Locale.ROOT)));
+            } catch (Exception var3) {
+                return 0.0;
+            }
         }
     }
 
-    public double getMana(Player player) {
-        if (this.isHooked() == TRUE) {
-            AuraSkillsApi auraSkills = AuraSkillsApi.get();
-            SkillsUser user = auraSkills.getUser(player.getUniqueId());
-            double mana = user.getMana();
-            return mana;
+    public double getMana(UUID uuid) {
+        if (!this.isHooked()) {
+            return 0.0;
         } else {
-            return 0.0F;
+            try {
+                AuraSkillsApi auraSkills = AuraSkillsApi.get();
+                SkillsUser user = auraSkills.getUser(uuid);
+                return user.getMana();
+            } catch (Exception var3) {
+                return 0.0;
+            }
         }
     }
 }

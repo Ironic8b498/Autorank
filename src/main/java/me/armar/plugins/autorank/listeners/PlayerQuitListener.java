@@ -1,11 +1,12 @@
 package me.armar.plugins.autorank.listeners;
 
-import java.util.UUID;
 import me.armar.plugins.autorank.Autorank;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import java.util.UUID;
 
 public class PlayerQuitListener implements Listener {
     private final Autorank plugin;

@@ -1,5 +1,9 @@
 package me.armar.plugins.autorank.debugger;
 
+import me.armar.plugins.autorank.Autorank;
+import me.armar.plugins.autorank.pathbuilder.builders.RequirementBuilder;
+import me.armar.plugins.autorank.pathbuilder.builders.ResultBuilder;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -7,9 +11,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import me.armar.plugins.autorank.Autorank;
-import me.armar.plugins.autorank.pathbuilder.builders.RequirementBuilder;
-import me.armar.plugins.autorank.pathbuilder.builders.ResultBuilder;
 
 public class Debugger {
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -49,9 +50,8 @@ public class Debugger {
             out.newLine();
             out.write("");
             out.newLine();
-            DateFormat var10001 = humanDateFormat;
             Date var10002 = new Date();
-            out.write("Date created: " + var10001.format(var10002));
+            out.write("Date created: " + humanDateFormat.format(var10002));
             out.newLine();
             out.write("");
             out.newLine();

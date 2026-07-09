@@ -13,7 +13,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import java.util.*;
 
 public class RequirementBuilder {
-    private static final Map<String, Class<? extends AbstractRequirement>> reqs = new HashMap();
+    private static final Map<String, Class<? extends AbstractRequirement>> reqs = new HashMap<>();
     private AbstractRequirement requirement = null;
     private boolean isValid = false;
     private String pathName;
@@ -39,7 +39,7 @@ public class RequirementBuilder {
     }
 
     public static List<Class<? extends AbstractRequirement>> getRegisteredRequirements() {
-        return new ArrayList(reqs.values());
+        return new ArrayList<>(reqs.values());
     }
 
     public static Optional<Class<? extends AbstractRequirement>> getRegisteredRequirement(String type) {
@@ -112,7 +112,7 @@ public class RequirementBuilder {
 
             this.requirement.setOptional(Autorank.getInstance().getPathsConfig().isOptionalRequirement(this.pathName, this.requirementType, this.isPreRequisite));
             this.requirement.setPreRequisite(this.isPreRequisite);
-            List<AbstractResult> abstractResultList = new ArrayList();
+            List<AbstractResult> abstractResultList = new ArrayList<>();
 
             for(Object o : Autorank.getInstance().getPathsConfig().getResultsOfRequirement(this.pathName, this.requirementType, this.isPreRequisite)) {
                 String resultType = (String)o;
@@ -138,7 +138,7 @@ public class RequirementBuilder {
                 }
 
                 DependencyManager dependencyManager = Autorank.getInstance().getDependencyManager();
-                List<Library> missingDependencies = new ArrayList();
+                List<Library> missingDependencies = new ArrayList<>();
 
                 for(Library dependency : this.requirement.getDependencies()) {
                     if (!dependencyManager.isAvailable(dependency)) {

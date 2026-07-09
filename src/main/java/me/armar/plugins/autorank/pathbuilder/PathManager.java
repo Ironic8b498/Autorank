@@ -1,18 +1,11 @@
 package me.armar.plugins.autorank.pathbuilder;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.pathbuilder.builders.PathBuilder;
 import me.armar.plugins.autorank.pathbuilder.holders.CompositeRequirement;
-import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataManager;
-import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataStorage;
 import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataManager.PlayerDataStorageType;
+import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataStorage;
 import me.armar.plugins.autorank.pathbuilder.result.AbstractResult;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -25,7 +18,7 @@ import java.util.*;
 public class PathManager {
     private final Autorank plugin;
     private PathBuilder builder;
-    private List<Path> paths = new ArrayList();
+    private List<Path> paths = new ArrayList<>();
 
     public PathManager(Autorank plugin) {
         this.plugin = plugin;
@@ -33,7 +26,7 @@ public class PathManager {
     }
 
     public List<String> debugPaths() {
-        List<String> messages = new ArrayList();
+        List<String> messages = new ArrayList<>();
         messages.add(" ------------------- Path debug info ------------------- ");
 
         for(Path path : this.paths) {
@@ -83,7 +76,7 @@ public class PathManager {
 
     public List<Path> getActivePaths(UUID uuid) {
         Collection<String> activePathNames = (Collection)this.plugin.getPlayerDataManager().getPrimaryDataStorage().map((storage) -> storage.getActivePaths(uuid)).orElse(new ArrayList());
-        List<Path> activePaths = new ArrayList();
+        List<Path> activePaths = new ArrayList<>();
 
         for(String activePathName : activePathNames) {
             Path activePath = this.findPathByInternalName(activePathName, false);
@@ -96,13 +89,13 @@ public class PathManager {
     }
 
     public void resetProgressOnActivePaths(UUID uuid) {
-        this.plugin.getPlayerDataManager().getPrimaryDataStorage().ifPresent((s) -> s.setActivePaths(uuid, new ArrayList()));
+        this.plugin.getPlayerDataManager().getPrimaryDataStorage().ifPresent((s) -> s.setActivePaths(uuid, new ArrayList<>()));
     }
 
     public void resetProgressOfPath(Path path, UUID uuid) {
         this.plugin.getPlayerDataManager().getPrimaryDataStorage().ifPresent((s) -> {
-            s.setCompletedPrerequisites(uuid, path.getInternalName(), new ArrayList());
-            s.setCompletedRequirements(uuid, path.getInternalName(), new ArrayList());
+            s.setCompletedPrerequisites(uuid, path.getInternalName(), new ArrayList<>());
+            s.setCompletedRequirements(uuid, path.getInternalName(), new ArrayList<>());
         });
     }
 
@@ -116,7 +109,7 @@ public class PathManager {
 
     public List<Path> getCompletedPaths(UUID uuid) {
         Collection<String> completedPathsNames = (Collection)this.plugin.getPlayerDataManager().getPrimaryDataStorage().map((s) -> s.getCompletedPaths(uuid)).orElse(new ArrayList());
-        List<Path> completedPaths = new ArrayList();
+        List<Path> completedPaths = new ArrayList<>();
 
         for(String completedPathName : completedPathsNames) {
             Path completedPath = this.findPathByInternalName(completedPathName, false);
@@ -145,7 +138,7 @@ public class PathManager {
     }
 
     public List<Path> getEligiblePaths(UUID uuid) {
-        List<Path> possibilities = new ArrayList();
+        List<Path> possibilities = new ArrayList<>();
 
         for(Path path : this.getAllPaths()) {
             if (path.isEligible(uuid)) {
@@ -208,8 +201,8 @@ public class PathManager {
                 String internalName = path.getInternalName();
                 storage.get().addActivePath(uuid, internalName);
                 if (!path.shouldStoreProgressOnDeactivation()) {
-                    storage.get().setCompletedRequirements(uuid, internalName, new ArrayList());
-                    storage.get().setCompletedPrerequisites(uuid, internalName, new ArrayList());
+                    storage.get().setCompletedRequirements(uuid, internalName, new ArrayList<>());
+                    storage.get().setCompletedPrerequisites(uuid, internalName, new ArrayList<>());
                 }
 
                 OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
@@ -237,7 +230,7 @@ public class PathManager {
     public List<Path> autoAssignPaths(UUID uuid) {
         var mm = MiniMessage.miniMessage();
         this.plugin.debugMessage("Trying to assign paths to " + uuid);
-        List<Path> assignedPaths = new ArrayList();
+        List<Path> assignedPaths = new ArrayList<>();
 
         for(Path path : this.getAllPaths()) {
             this.plugin.debugMessage("Trying to assign path " + path.getDisplayName() + " to " + uuid);
@@ -267,7 +260,7 @@ public class PathManager {
 
     public boolean completePath(Path path, UUID uuid) {
         Optional<PlayerDataStorage> storage = this.plugin.getPlayerDataManager().getPrimaryDataStorage();
-        if (!storage.isPresent()) {
+        if (storage.isEmpty()) {
             return false;
         } else {
             storage.get().addCompletedPath(uuid, path.getInternalName());

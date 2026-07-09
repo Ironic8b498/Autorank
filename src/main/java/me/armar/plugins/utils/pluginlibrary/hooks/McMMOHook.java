@@ -4,7 +4,6 @@ import com.gmail.nossr50.api.*;
 import com.gmail.nossr50.datatypes.party.Party;
 import com.gmail.nossr50.mcMMO;
 import me.armar.plugins.utils.pluginlibrary.Library;
-import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -58,7 +57,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.addRawXP(player, skillType, XP, xpGainReason, isUnshared);
-            } catch (Exception var7) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -67,7 +66,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.addRawXPOffline(uuid, skillType, XP);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -76,7 +75,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.addModifiedXP(player, skillType, XP, xpGainReason, isUnshared);
-            } catch (Exception var7) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -85,7 +84,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.addMultipliedXP(player, skillType, XP, xpGainReason);
-            } catch (Exception var6) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -96,7 +95,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.addMultipliedXPOffline(playerName, skillType, XP);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -107,7 +106,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.addModifiedXPOffline(playerName, skillType, XP);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -116,7 +115,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.addXP(player, skillType, XP, xpGainReason, isUnshared);
-            } catch (Exception var7) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -221,7 +220,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.addLevel(player, skillType, levels);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -230,7 +229,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.addLevelOffline(uuid, skillType, levels);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -335,7 +334,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.setLevel(player, skillType, skillLevel);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -344,7 +343,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.setLevelOffline(uuid, skillType, skillLevel);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -353,7 +352,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.setXP(player, skillType, newValue);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -362,7 +361,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.setXPOffline(uuid, skillType, newValue);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -371,7 +370,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.removeXP(player, skillType, xp);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -380,7 +379,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ExperienceAPI.removeXPOffline(uuid, skillType, xp);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -509,7 +508,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 AbilityAPI.resetCooldowns(player);
-            } catch (Exception var3) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -518,7 +517,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 AbilityAPI.setBerserkCooldown(player, cooldown);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -527,7 +526,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 AbilityAPI.setGigaDrillBreakerCooldown(player, cooldown);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -536,7 +535,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 AbilityAPI.setGreenTerraCooldown(player, cooldown);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -545,7 +544,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 AbilityAPI.setSerratedStrikesCooldown(player, cooldown);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -554,7 +553,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 AbilityAPI.setSkullSplitterCooldown(player, cooldown);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -563,7 +562,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 AbilityAPI.setSuperBreakerCooldown(player, cooldown);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -572,7 +571,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 AbilityAPI.setTreeFellerCooldown(player, cooldown);
-            } catch (Exception var5) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -679,7 +678,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ChatAPI.togglePartyChat(player);
-            } catch (Exception var3) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -688,7 +687,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ChatAPI.togglePartyChat(playerName);
-            } catch (Exception var3) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -697,7 +696,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ChatAPI.toggleAdminChat(player);
-            } catch (Exception var3) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -706,7 +705,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 ChatAPI.toggleAdminChat(playerName);
-            } catch (Exception var3) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -749,12 +748,12 @@ public class McMMOHook extends LibraryHook {
 
     public List<Party> getParties() {
         if (!this.isHooked()) {
-            return new ArrayList();
+            return new ArrayList<>();
         } else {
             try {
                 return PartyAPI.getParties();
             } catch (Exception var2) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
         }
     }
@@ -763,7 +762,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 PartyAPI.addToParty(player, partyName);
-            } catch (Exception var4) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -772,7 +771,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 PartyAPI.removeFromParty(player);
-            } catch (Exception var3) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -795,7 +794,7 @@ public class McMMOHook extends LibraryHook {
         if (this.isHooked()) {
             try {
                 PartyAPI.setPartyLeader(partyName, playerName);
-            } catch (Exception var4) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -804,12 +803,12 @@ public class McMMOHook extends LibraryHook {
     @Deprecated
     public List<OfflinePlayer> getOnlineAndOfflineMembers(Player player) {
         if (!this.isHooked()) {
-            return new ArrayList();
+            return new ArrayList<>();
         } else {
             try {
                 return PartyAPI.getOnlineAndOfflineMembers(player);
             } catch (Exception var3) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
         }
     }
@@ -842,24 +841,24 @@ public class McMMOHook extends LibraryHook {
 
     public List<Player> getOnlineMembers(String partyName) {
         if (!this.isHooked()) {
-            return new ArrayList();
+            return new ArrayList<>();
         } else {
             try {
                 return PartyAPI.getOnlineMembers(partyName);
             } catch (Exception var3) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
         }
     }
 
     public List<Player> getOnlineMembers(Player player) {
         if (!this.isHooked()) {
-            return new ArrayList();
+            return new ArrayList<>();
         } else {
             try {
                 return PartyAPI.getOnlineMembers(player);
             } catch (Exception var3) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
         }
     }
@@ -890,72 +889,72 @@ public class McMMOHook extends LibraryHook {
 
     public List<String> getSkills() {
         if (!this.isHooked()) {
-            return new ArrayList();
+            return new ArrayList<>();
         } else {
             try {
                 return SkillAPI.getSkills();
             } catch (Exception var2) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
         }
     }
 
     public List<String> getNonChildSkills() {
         if (!this.isHooked()) {
-            return new ArrayList();
+            return new ArrayList<>();
         } else {
             try {
                 return SkillAPI.getNonChildSkills();
             } catch (Exception var2) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
         }
     }
 
     public List<String> getChildSkills() {
         if (!this.isHooked()) {
-            return new ArrayList();
+            return new ArrayList<>();
         } else {
             try {
                 return SkillAPI.getChildSkills();
             } catch (Exception var2) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
         }
     }
 
     public List<String> getCombatSkills() {
         if (!this.isHooked()) {
-            return new ArrayList();
+            return new ArrayList<>();
         } else {
             try {
                 return SkillAPI.getCombatSkills();
             } catch (Exception var2) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
         }
     }
 
     public List<String> getGatheringSkills() {
         if (!this.isHooked()) {
-            return new ArrayList();
+            return new ArrayList<>();
         } else {
             try {
                 return SkillAPI.getGatheringSkills();
             } catch (Exception var2) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
         }
     }
 
     public List<String> getMiscSkills() {
         if (!this.isHooked()) {
-            return new ArrayList();
+            return new ArrayList<>();
         } else {
             try {
                 return SkillAPI.getMiscSkills();
             } catch (Exception var2) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
         }
     }

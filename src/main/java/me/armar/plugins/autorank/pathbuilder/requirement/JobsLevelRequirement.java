@@ -3,7 +3,6 @@ package me.armar.plugins.autorank.pathbuilder.requirement;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.utils.pluginlibrary.Library;
 import me.armar.plugins.utils.pluginlibrary.hooks.JobsHook;
-import me.armar.plugins.utils.pluginlibrary.hooks.LibraryHook;
 import org.bukkit.entity.Player;
 
 public class JobsLevelRequirement extends AbstractRequirement {
@@ -27,10 +26,7 @@ public class JobsLevelRequirement extends AbstractRequirement {
         double points = -1.0F;
         if (this.jobsHandler != null && this.jobsHandler.isHooked()) {
             points = this.jobsHandler.getCurrentLevel(player, this.jobName);
-        } else {
-            points = -1.0F;
         }
-
         return points + "/" + this.level;
     }
 
@@ -38,10 +34,7 @@ public class JobsLevelRequirement extends AbstractRequirement {
         double points = -1.0F;
         if (this.jobsHandler != null && this.jobsHandler.isHooked()) {
             points = this.jobsHandler.getCurrentLevel(player, this.jobName);
-        } else {
-            points = -1.0F;
         }
-
         return points >= (double)this.level;
     }
 

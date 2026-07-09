@@ -11,10 +11,10 @@ public class FoodEatenRequirement extends AbstractRequirement {
     }
 
     public String getDescription() {
-        String desc = "";
+        String desc;
         int amount = this.foodEaten.getAmount();
         String foodType = this.foodEaten.getFoodName();
-        if (foodType != null && !foodType.trim().equals("")) {
+        if (foodType != null && !foodType.trim().isEmpty()) {
             desc = Lang.FOOD_EATEN_REQUIREMENT.getConfigValue(amount + " " + foodType.toLowerCase().replace("_", " ") + "(s)");
         } else {
             desc = Lang.FOOD_EATEN_REQUIREMENT.getConfigValue(amount + " food");
@@ -31,7 +31,7 @@ public class FoodEatenRequirement extends AbstractRequirement {
         String progress = "";
         int amount = this.foodEaten.getAmount();
         String foodType = this.foodEaten.getFoodName();
-        int totalFoodEaten = 0;
+        int totalFoodEaten;
         if (foodType != null) {
             totalFoodEaten = this.getStatisticsManager().getFoodEaten(uuid, this.getWorld(), Material.getMaterial(foodType));
             foodType = foodType.toLowerCase();
@@ -47,7 +47,7 @@ public class FoodEatenRequirement extends AbstractRequirement {
     protected boolean meetsRequirement(UUID uuid) {
         int amount = this.foodEaten.getAmount();
         String foodType = this.foodEaten.getFoodName();
-        int totalFoodEaten = 0;
+        int totalFoodEaten;
         if (foodType == null) {
             totalFoodEaten = this.getStatisticsManager().getFoodEaten(uuid, this.getWorld(), null);
         } else {
@@ -75,7 +75,7 @@ public class FoodEatenRequirement extends AbstractRequirement {
     }
 
     public double getProgressPercentage(UUID uuid) {
-        int totalFoodEaten = 0;
+        int totalFoodEaten;
         String foodType = this.foodEaten.getFoodName();
         if (foodType == null) {
             totalFoodEaten = this.getStatisticsManager().getFoodEaten(uuid, this.getWorld(), null);

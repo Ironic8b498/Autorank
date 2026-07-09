@@ -1,5 +1,14 @@
 package me.armar.plugins.autorank.storage.mysql;
 
+import me.armar.plugins.autorank.Autorank;
+import me.armar.plugins.autorank.config.SettingsConfig;
+import me.armar.plugins.autorank.config.SettingsConfig.MySQLSettings;
+import me.armar.plugins.autorank.logger.LoggerManager;
+import me.armar.plugins.autorank.storage.PlayTimeStorageProvider;
+import me.armar.plugins.autorank.storage.TimeType;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -7,33 +16,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import me.armar.plugins.autorank.Autorank;
-import me.armar.plugins.autorank.config.SettingsConfig;
-import me.armar.plugins.autorank.config.SettingsConfig.MySQLSettings;
-import me.armar.plugins.autorank.logger.LoggerManager;
-import me.armar.plugins.autorank.storage.PlayTimeStorageProvider;
-import me.armar.plugins.autorank.storage.TimeType;
-import me.armar.plugins.autorank.storage.PlayTimeStorageProvider.StorageType;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import java.util.*;
+import java.util.concurrent.*;
 
 public class MySQLStorageProvider extends PlayTimeStorageProvider {
     public static int CACHE_EXPIRY_TIME = 2;
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
-    private final Map<TimeType, String> tableNames = new HashMap();
+    private final Map<TimeType, String> tableNames = new HashMap<>();
     private final CacheManager cacheManager = new CacheManager();
     private SQLConnection mysqlLibrary;
     private boolean isLoaded = false;
@@ -162,9 +151,7 @@ public class MySQLStorageProvider extends PlayTimeStorageProvider {
             String tableName = this.tableNames.get(timeType);
             String statement = "SELECT COUNT(uuid) FROM " + tableName;
             Optional<ResultSet> rs = this.mysqlLibrary.executeQuery(statement);
-            if (!rs.isPresent()) {
-                return 0;
-            } else {
+            if (rs.isPresent()) {
                 try {
                     if (rs.get().next()) {
                         return rs.get().getInt(1);
@@ -175,17 +162,17 @@ public class MySQLStorageProvider extends PlayTimeStorageProvider {
                     Bukkit.getLogger().info("VendorError: " + var6.getErrorCode());
                 }
 
-                return 0;
             }
+            return 0;
         });
     }
 
     public List<UUID> getStoredPlayers(TimeType timeType) {
-        List<UUID> uuids = new ArrayList();
+        List<UUID> uuids = new ArrayList<>();
         String tableName = this.tableNames.get(timeType);
         String statement = "SELECT uuid FROM " + tableName;
         Optional<ResultSet> rs = this.mysqlLibrary.executeQuery(statement);
-        if (!rs.isPresent()) {
+        if (rs.isPresent()) {
             return uuids;
         } else {
             try {
@@ -218,7 +205,7 @@ public class MySQLStorageProvider extends PlayTimeStorageProvider {
     }
 
     public boolean backupData() {
-        List<String> statements = new ArrayList();
+        List<String> statements = new ArrayList<>();
         DateFormat df = new SimpleDateFormat("yyyy_MM_dd HH_mm_ss");
 
         for(Map.Entry<TimeType, String> entry : this.tableNames.entrySet()) {
@@ -234,9 +221,9 @@ public class MySQLStorageProvider extends PlayTimeStorageProvider {
 
     public int clearBackupsBeforeDate(LocalDate date) {
         DateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
-        List<String> tablesToDelete = new ArrayList();
+        List<String> tablesToDelete = new ArrayList<>();
         Optional<ResultSet> optionalResultSet = this.mysqlLibrary.executeQuery("SHOW TABLES;");
-        if (!optionalResultSet.isPresent()) {
+        if (optionalResultSet.isPresent()) {
             return 0;
         } else {
             try (ResultSet resultSet = optionalResultSet.get()) {
@@ -247,7 +234,7 @@ public class MySQLStorageProvider extends PlayTimeStorageProvider {
 
                     try {
                         fileDate = df.parse(fileDateString);
-                    } catch (ParseException var20) {
+                    } catch (ParseException ignored) {
                     }
 
                     if (fileDate != null && fileDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate().isBefore(date)) {
@@ -319,7 +306,7 @@ public class MySQLStorageProvider extends PlayTimeStorageProvider {
             int time = 0;
             String statement = "SELECT * FROM " + tableName + " WHERE uuid='" + uuid.toString() + "'";
             Optional<ResultSet> optionalResultSet = this.mysqlLibrary.executeQuery(statement);
-            if (!optionalResultSet.isPresent()) {
+            if (optionalResultSet.isPresent()) {
                 return time;
             } else {
                 try (ResultSet rs = optionalResultSet.get()) {
@@ -362,7 +349,7 @@ public class MySQLStorageProvider extends PlayTimeStorageProvider {
     public void updateFromOldTables() {
         this.plugin.getServer().getScheduler().runTaskAsynchronously(this.plugin, new Runnable() {
             public void run() {
-                List<String> adjustedTables = new ArrayList();
+                List<String> adjustedTables = new ArrayList<>();
                 String statement = "SHOW TABLES LIKE 'null%'";
                 Optional<ResultSet> rs = MySQLStorageProvider.this.mysqlLibrary.executeQuery(statement);
                 MySQLStorageProvider.this.plugin.debugMessage("Looking for old data in MySQL database that might be useful.");
@@ -388,7 +375,7 @@ public class MySQLStorageProvider extends PlayTimeStorageProvider {
                                     } else {
                                         Optional<ResultSet> innerResult = MySQLStorageProvider.this.mysqlLibrary.executeQuery(readOldTableStatement);
                                         MySQLStorageProvider.this.plugin.debugMessage("Loading old data of " + foundTableName);
-                                        if (!innerResult.isPresent()) {
+                                        if (innerResult.isPresent()) {
                                             continue;
                                         }
 

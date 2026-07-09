@@ -1,8 +1,17 @@
 package me.armar.plugins.autorank.pathbuilder.playerdata.global;
 
 import io.reactivex.annotations.NonNull;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import me.armar.plugins.autorank.Autorank;
+import me.armar.plugins.autorank.config.SettingsConfig;
+import me.armar.plugins.autorank.config.SettingsConfig.MySQLSettings;
+import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataManager;
+import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataManager.PlayerDataStorageType;
+import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataStorage;
+import me.armar.plugins.autorank.storage.mysql.SQLConnection;
+import org.apache.commons.lang.Validate;
+import org.bukkit.ChatColor;
+import org.jetbrains.annotations.NotNull;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -10,16 +19,6 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import me.armar.plugins.autorank.Autorank;
-import me.armar.plugins.autorank.config.SettingsConfig;
-import me.armar.plugins.autorank.config.SettingsConfig.MySQLSettings;
-import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataManager;
-import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataStorage;
-import me.armar.plugins.autorank.pathbuilder.playerdata.PlayerDataManager.PlayerDataStorageType;
-import me.armar.plugins.autorank.storage.mysql.SQLConnection;
-import org.apache.commons.lang.Validate;
-import org.bukkit.ChatColor;
-import org.jetbrains.annotations.NotNull;
 
 public class GlobalPlayerDataStorage implements PlayerDataStorage {
     private final String tablePlayerdataStorageCompletedPaths;
@@ -80,8 +79,7 @@ public class GlobalPlayerDataStorage implements PlayerDataStorage {
     private void loadServerRegister() {
         this.getConnection().execute("CREATE TABLE IF NOT EXISTS " + this.tableServerRegister + "(server_name varchar(36) NOT NULL, hostname varchar(55) NOT NULL, last_updated timestamp DEFAULT CURRENT_TIMESTAMP, UNIQUE(server_name, hostname))");
         SQLConnection var10000 = this.getConnection();
-        String var10001 = this.tableServerRegister;
-        var10000.execute("INSERT INTO " + var10001 + " VALUES ('" + this.plugin.getSettingsConfig().getMySQLSetting(MySQLSettings.SERVER_NAME) + "', '" + this.getHostname() + "', CURRENT_TIMESTAMP) ON DUPLICATE KEY UPDATE last_updated=CURRENT_TIMESTAMP");
+        var10000.execute("INSERT INTO " + this.tableServerRegister + " VALUES ('" + this.plugin.getSettingsConfig().getMySQLSetting(MySQLSettings.SERVER_NAME) + "', '" + this.getHostname() + "', CURRENT_TIMESTAMP) ON DUPLICATE KEY UPDATE last_updated=CURRENT_TIMESTAMP");
         this.plugin.debugMessage("Loaded online server register.");
     }
 
@@ -239,15 +237,13 @@ public class GlobalPlayerDataStorage implements PlayerDataStorage {
     public void removeCompletedPath(UUID uuid, String pathName) {
         String serverName = this.plugin.getSettingsConfig().getMySQLSetting(MySQLSettings.SERVER_NAME);
         SQLConnection var10000 = this.getConnection();
-        String var10001 = this.tablePlayerdataStorageCompletedPaths;
-        var10000.execute("DELETE FROM " + var10001 + " WHERE uuid='" + uuid.toString() + "' AND server_name='" + serverName + "' AND completed_path='" + pathName + "';");
+        var10000.execute("DELETE FROM " + this.tablePlayerdataStorageCompletedPaths + " WHERE uuid='" + uuid.toString() + "' AND server_name='" + serverName + "' AND completed_path='" + pathName + "';");
     }
 
     public void setCompletedPaths(UUID uuid, Collection<String> paths) {
         String serverName = this.plugin.getSettingsConfig().getMySQLSetting(MySQLSettings.SERVER_NAME);
         SQLConnection var10000 = this.getConnection();
-        String var10001 = this.tablePlayerdataStorageCompletedPaths;
-        var10000.execute("DELETE FROM " + var10001 + " WHERE uuid='" + uuid.toString() + "' AND server_name='" + serverName + "';");
+        var10000.execute("DELETE FROM " + this.tablePlayerdataStorageCompletedPaths + " WHERE uuid='" + uuid.toString() + "' AND server_name='" + serverName + "';");
         paths.forEach((completedPath) -> this.addCompletedPath(uuid, completedPath));
     }
 

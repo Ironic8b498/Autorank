@@ -66,7 +66,7 @@ public class PlayerChecker {
     }
 
     public List<String> formatRequirementsToList(List<CompositeRequirement> holders, List<CompositeRequirement> metRequirements) {
-        List<String> messages = new ArrayList();
+        List<String> messages = new ArrayList<>();
         messages.add(Lang.REQUIREMENT_PATH.getConfigValue());
 
         for(int i = 0; i < holders.size(); ++i) {
@@ -92,7 +92,7 @@ public class PlayerChecker {
     }
 
     public List<String> formatResultsToList(List<AbstractResult> abstractResults) {
-        List<String> messages = new ArrayList();
+        List<String> messages = new ArrayList<>();
         messages.add(Lang.REQUIREMENT_PATH.getConfigValue());
 
         for(int i = 0; i < abstractResults.size(); ++i) {

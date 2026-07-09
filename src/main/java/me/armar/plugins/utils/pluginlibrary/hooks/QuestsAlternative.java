@@ -30,7 +30,7 @@ public class QuestsAlternative extends LibraryHook {
                 return false;
             } else {
                 this.quests = (Quests)plugin;
-                return this.quests != null;
+                return true;
             }
         }
     }
@@ -41,7 +41,9 @@ public class QuestsAlternative extends LibraryHook {
         if (!this.isHooked()) {
             return -1;
         } else {
+            assert questsPlugin != null;
             QPlayer playerData = questsPlugin.getPlayerManager().getPlayer(uuid);
+            assert playerData != null;
             final List<Quest> listCompleted = playerData.getQuestProgressFile().getAllQuestsFromProgress(QuestProgressFile.QuestsProgressFilter.COMPLETED);
             return listCompleted.size();
         }
@@ -52,7 +54,9 @@ public class QuestsAlternative extends LibraryHook {
         if (!this.isHooked()) {
             return -1;
         } else {
+            assert questsPlugin != null;
             QPlayer playerData = questsPlugin.getPlayerManager().getPlayer(uuid);
+            assert playerData != null;
             return playerData.getQuestProgressFile().getStartedQuests().size();
         }
     }
@@ -62,11 +66,13 @@ public class QuestsAlternative extends LibraryHook {
         if (!this.isHooked()) {
             return false;
         } else {
+            assert questsPlugin != null;
             Quest questData = questsPlugin.getQuestManager().getQuestById(questName);
             if (questData == null){
                 return false;
             }
             QPlayer playerData = questsPlugin.getPlayerManager().getPlayer(uuid);
+            assert playerData != null;
             QuestProgress progress = playerData.getQuestProgressFile().getQuestProgress(questData);
             return progress.isCompleted();
         }

@@ -1,14 +1,15 @@
 package me.armar.plugins.autorank.validations;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.config.SettingsConfig;
 import me.armar.plugins.autorank.pathbuilder.Path;
 import me.armar.plugins.autorank.pathbuilder.holders.CompositeRequirement;
 import me.armar.plugins.autorank.pathbuilder.requirement.AbstractRequirement;
 import me.armar.plugins.autorank.pathbuilder.requirement.InGroupRequirement;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class ValidateHandler {
     private final Autorank plugin;
@@ -18,18 +19,18 @@ public class ValidateHandler {
     }
 
     public boolean startValidation() {
-        boolean correctSetup = false;
+        boolean correctSetup;
         correctSetup = this.validatePermGroups() && this.validateSettingsConfig();
         return correctSetup;
     }
 
     public boolean validatePermGroups() {
         List<Path> paths = this.plugin.getPathManager().getAllPaths();
-        List<String> permGroups = new ArrayList();
+        List<String> permGroups = new ArrayList<>();
         Collection<String> vaultGroups = this.plugin.getPermPlugHandler().getPermissionPlugin().getGroups();
 
         for(Path path : paths) {
-            List<CompositeRequirement> holders = new ArrayList();
+            List<CompositeRequirement> holders = new ArrayList<>();
             holders.addAll(path.getPrerequisites());
             holders.addAll(path.getRequirements());
 

@@ -34,11 +34,10 @@ public class MoneyResult extends AbstractResult {
         }
     }
 
-    public boolean setOptions(String[] options) {
+    public void setOptions(String[] options) {
         if (options.length > 0) {
             this.money = Long.parseLong(options[0]);
         }
 
-        return this.money >= 0L;
     }
 }

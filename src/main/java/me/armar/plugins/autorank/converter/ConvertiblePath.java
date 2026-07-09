@@ -6,8 +6,8 @@ import java.util.Map;
 class ConvertiblePath {
     private String pathName;
     private String fromGroup;
-    private final Map<String, String> requirements = new HashMap();
-    private final Map<String, String> results = new HashMap();
+    private final Map<String, String> requirements = new HashMap<>();
+    private final Map<String, String> results = new HashMap<>();
 
     ConvertiblePath() {
     }

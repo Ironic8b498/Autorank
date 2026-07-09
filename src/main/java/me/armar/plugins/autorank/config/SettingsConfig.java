@@ -5,7 +5,6 @@ import me.armar.plugins.autorank.Autorank;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
-import me.armar.plugins.autorank.Autorank;
 
 public class SettingsConfig extends AbstractConfig {
     public String getMySQLSetting(SettingsConfig.MySQLSettings option) {

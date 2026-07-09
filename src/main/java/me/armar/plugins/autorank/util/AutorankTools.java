@@ -18,8 +18,8 @@ import static me.armar.plugins.autorank.Autorank.autorank;
 public class AutorankTools {
     public static final int TICKS_PER_SECOND = 20;
     public static final int TICKS_PER_MINUTE = 1200;
-    private static final Set<String> reqTypes = new HashSet();
-    private static final Set<String> resTypes = new HashSet();
+    private static final Set<String> reqTypes = new HashSet<>();
+    private static final Set<String> resTypes = new HashSet<>();
 
     public AutorankTools() {
     }
@@ -203,7 +203,7 @@ public class AutorankTools {
     }
 
     public static HashMap<String, Object> makeStatsInfo(Object... strings) {
-        HashMap<String, Object> hashmap = new HashMap();
+        HashMap<String, Object> hashmap = new HashMap<>();
 
         for(int i = 0; i < strings.length; i += 2) {
             Object string = strings[i];
@@ -213,7 +213,7 @@ public class AutorankTools {
                     if (value < 0) {
                         continue;
                     }
-                } catch (NumberFormatException var5) {
+                } catch (NumberFormatException ignored) {
                 }
 
                 hashmap.put(string.toString(), strings[i + 1]);
@@ -484,7 +484,7 @@ public class AutorankTools {
     }
 
     public static Integer largestK(List<Integer> array, int k) {
-        PriorityQueue<Integer> queue = new PriorityQueue(k + 1);
+        PriorityQueue<Integer> queue = new PriorityQueue<>(k + 1);
 
         int i;
         for(i = 0; i <= k; ++i) {

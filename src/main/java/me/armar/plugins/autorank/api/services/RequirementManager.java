@@ -1,8 +1,9 @@
 package me.armar.plugins.autorank.api.services;
 
+import me.armar.plugins.autorank.pathbuilder.requirement.AbstractRequirement;
+
 import java.util.List;
 import java.util.Optional;
-import me.armar.plugins.autorank.pathbuilder.requirement.AbstractRequirement;
 
 public interface RequirementManager {
     boolean registerRequirement(String var1, Class<? extends AbstractRequirement> var2);

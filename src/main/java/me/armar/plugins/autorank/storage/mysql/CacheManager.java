@@ -1,14 +1,15 @@
 package me.armar.plugins.autorank.storage.mysql;
 
 import io.reactivex.annotations.NonNull;
+import me.armar.plugins.autorank.storage.TimeType;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import me.armar.plugins.autorank.storage.TimeType;
 
 public class CacheManager {
-    private final Map<UUID, CachedEntry> cachedTimeValues = new HashMap();
+    private final Map<UUID, CachedEntry> cachedTimeValues = new HashMap<>();
 
     public CacheManager() {
     }

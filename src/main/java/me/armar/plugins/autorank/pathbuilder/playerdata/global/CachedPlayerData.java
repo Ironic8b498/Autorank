@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 class CachedPlayerData {
-    List<CachedPlayerDataEntry> cachedEntries = new ArrayList();
+    List<CachedPlayerDataEntry> cachedEntries = new ArrayList<>();
 
     CachedPlayerData() {
     }

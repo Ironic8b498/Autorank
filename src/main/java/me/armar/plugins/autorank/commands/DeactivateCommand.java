@@ -16,6 +16,7 @@ import me.armar.plugins.autorank.util.AutorankTools;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class DeactivateCommand extends AutorankCommand {
     private final Autorank plugin;
@@ -24,7 +25,7 @@ public class DeactivateCommand extends AutorankCommand {
         this.plugin = instance;
     }
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         if (sender instanceof Player player) {
             if (!this.hasPermission(this.getPermission(), sender)) {
                 return true;
@@ -59,7 +60,7 @@ public class DeactivateCommand extends AutorankCommand {
         }
     }
 
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String commandLabel, String[] args) {
         if (sender instanceof Player player) {
             String typedPath = AutorankCommand.getStringFromArgs(args, 1);
             return AutorankCommand.getOptionsStartingWith(this.plugin.getPathManager().getActivePaths(player.getUniqueId()).stream().map(Path::getDisplayName).collect(Collectors.toList()), typedPath);

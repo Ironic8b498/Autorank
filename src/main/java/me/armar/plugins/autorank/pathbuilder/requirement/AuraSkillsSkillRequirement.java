@@ -4,9 +4,9 @@ import dev.aurelium.auraskills.api.skill.Skills;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.utils.pluginlibrary.Library;
 import me.armar.plugins.utils.pluginlibrary.hooks.AuraSkillsHook;
-import org.bukkit.entity.Player;
 
 import java.util.Locale;
+import java.util.UUID;
 
 public class AuraSkillsSkillRequirement extends AbstractRequirement {
     private AuraSkillsHook handler = null;
@@ -20,16 +20,16 @@ public class AuraSkillsSkillRequirement extends AbstractRequirement {
         return Lang.AURA_SKILLS_SKILL_REQUIREMENT.getConfigValue(this.requiredLevel, this.skill);
     }
 
-    public String getProgressString(Player player) {
-        int var10000 = this.handler.getSkillLevel(player, this.skill);
+    public String getProgressString(UUID uuid) {
+        int var10000 = this.handler.getSkillLevel(uuid, this.skill);
         return var10000 + "/" + this.requiredLevel;
     }
 
-    protected boolean meetsRequirement(Player player) {
+    protected boolean meetsRequirement(UUID uuid) {
         if (!this.handler.isHooked()) {
             return false;
         } else {
-            return (double)this.handler.getSkillLevel(player, this.skill) >= this.requiredLevel;
+            return (double)this.handler.getSkillLevel(uuid, this.skill) >= this.requiredLevel;
         }
     }
 
@@ -60,7 +60,7 @@ public class AuraSkillsSkillRequirement extends AbstractRequirement {
         }
     }
 
-    public double getProgressPercentage(Player player) {
-        return (double)this.handler.getSkillLevel(player, this.skill) / this.requiredLevel;
+    public double getProgressPercentage(UUID uuid) {
+        return (double)this.handler.getSkillLevel(uuid, this.skill) / this.requiredLevel;
     }
 }

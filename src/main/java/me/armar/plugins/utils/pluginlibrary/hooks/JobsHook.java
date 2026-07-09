@@ -89,7 +89,10 @@ public class JobsHook extends LibraryHook {
             return null;
         } else {
             JobsPlayer jobsPlayer = Jobs.getPlayerManager().getJobsPlayer(player);
-            return jobsPlayer == null ? null : jobsPlayer.getJobProgression();
+            List<JobProgression> jobProgressions;
+            if (jobsPlayer == null) jobProgressions = null;
+            else jobProgressions = jobsPlayer.getJobProgression();
+            return jobProgressions;
         }
     }
 }

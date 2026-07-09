@@ -1,11 +1,12 @@
 package me.armar.plugins.autorank.storage.mysql;
 
+import org.bukkit.Bukkit;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.Callable;
-import org.bukkit.Bukkit;
 
 public class GrabPlayerTimeTask implements Callable<Integer> {
     private final SQLConnection mysql;
@@ -23,12 +24,9 @@ public class GrabPlayerTimeTask implements Callable<Integer> {
             return -1;
         } else {
             int time = -1;
-            String var10000 = this.table;
-            String statement = "SELECT * FROM " + var10000 + " WHERE uuid='" + this.uuid.toString() + "'";
+            String statement = "SELECT * FROM " + this.table + " WHERE uuid='" + this.uuid.toString() + "'";
             Optional<ResultSet> rs = this.mysql.executeQuery(statement);
-            if (!rs.isPresent()) {
-                return time;
-            } else {
+            if (rs.isPresent()) {
                 try {
                     if (!rs.get().next()) {
                         return time;
@@ -42,8 +40,8 @@ public class GrabPlayerTimeTask implements Callable<Integer> {
                     Bukkit.getLogger().info("VendorError: " + var5.getErrorCode());
                 }
 
-                return time;
             }
+            return time;
         }
     }
 }

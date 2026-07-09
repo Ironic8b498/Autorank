@@ -12,6 +12,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -23,7 +24,7 @@ public class TrackCommand extends AutorankCommand {
         this.plugin = instance;
     }
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         MiniMessage mm = MiniMessage.miniMessage();
         if (!(sender instanceof Player player)) {
             AutorankTools.consoleDeserialize(Lang.YOU_ARE_A_ROBOT_TRACK.getConfigValue());
@@ -41,7 +42,7 @@ public class TrackCommand extends AutorankCommand {
                     return true;
                 }
 
-                pathName = this.plugin.getPathManager().getActivePaths(player.getUniqueId()).get(0).getDisplayName();
+                pathName = this.plugin.getPathManager().getActivePaths(player.getUniqueId()).getFirst().getDisplayName();
             } else {
                 pathName = AutorankCommand.getStringFromArgs(args, 2);
             }
@@ -98,11 +99,11 @@ public class TrackCommand extends AutorankCommand {
         }
     }
 
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String commandLabel, String[] args) {
         if (!(sender instanceof Player)) {
             return Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
         } else {
-            Set<String> suggestedIds = new HashSet();
+            Set<String> suggestedIds = new HashSet<>();
             if (args.length == 2 && args[args.length - 1].trim().isEmpty()) {
                 UUID uuid = ((Player)sender).getUniqueId();
 
@@ -113,7 +114,7 @@ public class TrackCommand extends AutorankCommand {
                     }
                 }
 
-                return new ArrayList(suggestedIds);
+                return new ArrayList<>(suggestedIds);
             } else if (args.length >= 3) {
                 UUID uuid = ((Player)sender).getUniqueId();
                 Collection<String> suggestedPaths = this.plugin.getPathManager().getActivePaths(uuid).stream().map(Path::getDisplayName).collect(Collectors.toList());

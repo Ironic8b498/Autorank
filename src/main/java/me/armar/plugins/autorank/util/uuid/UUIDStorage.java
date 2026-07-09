@@ -20,8 +20,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 public class UUIDStorage {
-    private final HashMap<String, File> configFiles = new HashMap();
-    private final HashMap<String, FileConfiguration> configs = new HashMap();
+    private final HashMap<String, File> configFiles = new HashMap<>();
+    private final HashMap<String, FileConfiguration> configs = new HashMap<>();
     private final String desFolder;
     private final List<String> fileSuffixes = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "other");
     private final Autorank plugin;
@@ -204,9 +204,8 @@ public class UUIDStorage {
 
                 FileConfiguration config = this.findCorrectConfig(lowerCasePlayerName);
                 if (config == null) {
-                    Autorank var10000 = this.plugin;
                     String var10001 = uuid.toString();
-                    var10000.debugMessage("Could not store uuid " + var10001 + " of player " + lowerCasePlayerName);
+                    this.plugin.debugMessage("Could not store uuid " + var10001 + " of player " + lowerCasePlayerName);
                     return false;
                 } else {
                     config.set(lowerCasePlayerName + ".uuid", uuid.toString());
@@ -253,7 +252,7 @@ public class UUIDStorage {
     }
 
     public List<String> getStoredPlayerNames() {
-        List<String> playerNames = new ArrayList();
+        List<String> playerNames = new ArrayList<>();
 
         for(Map.Entry<String, FileConfiguration> stringFileConfigurationEntry : this.configs.entrySet()) {
             FileConfiguration config = stringFileConfigurationEntry.getValue();

@@ -1,17 +1,18 @@
 package me.armar.plugins.autorank.storage;
 
+import me.armar.plugins.autorank.Autorank;
+import me.armar.plugins.autorank.language.Lang;
+import me.armar.plugins.autorank.util.AutorankTools;
+
 import java.time.LocalDate;
 import java.time.temporal.WeekFields;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
-import me.armar.plugins.autorank.Autorank;
-import me.armar.plugins.autorank.language.Lang;
-import me.armar.plugins.autorank.util.AutorankTools;
 
 public class PlayTimeStorageManager {
-    private final List<PlayTimeStorageProvider> activeStorageProviders = new ArrayList();
+    private final List<PlayTimeStorageProvider> activeStorageProviders = new ArrayList<>();
     private PlayTimeStorageProvider primaryStorageProvider = null;
     private final Autorank plugin;
 
@@ -32,7 +33,7 @@ public class PlayTimeStorageManager {
     }
 
     public List<String> getActiveStorageProviders() {
-        List<String> storageProviders = new ArrayList();
+        List<String> storageProviders = new ArrayList<>();
 
         for(PlayTimeStorageProvider storageProvider : this.activeStorageProviders) {
             storageProviders.add(storageProvider.getName());
@@ -54,9 +55,8 @@ public class PlayTimeStorageManager {
                 this.setPrimaryStorageProvider(storageProvider);
             }
 
-            Autorank var10000 = this.plugin;
             String var10001 = storageProvider.getName();
-            var10000.debugMessage("Registered new storage provider: " + var10001 + " (type: " + storageProvider.getStorageType() + ")");
+            this.plugin.debugMessage("Registered new storage provider: " + var10001 + " (type: " + storageProvider.getStorageType() + ")");
         }
     }
 

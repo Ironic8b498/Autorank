@@ -1,13 +1,14 @@
 package me.armar.plugins.autorank.statsmanager.query;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 import me.armar.plugins.autorank.statsmanager.query.parameter.ParameterType;
 import me.armar.plugins.autorank.statsmanager.query.parameter.StatisticParameter;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 public class StatisticQuery {
-    private final List<StatisticParameter> parameters = new ArrayList();
+    private final List<StatisticParameter> parameters = new ArrayList<>();
 
     public StatisticQuery() {
     }

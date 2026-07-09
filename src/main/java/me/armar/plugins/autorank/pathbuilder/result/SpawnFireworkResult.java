@@ -5,7 +5,6 @@ import me.armar.plugins.autorank.language.Lang;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.FireworkEffect.Type;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
@@ -54,15 +53,13 @@ public class SpawnFireworkResult extends AbstractResult {
         }
     }
 
-    public boolean setOptions(String[] options) {
+    public void setOptions(String[] options) {
         if (options.length < 6) {
-            return false;
         } else {
             this.target = options[0];
             this.power = Integer.parseInt(options[1]);
             this.type = Type.valueOf(options[2].toUpperCase().replace(" ", "_"));
             this.colour = Color.fromRGB(Integer.parseInt(options[3]), Integer.parseInt(options[4]), Integer.parseInt(options[5]));
-            return this.target != null;
         }
     }
 }

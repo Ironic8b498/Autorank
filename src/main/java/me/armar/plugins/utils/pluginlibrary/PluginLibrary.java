@@ -9,8 +9,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.*;
 
 public class PluginLibrary {
-    private static final List<Library> loadedLibraries = new ArrayList();
-    public HashMap<UUID, Long> requestTimes = new HashMap();
+    private static final List<Library> loadedLibraries = new ArrayList<>();
+    public HashMap<UUID, Long> requestTimes = new HashMap<>();
 
     public PluginLibrary() {
     }
@@ -50,7 +50,7 @@ public class PluginLibrary {
         return library;
     }
 
-    public int enablePluginLibrary() {
+    public void enablePluginLibrary() {
         PluginLibrary.loadedLibraries.clear();
         this.logMessage(ChatColor.GOLD + "***== Loading libraries ==***");
         int loadedLibraries = this.loadLibraries();
@@ -60,7 +60,6 @@ public class PluginLibrary {
         }
 
         this.logMessage(ChatColor.GREEN + "*** Ready for plugins to send/retrieve data. ***");
-        return loadedLibraries;
     }
 
     public void disablePluginLibrary() {
@@ -73,7 +72,8 @@ public class PluginLibrary {
         Library[] var2 = Library.values();
         int var3 = var2.length;
 
-        for(int var4 = 0; var4 < var3; ++var4) {
+        int var4 = 0;
+        while (var4 < var3) {
             Library l = var2[var4];
             if (LibraryHook.isPluginAvailable(l)) {
                 try {
@@ -89,6 +89,7 @@ public class PluginLibrary {
                     var7.printStackTrace();
                 }
             }
+            ++var4;
         }
 
         return count;

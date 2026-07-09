@@ -2,7 +2,7 @@ name: Autorank
 version: 5.2.4
 main: me.armar.plugins.autorank.Autorank
 description: Reward players based on their stats.
-api-version: 1.16
+api-version: 1.20.5
 authors: [Ironic_8b49,Staartvin,Armarr]
 softdepend: [ Vault, GroupManager, Privileges, bPermissions, PermissionsEx, PermissionsBukkit, DroxPerms,
               PowerfulPerms, mcMMO, FactionsX, UltimateCore, Ontime, Stats, AdvancedAchievements, Jobs, WorldEdit,

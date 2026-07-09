@@ -38,12 +38,7 @@ public class InBiomeRequirement extends AbstractRequirement {
             return false;
         } else {
             this.biome = options[0].toUpperCase().replace(" ", "_");
-            if (this.biome == null) {
-                this.registerWarningMessage("No biome is provided");
-                return false;
-            } else {
-                return true;
-            }
+            return true;
         }
     }
 

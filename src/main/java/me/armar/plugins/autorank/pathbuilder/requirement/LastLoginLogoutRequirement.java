@@ -1,14 +1,14 @@
 package me.armar.plugins.autorank.pathbuilder.requirement;
 
+import me.armar.plugins.autorank.language.Lang;
+import me.armar.plugins.utils.pluginlibrary.Library;
+import me.armar.plugins.utils.pluginlibrary.hooks.LastLoginAPIHook;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.TimeZone;
 import java.util.UUID;
-import me.armar.plugins.autorank.language.Lang;
-import me.armar.plugins.utils.pluginlibrary.Library;
-import me.armar.plugins.utils.pluginlibrary.hooks.LastLoginAPIHook;
-import me.armar.plugins.utils.pluginlibrary.hooks.LibraryHook;
 
 public class LastLoginLogoutRequirement extends AbstractRequirement {
     private LastLoginAPIHook handler = null;

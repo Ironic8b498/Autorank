@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 
 public class CompositeRequirement {
     private final Autorank plugin;
-    private List<AbstractRequirement> requirements = new ArrayList();
+    private List<AbstractRequirement> requirements = new ArrayList<>();
 
     public CompositeRequirement(Autorank plugin) {
         this.plugin = plugin;
@@ -26,14 +26,14 @@ public class CompositeRequirement {
         StringBuilder builder = new StringBuilder();
         List<AbstractRequirement> reqs = this.getRequirements();
         int size = reqs.size();
-        if (size > 0 && reqs.get(0).hasCustomDescription()) {
-            return reqs.get(0).getCustomDescription();
+        if (size > 0 && reqs.getFirst().hasCustomDescription()) {
+            return reqs.getFirst().getCustomDescription();
         } else if (size == 0) {
             return "";
         } else if (size == 1) {
-            return reqs.get(0).getDescription();
+            return reqs.getFirst().getDescription();
         } else {
-            String original = reqs.get(0).getDescription();
+            String original = reqs.getFirst().getDescription();
 
             for(int i = 0; i < size; ++i) {
                 AbstractRequirement r = reqs.get(i);
@@ -84,7 +84,7 @@ public class CompositeRequirement {
         if (size == 0) {
             return "";
         } else {
-            boolean needsPlayerOnline = reqs.get(0).needsOnlinePlayer();
+            boolean needsPlayerOnline = reqs.getFirst().needsOnlinePlayer();
             Player player = null;
             String startingString;
             if (needsPlayerOnline) {
@@ -94,9 +94,9 @@ public class CompositeRequirement {
                     return "The player should be online to display progress.";
                 }
 
-                startingString = reqs.get(0).getProgressString(player);
+                startingString = reqs.getFirst().getProgressString(player);
             } else {
-                startingString = reqs.get(0).getProgressString(uuid);
+                startingString = reqs.getFirst().getProgressString(uuid);
             }
 
             for(int i = 0; i < size; ++i) {
@@ -146,7 +146,7 @@ public class CompositeRequirement {
             AbstractRequirement r = var1.next();
             return r.getAbstractResults();
         } else {
-            return new ArrayList();
+            return new ArrayList<>();
         }
     }
 

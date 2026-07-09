@@ -1,12 +1,13 @@
 package me.armar.plugins.autorank.addons;
 
-import java.util.HashMap;
-import java.util.Set;
 import me.armar.plugins.autorank.Autorank;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.HashMap;
+import java.util.Set;
+
 public class AddOnManager {
-    private final HashMap<String, JavaPlugin> loadedAddons = new HashMap();
+    private final HashMap<String, JavaPlugin> loadedAddons = new HashMap<>();
     private final Autorank plugin;
 
     public AddOnManager(Autorank instance) {

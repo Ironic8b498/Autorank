@@ -54,7 +54,7 @@ public class AdvancementRequirement extends AbstractRequirement {
     }
 
     public static Advancement getAdvancement(String name) {
-        Iterator it = Bukkit.getServer().advancementIterator();
+        Iterator<Advancement> it = Bukkit.getServer().advancementIterator();
 
         while(it.hasNext()) {
             Advancement a = (Advancement)it.next();
@@ -67,8 +67,8 @@ public class AdvancementRequirement extends AbstractRequirement {
     }
 
     public static List<Advancement> getCompletedAdvancements(Player player) {
-        List<Advancement> completedAdvancements = new ArrayList();
-        Iterator it = Bukkit.getServer().advancementIterator();
+        List<Advancement> completedAdvancements = new ArrayList<>();
+        Iterator<Advancement> it = Bukkit.getServer().advancementIterator();
 
         while(it.hasNext()) {
             Advancement a = (Advancement)it.next();

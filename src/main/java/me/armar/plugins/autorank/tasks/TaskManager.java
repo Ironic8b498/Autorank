@@ -1,17 +1,18 @@
 package me.armar.plugins.autorank.tasks;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.playtimes.PlayTimeManager;
 import me.armar.plugins.autorank.playtimes.UpdateTimePlayedTask;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 public class TaskManager {
     private final Autorank plugin;
-    private final Map<UUID, Integer> updatePlayTimeTaskIds = new HashMap();
-    private final Map<UUID, Long> lastPlayTimeUpdate = new HashMap();
+    private final Map<UUID, Integer> updatePlayTimeTaskIds = new HashMap<>();
+    private final Map<UUID, Long> lastPlayTimeUpdate = new HashMap<>();
 
     public TaskManager(Autorank plugin) {
         this.plugin = plugin;

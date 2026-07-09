@@ -1,13 +1,13 @@
 package me.armar.plugins.autorank.statsmanager.handlers;
 
-import java.util.UUID;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.hooks.statzapi.StatzAPIHandler;
 import me.armar.plugins.autorank.statsmanager.StatsPlugin;
-import me.armar.plugins.autorank.statsmanager.StatsPlugin.StatType;
 import me.staartvin.statz.database.datatype.RowRequirement;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
+
+import java.util.UUID;
 
 public class StatzHandler extends StatsPlugin {
     private final Autorank plugin;

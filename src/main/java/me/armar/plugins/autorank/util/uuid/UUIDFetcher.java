@@ -1,6 +1,11 @@
 package me.armar.plugins.autorank.util.uuid;
 
 import com.google.common.collect.ImmutableList;
+import org.bukkit.Bukkit;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -11,10 +16,6 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.logging.Logger;
-import org.bukkit.Bukkit;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 public class UUIDFetcher implements Callable<Map<String, UUID>> {
     private final JSONParser jsonParser;
@@ -55,7 +56,7 @@ public class UUIDFetcher implements Callable<Map<String, UUID>> {
     }
 
     public Map<String, UUID> call() throws Exception {
-        Map<String, UUID> uuidMap = new HashMap();
+        Map<String, UUID> uuidMap = new HashMap<>();
         int requests = (int)Math.ceil((double)this.names.size() / (double)100.0F);
 
         for(int i = 0; i < requests; ++i) {

@@ -1,6 +1,5 @@
 package me.armar.plugins.autorank.hooks.statzapi;
 
-import java.util.UUID;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.hooks.DependencyHandler;
 import me.armar.plugins.autorank.statsmanager.StatsPlugin;
@@ -9,6 +8,8 @@ import me.staartvin.statz.database.datatype.RowRequirement;
 import me.staartvin.statz.datamanager.player.PlayerStat;
 import me.staartvin.statz.hooks.StatzDependency;
 import org.bukkit.plugin.Plugin;
+
+import java.util.UUID;
 
 public class StatzAPIHandler extends DependencyHandler {
     private final Autorank plugin;
@@ -22,7 +23,7 @@ public class StatzAPIHandler extends DependencyHandler {
         Plugin plugin = this.plugin.getServer().getPluginManager().getPlugin("Statz");
 
         try {
-            return plugin != null && plugin instanceof Statz ? plugin : null;
+            return plugin instanceof Statz ? plugin : null;
         } catch (NoClassDefFoundError var3) {
             this.plugin.getLogger().info("Could not find Statz because it's probably disabled! Does Statz properly enable?");
             return null;
@@ -82,13 +83,12 @@ public class StatzAPIHandler extends DependencyHandler {
         return plugin != null && plugin.isEnabled();
     }
 
-    public boolean setup(boolean verbose) {
+    public void setup(boolean verbose) {
         if (!this.isInstalled()) {
             if (verbose) {
                 this.plugin.getLogger().info("Statz has not been found!");
             }
 
-            return false;
         } else {
             this.statz = (Statz)this.get();
             if (this.statz != null) {
@@ -96,13 +96,11 @@ public class StatzAPIHandler extends DependencyHandler {
                     this.plugin.getLogger().info("Statz has been found and can be used!");
                 }
 
-                return true;
             } else {
                 if (verbose) {
                     this.plugin.getLogger().info("Statz has been found but cannot be used!");
                 }
 
-                return false;
             }
         }
     }

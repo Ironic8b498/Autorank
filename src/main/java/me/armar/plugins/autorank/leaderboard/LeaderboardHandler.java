@@ -1,27 +1,19 @@
 package me.armar.plugins.autorank.leaderboard;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.autorank.storage.PlayTimeStorageProvider;
-import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.storage.PlayTimeStorageProvider.StorageType;
+import me.armar.plugins.autorank.storage.TimeType;
 import me.armar.plugins.autorank.util.AutorankTools;
 import me.armar.plugins.autorank.util.uuid.UUIDManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+
+import java.text.DecimalFormat;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 public class LeaderboardHandler {
     private static final double LEADERBOARD_TIME_VALID = 30.0F;
@@ -36,13 +28,13 @@ public class LeaderboardHandler {
     }
 
     public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
-        List<Map.Entry<K, V>> list = new LinkedList(map.entrySet());
+        List<Map.Entry<K, V>> list = new LinkedList<>(map.entrySet());
         Collections.sort(list, new Comparator<Map.Entry<K, V>>() {
             public int compare(Map.Entry<K, V> o1, Map.Entry<K, V> o2) {
                 return o2.getValue().compareTo(o1.getValue());
             }
         });
-        Map<K, V> result = new LinkedHashMap();
+        Map<K, V> result = new LinkedHashMap<>();
 
         for(Map.Entry<K, V> entry : list) {
             result.put(entry.getKey(), entry.getValue());
@@ -75,7 +67,7 @@ public class LeaderboardHandler {
     private Map<UUID, Integer> getSortedTimesByUUID(TimeType type) {
         PlayTimeStorageProvider primaryStorageProvider = this.plugin.getPlayTimeStorageManager().getPrimaryStorageProvider();
         List<UUID> uuids = primaryStorageProvider.getStoredPlayers(type);
-        HashMap<UUID, Integer> times = new HashMap();
+        HashMap<UUID, Integer> times = new HashMap<>();
         int size = uuids.size();
         int lastSentPercentage = 0;
 
@@ -122,7 +114,7 @@ public class LeaderboardHandler {
     private Map<String, Integer> getSortedTimesByNames(TimeType type) {
         PlayTimeStorageProvider primaryStorageProvider = this.plugin.getPlayTimeStorageManager().getPrimaryStorageProvider();
         List<String> playerNames = this.plugin.getUUIDStorage().getStoredPlayerNames();
-        Map<String, Integer> times = new HashMap();
+        Map<String, Integer> times = new HashMap<>();
         int size = playerNames.size();
         int lastSentPercentage = 0;
 
@@ -224,7 +216,7 @@ public class LeaderboardHandler {
     public void updateLeaderboard(TimeType type) {
         ChatColor var10001 = ChatColor.BLUE;
         this.plugin.debugMessage(var10001 + "Updating leaderboard '" + type.toString() + "'!");
-        List<String> stringList = new ArrayList();
+        List<String> stringList = new ArrayList<>();
         if (type == TimeType.TOTAL_TIME) {
             stringList.add(Lang.LEADERBOARD_HEADER_ALL_TIME.getConfigValue());
         } else if (type == TimeType.DAILY_TIME) {

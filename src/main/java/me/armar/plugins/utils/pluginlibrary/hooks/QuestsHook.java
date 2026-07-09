@@ -26,7 +26,7 @@ public class QuestsHook extends LibraryHook {
                 return false;
             } else {
                 this.quests = (Quests)plugin;
-                return this.quests != null;
+                return true;
             }
         }
     }

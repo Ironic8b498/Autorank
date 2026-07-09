@@ -8,7 +8,7 @@ import me.armar.plugins.autorank.Autorank;
 
 public class PlayerDataManager {
     private final Autorank plugin;
-    private final List<PlayerDataStorage> activeDataStorage = new ArrayList();
+    private final List<PlayerDataStorage> activeDataStorage = new ArrayList<>();
 
     public PlayerDataManager(Autorank instance) {
         this.plugin = instance;

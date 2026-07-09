@@ -1,7 +1,5 @@
 package me.armar.plugins.autorank.hooks;
 
-import java.util.HashMap;
-import java.util.Optional;
 import me.armar.plugins.autorank.Autorank;
 import me.armar.plugins.autorank.hooks.quests.Quests;
 import me.armar.plugins.autorank.hooks.quests.QuestsAlternative;
@@ -14,8 +12,11 @@ import me.armar.plugins.utils.pluginlibrary.hooks.QuestsHook;
 import me.armar.plugins.utils.pluginlibrary.hooks.afkmanager.AFKManager;
 import org.bukkit.entity.Player;
 
+import java.util.HashMap;
+import java.util.Optional;
+
 public class DependencyManager {
-    private final HashMap<AutorankDependency, DependencyHandler> handlers = new HashMap();
+    private final HashMap<AutorankDependency, DependencyHandler> handlers = new HashMap<>();
     private final Autorank plugin;
     private PluginLibrary pluginLibrary;
 
@@ -34,22 +35,20 @@ public class DependencyManager {
     }
 
     public boolean isAFK(Player player) {
-        if (!this.plugin.getSettingsConfig().useAFKIntegration()) {
-            return false;
-        } else {
-            for(Library library : Library.values()) {
+        if (this.plugin.getSettingsConfig().useAFKIntegration()) {
+            for (Library library : Library.values()) {
                 Optional<LibraryHook> optional = this.getLibraryHook(library);
                 if (optional.isPresent()) {
                     LibraryHook libraryHook = optional.get();
                     if (libraryHook instanceof AFKManager && libraryHook.isHooked()) {
                         this.plugin.debugMessage("Using " + library.getHumanPluginName() + " for AFK");
-                        return ((AFKManager)libraryHook).isAFK(player.getUniqueId());
+                        return ((AFKManager) libraryHook).isAFK(player.getUniqueId());
                     }
                 }
             }
 
-            return false;
         }
+        return false;
     }
 
     public void loadDependencies() throws Exception {
@@ -76,11 +75,6 @@ public class DependencyManager {
         this.plugin.getPermPlugHandler().searchPermPlugin();
     }
 
-//    public boolean isAvailable(AutorankDependency dep) {
-//        DependencyHandler handler = this.getDependency(dep);
-//        return handler != null && handler.isAvailable();
-//    }
-
     public Optional<LibraryHook> getLibraryHook(Library library) {
         if (library == null) {
             return Optional.empty();
@@ -100,9 +94,9 @@ public class DependencyManager {
         }
     }
 
-    private boolean loadPluginLibrary() {
+    private void loadPluginLibrary() {
         this.pluginLibrary = PluginLibrary.getPluginLibrary(this.plugin);
-        return this.pluginLibrary.enablePluginLibrary() > 0;
+        this.pluginLibrary.enablePluginLibrary();
     }
 
     public boolean isPluginLibraryLoaded() {
@@ -111,12 +105,12 @@ public class DependencyManager {
 
     public Optional<QuestsPlugin> getQuestsPlugin() {
         if (this.isAvailable(Library.QUESTS)) {
-            Optional questsPlugin = PluginLibrary.getLibrary(Library.QUESTS);
+            Optional<LibraryHook> questsPlugin = PluginLibrary.getLibrary(Library.QUESTS);
             if (questsPlugin.isPresent()) {
                 return Optional.of(new Quests((QuestsHook)questsPlugin.get()));
             }
         } else if (this.isAvailable(Library.QUESTS_ALTERNATIVE)) {
-            Optional questsPlugin = PluginLibrary.getLibrary(Library.QUESTS_ALTERNATIVE);
+            Optional<LibraryHook> questsPlugin = PluginLibrary.getLibrary(Library.QUESTS_ALTERNATIVE);
             if (questsPlugin.isPresent()) {
                 return Optional.of(new QuestsAlternative((me.armar.plugins.utils.pluginlibrary.hooks.QuestsAlternative)questsPlugin.get()));
             }
@@ -127,8 +121,6 @@ public class DependencyManager {
 
     public enum AutorankDependency {
         AUTORANK,
-        ONTIME,
-        STATS,
         STATZ;
 
         AutorankDependency() {

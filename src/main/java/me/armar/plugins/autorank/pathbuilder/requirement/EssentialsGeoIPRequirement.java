@@ -1,10 +1,10 @@
 package me.armar.plugins.autorank.pathbuilder.requirement;
 
-import java.util.UUID;
 import me.armar.plugins.autorank.language.Lang;
 import me.armar.plugins.utils.pluginlibrary.Library;
 import me.armar.plugins.utils.pluginlibrary.hooks.EssentialsXHook;
-import me.armar.plugins.utils.pluginlibrary.hooks.LibraryHook;
+
+import java.util.UUID;
 
 public class EssentialsGeoIPRequirement extends AbstractRequirement {
     private EssentialsXHook essHandler = null;
